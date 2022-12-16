@@ -1,14 +1,16 @@
 package com.oik.dao.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -16,18 +18,18 @@ import lombok.*;
  * </p>
  *
  * @author oik
- * @since 2022-11-18
+ * @since 2022-12-16
  */
-@Data
+@Getter
+@Setter
 @TableName("sys_user")
 @ApiModel(value = "User对象", description = "")
-@ToString
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("用户ID")
-      @TableId(value = "USER_ID", type = IdType.AUTO)
+    @TableId("USER_ID")
     private Long userId;
 
     @ApiModelProperty("用户名")
@@ -63,24 +65,32 @@ public class User implements Serializable {
     private Integer ssex;
 
     @ApiModelProperty("描述")
-    @TableField("`DESCRIPTION`")
+    @TableField("DESCRIPTION")
     private String description;
 
     @ApiModelProperty("用户头像")
     @TableField("AVATAR")
     private String avatar;
 
-    @TableField("CREATE_USER")
-    private String createUser;
+    @TableField(value = "CREATE_USERNAME", fill = FieldFill.INSERT)
+    private String createUsername;
+
+    @TableField(value = "CREATE_USER_ID", fill = FieldFill.INSERT)
+    private Long createUserId;
 
     @ApiModelProperty("创建时间")
-    @TableField("CREATE_TIME")
+    @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    @TableField("UPDATE_USER")
-    private String updateUser;
+    @TableField(value = "UPDATE_USERNAME", fill = FieldFill.INSERT_UPDATE)
+    private String updateUsername;
 
     @ApiModelProperty("修改时间")
-    @TableField("UPDATE_TIME")
+    @TableField(value = "UPDATE_TIME", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
+
+    @TableField(value = "UPDATE_USER_ID", fill = FieldFill.INSERT_UPDATE)
+    private Long updateUserId;
+
+
 }

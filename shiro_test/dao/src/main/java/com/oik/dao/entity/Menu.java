@@ -1,19 +1,16 @@
 package com.oik.dao.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-
-import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.List;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -21,19 +18,18 @@ import lombok.ToString;
  * </p>
  *
  * @author oik
- * @since 2022-11-18
+ * @since 2022-12-16
  */
 @Getter
 @Setter
 @TableName("sys_menu")
 @ApiModel(value = "Menu对象", description = "")
-@ToString
 public class Menu implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("菜单/按钮ID")
-    @TableId(value = "MENU_ID", type = IdType.ASSIGN_ID)
+    @TableId("MENU_ID")
     private Long menuId;
 
     @ApiModelProperty("上级菜单ID")
@@ -45,11 +41,11 @@ public class Menu implements Serializable {
     private String menuName;
 
     @ApiModelProperty("对应路由path")
-    @TableField("`PATH`")
+    @TableField("PATH")
     private String path;
 
     @ApiModelProperty("对应路由组件component")
-    @TableField("`COMPONENT`")
+    @TableField("COMPONENT")
     private String component;
 
     @ApiModelProperty("权限标识")
@@ -72,8 +68,8 @@ public class Menu implements Serializable {
     private LocalDateTime createTime;
 
     @ApiModelProperty("修改时间")
-    @TableField("MODIFY_TIME")
-    private LocalDateTime modifyTime;
+    @TableField("UPDATE_TIME")
+    private LocalDateTime updateTime;
 
     @TableField("`STATUS`")
     private String status;
@@ -84,11 +80,11 @@ public class Menu implements Serializable {
     @TableField("CREATE_USER_ID")
     private Long createUserId;
 
-    @TableField("MODIFY_USERNAME")
-    private String modifyUsername;
+    @TableField("UPDATE_USERNAME")
+    private String updateUsername;
 
-    @TableField("MODIFY_USER_ID")
-    private Long modifyUserId;
+    @TableField("UPDATE_USER_ID")
+    private Long updateUserId;
 
     @TableField(exist = false)
     private List<Menu> children;

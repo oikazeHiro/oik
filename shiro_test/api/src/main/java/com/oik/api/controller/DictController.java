@@ -12,7 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022-11-18
  */
 @RestController
-@RequestMapping("/dict")
+@RequestMapping("")
 public class DictController {
+
+//    @RequestMapping("/dict")
+//    public Result dict(){
+//
+//    }
 
 }

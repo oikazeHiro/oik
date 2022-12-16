@@ -1,23 +1,23 @@
 package com.oik.dao.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author oik
- * @since 2022-11-18
+ * @since 2022-12-16
  */
 @Getter
 @Setter
@@ -28,7 +28,7 @@ public class Job implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("任务id")
-      @TableId(value = "JOB_ID", type = IdType.AUTO)
+    @TableId("JOB_ID")
     private Long jobId;
 
     @ApiModelProperty("spring bean名称")
@@ -55,22 +55,24 @@ public class Job implements Serializable {
     @TableField("REMARK")
     private String remark;
 
-    @ApiModelProperty("创建时间")
-    @TableField("CREATE_TIME")
-    private LocalDateTime createTime;
+    @TableField("UPDATE_USERNAME")
+    private String updateUsername;
 
-    @TableField("MODIFY_TIME")
-    private LocalDateTime modifyTime;
+    @TableField("UPDATE_USER")
+    private Long updateUser;
+
+    @TableField("UPDATE_TIME")
+    private LocalDateTime updateTime;
 
     @TableField("CREATE_USERNAME")
     private String createUsername;
 
-    @TableField("CREATE_USER_ID")
-    private Long createUserId;
+    @TableField("CREATE_USER")
+    private Long createUser;
 
-    @TableField("MODIFY_USERNAME")
-    private String modifyUsername;
+    @ApiModelProperty("创建时间")
+    @TableField("CREATE_TIME")
+    private LocalDateTime createTime;
 
-    @TableField("MODIFY_USER_ID")
-    private Long modifyUserId;
+
 }

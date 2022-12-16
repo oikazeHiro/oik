@@ -1,15 +1,15 @@
 package com.oik.dao.mapper;
 
-import com.oik.dao.entity.Menu;
 import com.github.yulichang.base.MPJBaseMapper;
+import com.oik.dao.entity.Menu;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author oik
- * @since 2022-11-18
+ * @since 2022-12-16
  */
 public interface MenuMapper extends MPJBaseMapper<Menu> {
 

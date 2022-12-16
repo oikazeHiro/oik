@@ -11,18 +11,18 @@
         <result column="CRON_EXPRESSION" property="cronExpression"/>
         <result column="STATUS" property="status"/>
         <result column="REMARK" property="remark"/>
-        <result column="CREATE_TIME" property="createTime"/>
-        <result column="MODIFY_TIME" property="modifyTime"/>
+        <result column="UPDATE_USERNAME" property="updateUsername"/>
+        <result column="UPDATE_USER" property="updateUser"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
         <result column="CREATE_USERNAME" property="createUsername"/>
-        <result column="CREATE_USER_ID" property="createUserId"/>
-        <result column="MODIFY_USERNAME" property="modifyUsername"/>
-        <result column="MODIFY_USER_ID" property="modifyUserId"/>
+        <result column="CREATE_USER" property="createUser"/>
+        <result column="CREATE_TIME" property="createTime"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         JOB_ID
-        , BEAN_NAME, METHOD_NAME, PARAMS, CRON_EXPRESSION, `STATUS`, REMARK, CREATE_TIME, MODIFY_TIME, CREATE_USERNAME, CREATE_USER_ID, MODIFY_USERNAME, MODIFY_USER_ID
+        , BEAN_NAME, METHOD_NAME, PARAMS, CRON_EXPRESSION, `STATUS`, REMARK, UPDATE_USERNAME, UPDATE_USER, UPDATE_TIME, CREATE_USERNAME, CREATE_USER, CREATE_TIME
     </sql>
 
 </mapper>

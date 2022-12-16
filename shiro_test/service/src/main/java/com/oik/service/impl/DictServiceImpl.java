@@ -1,9 +1,9 @@
 package com.oik.service.impl;
 
+import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.oik.dao.entity.Dict;
 import com.oik.dao.mapper.DictMapper;
 import com.oik.service.service.DictService;
-import com.github.yulichang.base.MPJBaseServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

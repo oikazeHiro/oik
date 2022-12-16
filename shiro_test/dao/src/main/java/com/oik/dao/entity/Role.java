@@ -1,16 +1,15 @@
 package com.oik.dao.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -18,19 +17,18 @@ import lombok.ToString;
  * </p>
  *
  * @author oik
- * @since 2022-11-18
+ * @since 2022-12-16
  */
 @Getter
 @Setter
 @TableName("sys_role")
 @ApiModel(value = "Role对象", description = "")
-@ToString
 public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("角色ID")
-      @TableId(value = "ROLE_ID", type = IdType.AUTO)
+    @TableId("ROLE_ID")
     private Long roleId;
 
     @ApiModelProperty("角色名称")
@@ -46,8 +44,8 @@ public class Role implements Serializable {
     private LocalDateTime createTime;
 
     @ApiModelProperty("修改时间")
-    @TableField("MODIFY_TIME")
-    private LocalDateTime modifyTime;
+    @TableField("UPDATE_TIME")
+    private LocalDateTime updateTime;
 
     @TableField("`STATUS`")
     private String status;
@@ -58,14 +56,14 @@ public class Role implements Serializable {
     @TableField("CREATE_USER_ID")
     private Long createUserId;
 
-    @TableField("MODIFY_USERNAME")
-    private String modifyUsername;
+    @TableField("UPDATE_USERNAME")
+    private String updateUsername;
 
-    @TableField("MODIFY_USER_ID")
-    private Long modifyUserId;
+    @TableField("UPDATE_USER_ID")
+    private Long updateUserId;
 
     @TableField("DATA_SCOPE")
-    private Byte dataScope;
+    private Integer dataScope;
 
     @TableField(exist = false)
     private LocalDateTime startTime;

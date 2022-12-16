@@ -1,18 +1,11 @@
 package com.oik.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.lang.UUID;
-import cn.hutool.json.JSONUtil;
-import cn.hutool.jwt.JWTUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.MPJBaseServiceImpl;
-import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.oik.dao.entity.LoginLog;
-import com.oik.dao.entity.Menu;
-import com.oik.dao.entity.Role;
 import com.oik.dao.entity.User;
 import com.oik.dao.mapper.UserMapper;
 import com.oik.service.exception.MyException;
@@ -20,7 +13,6 @@ import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultEnum;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.LoginLogService;
-import com.oik.service.service.MenuService;
 import com.oik.service.service.UserService;
 import com.oik.util.dto.UserDTO;
 import com.oik.util.redis.CacheClient;
@@ -33,7 +25,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
-import java.net.UnknownHostException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -41,7 +32,6 @@ import java.time.ZoneOffset;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -107,6 +97,8 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
 
     @Override
     public Result register(User user) {
+        User one = getOne(new LambdaQueryWrapper<User>().eq(User::getUsername, user.getUsername()));
+        if (one != null) throw new MyException(ResultEnum.USERNAME_IS_USE);
         save(user);
         return ResultUtil.getSuccess();
     }

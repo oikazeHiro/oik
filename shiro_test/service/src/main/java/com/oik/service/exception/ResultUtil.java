@@ -44,7 +44,10 @@ public class ResultUtil {
      * 重载返回成功的方法，因为有时候我们不需要任何的消息数据被返回
      */
     public static Result getSuccess() {
-        return null;
+        Result result = new Result<>();
+        result.setCode(200);
+        result.setMsg("success");
+        return result;
     }
 
     /**

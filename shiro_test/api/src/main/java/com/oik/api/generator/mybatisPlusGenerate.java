@@ -67,9 +67,12 @@ public class mybatisPlusGenerate {
 
     //反向生成的表
     static String[] tables = new String[]{
-
-            "sys_greet",
-
+            "sys_dict",
+            "sys_dept",
+            "sys_job",
+            "sys_menu",
+            "sys_role",
+            "sys_user",
     };
 
     public static void main(String[] args) {
@@ -94,6 +97,7 @@ public class mybatisPlusGenerate {
 
         //全局配置
         GlobalConfig globalConfig = new GlobalConfig.Builder()
+//                .fileOverride()
                 .outputDir(PROJECT_DIR + BASE_DIR)
                 .author(AUTHOR)
                 .enableSwagger()
@@ -153,7 +157,6 @@ public class mybatisPlusGenerate {
                 .formatXmlFileName("%sMapper")
                 .enableBaseColumnList()
                 .enableBaseResultMap()
-
                 .build();
 
         //装配配置，并生成代码

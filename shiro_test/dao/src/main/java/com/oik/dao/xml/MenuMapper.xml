@@ -14,18 +14,18 @@
         <result column="TYPE" property="type"/>
         <result column="ORDER_NUM" property="orderNum"/>
         <result column="CREATE_TIME" property="createTime"/>
-        <result column="MODIFY_TIME" property="modifyTime"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
         <result column="STATUS" property="status"/>
         <result column="CREATE_USERNAME" property="createUsername"/>
         <result column="CREATE_USER_ID" property="createUserId"/>
-        <result column="MODIFY_USERNAME" property="modifyUsername"/>
-        <result column="MODIFY_USER_ID" property="modifyUserId"/>
+        <result column="UPDATE_USERNAME" property="updateUsername"/>
+        <result column="UPDATE_USER_ID" property="updateUserId"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         MENU_ID
-        , PARENT_ID, MENU_NAME, `PATH`, `COMPONENT`, PERMS, ICON, `TYPE`, ORDER_NUM, CREATE_TIME, MODIFY_TIME, `STATUS`, CREATE_USERNAME, CREATE_USER_ID, MODIFY_USERNAME, MODIFY_USER_ID
+        , PARENT_ID, MENU_NAME, PATH, COMPONENT, PERMS, ICON, `TYPE`, ORDER_NUM, CREATE_TIME, UPDATE_TIME, `STATUS`, CREATE_USERNAME, CREATE_USER_ID, UPDATE_USERNAME, UPDATE_USER_ID
     </sql>
 
 </mapper>

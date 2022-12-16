@@ -1,10 +1,11 @@
 package com.oik.util.application;
 
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * 应用程序上下文跑龙套

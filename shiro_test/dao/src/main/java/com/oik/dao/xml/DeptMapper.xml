@@ -8,19 +8,19 @@
         <result column="PARENT_ID" property="parentId"/>
         <result column="DEPT_NAME" property="deptName"/>
         <result column="ORDER_NUM" property="orderNum"/>
-        <result column="CREATE_TIME" property="createTime"/>
-        <result column="MODIFY_TIME" property="modifyTime"/>
+        <result column="UPDATE_USER" property="updateUser"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
         <result column="STATUS" property="status"/>
+        <result column="CREATE_USER" property="createUser"/>
+        <result column="CREATE_TIME" property="createTime"/>
         <result column="CREATE_USERNAME" property="createUsername"/>
-        <result column="CREATE_USER_ID" property="createUserId"/>
-        <result column="MODIFY_USERNAME" property="modifyUsername"/>
-        <result column="MODIFY_USER_ID" property="modifyUserId"/>
+        <result column="UPDATE_USERNAME" property="updateUsername"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         DEPT_ID
-        , PARENT_ID, DEPT_NAME, ORDER_NUM, CREATE_TIME, MODIFY_TIME, `STATUS`, CREATE_USERNAME, CREATE_USER_ID, MODIFY_USERNAME, MODIFY_USER_ID
+        , PARENT_ID, DEPT_NAME, ORDER_NUM, UPDATE_USER, UPDATE_TIME, `STATUS`, CREATE_USER, CREATE_TIME, CREATE_USERNAME, UPDATE_USERNAME
     </sql>
 
 </mapper>

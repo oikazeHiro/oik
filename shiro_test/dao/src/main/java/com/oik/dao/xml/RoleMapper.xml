@@ -8,19 +8,19 @@
         <result column="ROLE_NAME" property="roleName"/>
         <result column="REMARK" property="remark"/>
         <result column="CREATE_TIME" property="createTime"/>
-        <result column="MODIFY_TIME" property="modifyTime"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
         <result column="STATUS" property="status"/>
         <result column="CREATE_USERNAME" property="createUsername"/>
         <result column="CREATE_USER_ID" property="createUserId"/>
-        <result column="MODIFY_USERNAME" property="modifyUsername"/>
-        <result column="MODIFY_USER_ID" property="modifyUserId"/>
+        <result column="UPDATE_USERNAME" property="updateUsername"/>
+        <result column="UPDATE_USER_ID" property="updateUserId"/>
         <result column="DATA_SCOPE" property="dataScope"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         ROLE_ID
-        , ROLE_NAME, REMARK, CREATE_TIME, MODIFY_TIME, `STATUS`, CREATE_USERNAME, CREATE_USER_ID, MODIFY_USERNAME, MODIFY_USER_ID, DATA_SCOPE
+        , ROLE_NAME, REMARK, CREATE_TIME, UPDATE_TIME, `STATUS`, CREATE_USERNAME, CREATE_USER_ID, UPDATE_USERNAME, UPDATE_USER_ID, DATA_SCOPE
     </sql>
 
 </mapper>

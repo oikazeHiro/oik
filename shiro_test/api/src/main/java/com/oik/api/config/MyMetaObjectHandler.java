@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author oik
+ * mybatis-plus 自动插入值
+ */
 @Slf4j
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
@@ -23,14 +27,18 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         // 或者
         //this.fillStrategy(metaObject, "createTime", LocalDateTime.now()); // 也可以使用(3.3.0 该方法有bug)
         String createUser = "";
+        Long id = 0L;
         try {
             UserDTO user = UserHolder.getUser();
             createUser = user.getUsername();
-        }catch (Exception e){
+            id = user.getUserId();
+        } catch (Exception e) {
             log.error(e.getMessage());
         }
-        this.strictInsertFill(metaObject, "createUser", String.class, createUser);
-        this.strictInsertFill(metaObject, "updateUser", String.class, createUser);
+        this.strictInsertFill(metaObject, "createUserId", Long.class, id);
+        this.strictInsertFill(metaObject, "createUsername", String.class, createUser);
+        this.strictInsertFill(metaObject, "updateUserId", Long.class, id);
+        this.strictInsertFill(metaObject, "updateUsername", String.class, createUser);
 
         //this.setFieldValByName("createUser",user.getUsername(),metaObject); //
 
@@ -47,12 +55,15 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         // 或者
         //this.fillStrategy(metaObject, "updateTime", LocalDateTime.now()); // 也可以使用(3.3.0 该方法有bug)
         String updateUser = "";
+        Long id = 0L;
         try {
             UserDTO user = UserHolder.getUser();
             updateUser = user.getUsername();
-        }catch (Exception e){
+            id = user.getUserId();
+        } catch (Exception e) {
             log.error(e.getMessage());
         }
-        this.strictInsertFill(metaObject, "updateUser", String.class, updateUser);
+        this.strictInsertFill(metaObject, "updateUsername", String.class, updateUser);
+        this.strictInsertFill(metaObject, "updateUserId", Long.class, id);
     }
 }

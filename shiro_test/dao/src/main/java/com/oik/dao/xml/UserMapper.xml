@@ -11,22 +11,22 @@
         <result column="EMAIL" property="email"/>
         <result column="MOBILE" property="mobile"/>
         <result column="STATUS" property="status"/>
-        <result column="CREATE_TIME" property="createTime"/>
-        <result column="MODIFY_TIME" property="modifyTime"/>
         <result column="LAST_LOGIN_TIME" property="lastLoginTime"/>
         <result column="SSEX" property="ssex"/>
         <result column="DESCRIPTION" property="description"/>
         <result column="AVATAR" property="avatar"/>
         <result column="CREATE_USERNAME" property="createUsername"/>
         <result column="CREATE_USER_ID" property="createUserId"/>
-        <result column="MODIFY_USERNAME" property="modifyUsername"/>
-        <result column="MODIFY_USER_ID" property="modifyUserId"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="UPDATE_USERNAME" property="updateUsername"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
+        <result column="UPDATE_USER_ID" property="updateUserId"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         USER_ID
-        , USERNAME, `PASSWORD`, DEPT_ID, EMAIL, MOBILE, `STATUS`, CREATE_TIME, MODIFY_TIME, LAST_LOGIN_TIME, SSEX, `DESCRIPTION`, AVATAR, CREATE_USERNAME, CREATE_USER_ID, MODIFY_USERNAME, MODIFY_USER_ID
+        , USERNAME, `PASSWORD`, DEPT_ID, EMAIL, MOBILE, `STATUS`, LAST_LOGIN_TIME, SSEX, DESCRIPTION, AVATAR, CREATE_USERNAME, CREATE_USER_ID, CREATE_TIME, UPDATE_USERNAME, UPDATE_TIME, UPDATE_USER_ID
     </sql>
     <select id="findSubordinates" resultType="java.lang.String">
         SELECT GROUP_CONCAT(u.user_id)
