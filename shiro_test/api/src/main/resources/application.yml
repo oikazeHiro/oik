@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: baisea-cc-efarm-api
+  profiles:
+    active: @spring.profiles.active@
+oik:
+  # 是否异步记录用户操作日志
+  openAopLog: true
+  netty:
+    port: 6000
+  # 单次最大批量入库数量
+  max:
+    batch:
+      insert:
+        num: 1000
+  shiro:
+    # 后端免认证接口 url
+    anonUrl:
+      - /user/login
+      - /user/logout/**
+      - /user/regist
+      - /user/check/**
+      - /swagger-resources/**
+      - /webjars/**
+      - /v2/**
+      - /v3/**
+      - /swagger-ui.html/**
+      - /swagger-ui/**
+      - /favicon.ico
+

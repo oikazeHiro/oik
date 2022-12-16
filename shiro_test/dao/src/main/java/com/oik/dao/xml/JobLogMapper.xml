@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oik.dao.mapper.JobLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.oik.dao.entity.JobLog">
+        <id column="LOG_ID" property="logId"/>
+        <result column="JOB_ID" property="jobId"/>
+        <result column="BEAN_NAME" property="beanName"/>
+        <result column="METHOD_NAME" property="methodName"/>
+        <result column="PARAMS" property="params"/>
+        <result column="STATUS" property="status"/>
+        <result column="ERROR" property="error"/>
+        <result column="TIMES" property="times"/>
+        <result column="CREATE_TIME" property="createTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        LOG_ID
+        , JOB_ID, BEAN_NAME, METHOD_NAME, PARAMS, `STATUS`, `ERROR`, TIMES, CREATE_TIME
+    </sql>
+
+</mapper>

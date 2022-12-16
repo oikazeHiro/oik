@@ -1,0 +1,38 @@
+syntax = "proto3";
+option optimize_for = SPEED;
+option java_package = "com.oik.api.netty.pojo";
+option java_outer_classname = "MyDataInfo";
+
+message MyMessage{
+  enum DataType {
+    userType = 0;
+    chatMsgType = 1;
+    groupMsgType = 2;
+  }
+
+  DataType data_type = 1;
+
+  oneof dataBody {
+    User user = 2;
+    ChatMsg chatMsg = 3;
+    GroupMsg groupMsg = 4;
+  }
+
+}
+
+message User{
+  string id = 1;
+  string username = 2;
+}
+
+message ChatMsg{
+  string sendUserId = 1;
+  string acceptUserId = 2;
+  string chatMsg = 3;
+}
+
+message GroupMsg{
+  string sendUserId = 1;
+  string groupId = 2;
+  string chatMsg = 3;
+}

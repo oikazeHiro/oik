@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oik.dao.mapper.MenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.oik.dao.entity.Menu">
+        <id column="MENU_ID" property="menuId"/>
+        <result column="PARENT_ID" property="parentId"/>
+        <result column="MENU_NAME" property="menuName"/>
+        <result column="PATH" property="path"/>
+        <result column="COMPONENT" property="component"/>
+        <result column="PERMS" property="perms"/>
+        <result column="ICON" property="icon"/>
+        <result column="TYPE" property="type"/>
+        <result column="ORDER_NUM" property="orderNum"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="MODIFY_TIME" property="modifyTime"/>
+        <result column="STATUS" property="status"/>
+        <result column="CREATE_USERNAME" property="createUsername"/>
+        <result column="CREATE_USER_ID" property="createUserId"/>
+        <result column="MODIFY_USERNAME" property="modifyUsername"/>
+        <result column="MODIFY_USER_ID" property="modifyUserId"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        MENU_ID
+        , PARENT_ID, MENU_NAME, `PATH`, `COMPONENT`, PERMS, ICON, `TYPE`, ORDER_NUM, CREATE_TIME, MODIFY_TIME, `STATUS`, CREATE_USERNAME, CREATE_USER_ID, MODIFY_USERNAME, MODIFY_USER_ID
+    </sql>
+
+</mapper>

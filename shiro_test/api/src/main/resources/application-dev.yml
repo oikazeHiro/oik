@@ -1,0 +1,57 @@
+server:
+  port: 7000
+spring:
+  output:
+    ansi:
+      enabled: always
+  application:
+    name: hmdp
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:13306/shiro_test?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+    port: 26379
+    password: '000415'
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 1
+        time-between-eviction-runs: 10s
+    timeout: 5000
+  jackson:
+    default-property-inclusion: non_null # JSON处理时忽略非空字段
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+mybatis-plus:
+  type-aliases-package: com.oik.dao.entity # 别名扫描包
+  configuration:
+    # 自动驼峰命名
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:/com/oik/dao/**/*.xml
+
+# ===== 自定义swagger配置 ===== #
+swagger:
+  enable: true
+  application-name: "shiro_test"
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合Demo
+  try-host: http://localhost:${server.port}
+
+#oss:
+#  access-id:
+#  access-key:
+#  end-point:
+#  bucket:
+#  host:
+
+
+
+
+
+

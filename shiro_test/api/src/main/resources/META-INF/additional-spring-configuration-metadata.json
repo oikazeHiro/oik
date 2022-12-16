@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "swagger.application-name",
+      "type": "java.lang.String",
+      "description": "Description for swagger.application-name."
+    }
+  ]
+}

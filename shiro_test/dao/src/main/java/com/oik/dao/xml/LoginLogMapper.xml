@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oik.dao.mapper.LoginLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.oik.dao.entity.LoginLog">
+        <result column="USERNAME" property="username"/>
+        <result column="LOGIN_TIME" property="loginTime"/>
+        <result column="LOCATION" property="location"/>
+        <result column="IP" property="ip"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        USERNAME
+        , LOGIN_TIME, LOCATION, IP
+    </sql>
+    <select id="findLastSevenDaysVisitCount" resultType="map" parameterType="string">
+        select
+        date_format(l.login_time, '%m-%d') days,
+        count(1) count
+        from
+        (
+        select
+        *
+        from
+        sys_login_log
+        where
+        date_sub(curdate(), interval 7 day) &lt;= date(login_time)
+        ) as l where 1 = 1
+        <if test="username != null and username != ''">
+            and l.username = #{username}
+        </if>
+        group by
+        days
+    </select>
+
+</mapper>

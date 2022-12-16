@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oik.dao.mapper.UserConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.oik.dao.entity.UserConfig">
+        <id column="USER_ID" property="userId"/>
+        <result column="THEME" property="theme"/>
+        <result column="LAYOUT" property="layout"/>
+        <result column="MULTI_PAGE" property="multiPage"/>
+        <result column="FIX_SIDERBAR" property="fixSiderbar"/>
+        <result column="FIX_HEADER" property="fixHeader"/>
+        <result column="COLOR" property="color"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        USER_ID
+        , THEME, LAYOUT, MULTI_PAGE, FIX_SIDERBAR, FIX_HEADER, COLOR
+    </sql>
+
+</mapper>
