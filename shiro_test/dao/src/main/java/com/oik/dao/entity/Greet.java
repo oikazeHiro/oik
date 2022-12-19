@@ -35,6 +35,8 @@ public class Greet implements Serializable {
 
     @TableField("creat_by")
     private String creatBy;
+    @TableField("sort")
+    private Integer sort;
 
     @TableField("creat_time")
     private LocalDateTime creatTime;

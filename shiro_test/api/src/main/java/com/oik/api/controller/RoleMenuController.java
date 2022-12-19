@@ -6,6 +6,7 @@ import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.RoleMenuService;
 import com.oik.util.redis.CacheClient;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,6 +35,7 @@ public class RoleMenuController {
     private RoleMenuService roleMenuService;
 
     @PostMapping("/role-menu")
+    @RequiresPermissions("menu::add")
     public Result add(RoleMenu roleMenu) {
         Long deletes = cacheClient.deletes(USER_CONFIG_CACHE_MENU);
         Long deletes1 = cacheClient.deletes(USER_PERMISSION_CACHE_PREFIX);
@@ -43,6 +45,7 @@ public class RoleMenuController {
     }
 
     @DeleteMapping("/role-menu/{id}")
+    @RequiresPermissions("menu:delete")
     public Result remove(@NotNull(message = "id is not null") @PathVariable("id") Long id) {
         Long deletes = cacheClient.deletes(USER_CONFIG_CACHE_MENU);
         Long deletes1 = cacheClient.deletes(USER_PERMISSION_CACHE_PREFIX);

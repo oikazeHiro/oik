@@ -5,6 +5,7 @@ import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.CacheService;
 import com.oik.service.service.UserRoleService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,17 +31,20 @@ public class UserRoleController {
     private UserRoleService userRoleService;
 
     @GetMapping("/roles/{username}")
+    @RequiresPermissions("role:view")
     public Result getRole(String username) {
         return userRoleService.getRole(username);
     }
 
     @PostMapping("/user-role")
+    @RequiresPermissions("role:add")
     public Result add(@RequestBody UserRole userRole, @RequestParam String username) {
         cacheService.delete(USER_ROLE_CACHE_PREFIX + username);
         return ResultUtil.getSuccess(userRoleService.save(userRole));
     }
 
     @DeleteMapping("/user-role/{id}")
+    @RequiresPermissions("role:delete")
     public Result remove(@PathVariable("id") String id, @RequestParam String username) {
         cacheService.delete(USER_ROLE_CACHE_PREFIX + username);
         return ResultUtil.getSuccess(userRoleService.removeById(id));
