@@ -57,7 +57,6 @@ public class GreetServiceImpl extends MPJBaseServiceImpl<GreetMapper, Greet> imp
         } else {
             greetPage = JSONUtil.toBean(value, page.getClass());
         }
-        JSONUtil.toJsonStr(greetPage);
         return ResultUtil.getSuccess(greetPage);
     }
 }
