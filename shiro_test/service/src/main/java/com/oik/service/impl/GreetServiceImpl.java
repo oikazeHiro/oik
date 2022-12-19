@@ -48,7 +48,7 @@ public class GreetServiceImpl extends MPJBaseServiceImpl<GreetMapper, Greet> imp
                 }
             } else {
                 try {
-                    Thread.sleep(1000L);
+                    Thread.sleep(100L);
                     getGreet(page);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
