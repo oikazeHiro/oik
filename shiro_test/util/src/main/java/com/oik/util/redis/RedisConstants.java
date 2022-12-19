@@ -1,7 +1,5 @@
 package com.oik.util.redis;
 
-import org.thymeleaf.inline.IInliner;
-
 public class RedisConstants {
     public static final String LOGIN_CODE_KEY = "login:code:";
     public static final Long LOGIN_CODE_TTL = 2L;
@@ -10,7 +8,7 @@ public class RedisConstants {
 
     public static final Long CACHE_NULL_TTL = 2L;
 
-    public static final Long CACHE_SHOP_TTL = 30L;
+    public static final Long CACHE_TTL = 30L;
     public static final String CACHE_SHOP_KEY = "cache:shop:";
 
     public static final String LOCK_SHOP_KEY = "lock:shop:";
@@ -66,4 +64,6 @@ public class RedisConstants {
     public static final int STATUS_VALID = 1;
 
     public static final int STATUS_LOCK = 0;
+
+    public static final String SYS_DICT = "oik.cache.dict";
 }

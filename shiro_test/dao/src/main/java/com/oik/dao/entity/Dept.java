@@ -1,5 +1,6 @@
 package com.oik.dao.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -28,7 +29,7 @@ public class Dept implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("部门ID")
-    @TableId("DEPT_ID")
+    @TableId(value = "DEPT_ID", type = IdType.ASSIGN_ID)
     private Long deptId;
 
     @ApiModelProperty("上级部门ID")

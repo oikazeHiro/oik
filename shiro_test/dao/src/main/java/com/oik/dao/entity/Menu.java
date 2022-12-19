@@ -1,5 +1,6 @@
 package com.oik.dao.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -29,7 +30,7 @@ public class Menu implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("菜单/按钮ID")
-    @TableId("MENU_ID")
+    @TableId(value = "MENU_ID", type = IdType.ASSIGN_ID)
     private Long menuId;
 
     @ApiModelProperty("上级菜单ID")

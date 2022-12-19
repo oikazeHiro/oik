@@ -18,6 +18,7 @@
         <result column="UPDATE_USERNAME" property="updateUsername"/>
         <result column="STATUS" property="status"/>
         <result column="OTHER_KEYY" property="otherKeyy"/>
+        <result column="SORT" property="sort"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->

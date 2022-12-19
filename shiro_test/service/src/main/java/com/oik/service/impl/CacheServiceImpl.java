@@ -3,15 +3,16 @@ package com.oik.service.impl;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;
+import com.oik.dao.entity.Dict;
 import com.oik.dao.entity.Menu;
 import com.oik.dao.entity.Role;
 import com.oik.dao.entity.User;
 import com.oik.service.service.CacheService;
 import com.oik.util.redis.CacheClient;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 import java.util.HashSet;
 import java.util.List;
@@ -60,11 +61,27 @@ public class CacheServiceImpl implements CacheService {
     @Override
     public List<Menu> getMenus(String username) {
         String value = cacheClient.getValue(USER_CONFIG_CACHE_MENU, username);
-        log.info(USER_CONFIG_CACHE_MENU+username);
+        log.info(USER_CONFIG_CACHE_MENU + username);
         if (StrUtil.isBlank(value)) {
             return null;
         }
         JSONArray jsonArray = JSONUtil.parseArray(value);
         return JSONUtil.toList(jsonArray, Menu.class);
+    }
+
+    @Override
+    public List<Dict> getDict() {
+        String value = cacheClient.getValue(SYS_DICT, "");
+        log.info(SYS_DICT);
+        if (StringUtils.isEmpty(value)) {
+            return null;
+        }
+        JSONArray jsonArray = JSONUtil.parseArray(value);
+        return JSONUtil.toList(jsonArray, Dict.class);
+    }
+
+    @Override
+    public void delete(String key) {
+        cacheClient.delete(key);
     }
 }

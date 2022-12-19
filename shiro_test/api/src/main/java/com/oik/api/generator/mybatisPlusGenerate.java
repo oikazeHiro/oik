@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author YE
+ * @author oik
  * mybatis-plus代码生成器
  */
 @Component
@@ -68,11 +68,6 @@ public class mybatisPlusGenerate {
     //反向生成的表
     static String[] tables = new String[]{
             "sys_dict",
-            "sys_dept",
-            "sys_job",
-            "sys_menu",
-            "sys_role",
-            "sys_user",
     };
 
     public static void main(String[] args) {

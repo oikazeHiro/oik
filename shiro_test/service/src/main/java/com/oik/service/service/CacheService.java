@@ -1,9 +1,9 @@
 package com.oik.service.service;
 
+import com.oik.dao.entity.Dict;
 import com.oik.dao.entity.Menu;
 import com.oik.dao.entity.Role;
 import com.oik.dao.entity.User;
-import com.oik.dao.entity.UserConfig;
 
 import java.util.List;
 import java.util.Set;
@@ -31,4 +31,8 @@ public interface CacheService {
     Set<String> getPermissions(String username);
 
     List<Menu> getMenus(String username);
+
+    List<Dict> getDict();
+
+    void delete(String key);
 }

@@ -1,5 +1,6 @@
 package com.oik.dao.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -28,7 +29,7 @@ public class Role implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("角色ID")
-    @TableId("ROLE_ID")
+    @TableId(value = "ROLE_ID", type = IdType.ASSIGN_ID)
     private Long roleId;
 
     @ApiModelProperty("角色名称")

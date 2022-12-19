@@ -1,5 +1,6 @@
 package com.oik.dao.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -10,6 +11,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -28,7 +30,7 @@ public class Dict implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("字典ID")
-    @TableId("DICT_ID")
+    @TableId(value = "DICT_ID", type = IdType.ASSIGN_ID)
     private Long dictId;
 
     @ApiModelProperty("键")
@@ -81,5 +83,10 @@ public class Dict implements Serializable {
     @TableField("OTHER_KEYY")
     private String otherKeyy;
 
+    @TableField("SORT")
+    private Integer sort;
+
+    @TableField(exist = false)
+    private List<Dict> children;
 
 }

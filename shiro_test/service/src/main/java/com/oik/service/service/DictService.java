@@ -1,7 +1,9 @@
 package com.oik.service.service;
 
-import com.oik.dao.entity.Dict;
 import com.github.yulichang.base.service.MPJJoinService;
+import com.oik.dao.entity.Dict;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +15,5 @@ import com.github.yulichang.base.service.MPJJoinService;
  */
 public interface DictService extends MPJJoinService<Dict> {
 
+    List<Dict> getDicts();
 }
