@@ -34,14 +34,14 @@ public class RoleServiceImpl extends MPJBaseServiceImpl<RoleMapper, Role> implem
     private CacheClient cacheClient;
 
     @Override
-    public List<Role> findUserRole(String username) {;
+    public List<Role> findUserRole(String username) {
         List<Role> roles = selectJoinList(Role.class,
                 new MPJLambdaWrapper<Role>()
                         .selectAll(Role.class)
                         .leftJoin(UserRole.class, UserRole::getRoleId, Role::getRoleId)
                         .leftJoin(User.class, User::getUserId, UserRole::getUserId)
                         .eq(User::getUsername, username));
-        cacheClient.set(RedisConstants.USER_ROLE_CACHE_PREFIX+username, JSONUtil.toJsonStr(roles),30L, TimeUnit.MINUTES);
+        cacheClient.set(RedisConstants.USER_ROLE_CACHE_PREFIX + username, JSONUtil.toJsonStr(roles), 30L, TimeUnit.MINUTES);
         return roles;
     }
 

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -157,7 +158,7 @@ public class CacheClient {
      * @param key
      * @return
      */
-    private boolean tryLock(String key) {
+    public boolean tryLock(String key) {
         Boolean flag = stringRedisTemplate.opsForValue().setIfAbsent(key, "1", 10L, TimeUnit.SECONDS);
         return BooleanUtil.isTrue(flag);
     }
@@ -167,7 +168,7 @@ public class CacheClient {
      *
      * @param key
      */
-    private void unLock(String key) {
+    public void unLock(String key) {
         stringRedisTemplate.delete(key);
     }
 
@@ -194,8 +195,15 @@ public class CacheClient {
         }
     }
 
-    public void delete(String key){
+    public void delete(String key) {
         stringRedisTemplate.delete(key);
+    }
+
+    public Long deletes(String key) {
+        Set<String> keys = stringRedisTemplate.keys(key + "*");
+        Long delete = stringRedisTemplate.delete(keys);
+        return delete;
+
     }
 
 }

@@ -25,6 +25,8 @@ public class RedisConstants {
     public static final String USER_CACHE_PREFIX = "oik.cache.user.";
     // user角色缓存前缀
     public static final String USER_ROLE_CACHE_PREFIX = "oik.cache.user.role.";
+    public static final String USER_ROLE_LOCK_PREFIX = "oik.cache.user.role.lock.";
+
     // user权限缓存前缀
     public static final String USER_PERMISSION_CACHE_PREFIX = "oik.cache.user.permission.";
     // user部门数据权限缓存前缀
