@@ -38,22 +38,22 @@ public class GreetServiceImpl extends MPJBaseServiceImpl<GreetMapper, Greet> imp
         String value = cacheClient.getValue(SYS_GREET, "");
         Page<Greet> greetPage = null;
         if (StringUtils.isEmpty(value)) {
-            if (cacheClient.tryLock(SYS_GREET_LOCK)) {
                 try {
-                    greetPage = baseMapper.selectPage(page,
-                            new QueryWrapper<Greet>().lambda().orderByAsc(Greet::getSort));
-                    cacheClient.set(SYS_GREET, greetPage, 60L, TimeUnit.MINUTES);
+                    if (cacheClient.tryLock(SYS_GREET_LOCK)) {
+                        greetPage = baseMapper.selectPage(page,
+                                new QueryWrapper<Greet>().lambda().orderByAsc(Greet::getSort));
+                        cacheClient.set(SYS_GREET, greetPage, 60L, TimeUnit.MINUTES);
+                    } else {
+                        try {
+                            Thread.sleep(100L);
+                            getGreet(page);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
                 } finally {
                     cacheClient.unLock(SYS_GREET_LOCK);
                 }
-            } else {
-                try {
-                    Thread.sleep(100L);
-                    getGreet(page);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
         } else {
             greetPage = JSONUtil.toBean(value, page.getClass());
         }

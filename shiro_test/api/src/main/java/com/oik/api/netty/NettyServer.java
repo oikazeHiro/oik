@@ -10,7 +10,6 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -47,13 +46,17 @@ public class NettyServer {
                     .childOption(ChannelOption.SO_KEEPALIVE, true)
                     .childHandler(new NettyServerInitializer());
             channelFuture = serverBootstrap.bind(nettyPort).sync();
-            log.info("---netty socket server start port: "+nettyPort+"---");
+            log.info("---netty socket server start port: " + nettyPort + "---");
             channelFuture.channel().closeFuture().sync();
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error("netty start error: " + e.getMessage());
-        }finally {
-            bossGroup.shutdownGracefully();
-            workerGroup.shutdownGracefully();
+        } finally {
+            close();
         }
+    }
+
+    public void close() {
+        bossGroup.shutdownGracefully();
+        workerGroup.shutdownGracefully();
     }
 }
