@@ -12,6 +12,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -25,6 +27,7 @@ public class NettyServer {
     private ChannelFuture channelFuture;
     private ServerBootstrap serverBootstrap;
     private static ConcurrentHashMap<String, Channel> socketChannelHashMap = new ConcurrentHashMap<>();
+    private static List<Channel> socketChannelList = new LinkedList<>();
     private static final NettyServer NETTY_SERVER = new NettyServer();
     private NettyServer() {
     }
@@ -59,4 +62,21 @@ public class NettyServer {
         bossGroup.shutdownGracefully();
         workerGroup.shutdownGracefully();
     }
+
+    public void addChannelMap(String id, Channel ch) {
+        socketChannelHashMap.put(id, ch);
+    }
+
+    public Channel getChannelMap(String id) {
+        return socketChannelHashMap.get(id);
+    }
+
+    public boolean addChannelList(Channel ch) {
+        return socketChannelList.add(ch);
+    }
+
+    public boolean removeChannelList(Channel ch) {
+        return socketChannelList.remove(ch);
+    }
+
 }

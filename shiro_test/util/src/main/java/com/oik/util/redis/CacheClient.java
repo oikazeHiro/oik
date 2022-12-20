@@ -96,7 +96,7 @@ public class CacheClient {
     }
 
     //线程池
-    private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(10);
+    private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(20);
 
     /**
      * 解决热点key缓存击穿问题
@@ -130,13 +130,6 @@ public class CacheClient {
         String lockKey = LOCK_SHOP_KEY + id;
         boolean lock = tryLock(lockKey);
         if (lock) {
-
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//
-//                    }
-//                }).start();
             EXECUTOR_SERVICE.submit(()->{
                 try {
                     R r1 = dbFallback.apply(id);
@@ -201,8 +194,7 @@ public class CacheClient {
 
     public Long deletes(String key) {
         Set<String> keys = stringRedisTemplate.keys(key + "*");
-        Long delete = stringRedisTemplate.delete(keys);
-        return delete;
+        return stringRedisTemplate.delete(keys);
 
     }
 
