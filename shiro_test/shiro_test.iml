@@ -202,7 +202,7 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.4" level="project" />
     <orderEntry type="library" name="Maven: org.lionsoul:ip2region:2.6.5" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.11.0" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.85.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.86.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.84.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.84.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-codec-dns:4.1.84.Final" level="project" />
@@ -220,6 +220,7 @@
     <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.84.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-transport-native-unix-common:4.1.84.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-handler-proxy:4.1.84.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler-ssl-ocsp:4.1.86.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.84.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns:4.1.84.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.84.Final" level="project" />

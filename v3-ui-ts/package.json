@@ -12,6 +12,7 @@
     "axios": "^1.2.0",
     "core-js": "^3.8.3",
     "element-plus": "^2.2.26",
+    "google-protobuf": "^3.21.2",
     "pinia": "^2.0.27",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",

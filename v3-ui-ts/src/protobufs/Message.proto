@@ -1,0 +1,35 @@
+syntax = "proto3";
+package Message;
+
+message Msg {
+  enum DataType{
+    chatMsgType = 0;
+    chatMsgAllType = 1;
+    chatMsgByGroupType = 2;
+  }
+
+  DataType data_type = 1; 
+
+  oneof dataBody{
+    ChatMsg chatMsg = 2;
+    ChatMsgAll chatMsgAll = 3;
+    ChatMsgByGroup chatMsgByGroup = 4;
+  }
+}
+
+message ChatMsg {
+  string userId = 1;
+  string acceptId = 2;
+  string message = 3;
+}
+
+message ChatMsgByGroup {
+  string userId = 1;
+  string group = 2;
+  string message = 3;
+}
+
+message ChatMsgAll {
+  string userId = 1;
+  string message = 2;
+}

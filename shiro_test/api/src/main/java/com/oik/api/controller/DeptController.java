@@ -1,5 +1,8 @@
 package com.oik.api.controller;
 
+import com.oik.api.netty.pojo.Message;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,5 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/dept")
 public class DeptController {
+
+    @PostMapping("/test")
+    public String test(@RequestBody Message message) {
+        return "111";
+    }
 
 }

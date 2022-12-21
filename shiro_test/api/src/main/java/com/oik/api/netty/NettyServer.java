@@ -3,7 +3,6 @@ package com.oik.api.netty;
 import com.oik.api.netty.handler.NettyServerInitializer;
 import com.oik.util.str.YamlReader;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
@@ -11,10 +10,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  *
@@ -26,17 +21,18 @@ public class NettyServer {
     private EventLoopGroup workerGroup;
     private ChannelFuture channelFuture;
     private ServerBootstrap serverBootstrap;
-    private static ConcurrentHashMap<String, Channel> socketChannelHashMap = new ConcurrentHashMap<>();
-    private static List<Channel> socketChannelList = new LinkedList<>();
+    //    private static ConcurrentHashMap<String, Channel> socketChannelHashMap = new ConcurrentHashMap<>();
+//    private static List<Channel> socketChannelList = new LinkedList<>();
     private static final NettyServer NETTY_SERVER = new NettyServer();
+
     private NettyServer() {
     }
 
-    public static NettyServer getInstance(){
+    public static NettyServer getInstance() {
         return NETTY_SERVER;
     }
 
-//    @Value("${oik.netty.port}")
+    //    @Value("${oik.netty.port}")
     private Integer nettyPort = (Integer) YamlReader.getValueByKey("oik.netty.port");
     public void start(){
         try {
@@ -63,20 +59,20 @@ public class NettyServer {
         workerGroup.shutdownGracefully();
     }
 
-    public void addChannelMap(String id, Channel ch) {
-        socketChannelHashMap.put(id, ch);
-    }
-
-    public Channel getChannelMap(String id) {
-        return socketChannelHashMap.get(id);
-    }
-
-    public boolean addChannelList(Channel ch) {
-        return socketChannelList.add(ch);
-    }
-
-    public boolean removeChannelList(Channel ch) {
-        return socketChannelList.remove(ch);
-    }
+//    public void addChannelMap(String id, Channel ch) {
+//        socketChannelHashMap.put(id, ch);
+//    }
+//
+//    public Channel getChannelMap(String id) {
+//        return socketChannelHashMap.get(id);
+//    }
+//
+//    public boolean addChannelList(Channel ch) {
+//        return socketChannelList.add(ch);
+//    }
+//
+//    public boolean removeChannelList(Channel ch) {
+//        return socketChannelList.remove(ch);
+//    }
 
 }

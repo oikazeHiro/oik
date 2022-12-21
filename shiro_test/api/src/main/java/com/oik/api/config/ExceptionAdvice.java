@@ -59,8 +59,13 @@ public class ExceptionAdvice {
     }
 
     @ExceptionHandler(UnauthorizedException.class)
-    public Result Unauthorized(UnauthorizedException e){
-        return ResultUtil.getError(407,e.getMessage());
+    public Result Unauthorized(UnauthorizedException e) {
+        return ResultUtil.getError(407, e.getMessage());
+    }
+
+    @ExceptionHandler(Throwable.class)
+    public Result Unauthorized(Throwable e) {
+        return ResultUtil.getError(500, e.getMessage());
     }
 
     @ExceptionHandler(SignatureException.class)
