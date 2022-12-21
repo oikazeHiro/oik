@@ -28,20 +28,28 @@ public class NettyServer {
     private NettyServer() {
     }
 
+    // 设置端口
+    //    @Value("${oik.netty.port}")
+    private Integer nettyPort = (Integer) YamlReader.getValueByKey("oik.netty.port");
+
+    //设置单例模型
     public static NettyServer getInstance() {
         return NETTY_SERVER;
     }
 
-    //    @Value("${oik.netty.port}")
-    private Integer nettyPort = (Integer) YamlReader.getValueByKey("oik.netty.port");
-    public void start(){
+    public void start() {
         try {
+            //创建两个线程组
             bossGroup = new NioEventLoopGroup();
             workerGroup = new NioEventLoopGroup();
+            //服务对象
             serverBootstrap = new ServerBootstrap();
+            //构建工程线程池
             serverBootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
+                    // 如果大于队列的最大长度，请求会被拒绝
                     .option(ChannelOption.SO_BACKLOG, 128)
+                    //
                     .childOption(ChannelOption.SO_KEEPALIVE, true)
                     .childHandler(new NettyServerInitializer());
             channelFuture = serverBootstrap.bind(nettyPort).sync();

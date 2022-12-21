@@ -8,6 +8,7 @@ message Msg {
     chatMsgType = 0;
     chatMsgAllType = 1;
     chatMsgByGroupType = 2;
+    bindChannelType = 3;
   }
 
   DataType data_type = 1;
@@ -16,13 +17,16 @@ message Msg {
     ChatMsg chatMsg = 2;
     ChatMsgAll chatMsgAll = 3;
     ChatMsgByGroup chatMsgByGroup = 4;
+    BindChannel bindChannel = 5;
   }
 }
 
 message ChatMsg {
   string userId = 1;
-  string acceptId = 2;
-  string message = 3;
+  string userName = 2;
+  string acceptId = 3;
+  string acceptName = 4;
+  string message = 5;
 }
 
 message ChatMsgByGroup {
@@ -34,4 +38,8 @@ message ChatMsgByGroup {
 message ChatMsgAll {
   string userId = 1;
   string message = 2;
+}
+
+message BindChannel {
+  string userId = 1;
 }
