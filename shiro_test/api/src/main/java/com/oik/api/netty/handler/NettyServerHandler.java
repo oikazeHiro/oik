@@ -1,24 +1,32 @@
 package com.oik.api.netty.handler;
 
+import com.oik.api.netty.pojo.Message;
+import com.oik.api.netty.util.ChannelOperateUtil;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class NettyServerHandler extends ChannelInboundHandlerAdapter {
-    @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+public class NettyServerHandler extends SimpleChannelInboundHandler<Message.Msg> {
 
-        super.channelActive(ctx);
+    @Override
+    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Message.Msg msg) throws Exception {
+
     }
 
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        super.channelRead(ctx, msg);
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        ChannelOperateUtil.addSocketGroup(ctx.channel());
+    }
+
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+        ctx.flush();
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        super.exceptionCaught(ctx, cause);
+        log.error(cause.getMessage());
+        ctx.close();
     }
 }
