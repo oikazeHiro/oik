@@ -7,7 +7,6 @@ import com.oik.service.service.CacheService;
 import com.oik.service.service.DictService;
 import com.oik.util.redis.CacheClient;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -28,7 +27,7 @@ import static com.oik.util.redis.RedisConstants.SYS_DICT;
 @RequestMapping("")
 public class DictController {
 
-    @Autowired
+    @Resource
     private CacheService cacheService;
     @Resource
     private DictService dictService;

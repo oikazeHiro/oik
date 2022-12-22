@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -25,6 +26,7 @@ import java.util.List;
 @Setter
 @TableName("sys_menu")
 @ApiModel(value = "Menu对象", description = "")
+@Accessors(chain = true)
 public class Menu implements Serializable {
 
     private static final long serialVersionUID = 1L;

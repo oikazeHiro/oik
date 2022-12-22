@@ -3,12 +3,14 @@ package com.oik.dao.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -22,6 +24,7 @@ import lombok.Setter;
 @Setter
 @TableName("sys_login_log")
 @ApiModel(value = "LoginLog对象", description = "")
+@Accessors(chain = true)
 public class LoginLog implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -24,6 +25,7 @@ import java.time.LocalDateTime;
 @Setter
 @TableName("sys_job")
 @ApiModel(value = "Job对象", description = "")
+@Accessors(chain = true)
 public class Job implements Serializable {
 
     private static final long serialVersionUID = 1L;

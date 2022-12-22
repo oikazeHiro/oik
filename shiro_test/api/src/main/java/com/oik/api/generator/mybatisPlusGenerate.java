@@ -67,7 +67,7 @@ public class mybatisPlusGenerate {
 
     //反向生成的表
     static String[] tables = new String[]{
-            "sys_dict",
+            "t_chat_msg",
     };
 
     public static void main(String[] args) {

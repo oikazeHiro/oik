@@ -6,134 +6,132 @@ package com.oik.api.netty.pojo;
 public final class Message {
   private static final com.google.protobuf.Descriptors.Descriptor
           internal_static_Msg_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_Msg_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_ChatMsg_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_ChatMsg_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_ChatMsgByGroup_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_ChatMsgByGroup_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_ChatMsgAll_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_ChatMsgAll_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_BindChannel_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_BindChannel_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.FileDescriptor
-          descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_Msg_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_ChatMsg_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_ChatMsg_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_ChatMsgByGroup_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_ChatMsgByGroup_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_ChatMsgAll_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_ChatMsgAll_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_BindChannel_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_BindChannel_fieldAccessorTable;
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  static {
-    java.lang.String[] descriptorData = {
-            "\n\rMessage.proto\"\370\001\n\003Msg\022 \n\tdata_type\030\001 \001" +
-                    "(\0162\r.Msg.DataType\022\033\n\007chatMsg\030\002 \001(\0132\010.Cha" +
-                    "tMsgH\000\022!\n\nchatMsgAll\030\003 \001(\0132\013.ChatMsgAllH" +
-                    "\000\022)\n\016chatMsgByGroup\030\004 \001(\0132\017.ChatMsgByGro" +
-                    "upH\000\"X\n\010DataType\022\017\n\013chatMsgType\020\000\022\022\n\016cha" +
-                    "tMsgAllType\020\001\022\026\n\022chatMsgByGroupType\020\002\022\017\n" +
-                    "\013bindChannel\020\003B\n\n\010dataBody\"<\n\007ChatMsg\022\016\n" +
-                    "\006userId\030\001 \001(\t\022\020\n\010acceptId\030\002 \001(\t\022\017\n\007messa" +
-                    "ge\030\003 \001(\t\"@\n\016ChatMsgByGroup\022\016\n\006userId\030\001 \001" +
-                    "(\t\022\r\n\005group\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\"-\n\nCh" +
-                    "atMsgAll\022\016\n\006userId\030\001 \001(\t\022\017\n\007message\030\002 \001(" +
-                    "\t\"\r\n\013BindChannelB#\n\026com.oik.api.netty.po" +
-                    "joB\007MessageH\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-            .internalBuildGeneratedFileFrom(descriptorData,
-                    new com.google.protobuf.Descriptors.FileDescriptor[]{
-                    });
-    internal_static_Msg_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-    internal_static_Msg_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-            internal_static_Msg_descriptor,
-            new java.lang.String[]{"DataType", "ChatMsg", "ChatMsgAll", "ChatMsgByGroup", "DataBody",});
-    internal_static_ChatMsg_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-    internal_static_ChatMsg_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-            internal_static_ChatMsg_descriptor,
-            new java.lang.String[]{"UserId", "AcceptId", "Message",});
-    internal_static_ChatMsgByGroup_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-    internal_static_ChatMsgByGroup_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-            internal_static_ChatMsgByGroup_descriptor,
-            new java.lang.String[]{"UserId", "Group", "Message",});
-    internal_static_ChatMsgAll_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-    internal_static_ChatMsgAll_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-            internal_static_ChatMsgAll_descriptor,
-            new java.lang.String[]{"UserId", "Message",});
-    internal_static_BindChannel_descriptor =
-            getDescriptor().getMessageTypes().get(4);
-    internal_static_BindChannel_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-            internal_static_BindChannel_descriptor,
-            new java.lang.String[]{});
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\rMessage.proto\"\241\002\n\003Msg\022 \n\tdata_type\030\001 \001" +
+                        "(\0162\r.Msg.DataType\022\033\n\007chatMsg\030\002 \001(\0132\010.Cha" +
+                        "tMsgH\000\022!\n\nchatMsgAll\030\003 \001(\0132\013.ChatMsgAllH" +
+                        "\000\022)\n\016chatMsgByGroup\030\004 \001(\0132\017.ChatMsgByGro" +
+                        "upH\000\022#\n\013bindChannel\030\005 \001(\0132\014.BindChannelH" +
+                        "\000\"\\\n\010DataType\022\017\n\013chatMsgType\020\000\022\022\n\016chatMs" +
+                        "gAllType\020\001\022\026\n\022chatMsgByGroupType\020\002\022\023\n\017bi" +
+                        "ndChannelType\020\003B\n\n\010dataBody\"b\n\007ChatMsg\022\016" +
+                        "\n\006userId\030\001 \001(\t\022\020\n\010userName\030\002 \001(\t\022\020\n\010acce" +
+                        "ptId\030\003 \001(\t\022\022\n\nacceptName\030\004 \001(\t\022\017\n\007messag" +
+                        "e\030\005 \001(\t\"@\n\016ChatMsgByGroup\022\016\n\006userId\030\001 \001(" +
+                        "\t\022\r\n\005group\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\"-\n\nCha" +
+                        "tMsgAll\022\016\n\006userId\030\001 \001(\t\022\017\n\007message\030\002 \001(\t" +
+                        "\"\035\n\013BindChannel\022\016\n\006userId\030\001 \001(\tB#\n\026com.o" +
+                        "ik.api.netty.pojoB\007MessageH\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+        internal_static_Msg_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_Msg_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_Msg_descriptor,
+                new java.lang.String[]{"DataType", "ChatMsg", "ChatMsgAll", "ChatMsgByGroup", "BindChannel", "DataBody",});
+        internal_static_ChatMsg_descriptor =
+                getDescriptor().getMessageTypes().get(1);
+        internal_static_ChatMsg_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_ChatMsg_descriptor,
+                new java.lang.String[]{"UserId", "UserName", "AcceptId", "AcceptName", "Message",});
+        internal_static_ChatMsgByGroup_descriptor =
+                getDescriptor().getMessageTypes().get(2);
+        internal_static_ChatMsgByGroup_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_ChatMsgByGroup_descriptor,
+                new java.lang.String[]{"UserId", "Group", "Message",});
+        internal_static_ChatMsgAll_descriptor =
+                getDescriptor().getMessageTypes().get(3);
+        internal_static_ChatMsgAll_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_ChatMsgAll_descriptor,
+                new java.lang.String[]{"UserId", "Message",});
+        internal_static_BindChannel_descriptor =
+                getDescriptor().getMessageTypes().get(4);
+        internal_static_BindChannel_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_BindChannel_descriptor,
+                new java.lang.String[]{"UserId",});
   }
 
-  private Message() {
-  }
+    private Message() {
+    }
 
-  public static void registerAllExtensions(
-          com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
 
-  public static void registerAllExtensions(
-          com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-            (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-  getDescriptor() {
-    return descriptor;
-  }
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
 
-  public interface MsgOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:Msg)
-          com.google.protobuf.MessageOrBuilder {
+    public interface MsgOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:Msg)
+            com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>.Msg.DataType data_type = 1;</code>
-     *
-     * @return The enum numeric value on the wire for dataType.
-     */
-    int getDataTypeValue();
+        /**
+         * <code>.Msg.DataType data_type = 1;</code>
+         *
+         * @return The enum numeric value on the wire for dataType.
+         */
+        int getDataTypeValue();
 
-    /**
-     * <code>.Msg.DataType data_type = 1;</code>
-     *
-     * @return The dataType.
-     */
+        /**
+         * <code>.Msg.DataType data_type = 1;</code>
+         *
+         * @return The dataType.
+         */
     com.oik.api.netty.pojo.Message.Msg.DataType getDataType();
 
     /**
      * <code>.ChatMsg chatMsg = 2;</code>
-     *
      * @return Whether the chatMsg field is set.
      */
     boolean hasChatMsg();
-
     /**
      * <code>.ChatMsg chatMsg = 2;</code>
-     *
      * @return The chatMsg.
      */
     com.oik.api.netty.pojo.Message.ChatMsg getChatMsg();
-
     /**
      * <code>.ChatMsg chatMsg = 2;</code>
      */
@@ -141,18 +139,14 @@ public final class Message {
 
     /**
      * <code>.ChatMsgAll chatMsgAll = 3;</code>
-     *
      * @return Whether the chatMsgAll field is set.
      */
     boolean hasChatMsgAll();
-
     /**
      * <code>.ChatMsgAll chatMsgAll = 3;</code>
-     *
      * @return The chatMsgAll.
      */
     com.oik.api.netty.pojo.Message.ChatMsgAll getChatMsgAll();
-
     /**
      * <code>.ChatMsgAll chatMsgAll = 3;</code>
      */
@@ -160,425 +154,500 @@ public final class Message {
 
     /**
      * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-     *
      * @return Whether the chatMsgByGroup field is set.
      */
     boolean hasChatMsgByGroup();
 
-    /**
-     * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-     *
-     * @return The chatMsgByGroup.
-     */
-    com.oik.api.netty.pojo.Message.ChatMsgByGroup getChatMsgByGroup();
+        /**
+         * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+         *
+         * @return The chatMsgByGroup.
+         */
+        com.oik.api.netty.pojo.Message.ChatMsgByGroup getChatMsgByGroup();
+
+        /**
+         * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+         */
+        com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder getChatMsgByGroupOrBuilder();
+
+        /**
+         * <code>.BindChannel bindChannel = 5;</code>
+         *
+         * @return Whether the bindChannel field is set.
+         */
+        boolean hasBindChannel();
+
+        /**
+         * <code>.BindChannel bindChannel = 5;</code>
+         *
+         * @return The bindChannel.
+         */
+        com.oik.api.netty.pojo.Message.BindChannel getBindChannel();
+
+        /**
+         * <code>.BindChannel bindChannel = 5;</code>
+         */
+        com.oik.api.netty.pojo.Message.BindChannelOrBuilder getBindChannelOrBuilder();
+
+        public com.oik.api.netty.pojo.Message.Msg.DataBodyCase getDataBodyCase();
+    }
+
+    public interface ChatMsgOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:ChatMsg)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The userId.
+         */
+        java.lang.String getUserId();
+
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The bytes for userId.
+         */
+        com.google.protobuf.ByteString
+        getUserIdBytes();
+
+        /**
+         * <code>string userName = 2;</code>
+         *
+         * @return The userName.
+         */
+        java.lang.String getUserName();
+
+        /**
+         * <code>string userName = 2;</code>
+         *
+         * @return The bytes for userName.
+         */
+        com.google.protobuf.ByteString
+        getUserNameBytes();
+
+        /**
+         * <code>string acceptId = 3;</code>
+         *
+         * @return The acceptId.
+         */
+        java.lang.String getAcceptId();
+
+        /**
+         * <code>string acceptId = 3;</code>
+         *
+         * @return The bytes for acceptId.
+         */
+        com.google.protobuf.ByteString
+        getAcceptIdBytes();
+
+        /**
+         * <code>string acceptName = 4;</code>
+         *
+         * @return The acceptName.
+         */
+        java.lang.String getAcceptName();
+
+        /**
+         * <code>string acceptName = 4;</code>
+         *
+         * @return The bytes for acceptName.
+         */
+        com.google.protobuf.ByteString
+        getAcceptNameBytes();
+
+        /**
+         * <code>string message = 5;</code>
+         *
+         * @return The message.
+         */
+        java.lang.String getMessage();
+
+        /**
+         * <code>string message = 5;</code>
+         *
+         * @return The bytes for message.
+         */
+        com.google.protobuf.ByteString
+        getMessageBytes();
+    }
+
+    public interface ChatMsgByGroupOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:ChatMsgByGroup)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The userId.
+         */
+        java.lang.String getUserId();
+
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The bytes for userId.
+         */
+        com.google.protobuf.ByteString
+        getUserIdBytes();
+
+        /**
+         * <code>string group = 2;</code>
+         *
+         * @return The group.
+         */
+        java.lang.String getGroup();
+
+        /**
+         * <code>string group = 2;</code>
+         *
+         * @return The bytes for group.
+         */
+        com.google.protobuf.ByteString
+        getGroupBytes();
+
+        /**
+         * <code>string message = 3;</code>
+         *
+         * @return The message.
+         */
+        java.lang.String getMessage();
+
+        /**
+         * <code>string message = 3;</code>
+         *
+         * @return The bytes for message.
+         */
+        com.google.protobuf.ByteString
+        getMessageBytes();
+    }
+
+    public interface ChatMsgAllOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:ChatMsgAll)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The userId.
+         */
+        java.lang.String getUserId();
+
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The bytes for userId.
+         */
+        com.google.protobuf.ByteString
+        getUserIdBytes();
+
+        /**
+         * <code>string message = 2;</code>
+         *
+         * @return The message.
+         */
+        java.lang.String getMessage();
+
+        /**
+         * <code>string message = 2;</code>
+         * @return The bytes for message.
+         */
+        com.google.protobuf.ByteString
+        getMessageBytes();
+    }
+
+    public interface BindChannelOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:BindChannel)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The userId.
+         */
+        java.lang.String getUserId();
+
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The bytes for userId.
+         */
+        com.google.protobuf.ByteString
+        getUserIdBytes();
+    }
 
     /**
-     * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+     * Protobuf type {@code Msg}
      */
-    com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder getChatMsgByGroupOrBuilder();
+    public static final class Msg extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:Msg)
+            MsgOrBuilder {
+        public static final int DATA_TYPE_FIELD_NUMBER = 1;
 
-    public com.oik.api.netty.pojo.Message.Msg.DataBodyCase getDataBodyCase();
-  }
-
-  public interface ChatMsgOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:ChatMsg)
-          com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The userId.
-     */
-    java.lang.String getUserId();
-
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The bytes for userId.
-     */
-    com.google.protobuf.ByteString
-    getUserIdBytes();
-
-    /**
-     * <code>string acceptId = 2;</code>
-     *
-     * @return The acceptId.
-     */
-    java.lang.String getAcceptId();
-
-    /**
-     * <code>string acceptId = 2;</code>
-     *
-     * @return The bytes for acceptId.
-     */
-    com.google.protobuf.ByteString
-    getAcceptIdBytes();
-
-    /**
-     * <code>string message = 3;</code>
-     *
-     * @return The message.
-     */
-    java.lang.String getMessage();
-
-    /**
-     * <code>string message = 3;</code>
-     *
-     * @return The bytes for message.
-     */
-    com.google.protobuf.ByteString
-    getMessageBytes();
-  }
-
-  public interface ChatMsgByGroupOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:ChatMsgByGroup)
-          com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The userId.
-     */
-    java.lang.String getUserId();
-
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The bytes for userId.
-     */
-    com.google.protobuf.ByteString
-    getUserIdBytes();
-
-    /**
-     * <code>string group = 2;</code>
-     *
-     * @return The group.
-     */
-    java.lang.String getGroup();
-
-    /**
-     * <code>string group = 2;</code>
-     *
-     * @return The bytes for group.
-     */
-    com.google.protobuf.ByteString
-    getGroupBytes();
-
-    /**
-     * <code>string message = 3;</code>
-     *
-     * @return The message.
-     */
-    java.lang.String getMessage();
-
-    /**
-     * <code>string message = 3;</code>
-     *
-     * @return The bytes for message.
-     */
-    com.google.protobuf.ByteString
-    getMessageBytes();
-  }
-
-  public interface ChatMsgAllOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:ChatMsgAll)
-          com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The userId.
-     */
-    java.lang.String getUserId();
-
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The bytes for userId.
-     */
-    com.google.protobuf.ByteString
-    getUserIdBytes();
-
-    /**
-     * <code>string message = 2;</code>
-     *
-     * @return The message.
-     */
-    java.lang.String getMessage();
-
-    /**
-     * <code>string message = 2;</code>
-     *
-     * @return The bytes for message.
-     */
-    com.google.protobuf.ByteString
-    getMessageBytes();
-  }
-
-  public interface BindChannelOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:BindChannel)
-          com.google.protobuf.MessageOrBuilder {
-  }
-
-  /**
-   * Protobuf type {@code Msg}
-   */
-  public static final class Msg extends
-          com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:Msg)
-          MsgOrBuilder {
-    public static final int DATA_TYPE_FIELD_NUMBER = 1;
-    public static final int CHATMSG_FIELD_NUMBER = 2;
-    public static final int CHATMSGALL_FIELD_NUMBER = 3;
-    public static final int CHATMSGBYGROUP_FIELD_NUMBER = 4;
-    // @@protoc_insertion_point(class_scope:Msg)
-    private static final com.oik.api.netty.pojo.Message.Msg DEFAULT_INSTANCE;
-    private static final com.google.protobuf.Parser<Msg>
-            PARSER = new com.google.protobuf.AbstractParser<Msg>() {
-      @java.lang.Override
-      public Msg parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-                  .setUnfinishedMessage(builder.buildPartial());
+        // Use Msg.newBuilder() to construct.
+        private Msg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-        return builder.buildPartial();
-      }
-    };
-    private static final long serialVersionUID = 0L;
 
-    static {
-      DEFAULT_INSTANCE = new com.oik.api.netty.pojo.Message.Msg();
-    }
+        private Msg() {
+            dataType_ = 0;
+        }
 
-    private java.lang.Object dataBody_;
-    private int dataType_ = 0;
+        public static final int CHATMSG_FIELD_NUMBER = 2;
 
-    private int dataBodyCase_ = 0;
-    ;
-    private byte memoizedIsInitialized = -1;
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
+        }
 
-    // Use Msg.newBuilder() to construct.
-    private Msg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
+        public static final int CHATMSGALL_FIELD_NUMBER = 3;
+        public static final int CHATMSGBYGROUP_FIELD_NUMBER = 4;
+        public static final int BINDCHANNEL_FIELD_NUMBER = 5;
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:Msg)
+        private static final com.oik.api.netty.pojo.Message.Msg DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<Msg>
+                PARSER = new com.google.protobuf.AbstractParser<Msg>() {
+            @java.lang.Override
+            public Msg parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                Builder builder = newBuilder();
+                try {
+                    builder.mergeFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    throw e.setUnfinishedMessage(builder.buildPartial());
+                } catch (com.google.protobuf.UninitializedMessageException e) {
+                    throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+                } catch (java.io.IOException e) {
+                    throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                            .setUnfinishedMessage(builder.buildPartial());
+                }
+                return builder.buildPartial();
+            }
+        };
+        ;
 
-    private Msg() {
-      dataType_ = 0;
-    }
+        static {
+            DEFAULT_INSTANCE = new com.oik.api.netty.pojo.Message.Msg();
+        }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-      return com.oik.api.netty.pojo.Message.internal_static_Msg_descriptor;
-    }
+        private int dataBodyCase_ = 0;
+        private java.lang.Object dataBody_;
+        private int dataType_ = 0;
+        private byte memoizedIsInitialized = -1;
 
-    public static com.oik.api.netty.pojo.Message.Msg parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.oik.api.netty.pojo.Message.internal_static_Msg_descriptor;
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
+        /**
+         * <code>.ChatMsg chatMsg = 2;</code>
+         * @return Whether the chatMsg field is set.
+         */
+        @java.lang.Override
+        public boolean hasChatMsg() {
+            return dataBodyCase_ == 2;
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
+        public static com.oik.api.netty.pojo.Message.Msg parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
+        public static com.oik.api.netty.pojo.Message.Msg parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
+        public static com.oik.api.netty.pojo.Message.Msg parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
+        /**
+         * <code>.ChatMsgAll chatMsgAll = 3;</code>
+         * @return Whether the chatMsgAll field is set.
+         */
+        @java.lang.Override
+        public boolean hasChatMsgAll() {
+            return dataBodyCase_ == 3;
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-    }
+        public static com.oik.api.netty.pojo.Message.Msg parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-    }
+        public static com.oik.api.netty.pojo.Message.Msg parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input);
-    }
+        public static com.oik.api.netty.pojo.Message.Msg parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
+        /**
+         * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+         * @return Whether the chatMsgByGroup field is set.
+         */
+        @java.lang.Override
+        public boolean hasChatMsgByGroup() {
+            return dataBodyCase_ == 4;
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-    }
+        public static com.oik.api.netty.pojo.Message.Msg parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-    }
+        public static com.oik.api.netty.pojo.Message.Msg parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
 
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
+        public static com.oik.api.netty.pojo.Message.Msg parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
 
-    public static Builder newBuilder(com.oik.api.netty.pojo.Message.Msg prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+        public static com.oik.api.netty.pojo.Message.Msg parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
 
-    public static com.oik.api.netty.pojo.Message.Msg getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
+        public static com.oik.api.netty.pojo.Message.Msg parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
 
-    public static com.google.protobuf.Parser<Msg> parser() {
+        public static com.oik.api.netty.pojo.Message.Msg parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        public static Builder newBuilder(com.oik.api.netty.pojo.Message.Msg prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public static com.oik.api.netty.pojo.Message.Msg getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        public static com.google.protobuf.Parser<Msg> parser() {
       return PARSER;
-    }
+        }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-            UnusedPrivateParameter unused) {
-      return new Msg();
-    }
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+                UnusedPrivateParameter unused) {
+            return new Msg();
+        }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.oik.api.netty.pojo.Message.internal_static_Msg_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.oik.api.netty.pojo.Message.Msg.class, com.oik.api.netty.pojo.Message.Msg.Builder.class);
+        }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-      return com.oik.api.netty.pojo.Message.internal_static_Msg_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                      com.oik.api.netty.pojo.Message.Msg.class, com.oik.api.netty.pojo.Message.Msg.Builder.class);
-    }
+        public DataBodyCase
+        getDataBodyCase() {
+            return DataBodyCase.forNumber(
+                    dataBodyCase_);
+        }
 
-    public DataBodyCase
-    getDataBodyCase() {
-      return DataBodyCase.forNumber(
-              dataBodyCase_);
-    }
-
-    /**
-     * <code>.Msg.DataType data_type = 1;</code>
-     *
+        /**
+         * <code>.Msg.DataType data_type = 1;</code>
      * @return The enum numeric value on the wire for dataType.
      */
-    @java.lang.Override
-    public int getDataTypeValue() {
+    @java.lang.Override public int getDataTypeValue() {
       return dataType_;
     }
 
     /**
      * <code>.Msg.DataType data_type = 1;</code>
-     *
      * @return The dataType.
      */
-    @java.lang.Override
-    public com.oik.api.netty.pojo.Message.Msg.DataType getDataType() {
+    @java.lang.Override public com.oik.api.netty.pojo.Message.Msg.DataType getDataType() {
       com.oik.api.netty.pojo.Message.Msg.DataType result = com.oik.api.netty.pojo.Message.Msg.DataType.forNumber(dataType_);
       return result == null ? com.oik.api.netty.pojo.Message.Msg.DataType.UNRECOGNIZED : result;
     }
 
-    /**
-     * <code>.ChatMsg chatMsg = 2;</code>
-     *
-     * @return Whether the chatMsg field is set.
-     */
-    @java.lang.Override
-    public boolean hasChatMsg() {
-      return dataBodyCase_ == 2;
-    }
-
-    /**
-     * <code>.ChatMsg chatMsg = 2;</code>
-     *
+        /**
+         * <code>.ChatMsg chatMsg = 2;</code>
      * @return The chatMsg.
      */
     @java.lang.Override
     public com.oik.api.netty.pojo.Message.ChatMsg getChatMsg() {
       if (dataBodyCase_ == 2) {
-        return (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_;
+         return (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_;
       }
       return com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
     }
 
-    /**
-     * <code>.ChatMsg chatMsg = 2;</code>
+        /**
+         * <code>.ChatMsg chatMsg = 2;</code>
      */
     @java.lang.Override
     public com.oik.api.netty.pojo.Message.ChatMsgOrBuilder getChatMsgOrBuilder() {
       if (dataBodyCase_ == 2) {
-        return (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_;
+         return (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_;
       }
       return com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
     }
 
-    /**
-     * <code>.ChatMsgAll chatMsgAll = 3;</code>
-     *
-     * @return Whether the chatMsgAll field is set.
-     */
-    @java.lang.Override
-    public boolean hasChatMsgAll() {
-      return dataBodyCase_ == 3;
-    }
-
-    /**
-     * <code>.ChatMsgAll chatMsgAll = 3;</code>
-     *
+        /**
+         * <code>.ChatMsgAll chatMsgAll = 3;</code>
      * @return The chatMsgAll.
      */
     @java.lang.Override
     public com.oik.api.netty.pojo.Message.ChatMsgAll getChatMsgAll() {
       if (dataBodyCase_ == 3) {
-        return (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_;
+         return (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_;
       }
       return com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
     }
@@ -588,154 +657,183 @@ public final class Message {
      */
     @java.lang.Override
     public com.oik.api.netty.pojo.Message.ChatMsgAllOrBuilder getChatMsgAllOrBuilder() {
-      if (dataBodyCase_ == 3) {
-        return (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_;
-      }
-      return com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
+        if (dataBodyCase_ == 3) {
+            return (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_;
+        }
+        return com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
     }
 
-    /**
-     * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-     *
-     * @return Whether the chatMsgByGroup field is set.
-     */
-    @java.lang.Override
-    public boolean hasChatMsgByGroup() {
-      return dataBodyCase_ == 4;
-    }
+        /**
+         * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+         *
+         * @return The chatMsgByGroup.
+         */
+        @java.lang.Override
+        public com.oik.api.netty.pojo.Message.ChatMsgByGroup getChatMsgByGroup() {
+            if (dataBodyCase_ == 4) {
+                return (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_;
+            }
+            return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
+        }
 
-    /**
-     * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-     *
-     * @return The chatMsgByGroup.
-     */
-    @java.lang.Override
-    public com.oik.api.netty.pojo.Message.ChatMsgByGroup getChatMsgByGroup() {
-      if (dataBodyCase_ == 4) {
-        return (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_;
-      }
-      return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
-    }
+        /**
+         * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+         */
+        @java.lang.Override
+        public com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder getChatMsgByGroupOrBuilder() {
+            if (dataBodyCase_ == 4) {
+                return (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_;
+            }
+            return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
+        }
 
-    /**
-     * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-     */
-    @java.lang.Override
-    public com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder getChatMsgByGroupOrBuilder() {
-      if (dataBodyCase_ == 4) {
-        return (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_;
-      }
-      return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
-    }
+        /**
+         * <code>.BindChannel bindChannel = 5;</code>
+         *
+         * @return Whether the bindChannel field is set.
+         */
+        @java.lang.Override
+        public boolean hasBindChannel() {
+            return dataBodyCase_ == 5;
+        }
 
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+        /**
+         * <code>.BindChannel bindChannel = 5;</code>
+         *
+         * @return The bindChannel.
+         */
+        @java.lang.Override
+        public com.oik.api.netty.pojo.Message.BindChannel getBindChannel() {
+            if (dataBodyCase_ == 5) {
+                return (com.oik.api.netty.pojo.Message.BindChannel) dataBody_;
+            }
+            return com.oik.api.netty.pojo.Message.BindChannel.getDefaultInstance();
+        }
 
-      memoizedIsInitialized = 1;
-      return true;
-    }
+        /**
+         * <code>.BindChannel bindChannel = 5;</code>
+         */
+        @java.lang.Override
+        public com.oik.api.netty.pojo.Message.BindChannelOrBuilder getBindChannelOrBuilder() {
+            if (dataBodyCase_ == 5) {
+                return (com.oik.api.netty.pojo.Message.BindChannel) dataBody_;
+            }
+            return com.oik.api.netty.pojo.Message.BindChannel.getDefaultInstance();
+        }
 
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-      if (dataType_ != com.oik.api.netty.pojo.Message.Msg.DataType.chatMsgType.getNumber()) {
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (dataType_ != com.oik.api.netty.pojo.Message.Msg.DataType.chatMsgType.getNumber()) {
         output.writeEnum(1, dataType_);
       }
       if (dataBodyCase_ == 2) {
         output.writeMessage(2, (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_);
       }
+            if (dataBodyCase_ == 3) {
+                output.writeMessage(3, (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_);
+            }
+            if (dataBodyCase_ == 4) {
+                output.writeMessage(4, (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_);
+            }
+            if (dataBodyCase_ == 5) {
+                output.writeMessage(5, (com.oik.api.netty.pojo.Message.BindChannel) dataBody_);
+            }
+            getUnknownFields().writeTo(output);
+        }
+
+        @java.lang.Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (dataType_ != com.oik.api.netty.pojo.Message.Msg.DataType.chatMsgType.getNumber()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeEnumSize(1, dataType_);
+            }
+            if (dataBodyCase_ == 2) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(2, (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_);
+      }
       if (dataBodyCase_ == 3) {
-        output.writeMessage(3, (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_);
       }
       if (dataBodyCase_ == 4) {
-        output.writeMessage(4, (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_);
       }
-      getUnknownFields().writeTo(output);
-    }
+      if (dataBodyCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (com.oik.api.netty.pojo.Message.BindChannel) dataBody_);
+      }
+            size += getUnknownFields().getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
 
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (dataType_ != com.oik.api.netty.pojo.Message.Msg.DataType.chatMsgType.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-                .computeEnumSize(1, dataType_);
-      }
-      if (dataBodyCase_ == 2) {
-        size += com.google.protobuf.CodedOutputStream
-                .computeMessageSize(2, (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_);
-      }
-      if (dataBodyCase_ == 3) {
-        size += com.google.protobuf.CodedOutputStream
-                .computeMessageSize(3, (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_);
-      }
-      if (dataBodyCase_ == 4) {
-        size += com.google.protobuf.CodedOutputStream
-                .computeMessageSize(4, (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-        return true;
-      }
-      if (!(obj instanceof com.oik.api.netty.pojo.Message.Msg)) {
-        return super.equals(obj);
-      }
-      com.oik.api.netty.pojo.Message.Msg other = (com.oik.api.netty.pojo.Message.Msg) obj;
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.oik.api.netty.pojo.Message.Msg)) {
+                return super.equals(obj);
+            }
+            com.oik.api.netty.pojo.Message.Msg other = (com.oik.api.netty.pojo.Message.Msg) obj;
 
       if (dataType_ != other.dataType_) return false;
       if (!getDataBodyCase().equals(other.getDataBodyCase())) return false;
       switch (dataBodyCase_) {
         case 2:
           if (!getChatMsg()
-                  .equals(other.getChatMsg())) return false;
+              .equals(other.getChatMsg())) return false;
           break;
         case 3:
           if (!getChatMsgAll()
-                  .equals(other.getChatMsgAll())) return false;
+              .equals(other.getChatMsgAll())) return false;
           break;
         case 4:
-          if (!getChatMsgByGroup()
-                  .equals(other.getChatMsgByGroup())) return false;
-          break;
-        case 0:
-        default:
+            if (!getChatMsgByGroup()
+                    .equals(other.getChatMsgByGroup())) return false;
+            break;
+          case 5:
+              if (!getBindChannel()
+                      .equals(other.getBindChannel())) return false;
+              break;
+          case 0:
+          default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-      return true;
-    }
+            if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+            return true;
+        }
 
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + DATA_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + dataType_;
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + DATA_TYPE_FIELD_NUMBER;
+            hash = (53 * hash) + dataType_;
       switch (dataBodyCase_) {
         case 2:
           hash = (37 * hash) + CHATMSG_FIELD_NUMBER;
-          hash = (53 * hash) + getChatMsg().hashCode();
-          break;
+            hash = (53 * hash) + getChatMsg().hashCode();
+            break;
         case 3:
           hash = (37 * hash) + CHATMSGALL_FIELD_NUMBER;
-          hash = (53 * hash) + getChatMsgAll().hashCode();
-          break;
-        case 4:
-          hash = (37 * hash) + CHATMSGBYGROUP_FIELD_NUMBER;
-          hash = (53 * hash) + getChatMsgByGroup().hashCode();
+            hash = (53 * hash) + getChatMsgAll().hashCode();
+            break;
+          case 4:
+              hash = (37 * hash) + CHATMSGBYGROUP_FIELD_NUMBER;
+              hash = (53 * hash) + getChatMsgByGroup().hashCode();
+              break;
+          case 5:
+              hash = (37 * hash) + BINDCHANNEL_FIELD_NUMBER;
+          hash = (53 * hash) + getBindChannel().hashCode();
           break;
         case 0:
         default:
@@ -747,62 +845,62 @@ public final class Message {
 
     @java.lang.Override
     public Builder newBuilderForType() {
-      return newBuilder();
+        return newBuilder();
     }
 
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
-    }
+        @java.lang.Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
 
-    @java.lang.Override
-    protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<Msg> getParserForType() {
-      return PARSER;
-    }
+        @java.lang.Override
+        public com.google.protobuf.Parser<Msg> getParserForType() {
+            return PARSER;
+        }
 
-    @java.lang.Override
-    public com.oik.api.netty.pojo.Message.Msg getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
+        @java.lang.Override
+        public com.oik.api.netty.pojo.Message.Msg getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
 
-    /**
+        /**
      * Protobuf enum {@code Msg.DataType}
      */
-    public enum DataType
-            implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>chatMsgType = 0;</code>
-       */
-      chatMsgType(0),
-      /**
-       * <code>chatMsgAllType = 1;</code>
-       */
-      chatMsgAllType(1),
-      /**
-       * <code>chatMsgByGroupType = 2;</code>
-       */
-      chatMsgByGroupType(2),
-      /**
-       * <code>bindChannel = 3;</code>
-       */
-      bindChannel(3),
-      UNRECOGNIZED(-1),
-      ;
+        public enum DataType
+                implements com.google.protobuf.ProtocolMessageEnum {
+            /**
+             * <code>chatMsgType = 0;</code>
+             */
+            chatMsgType(0),
+            /**
+             * <code>chatMsgAllType = 1;</code>
+             */
+            chatMsgAllType(1),
+            /**
+             * <code>chatMsgByGroupType = 2;</code>
+             */
+            chatMsgByGroupType(2),
+            /**
+             * <code>bindChannelType = 3;</code>
+             */
+            bindChannelType(3),
+            UNRECOGNIZED(-1),
+            ;
 
-      /**
-       * <code>chatMsgType = 0;</code>
-       */
-      public static final int chatMsgType_VALUE = 0;
-      /**
-       * <code>chatMsgAllType = 1;</code>
+            /**
+             * <code>chatMsgType = 0;</code>
+             */
+            public static final int chatMsgType_VALUE = 0;
+            /**
+             * <code>chatMsgAllType = 1;</code>
        */
       public static final int chatMsgAllType_VALUE = 1;
       /**
@@ -810,273 +908,290 @@ public final class Message {
        */
       public static final int chatMsgByGroupType_VALUE = 2;
       /**
-       * <code>bindChannel = 3;</code>
+       * <code>bindChannelType = 3;</code>
        */
-      public static final int bindChannel_VALUE = 3;
+      public static final int bindChannelType_VALUE = 3;
       private static final com.google.protobuf.Internal.EnumLiteMap<
-              DataType> internalValueMap =
-              new com.google.protobuf.Internal.EnumLiteMap<DataType>() {
-                public DataType findValueByNumber(int number) {
-                  return DataType.forNumber(number);
+          DataType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<DataType>() {
+              public DataType findValueByNumber(int number) {
+                return DataType.forNumber(number);
+              }
+            };
+            private static final DataType[] VALUES = values();
+            private final int value;
+
+            private DataType(int value) {
+                this.value = value;
+            }
+
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             * @deprecated Use {@link #forNumber(int)} instead.
+             */
+            @java.lang.Deprecated
+            public static DataType valueOf(int value) {
+                return forNumber(value);
+            }
+
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             */
+            public static DataType forNumber(int value) {
+                switch (value) {
+                    case 0:
+                        return chatMsgType;
+                    case 1:
+                        return chatMsgAllType;
+                    case 2:
+                        return chatMsgByGroupType;
+                    case 3:
+                        return bindChannelType;
+                    default:
+                        return null;
                 }
-              };
-      private static final DataType[] VALUES = values();
-      private final int value;
-
-      private DataType(int value) {
-        this.value = value;
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static DataType valueOf(int value) {
-        return forNumber(value);
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       */
-      public static DataType forNumber(int value) {
-        switch (value) {
-          case 0:
-            return chatMsgType;
-          case 1:
-            return chatMsgAllType;
-          case 2:
-            return chatMsgByGroupType;
-          case 3:
-            return bindChannel;
-          default:
-            return null;
-        }
       }
 
       public static com.google.protobuf.Internal.EnumLiteMap<DataType>
       internalGetValueMap() {
-        return internalValueMap;
+          return internalValueMap;
       }
 
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-      getDescriptor() {
-        return com.oik.api.netty.pojo.Message.Msg.getDescriptor().getEnumTypes().get(0);
-      }
+            public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+                return com.oik.api.netty.pojo.Message.Msg.getDescriptor().getEnumTypes().get(0);
+            }
 
-      public static DataType valueOf(
-              com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-                  "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
+            public static DataType valueOf(
+                    com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+                if (desc.getType() != getDescriptor()) {
+                    throw new java.lang.IllegalArgumentException(
+                            "EnumValueDescriptor is not for this type.");
+                }
+                if (desc.getIndex() == -1) {
+                    return UNRECOGNIZED;
+                }
+                return VALUES[desc.getIndex()];
       }
 
       public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-                  "Can't get the number of an unknown enum value.");
-        }
-        return value;
+          if (this == UNRECOGNIZED) {
+              throw new java.lang.IllegalArgumentException(
+                      "Can't get the number of an unknown enum value.");
+          }
+          return value;
       }
 
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-      getValueDescriptor() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalStateException(
-                  "Can't get the descriptor of an unrecognized enum value.");
-        }
-        return getDescriptor().getValues().get(ordinal());
-      }
+            public final com.google.protobuf.Descriptors.EnumValueDescriptor
+            getValueDescriptor() {
+                if (this == UNRECOGNIZED) {
+                    throw new java.lang.IllegalStateException(
+                            "Can't get the descriptor of an unrecognized enum value.");
+                }
+                return getDescriptor().getValues().get(ordinal());
+            }
 
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-      getDescriptorForType() {
+            public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
         return getDescriptor();
       }
 
       // @@protoc_insertion_point(enum_scope:Msg.DataType)
     }
 
-    public enum DataBodyCase
-            implements com.google.protobuf.Internal.EnumLite,
-            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-      CHATMSG(2),
-      CHATMSGALL(3),
-      CHATMSGBYGROUP(4),
-      DATABODY_NOT_SET(0);
+public enum DataBodyCase
+        implements com.google.protobuf.Internal.EnumLite,
+        com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+    CHATMSG(2),
+    CHATMSGALL(3),
+    CHATMSGBYGROUP(4),
+    BINDCHANNEL(5),
+    DATABODY_NOT_SET(0);
       private final int value;
-
       private DataBodyCase(int value) {
-        this.value = value;
+          this.value = value;
       }
-
-      /**
-       * @param value The number of the enum to look for.
-       * @return The enum associated with the given number.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static DataBodyCase valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static DataBodyCase forNumber(int value) {
-        switch (value) {
-          case 2:
-            return CHATMSG;
-          case 3:
-            return CHATMSGALL;
-          case 4:
-            return CHATMSGBYGROUP;
-          case 0:
-            return DATABODY_NOT_SET;
-          default:
-            return null;
-        }
-      }
-
-      public int getNumber() {
-        return this.value;
-      }
-    }
 
     /**
-     * Protobuf type {@code Msg}
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
+     * @deprecated Use {@link #forNumber(int)} instead.
      */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:Msg)
-            com.oik.api.netty.pojo.Message.MsgOrBuilder {
-      private int dataBodyCase_ = 0;
-      private java.lang.Object dataBody_;
-      private int bitField0_;
-      private int dataType_ = 0;
-      private com.google.protobuf.SingleFieldBuilderV3<
-              com.oik.api.netty.pojo.Message.ChatMsg, com.oik.api.netty.pojo.Message.ChatMsg.Builder, com.oik.api.netty.pojo.Message.ChatMsgOrBuilder> chatMsgBuilder_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-              com.oik.api.netty.pojo.Message.ChatMsgAll, com.oik.api.netty.pojo.Message.ChatMsgAll.Builder, com.oik.api.netty.pojo.Message.ChatMsgAllOrBuilder> chatMsgAllBuilder_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-              com.oik.api.netty.pojo.Message.ChatMsgByGroup, com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder, com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder> chatMsgByGroupBuilder_;
+    @java.lang.Deprecated
+    public static DataBodyCase valueOf(int value) {
+        return forNumber(value);
+    }
 
-      // Construct using com.oik.api.netty.pojo.Message.Msg.newBuilder()
+    public static DataBodyCase forNumber(int value) {
+        switch (value) {
+            case 2:
+                return CHATMSG;
+            case 3:
+                return CHATMSGALL;
+            case 4:
+                return CHATMSGBYGROUP;
+            case 5:
+                return BINDCHANNEL;
+            case 0:
+                return DATABODY_NOT_SET;
+            default:
+                return null;
+        }
+    }
+
+    public int getNumber() {
+        return this.value;
+    }
+}
+
+        /**
+         * Protobuf type {@code Msg}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:Msg)
+                com.oik.api.netty.pojo.Message.MsgOrBuilder {
+            private int dataBodyCase_ = 0;
+            private java.lang.Object dataBody_;
+            private int bitField0_;
+            private int dataType_ = 0;
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.oik.api.netty.pojo.Message.ChatMsg, com.oik.api.netty.pojo.Message.ChatMsg.Builder, com.oik.api.netty.pojo.Message.ChatMsgOrBuilder> chatMsgBuilder_;
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.oik.api.netty.pojo.Message.ChatMsgAll, com.oik.api.netty.pojo.Message.ChatMsgAll.Builder, com.oik.api.netty.pojo.Message.ChatMsgAllOrBuilder> chatMsgAllBuilder_;
+
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.Msg getDefaultInstanceForType() {
+                return com.oik.api.netty.pojo.Message.Msg.getDefaultInstance();
+            }
+
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.Msg build() {
+                com.oik.api.netty.pojo.Message.Msg result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.oik.api.netty.pojo.Message.ChatMsgByGroup, com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder, com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder> chatMsgByGroupBuilder_;
+
+            private void buildPartial0(com.oik.api.netty.pojo.Message.Msg result) {
+                int from_bitField0_ = bitField0_;
+                if (((from_bitField0_ & 0x00000001) != 0)) {
+                    result.dataType_ = dataType_;
+                }
+            }
+
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.oik.api.netty.pojo.Message.BindChannel, com.oik.api.netty.pojo.Message.BindChannel.Builder, com.oik.api.netty.pojo.Message.BindChannelOrBuilder> bindChannelBuilder_;
+
+            @java.lang.Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            // Construct using com.oik.api.netty.pojo.Message.Msg.newBuilder()
       private Builder() {
 
       }
-
       private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
+          super(parent);
 
       }
 
-      public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-        return com.oik.api.netty.pojo.Message.internal_static_Msg_descriptor;
-      }
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.oik.api.netty.pojo.Message.internal_static_Msg_descriptor;
+            }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-        return com.oik.api.netty.pojo.Message.internal_static_Msg_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        com.oik.api.netty.pojo.Message.Msg.class, com.oik.api.netty.pojo.Message.Msg.Builder.class);
-      }
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.oik.api.netty.pojo.Message.internal_static_Msg_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.oik.api.netty.pojo.Message.Msg.class, com.oik.api.netty.pojo.Message.Msg.Builder.class);
+            }
 
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        bitField0_ = 0;
-        dataType_ = 0;
-        if (chatMsgBuilder_ != null) {
-          chatMsgBuilder_.clear();
-        }
-        if (chatMsgAllBuilder_ != null) {
-          chatMsgAllBuilder_.clear();
-        }
-        if (chatMsgByGroupBuilder_ != null) {
-          chatMsgByGroupBuilder_.clear();
-        }
-        dataBodyCase_ = 0;
-        dataBody_ = null;
-        return this;
-      }
+            @java.lang.Override
+            public Builder clear() {
+                super.clear();
+                bitField0_ = 0;
+                dataType_ = 0;
+                if (chatMsgBuilder_ != null) {
+                    chatMsgBuilder_.clear();
+                }
+                if (chatMsgAllBuilder_ != null) {
+                    chatMsgAllBuilder_.clear();
+                }
+                if (chatMsgByGroupBuilder_ != null) {
+                    chatMsgByGroupBuilder_.clear();
+                }
+                if (bindChannelBuilder_ != null) {
+                    bindChannelBuilder_.clear();
+                }
+                dataBodyCase_ = 0;
+                dataBody_ = null;
+                return this;
+            }
 
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
-        return com.oik.api.netty.pojo.Message.internal_static_Msg_descriptor;
-      }
+            @java.lang.Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.oik.api.netty.pojo.Message.internal_static_Msg_descriptor;
+            }
 
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.Msg getDefaultInstanceForType() {
-        return com.oik.api.netty.pojo.Message.Msg.getDefaultInstance();
-      }
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.Msg buildPartial() {
+                com.oik.api.netty.pojo.Message.Msg result = new com.oik.api.netty.pojo.Message.Msg(this);
+                if (bitField0_ != 0) {
+                    buildPartial0(result);
+                }
+                buildPartialOneofs(result);
+                onBuilt();
+                return result;
+            }
 
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.Msg build() {
-        com.oik.api.netty.pojo.Message.Msg result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
+            @java.lang.Override
+            public final boolean isInitialized() {
+                return true;
+            }
 
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.Msg buildPartial() {
-        com.oik.api.netty.pojo.Message.Msg result = new com.oik.api.netty.pojo.Message.Msg(this);
-        if (bitField0_ != 0) {
-          buildPartial0(result);
-        }
-        buildPartialOneofs(result);
-        onBuilt();
-        return result;
-      }
+            private void buildPartialOneofs(com.oik.api.netty.pojo.Message.Msg result) {
+                result.dataBodyCase_ = dataBodyCase_;
+                result.dataBody_ = this.dataBody_;
+                if (dataBodyCase_ == 2 &&
+                        chatMsgBuilder_ != null) {
+                    result.dataBody_ = chatMsgBuilder_.build();
+                }
+                if (dataBodyCase_ == 3 &&
+                        chatMsgAllBuilder_ != null) {
+                    result.dataBody_ = chatMsgAllBuilder_.build();
+                }
+                if (dataBodyCase_ == 4 &&
+                        chatMsgByGroupBuilder_ != null) {
+                    result.dataBody_ = chatMsgByGroupBuilder_.build();
+                }
+                if (dataBodyCase_ == 5 &&
+                        bindChannelBuilder_ != null) {
+                    result.dataBody_ = bindChannelBuilder_.build();
+                }
+            }
 
-      private void buildPartial0(com.oik.api.netty.pojo.Message.Msg result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.dataType_ = dataType_;
-        }
-      }
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.setField(field, value);
+            }
 
-      private void buildPartialOneofs(com.oik.api.netty.pojo.Message.Msg result) {
-        result.dataBodyCase_ = dataBodyCase_;
-        result.dataBody_ = this.dataBody_;
-        if (dataBodyCase_ == 2 &&
-                chatMsgBuilder_ != null) {
-          result.dataBody_ = chatMsgBuilder_.build();
-        }
-        if (dataBodyCase_ == 3 &&
-                chatMsgAllBuilder_ != null) {
-          result.dataBody_ = chatMsgAllBuilder_.build();
-        }
-        if (dataBodyCase_ == 4 &&
-                chatMsgByGroupBuilder_ != null) {
-          result.dataBody_ = chatMsgByGroupBuilder_.build();
-        }
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-
-      @java.lang.Override
-      public Builder setField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
-        return super.setField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder clearField(
-              com.google.protobuf.Descriptors.FieldDescriptor field) {
+            @java.lang.Override
+            public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
 
@@ -1088,8 +1203,8 @@ public final class Message {
 
       @java.lang.Override
       public Builder setRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              int index, java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
 
@@ -1097,100 +1212,149 @@ public final class Message {
       public Builder addRepeatedField(
               com.google.protobuf.Descriptors.FieldDescriptor field,
               java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+          return super.addRepeatedField(field, value);
       }
 
-      public Builder clearDataBody() {
-        dataBodyCase_ = 0;
-        dataBody_ = null;
-        onChanged();
-        return this;
-      }
+            @java.lang.Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.oik.api.netty.pojo.Message.Msg) {
+                    return mergeFrom((com.oik.api.netty.pojo.Message.Msg) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
 
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.oik.api.netty.pojo.Message.Msg) {
-          return mergeFrom((com.oik.api.netty.pojo.Message.Msg) other);
-        } else {
-          super.mergeFrom(other);
+            public Builder mergeFrom(com.oik.api.netty.pojo.Message.Msg other) {
+                if (other == com.oik.api.netty.pojo.Message.Msg.getDefaultInstance()) return this;
+                if (other.dataType_ != 0) {
+                    setDataTypeValue(other.getDataTypeValue());
+                }
+                switch (other.getDataBodyCase()) {
+                    case CHATMSG: {
+                        mergeChatMsg(other.getChatMsg());
+                        break;
+                    }
+                    case CHATMSGALL: {
+                        mergeChatMsgAll(other.getChatMsgAll());
+                        break;
+                    }
+                    case CHATMSGBYGROUP: {
+                        mergeChatMsgByGroup(other.getChatMsgByGroup());
+                        break;
+                    }
+                    case BINDCHANNEL: {
+                        mergeBindChannel(other.getBindChannel());
+                        break;
+                    }
+                    case DATABODY_NOT_SET: {
+                        break;
+                    }
+                }
+                this.mergeUnknownFields(other.getUnknownFields());
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.Msg.DataType data_type = 1;</code>
+             *
+             * @param value The enum numeric value on the wire for dataType to set.
+             * @return This builder for chaining.
+             */
+            public Builder setDataTypeValue(int value) {
+                dataType_ = value;
+                bitField0_ |= 0x00000001;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.Msg.DataType data_type = 1;</code>
+             *
+             * @return The dataType.
+             */
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.Msg.DataType getDataType() {
+                com.oik.api.netty.pojo.Message.Msg.DataType result = com.oik.api.netty.pojo.Message.Msg.DataType.forNumber(dataType_);
+                return result == null ? com.oik.api.netty.pojo.Message.Msg.DataType.UNRECOGNIZED : result;
+            }
+
+            /**
+             * <code>.Msg.DataType data_type = 1;</code>
+             *
+             * @param value The dataType to set.
+             * @return This builder for chaining.
+             */
+            public Builder setDataType(com.oik.api.netty.pojo.Message.Msg.DataType value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                bitField0_ |= 0x00000001;
+                dataType_ = value.getNumber();
+                onChanged();
+                return this;
+            }
+      /**
+       * <code>.Msg.DataType data_type = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDataType() {
+          bitField0_ = (bitField0_ & ~0x00000001);
+          dataType_ = 0;
+          onChanged();
           return this;
-        }
-      }
-
-      public Builder mergeFrom(com.oik.api.netty.pojo.Message.Msg other) {
-        if (other == com.oik.api.netty.pojo.Message.Msg.getDefaultInstance()) return this;
-        if (other.dataType_ != 0) {
-          setDataTypeValue(other.getDataTypeValue());
-        }
-        switch (other.getDataBodyCase()) {
-          case CHATMSG: {
-            mergeChatMsg(other.getChatMsg());
-            break;
-          }
-          case CHATMSGALL: {
-            mergeChatMsgAll(other.getChatMsgAll());
-            break;
-          }
-          case CHATMSGBYGROUP: {
-            mergeChatMsgByGroup(other.getChatMsgByGroup());
-            break;
-          }
-          case DATABODY_NOT_SET: {
-            break;
-          }
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
       }
 
       @java.lang.Override
       public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                dataType_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                input.readMessage(
-                        getChatMsgFieldBuilder().getBuilder(),
-                        extensionRegistry);
-                dataBodyCase_ = 2;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                        getChatMsgAllFieldBuilder().getBuilder(),
-                        extensionRegistry);
+          if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+          }
+          try {
+              boolean done = false;
+              while (!done) {
+                  int tag = input.readTag();
+                  switch (tag) {
+                      case 0:
+                          done = true;
+                          break;
+                      case 8: {
+                          dataType_ = input.readEnum();
+                          bitField0_ |= 0x00000001;
+                          break;
+                      } // case 8
+                      case 18: {
+                          input.readMessage(
+                                  getChatMsgFieldBuilder().getBuilder(),
+                                  extensionRegistry);
+                          dataBodyCase_ = 2;
+                          break;
+                      } // case 18
+                      case 26: {
+                          input.readMessage(
+                                  getChatMsgAllFieldBuilder().getBuilder(),
+                    extensionRegistry);
                 dataBodyCase_ = 3;
                 break;
               } // case 26
               case 34: {
                 input.readMessage(
-                        getChatMsgByGroupFieldBuilder().getBuilder(),
-                        extensionRegistry);
+                    getChatMsgByGroupFieldBuilder().getBuilder(),
+                    extensionRegistry);
                 dataBodyCase_ = 4;
                 break;
               } // case 34
+              case 42: {
+                input.readMessage(
+                    getBindChannelFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataBodyCase_ = 5;
+                break;
+              } // case 42
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1206,127 +1370,102 @@ public final class Message {
         } // finally
         return this;
       }
-
-      public DataBodyCase
-      getDataBodyCase() {
-        return DataBodyCase.forNumber(
-                dataBodyCase_);
-      }
-
-      /**
-       * <code>.Msg.DataType data_type = 1;</code>
-       *
-       * @return The enum numeric value on the wire for dataType.
-       */
-      @java.lang.Override
-      public int getDataTypeValue() {
-        return dataType_;
-      }
-
-      /**
-       * <code>.Msg.DataType data_type = 1;</code>
-       *
-       * @param value The enum numeric value on the wire for dataType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDataTypeValue(int value) {
-        dataType_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
-
-      /**
-       * <code>.Msg.DataType data_type = 1;</code>
-       *
-       * @return The dataType.
-       */
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.Msg.DataType getDataType() {
-        com.oik.api.netty.pojo.Message.Msg.DataType result = com.oik.api.netty.pojo.Message.Msg.DataType.forNumber(dataType_);
-        return result == null ? com.oik.api.netty.pojo.Message.Msg.DataType.UNRECOGNIZED : result;
-      }
-
-      /**
-       * <code>.Msg.DataType data_type = 1;</code>
-       *
-       * @param value The dataType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDataType(com.oik.api.netty.pojo.Message.Msg.DataType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000001;
-        dataType_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-
-      /**
-       * <code>.Msg.DataType data_type = 1;</code>
-       *
-       * @return This builder for chaining.
-       */
-      public Builder clearDataType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        dataType_ = 0;
-        onChanged();
-        return this;
-      }
-
       /**
        * <code>.ChatMsg chatMsg = 2;</code>
-       *
        * @return Whether the chatMsg field is set.
        */
       @java.lang.Override
       public boolean hasChatMsg() {
-        return dataBodyCase_ == 2;
+          return dataBodyCase_ == 2;
       }
 
-      /**
-       * <code>.ChatMsg chatMsg = 2;</code>
-       *
-       * @return The chatMsg.
-       */
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsg getChatMsg() {
-        if (chatMsgBuilder_ == null) {
-          if (dataBodyCase_ == 2) {
-            return (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_;
-          }
-          return com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
-        } else {
-          if (dataBodyCase_ == 2) {
-            return chatMsgBuilder_.getMessage();
-          }
-          return com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
-        }
-      }
+            /**
+             * <code>.ChatMsg chatMsg = 2;</code>
+             *
+             * @return The chatMsg.
+             */
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsg getChatMsg() {
+                if (chatMsgBuilder_ == null) {
+                    if (dataBodyCase_ == 2) {
+                        return (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_;
+                    }
+                    return com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
+                } else {
+                    if (dataBodyCase_ == 2) {
+                        return chatMsgBuilder_.getMessage();
+                    }
+                    return com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
+                }
+            }
 
-      /**
-       * <code>.ChatMsg chatMsg = 2;</code>
-       */
-      public Builder setChatMsg(com.oik.api.netty.pojo.Message.ChatMsg value) {
-        if (chatMsgBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          dataBody_ = value;
-          onChanged();
-        } else {
-          chatMsgBuilder_.setMessage(value);
-        }
-        dataBodyCase_ = 2;
-        return this;
-      }
+            /**
+             * <code>.ChatMsg chatMsg = 2;</code>
+             */
+            public Builder setChatMsg(com.oik.api.netty.pojo.Message.ChatMsg value) {
+                if (chatMsgBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    dataBody_ = value;
+                    onChanged();
+                } else {
+                    chatMsgBuilder_.setMessage(value);
+                }
+                dataBodyCase_ = 2;
+                return this;
+            }
+
+            public DataBodyCase
+            getDataBodyCase() {
+                return DataBodyCase.forNumber(
+                        dataBodyCase_);
+            }
+
+            public Builder clearDataBody() {
+                dataBodyCase_ = 0;
+                dataBody_ = null;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.Msg.DataType data_type = 1;</code>
+             *
+             * @return The enum numeric value on the wire for dataType.
+             */
+            @java.lang.Override
+            public int getDataTypeValue() {
+                return dataType_;
+            }
+
+            /**
+             * <code>.ChatMsg chatMsg = 2;</code>
+             */
+            public com.oik.api.netty.pojo.Message.ChatMsg.Builder getChatMsgBuilder() {
+                return getChatMsgFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>.ChatMsg chatMsg = 2;</code>
+             */
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsgOrBuilder getChatMsgOrBuilder() {
+                if ((dataBodyCase_ == 2) && (chatMsgBuilder_ != null)) {
+                    return chatMsgBuilder_.getMessageOrBuilder();
+                } else {
+                    if (dataBodyCase_ == 2) {
+                        return (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_;
+                    }
+                    return com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
+                }
+            }
 
       /**
        * <code>.ChatMsg chatMsg = 2;</code>
        */
       public Builder setChatMsg(
-              com.oik.api.netty.pojo.Message.ChatMsg.Builder builderForValue) {
+          com.oik.api.netty.pojo.Message.ChatMsg.Builder builderForValue) {
         if (chatMsgBuilder_ == null) {
           dataBody_ = builderForValue.build();
           onChanged();
@@ -1340,32 +1479,12 @@ public final class Message {
       /**
        * <code>.ChatMsg chatMsg = 2;</code>
        */
-      public Builder clearChatMsg() {
-        if (chatMsgBuilder_ == null) {
-          if (dataBodyCase_ == 2) {
-            dataBodyCase_ = 0;
-            dataBody_ = null;
-            onChanged();
-          }
-        } else {
-          if (dataBodyCase_ == 2) {
-            dataBodyCase_ = 0;
-            dataBody_ = null;
-          }
-          chatMsgBuilder_.clear();
-        }
-        return this;
-      }
-
-      /**
-       * <code>.ChatMsg chatMsg = 2;</code>
-       */
       public Builder mergeChatMsg(com.oik.api.netty.pojo.Message.ChatMsg value) {
         if (chatMsgBuilder_ == null) {
           if (dataBodyCase_ == 2 &&
-                  dataBody_ != com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance()) {
+              dataBody_ != com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance()) {
             dataBody_ = com.oik.api.netty.pojo.Message.ChatMsg.newBuilder((com.oik.api.netty.pojo.Message.ChatMsg) dataBody_)
-                    .mergeFrom(value).buildPartial();
+                .mergeFrom(value).buildPartial();
           } else {
             dataBody_ = value;
           }
@@ -1380,108 +1499,150 @@ public final class Message {
         dataBodyCase_ = 2;
         return this;
       }
-
-      /**
-       * <code>.ChatMsg chatMsg = 2;</code>
-       */
-      public com.oik.api.netty.pojo.Message.ChatMsg.Builder getChatMsgBuilder() {
-        return getChatMsgFieldBuilder().getBuilder();
-      }
-
-      /**
-       * <code>.ChatMsg chatMsg = 2;</code>
-       */
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsgOrBuilder getChatMsgOrBuilder() {
-        if ((dataBodyCase_ == 2) && (chatMsgBuilder_ != null)) {
-          return chatMsgBuilder_.getMessageOrBuilder();
-        } else {
-          if (dataBodyCase_ == 2) {
-            return (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_;
-          }
-          return com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
-        }
-      }
-
-      /**
-       * <code>.ChatMsg chatMsg = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-              com.oik.api.netty.pojo.Message.ChatMsg, com.oik.api.netty.pojo.Message.ChatMsg.Builder, com.oik.api.netty.pojo.Message.ChatMsgOrBuilder>
-      getChatMsgFieldBuilder() {
-        if (chatMsgBuilder_ == null) {
-          if (!(dataBodyCase_ == 2)) {
-            dataBody_ = com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
-          }
-          chatMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                  com.oik.api.netty.pojo.Message.ChatMsg, com.oik.api.netty.pojo.Message.ChatMsg.Builder, com.oik.api.netty.pojo.Message.ChatMsgOrBuilder>(
-                  (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_,
-                  getParentForChildren(),
-                  isClean());
-          dataBody_ = null;
-        }
-        dataBodyCase_ = 2;
-        onChanged();
-        return chatMsgBuilder_;
-      }
-
       /**
        * <code>.ChatMsgAll chatMsgAll = 3;</code>
-       *
        * @return Whether the chatMsgAll field is set.
        */
       @java.lang.Override
       public boolean hasChatMsgAll() {
-        return dataBodyCase_ == 3;
+          return dataBodyCase_ == 3;
       }
 
-      /**
-       * <code>.ChatMsgAll chatMsgAll = 3;</code>
-       *
-       * @return The chatMsgAll.
-       */
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsgAll getChatMsgAll() {
-        if (chatMsgAllBuilder_ == null) {
-          if (dataBodyCase_ == 3) {
-            return (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_;
-          }
-          return com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
-        } else {
-          if (dataBodyCase_ == 3) {
-            return chatMsgAllBuilder_.getMessage();
-          }
-          return com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
-        }
-      }
+            /**
+             * <code>.ChatMsgAll chatMsgAll = 3;</code>
+             *
+             * @return The chatMsgAll.
+             */
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsgAll getChatMsgAll() {
+                if (chatMsgAllBuilder_ == null) {
+                    if (dataBodyCase_ == 3) {
+                        return (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_;
+                    }
+                    return com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
+                } else {
+                    if (dataBodyCase_ == 3) {
+                        return chatMsgAllBuilder_.getMessage();
+                    }
+                    return com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
+                }
+            }
 
-      /**
-       * <code>.ChatMsgAll chatMsgAll = 3;</code>
-       */
-      public Builder setChatMsgAll(com.oik.api.netty.pojo.Message.ChatMsgAll value) {
-        if (chatMsgAllBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          dataBody_ = value;
-          onChanged();
-        } else {
-          chatMsgAllBuilder_.setMessage(value);
-        }
-        dataBodyCase_ = 3;
-        return this;
-      }
+            /**
+             * <code>.ChatMsgAll chatMsgAll = 3;</code>
+             */
+            public Builder setChatMsgAll(com.oik.api.netty.pojo.Message.ChatMsgAll value) {
+                if (chatMsgAllBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    dataBody_ = value;
+                    onChanged();
+                } else {
+                    chatMsgAllBuilder_.setMessage(value);
+                }
+                dataBodyCase_ = 3;
+                return this;
+            }
 
-      /**
-       * <code>.ChatMsgAll chatMsgAll = 3;</code>
-       */
-      public Builder setChatMsgAll(
-              com.oik.api.netty.pojo.Message.ChatMsgAll.Builder builderForValue) {
-        if (chatMsgAllBuilder_ == null) {
-          dataBody_ = builderForValue.build();
-          onChanged();
+            /**
+             * <code>.ChatMsg chatMsg = 2;</code>
+             */
+            public Builder clearChatMsg() {
+                if (chatMsgBuilder_ == null) {
+                    if (dataBodyCase_ == 2) {
+                        dataBodyCase_ = 0;
+                        dataBody_ = null;
+                        onChanged();
+                    }
+                } else {
+                    if (dataBodyCase_ == 2) {
+                        dataBodyCase_ = 0;
+                        dataBody_ = null;
+                    }
+                    chatMsgBuilder_.clear();
+                }
+                return this;
+            }
+
+            /**
+             * <code>.ChatMsg chatMsg = 2;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.oik.api.netty.pojo.Message.ChatMsg, com.oik.api.netty.pojo.Message.ChatMsg.Builder, com.oik.api.netty.pojo.Message.ChatMsgOrBuilder>
+            getChatMsgFieldBuilder() {
+                if (chatMsgBuilder_ == null) {
+                    if (!(dataBodyCase_ == 2)) {
+                        dataBody_ = com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
+                    }
+                    chatMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            com.oik.api.netty.pojo.Message.ChatMsg, com.oik.api.netty.pojo.Message.ChatMsg.Builder, com.oik.api.netty.pojo.Message.ChatMsgOrBuilder>(
+                            (com.oik.api.netty.pojo.Message.ChatMsg) dataBody_,
+                            getParentForChildren(),
+                            isClean());
+                    dataBody_ = null;
+                }
+                dataBodyCase_ = 2;
+                onChanged();
+                return chatMsgBuilder_;
+            }
+
+            /**
+             * <code>.ChatMsgAll chatMsgAll = 3;</code>
+             */
+            public Builder setChatMsgAll(
+                    com.oik.api.netty.pojo.Message.ChatMsgAll.Builder builderForValue) {
+                if (chatMsgAllBuilder_ == null) {
+                    dataBody_ = builderForValue.build();
+                    onChanged();
         } else {
           chatMsgAllBuilder_.setMessage(builderForValue.build());
+                }
+                dataBodyCase_ = 3;
+                return this;
+            }
+
+            /**
+             * <code>.ChatMsgAll chatMsgAll = 3;</code>
+             */
+            public com.oik.api.netty.pojo.Message.ChatMsgAll.Builder getChatMsgAllBuilder() {
+                return getChatMsgAllFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>.ChatMsgAll chatMsgAll = 3;</code>
+       */
+      @java.lang.Override
+      public com.oik.api.netty.pojo.Message.ChatMsgAllOrBuilder getChatMsgAllOrBuilder() {
+        if ((dataBodyCase_ == 3) && (chatMsgAllBuilder_ != null)) {
+          return chatMsgAllBuilder_.getMessageOrBuilder();
+        } else {
+            if (dataBodyCase_ == 3) {
+                return (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_;
+            }
+            return com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
+        }
+      }
+
+            /**
+             * <code>.ChatMsgAll chatMsgAll = 3;</code>
+             */
+            public Builder mergeChatMsgAll(com.oik.api.netty.pojo.Message.ChatMsgAll value) {
+                if (chatMsgAllBuilder_ == null) {
+                    if (dataBodyCase_ == 3 &&
+                            dataBody_ != com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance()) {
+            dataBody_ = com.oik.api.netty.pojo.Message.ChatMsgAll.newBuilder((com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            dataBody_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataBodyCase_ == 3) {
+            chatMsgAllBuilder_.mergeFrom(value);
+          } else {
+            chatMsgAllBuilder_.setMessage(value);
+          }
         }
         dataBodyCase_ = 3;
         return this;
@@ -1506,541 +1667,481 @@ public final class Message {
         }
         return this;
       }
-
-      /**
-       * <code>.ChatMsgAll chatMsgAll = 3;</code>
-       */
-      public Builder mergeChatMsgAll(com.oik.api.netty.pojo.Message.ChatMsgAll value) {
-        if (chatMsgAllBuilder_ == null) {
-          if (dataBodyCase_ == 3 &&
-                  dataBody_ != com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance()) {
-            dataBody_ = com.oik.api.netty.pojo.Message.ChatMsgAll.newBuilder((com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_)
-                    .mergeFrom(value).buildPartial();
-          } else {
-            dataBody_ = value;
-          }
-          onChanged();
-        } else {
-          if (dataBodyCase_ == 3) {
-            chatMsgAllBuilder_.mergeFrom(value);
-          } else {
-            chatMsgAllBuilder_.setMessage(value);
-          }
-        }
-        dataBodyCase_ = 3;
-        return this;
-      }
-
-      /**
-       * <code>.ChatMsgAll chatMsgAll = 3;</code>
-       */
-      public com.oik.api.netty.pojo.Message.ChatMsgAll.Builder getChatMsgAllBuilder() {
-        return getChatMsgAllFieldBuilder().getBuilder();
-      }
-
-      /**
-       * <code>.ChatMsgAll chatMsgAll = 3;</code>
-       */
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsgAllOrBuilder getChatMsgAllOrBuilder() {
-        if ((dataBodyCase_ == 3) && (chatMsgAllBuilder_ != null)) {
-          return chatMsgAllBuilder_.getMessageOrBuilder();
-        } else {
-          if (dataBodyCase_ == 3) {
-            return (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_;
-          }
-          return com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
-        }
-      }
-
-      /**
-       * <code>.ChatMsgAll chatMsgAll = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-              com.oik.api.netty.pojo.Message.ChatMsgAll, com.oik.api.netty.pojo.Message.ChatMsgAll.Builder, com.oik.api.netty.pojo.Message.ChatMsgAllOrBuilder>
-      getChatMsgAllFieldBuilder() {
-        if (chatMsgAllBuilder_ == null) {
-          if (!(dataBodyCase_ == 3)) {
-            dataBody_ = com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
-          }
-          chatMsgAllBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                  com.oik.api.netty.pojo.Message.ChatMsgAll, com.oik.api.netty.pojo.Message.ChatMsgAll.Builder, com.oik.api.netty.pojo.Message.ChatMsgAllOrBuilder>(
-                  (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_,
-                  getParentForChildren(),
-                  isClean());
-          dataBody_ = null;
-        }
-        dataBodyCase_ = 3;
-        onChanged();
-        return chatMsgAllBuilder_;
-      }
-
       /**
        * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-       *
        * @return Whether the chatMsgByGroup field is set.
        */
       @java.lang.Override
       public boolean hasChatMsgByGroup() {
-        return dataBodyCase_ == 4;
+          return dataBodyCase_ == 4;
       }
 
-      /**
-       * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-       *
-       * @return The chatMsgByGroup.
-       */
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsgByGroup getChatMsgByGroup() {
-        if (chatMsgByGroupBuilder_ == null) {
-          if (dataBodyCase_ == 4) {
-            return (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_;
-          }
-          return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
-        } else {
-          if (dataBodyCase_ == 4) {
-            return chatMsgByGroupBuilder_.getMessage();
-          }
-          return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
-        }
-      }
+            /**
+             * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+             *
+             * @return The chatMsgByGroup.
+             */
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsgByGroup getChatMsgByGroup() {
+                if (chatMsgByGroupBuilder_ == null) {
+                    if (dataBodyCase_ == 4) {
+                        return (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_;
+                    }
+                    return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
+                } else {
+                    if (dataBodyCase_ == 4) {
+                        return chatMsgByGroupBuilder_.getMessage();
+                    }
+                    return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
+                }
+            }
 
-      /**
-       * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-       */
-      public Builder setChatMsgByGroup(com.oik.api.netty.pojo.Message.ChatMsgByGroup value) {
-        if (chatMsgByGroupBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          dataBody_ = value;
-          onChanged();
-        } else {
-          chatMsgByGroupBuilder_.setMessage(value);
-        }
-        dataBodyCase_ = 4;
-        return this;
-      }
+            /**
+             * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+             */
+            public Builder setChatMsgByGroup(com.oik.api.netty.pojo.Message.ChatMsgByGroup value) {
+                if (chatMsgByGroupBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    dataBody_ = value;
+                    onChanged();
+                } else {
+                    chatMsgByGroupBuilder_.setMessage(value);
+                }
+                dataBodyCase_ = 4;
+                return this;
+            }
+
+            /**
+             * <code>.ChatMsgAll chatMsgAll = 3;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.oik.api.netty.pojo.Message.ChatMsgAll, com.oik.api.netty.pojo.Message.ChatMsgAll.Builder, com.oik.api.netty.pojo.Message.ChatMsgAllOrBuilder>
+            getChatMsgAllFieldBuilder() {
+                if (chatMsgAllBuilder_ == null) {
+                    if (!(dataBodyCase_ == 3)) {
+                        dataBody_ = com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
+                    }
+                    chatMsgAllBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            com.oik.api.netty.pojo.Message.ChatMsgAll, com.oik.api.netty.pojo.Message.ChatMsgAll.Builder, com.oik.api.netty.pojo.Message.ChatMsgAllOrBuilder>(
+                            (com.oik.api.netty.pojo.Message.ChatMsgAll) dataBody_,
+                            getParentForChildren(),
+                            isClean());
+                    dataBody_ = null;
+                }
+                dataBodyCase_ = 3;
+                onChanged();
+                return chatMsgAllBuilder_;
+            }
 
       /**
        * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
        */
       public Builder setChatMsgByGroup(
-              com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder builderForValue) {
+          com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder builderForValue) {
         if (chatMsgByGroupBuilder_ == null) {
           dataBody_ = builderForValue.build();
-          onChanged();
-        } else {
-          chatMsgByGroupBuilder_.setMessage(builderForValue.build());
-        }
-        dataBodyCase_ = 4;
-        return this;
-      }
-
-      /**
-       * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-       */
-      public Builder mergeChatMsgByGroup(com.oik.api.netty.pojo.Message.ChatMsgByGroup value) {
-        if (chatMsgByGroupBuilder_ == null) {
-          if (dataBodyCase_ == 4 &&
-                  dataBody_ != com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance()) {
-            dataBody_ = com.oik.api.netty.pojo.Message.ChatMsgByGroup.newBuilder((com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_)
-                    .mergeFrom(value).buildPartial();
-          } else {
-            dataBody_ = value;
-          }
-          onChanged();
-        } else {
-          if (dataBodyCase_ == 4) {
-            chatMsgByGroupBuilder_.mergeFrom(value);
-          } else {
-            chatMsgByGroupBuilder_.setMessage(value);
-          }
-        }
-        dataBodyCase_ = 4;
-        return this;
-      }
-
-      /**
-       * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-       */
-      public Builder clearChatMsgByGroup() {
-        if (chatMsgByGroupBuilder_ == null) {
-          if (dataBodyCase_ == 4) {
-            dataBodyCase_ = 0;
-            dataBody_ = null;
             onChanged();
-          }
         } else {
-          if (dataBodyCase_ == 4) {
-            dataBodyCase_ = 0;
-            dataBody_ = null;
-          }
-          chatMsgByGroupBuilder_.clear();
+            chatMsgByGroupBuilder_.setMessage(builderForValue.build());
         }
-        return this;
+          dataBodyCase_ = 4;
+          return this;
       }
 
-      /**
-       * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-       */
-      public com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder getChatMsgByGroupBuilder() {
-        return getChatMsgByGroupFieldBuilder().getBuilder();
-      }
+            /**
+             * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+             */
+            public Builder clearChatMsgByGroup() {
+                if (chatMsgByGroupBuilder_ == null) {
+                    if (dataBodyCase_ == 4) {
+                        dataBodyCase_ = 0;
+                        dataBody_ = null;
+                        onChanged();
+                    }
+                } else {
+                    if (dataBodyCase_ == 4) {
+                        dataBodyCase_ = 0;
+                        dataBody_ = null;
+                    }
+                    chatMsgByGroupBuilder_.clear();
+                }
+                return this;
+            }
 
-      /**
-       * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-       */
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder getChatMsgByGroupOrBuilder() {
-        if ((dataBodyCase_ == 4) && (chatMsgByGroupBuilder_ != null)) {
-          return chatMsgByGroupBuilder_.getMessageOrBuilder();
-        } else {
-          if (dataBodyCase_ == 4) {
-            return (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_;
-          }
-          return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
+            /**
+             * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+             */
+            public com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder getChatMsgByGroupBuilder() {
+                return getChatMsgByGroupFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+             */
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder getChatMsgByGroupOrBuilder() {
+                if ((dataBodyCase_ == 4) && (chatMsgByGroupBuilder_ != null)) {
+                    return chatMsgByGroupBuilder_.getMessageOrBuilder();
+                } else {
+                    if (dataBodyCase_ == 4) {
+                        return (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_;
+                    }
+                    return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
+                }
+            }
+
+            /**
+             * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+             */
+            public Builder mergeChatMsgByGroup(com.oik.api.netty.pojo.Message.ChatMsgByGroup value) {
+                if (chatMsgByGroupBuilder_ == null) {
+                    if (dataBodyCase_ == 4 &&
+                            dataBody_ != com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance()) {
+                        dataBody_ = com.oik.api.netty.pojo.Message.ChatMsgByGroup.newBuilder((com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_)
+                                .mergeFrom(value).buildPartial();
+                    } else {
+                        dataBody_ = value;
+                    }
+                    onChanged();
+                } else {
+                    if (dataBodyCase_ == 4) {
+                        chatMsgByGroupBuilder_.mergeFrom(value);
+                    } else {
+                        chatMsgByGroupBuilder_.setMessage(value);
+                    }
+                }
+                dataBodyCase_ = 4;
+                return this;
+            }
+
+            /**
+             * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.oik.api.netty.pojo.Message.ChatMsgByGroup, com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder, com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder>
+            getChatMsgByGroupFieldBuilder() {
+                if (chatMsgByGroupBuilder_ == null) {
+                    if (!(dataBodyCase_ == 4)) {
+                        dataBody_ = com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
+                    }
+                    chatMsgByGroupBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            com.oik.api.netty.pojo.Message.ChatMsgByGroup, com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder, com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder>(
+                            (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_,
+                            getParentForChildren(),
+                            isClean());
+                    dataBody_ = null;
+                }
+                dataBodyCase_ = 4;
+                onChanged();
+                return chatMsgByGroupBuilder_;
+            }
+
+            /**
+             * <code>.BindChannel bindChannel = 5;</code>
+             *
+             * @return Whether the bindChannel field is set.
+             */
+            @java.lang.Override
+            public boolean hasBindChannel() {
+                return dataBodyCase_ == 5;
+            }
+
+            /**
+             * <code>.BindChannel bindChannel = 5;</code>
+             *
+             * @return The bindChannel.
+             */
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.BindChannel getBindChannel() {
+                if (bindChannelBuilder_ == null) {
+                    if (dataBodyCase_ == 5) {
+                        return (com.oik.api.netty.pojo.Message.BindChannel) dataBody_;
+                    }
+                    return com.oik.api.netty.pojo.Message.BindChannel.getDefaultInstance();
+                } else {
+                    if (dataBodyCase_ == 5) {
+                        return bindChannelBuilder_.getMessage();
+                    }
+                    return com.oik.api.netty.pojo.Message.BindChannel.getDefaultInstance();
+                }
+            }
+
+            /**
+             * <code>.BindChannel bindChannel = 5;</code>
+             */
+            public Builder setBindChannel(com.oik.api.netty.pojo.Message.BindChannel value) {
+                if (bindChannelBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    dataBody_ = value;
+                    onChanged();
+                } else {
+                    bindChannelBuilder_.setMessage(value);
+                }
+                dataBodyCase_ = 5;
+                return this;
+            }
+
+            /**
+             * <code>.BindChannel bindChannel = 5;</code>
+             */
+            public Builder setBindChannel(
+                    com.oik.api.netty.pojo.Message.BindChannel.Builder builderForValue) {
+                if (bindChannelBuilder_ == null) {
+                    dataBody_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    bindChannelBuilder_.setMessage(builderForValue.build());
+                }
+                dataBodyCase_ = 5;
+                return this;
+            }
+
+            /**
+             * <code>.BindChannel bindChannel = 5;</code>
+             */
+            public Builder mergeBindChannel(com.oik.api.netty.pojo.Message.BindChannel value) {
+                if (bindChannelBuilder_ == null) {
+                    if (dataBodyCase_ == 5 &&
+                            dataBody_ != com.oik.api.netty.pojo.Message.BindChannel.getDefaultInstance()) {
+                        dataBody_ = com.oik.api.netty.pojo.Message.BindChannel.newBuilder((com.oik.api.netty.pojo.Message.BindChannel) dataBody_)
+                                .mergeFrom(value).buildPartial();
+                    } else {
+                        dataBody_ = value;
+                    }
+                    onChanged();
+                } else {
+                    if (dataBodyCase_ == 5) {
+                        bindChannelBuilder_.mergeFrom(value);
+                    } else {
+                        bindChannelBuilder_.setMessage(value);
+                    }
+                }
+                dataBodyCase_ = 5;
+                return this;
+            }
+
+            /**
+             * <code>.BindChannel bindChannel = 5;</code>
+             */
+            public Builder clearBindChannel() {
+                if (bindChannelBuilder_ == null) {
+                    if (dataBodyCase_ == 5) {
+                        dataBodyCase_ = 0;
+                        dataBody_ = null;
+                        onChanged();
+                    }
+                } else {
+                    if (dataBodyCase_ == 5) {
+                        dataBodyCase_ = 0;
+                        dataBody_ = null;
+                    }
+                    bindChannelBuilder_.clear();
+                }
+                return this;
+            }
+
+            /**
+             * <code>.BindChannel bindChannel = 5;</code>
+             */
+            public com.oik.api.netty.pojo.Message.BindChannel.Builder getBindChannelBuilder() {
+                return getBindChannelFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>.BindChannel bindChannel = 5;</code>
+             */
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.BindChannelOrBuilder getBindChannelOrBuilder() {
+                if ((dataBodyCase_ == 5) && (bindChannelBuilder_ != null)) {
+                    return bindChannelBuilder_.getMessageOrBuilder();
+                } else {
+                    if (dataBodyCase_ == 5) {
+                        return (com.oik.api.netty.pojo.Message.BindChannel) dataBody_;
+                    }
+                    return com.oik.api.netty.pojo.Message.BindChannel.getDefaultInstance();
+                }
+            }
+
+            /**
+             * <code>.BindChannel bindChannel = 5;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.oik.api.netty.pojo.Message.BindChannel, com.oik.api.netty.pojo.Message.BindChannel.Builder, com.oik.api.netty.pojo.Message.BindChannelOrBuilder>
+            getBindChannelFieldBuilder() {
+                if (bindChannelBuilder_ == null) {
+                    if (!(dataBodyCase_ == 5)) {
+                        dataBody_ = com.oik.api.netty.pojo.Message.BindChannel.getDefaultInstance();
+                    }
+                    bindChannelBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            com.oik.api.netty.pojo.Message.BindChannel, com.oik.api.netty.pojo.Message.BindChannel.Builder, com.oik.api.netty.pojo.Message.BindChannelOrBuilder>(
+                            (com.oik.api.netty.pojo.Message.BindChannel) dataBody_,
+                            getParentForChildren(),
+                            isClean());
+                    dataBody_ = null;
+                }
+                dataBodyCase_ = 5;
+                onChanged();
+                return bindChannelBuilder_;
+            }
+
+            @java.lang.Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFields(unknownFields);
+            }
+
+            @java.lang.Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:Msg)
         }
-      }
 
-      /**
-       * <code>.ChatMsgByGroup chatMsgByGroup = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-              com.oik.api.netty.pojo.Message.ChatMsgByGroup, com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder, com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder>
-      getChatMsgByGroupFieldBuilder() {
-        if (chatMsgByGroupBuilder_ == null) {
-          if (!(dataBodyCase_ == 4)) {
-            dataBody_ = com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
-          }
-          chatMsgByGroupBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                  com.oik.api.netty.pojo.Message.ChatMsgByGroup, com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder, com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder>(
-                  (com.oik.api.netty.pojo.Message.ChatMsgByGroup) dataBody_,
-                  getParentForChildren(),
-                  isClean());
-          dataBody_ = null;
+    }
+
+    /**
+     * Protobuf type {@code ChatMsg}
+     */
+    public static final class ChatMsg extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:ChatMsg)
+            ChatMsgOrBuilder {
+        public static final int USERID_FIELD_NUMBER = 1;
+
+        // Use ChatMsg.newBuilder() to construct.
+        private ChatMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-        dataBodyCase_ = 4;
-        onChanged();
-        return chatMsgByGroupBuilder_;
-      }
 
-      @java.lang.Override
-      public final Builder setUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
+        public static final int USERNAME_FIELD_NUMBER = 2;
+        public static final int ACCEPTID_FIELD_NUMBER = 3;
 
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:Msg)
-    }
-
-  }
-
-  /**
-   * Protobuf type {@code ChatMsg}
-   */
-  public static final class ChatMsg extends
-          com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:ChatMsg)
-          ChatMsgOrBuilder {
-    public static final int USERID_FIELD_NUMBER = 1;
-    public static final int ACCEPTID_FIELD_NUMBER = 2;
-    public static final int MESSAGE_FIELD_NUMBER = 3;
-    // @@protoc_insertion_point(class_scope:ChatMsg)
-    private static final com.oik.api.netty.pojo.Message.ChatMsg DEFAULT_INSTANCE;
-    private static final com.google.protobuf.Parser<ChatMsg>
-            PARSER = new com.google.protobuf.AbstractParser<ChatMsg>() {
-      @java.lang.Override
-      public ChatMsg parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-                  .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-    private static final long serialVersionUID = 0L;
-
-    static {
-      DEFAULT_INSTANCE = new com.oik.api.netty.pojo.Message.ChatMsg();
-    }
-
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object userId_ = "";
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object acceptId_ = "";
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object message_ = "";
-    private byte memoizedIsInitialized = -1;
-
-    // Use ChatMsg.newBuilder() to construct.
-    private ChatMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-
-    private ChatMsg() {
-      userId_ = "";
-      acceptId_ = "";
-      message_ = "";
-    }
-
-    public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-      return com.oik.api.netty.pojo.Message.internal_static_ChatMsg_descriptor;
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-
-    public static Builder newBuilder(com.oik.api.netty.pojo.Message.ChatMsg prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsg getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    public static com.google.protobuf.Parser<ChatMsg> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-            UnusedPrivateParameter unused) {
-      return new ChatMsg();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
-    }
+            return this.unknownFields;
+        }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-      return com.oik.api.netty.pojo.Message.internal_static_ChatMsg_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                      com.oik.api.netty.pojo.Message.ChatMsg.class, com.oik.api.netty.pojo.Message.ChatMsg.Builder.class);
-    }
+        public static final int ACCEPTNAME_FIELD_NUMBER = 4;
+        public static final int MESSAGE_FIELD_NUMBER = 5;
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:ChatMsg)
+        private static final com.oik.api.netty.pojo.Message.ChatMsg DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<ChatMsg>
+                PARSER = new com.google.protobuf.AbstractParser<ChatMsg>() {
+            @java.lang.Override
+            public ChatMsg parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                Builder builder = newBuilder();
+                try {
+                    builder.mergeFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    throw e.setUnfinishedMessage(builder.buildPartial());
+                } catch (com.google.protobuf.UninitializedMessageException e) {
+                    throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+                } catch (java.io.IOException e) {
+                    throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                            .setUnfinishedMessage(builder.buildPartial());
+                }
+                return builder.buildPartial();
+            }
+        };
 
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The userId.
-     */
-    @java.lang.Override
-    public java.lang.String getUserId() {
-      java.lang.Object ref = userId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userId_ = s;
-        return s;
-      }
-    }
+        static {
+            DEFAULT_INSTANCE = new com.oik.api.netty.pojo.Message.ChatMsg();
+        }
 
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The bytes for userId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getUserIdBytes() {
-      java.lang.Object ref = userId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-        userId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object userId_ = "";
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object userName_ = "";
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object acceptId_ = "";
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object acceptName_ = "";
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object message_ = "";
+        private byte memoizedIsInitialized = -1;
 
-    /**
-     * <code>string acceptId = 2;</code>
-     *
-     * @return The acceptId.
-     */
-    @java.lang.Override
-    public java.lang.String getAcceptId() {
-      java.lang.Object ref = acceptId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        acceptId_ = s;
-        return s;
-      }
-    }
+        private ChatMsg() {
+            userId_ = "";
+            userName_ = "";
+            acceptId_ = "";
+            acceptName_ = "";
+            message_ = "";
+        }
 
-    /**
-     * <code>string acceptId = 2;</code>
-     *
-     * @return The bytes for acceptId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getAcceptIdBytes() {
-      java.lang.Object ref = acceptId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-        acceptId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.oik.api.netty.pojo.Message.internal_static_ChatMsg_descriptor;
+        }
 
-    /**
-     * <code>string message = 3;</code>
-     *
-     * @return The message.
-     */
-    @java.lang.Override
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        message_ = s;
-        return s;
-      }
-    }
+        public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
 
-    /**
-     * <code>string message = 3;</code>
-     *
-     * @return The bytes for message.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-        message_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
+        public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
 
+        public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsg parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2051,118 +2152,400 @@ public final class Message {
       return true;
     }
 
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public static com.oik.api.netty.pojo.Message.ChatMsg parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(acceptId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, acceptId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
-      }
-      getUnknownFields().writeTo(output);
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
+        public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
 
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(acceptId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, acceptId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSize = size;
-      return size;
+        public static com.oik.api.netty.pojo.Message.ChatMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+    public static Builder newBuilder(com.oik.api.netty.pojo.Message.ChatMsg prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-        return true;
-      }
-      if (!(obj instanceof com.oik.api.netty.pojo.Message.ChatMsg)) {
-        return super.equals(obj);
+        public static com.oik.api.netty.pojo.Message.ChatMsg getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        public static com.google.protobuf.Parser<ChatMsg> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+                UnusedPrivateParameter unused) {
+            return new ChatMsg();
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.oik.api.netty.pojo.Message.internal_static_ChatMsg_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.oik.api.netty.pojo.Message.ChatMsg.class, com.oik.api.netty.pojo.Message.ChatMsg.Builder.class);
+        }
+
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The userId.
+         */
+        @java.lang.Override
+        public java.lang.String getUserId() {
+            java.lang.Object ref = userId_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                userId_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The bytes for userId.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getUserIdBytes() {
+            java.lang.Object ref = userId_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                userId_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string userName = 2;</code>
+         *
+         * @return The userName.
+         */
+        @java.lang.Override
+        public java.lang.String getUserName() {
+            java.lang.Object ref = userName_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                userName_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string userName = 2;</code>
+         *
+         * @return The bytes for userName.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getUserNameBytes() {
+            java.lang.Object ref = userName_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                userName_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string acceptId = 3;</code>
+         *
+         * @return The acceptId.
+         */
+        @java.lang.Override
+        public java.lang.String getAcceptId() {
+            java.lang.Object ref = acceptId_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                acceptId_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string acceptId = 3;</code>
+         *
+         * @return The bytes for acceptId.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getAcceptIdBytes() {
+            java.lang.Object ref = acceptId_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                acceptId_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string acceptName = 4;</code>
+         * @return The acceptName.
+         */
+        @java.lang.Override
+        public java.lang.String getAcceptName() {
+            java.lang.Object ref = acceptName_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                acceptName_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string acceptName = 4;</code>
+         * @return The bytes for acceptName.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getAcceptNameBytes() {
+            java.lang.Object ref = acceptName_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                acceptName_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string message = 5;</code>
+         *
+         * @return The message.
+         */
+        @java.lang.Override
+        public java.lang.String getMessage() {
+            java.lang.Object ref = message_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                message_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string message = 5;</code>
+         * @return The bytes for message.
+     */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getMessageBytes() {
+            java.lang.Object ref = message_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                message_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userName_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(acceptId_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 3, acceptId_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(acceptName_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 4, acceptName_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 5, message_);
+            }
+            getUnknownFields().writeTo(output);
+        }
+
+        @java.lang.Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userName_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(acceptId_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, acceptId_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(acceptName_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, acceptName_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, message_);
+            }
+            size += getUnknownFields().getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.oik.api.netty.pojo.Message.ChatMsg)) {
+                return super.equals(obj);
       }
       com.oik.api.netty.pojo.Message.ChatMsg other = (com.oik.api.netty.pojo.Message.ChatMsg) obj;
 
-      if (!getUserId()
-              .equals(other.getUserId())) return false;
-      if (!getAcceptId()
-              .equals(other.getAcceptId())) return false;
+            if (!getUserId()
+                    .equals(other.getUserId())) return false;
+            if (!getUserName()
+                    .equals(other.getUserName())) return false;
+            if (!getAcceptId()
+                    .equals(other.getAcceptId())) return false;
+            if (!getAcceptName()
+          .equals(other.getAcceptName())) return false;
       if (!getMessage()
-              .equals(other.getMessage())) return false;
+          .equals(other.getMessage())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + USERID_FIELD_NUMBER;
-      hash = (53 * hash) + getUserId().hashCode();
-      hash = (37 * hash) + ACCEPTID_FIELD_NUMBER;
-      hash = (53 * hash) + getAcceptId().hashCode();
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + USERID_FIELD_NUMBER;
+            hash = (53 * hash) + getUserId().hashCode();
+            hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+            hash = (53 * hash) + getUserName().hashCode();
+            hash = (37 * hash) + ACCEPTID_FIELD_NUMBER;
+            hash = (53 * hash) + getAcceptId().hashCode();
+            hash = (37 * hash) + ACCEPTNAME_FIELD_NUMBER;
+            hash = (53 * hash) + getAcceptName().hashCode();
+            hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+            hash = (53 * hash) + getMessage().hashCode();
+            hash = (29 * hash) + getUnknownFields().hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
 
-    @java.lang.Override
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
+        @java.lang.Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
 
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
-    }
+        @java.lang.Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
 
-    @java.lang.Override
-    protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<ChatMsg> getParserForType() {
-      return PARSER;
-    }
+        @java.lang.Override
+        public com.google.protobuf.Parser<ChatMsg> getParserForType() {
+            return PARSER;
+        }
 
-    @java.lang.Override
-    public com.oik.api.netty.pojo.Message.ChatMsg getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
+        @java.lang.Override
+        public com.oik.api.netty.pojo.Message.ChatMsg getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
 
-    /**
-     * Protobuf type {@code ChatMsg}
-     */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:ChatMsg)
-            com.oik.api.netty.pojo.Message.ChatMsgOrBuilder {
-      private int bitField0_;
-      private java.lang.Object userId_ = "";
-      private java.lang.Object acceptId_ = "";
+        /**
+         * Protobuf type {@code ChatMsg}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:ChatMsg)
+                com.oik.api.netty.pojo.Message.ChatMsgOrBuilder {
+            private int bitField0_;
+            private java.lang.Object userId_ = "";
+            private java.lang.Object userName_ = "";
+            private java.lang.Object acceptId_ = "";
+      private java.lang.Object acceptName_ = "";
       private java.lang.Object message_ = "";
+
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsg getDefaultInstanceForType() {
+                return com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
+            }
+
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsg build() {
+                com.oik.api.netty.pojo.Message.ChatMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
 
       // Construct using com.oik.api.netty.pojo.Message.ChatMsg.newBuilder()
       private Builder() {
@@ -2170,157 +2553,173 @@ public final class Message {
       }
 
       private Builder(
-              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
 
       }
 
-      public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-        return com.oik.api.netty.pojo.Message.internal_static_ChatMsg_descriptor;
-      }
+            @java.lang.Override
+            public Builder clone() {
+                return super.clone();
+            }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-        return com.oik.api.netty.pojo.Message.internal_static_ChatMsg_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        com.oik.api.netty.pojo.Message.ChatMsg.class, com.oik.api.netty.pojo.Message.ChatMsg.Builder.class);
-      }
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.oik.api.netty.pojo.Message.internal_static_ChatMsg_descriptor;
+            }
 
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        bitField0_ = 0;
-        userId_ = "";
-        acceptId_ = "";
-        message_ = "";
-        return this;
-      }
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.oik.api.netty.pojo.Message.internal_static_ChatMsg_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.oik.api.netty.pojo.Message.ChatMsg.class, com.oik.api.netty.pojo.Message.ChatMsg.Builder.class);
+            }
 
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
-        return com.oik.api.netty.pojo.Message.internal_static_ChatMsg_descriptor;
-      }
+            @java.lang.Override
+            public Builder clear() {
+                super.clear();
+                bitField0_ = 0;
+                userId_ = "";
+                userName_ = "";
+                acceptId_ = "";
+                acceptName_ = "";
+                message_ = "";
+                return this;
+            }
 
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsg getDefaultInstanceForType() {
-        return com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance();
-      }
+            @java.lang.Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.oik.api.netty.pojo.Message.internal_static_ChatMsg_descriptor;
+            }
 
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsg build() {
-        com.oik.api.netty.pojo.Message.ChatMsg result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsg buildPartial() {
+                com.oik.api.netty.pojo.Message.ChatMsg result = new com.oik.api.netty.pojo.Message.ChatMsg(this);
+                if (bitField0_ != 0) {
+                    buildPartial0(result);
+                }
+                onBuilt();
+                return result;
+            }
 
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsg buildPartial() {
-        com.oik.api.netty.pojo.Message.ChatMsg result = new com.oik.api.netty.pojo.Message.ChatMsg(this);
-        if (bitField0_ != 0) {
-          buildPartial0(result);
-        }
-        onBuilt();
-        return result;
-      }
+            private void buildPartial0(com.oik.api.netty.pojo.Message.ChatMsg result) {
+                int from_bitField0_ = bitField0_;
+                if (((from_bitField0_ & 0x00000001) != 0)) {
+                    result.userId_ = userId_;
+                }
+                if (((from_bitField0_ & 0x00000002) != 0)) {
+                    result.userName_ = userName_;
+                }
+                if (((from_bitField0_ & 0x00000004) != 0)) {
+                    result.acceptId_ = acceptId_;
+                }
+                if (((from_bitField0_ & 0x00000008) != 0)) {
+                    result.acceptName_ = acceptName_;
+                }
+                if (((from_bitField0_ & 0x00000010) != 0)) {
+                    result.message_ = message_;
+                }
+            }
 
-      private void buildPartial0(com.oik.api.netty.pojo.Message.ChatMsg result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.acceptId_ = acceptId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.message_ = message_;
-        }
-      }
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.setField(field, value);
+            }
 
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
+            @java.lang.Override
+            public final boolean isInitialized() {
+                return true;
+            }
 
-      @java.lang.Override
-      public Builder setField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
-        return super.setField(field, value);
-      }
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
 
-      @java.lang.Override
-      public Builder clearField(
-              com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
+            @java.lang.Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
 
-      @java.lang.Override
-      public Builder clearOneof(
-              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
+            @java.lang.Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
 
-      @java.lang.Override
-      public Builder setRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
+            @java.lang.Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.addRepeatedField(field, value);
+            }
 
-      @java.lang.Override
-      public Builder addRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
+            @java.lang.Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.oik.api.netty.pojo.Message.ChatMsg) {
+                    return mergeFrom((com.oik.api.netty.pojo.Message.ChatMsg) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
 
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.oik.api.netty.pojo.Message.ChatMsg) {
-          return mergeFrom((com.oik.api.netty.pojo.Message.ChatMsg) other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
+            public Builder mergeFrom(com.oik.api.netty.pojo.Message.ChatMsg other) {
+                if (other == com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance()) return this;
+                if (!other.getUserId().isEmpty()) {
+                    userId_ = other.userId_;
+                    bitField0_ |= 0x00000001;
+                    onChanged();
+                }
+                if (!other.getUserName().isEmpty()) {
+                    userName_ = other.userName_;
+                    bitField0_ |= 0x00000002;
+                    onChanged();
+                }
+                if (!other.getAcceptId().isEmpty()) {
+                    acceptId_ = other.acceptId_;
+                    bitField0_ |= 0x00000004;
+                    onChanged();
+                }
+                if (!other.getAcceptName().isEmpty()) {
+                    acceptName_ = other.acceptName_;
+                    bitField0_ |= 0x00000008;
+                    onChanged();
+                }
+                if (!other.getMessage().isEmpty()) {
+                    message_ = other.message_;
+                    bitField0_ |= 0x00000010;
+                    onChanged();
+                }
+                this.mergeUnknownFields(other.getUnknownFields());
+                onChanged();
+                return this;
+            }
 
-      public Builder mergeFrom(com.oik.api.netty.pojo.Message.ChatMsg other) {
-        if (other == com.oik.api.netty.pojo.Message.ChatMsg.getDefaultInstance()) return this;
-        if (!other.getUserId().isEmpty()) {
-          userId_ = other.userId_;
-          bitField0_ |= 0x00000001;
-          onChanged();
-        }
-        if (!other.getAcceptId().isEmpty()) {
-          acceptId_ = other.acceptId_;
-          bitField0_ |= 0x00000002;
-          onChanged();
-        }
-        if (!other.getMessage().isEmpty()) {
-          message_ = other.message_;
-          bitField0_ |= 0x00000004;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        onChanged();
-        return this;
-      }
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearUserId() {
+                userId_ = getDefaultInstance().getUserId();
+                bitField0_ = (bitField0_ & ~0x00000001);
+                onChanged();
+                return this;
+            }
 
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
+            @java.lang.Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
         if (extensionRegistry == null) {
           throw new java.lang.NullPointerException();
         }
@@ -2333,299 +2732,459 @@ public final class Message {
                 done = true;
                 break;
               case 10: {
-                userId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
+                  userId_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
               } // case 10
-              case 18: {
-                acceptId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                message_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
+                case 18: {
+                    userName_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000002;
+                    break;
+                } // case 18
+                case 26: {
+                    acceptId_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000004;
+                    break;
+                } // case 26
+                case 34: {
+                    acceptName_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000008;
+                    break;
+                } // case 34
+                case 42: {
+                    message_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000010;
+                    break;
+                } // case 42
+                default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                        done = true; // was an endgroup tag
+                    }
+                    break;
+                } // default:
             } // switch (tag)
           } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.unwrapIOException();
+            throw e.unwrapIOException();
         } finally {
-          onChanged();
+            onChanged();
         } // finally
-        return this;
-      }
+                return this;
+            }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @return The userId.
-       */
-      public java.lang.String getUserId() {
-        java.lang.Object ref = userId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          userId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @return The userId.
+             */
+            public java.lang.String getUserId() {
+                java.lang.Object ref = userId_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    userId_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @param value The userId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserId(
-              java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        userId_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @param value The userId to set.
+             * @return This builder for chaining.
+             */
+            public Builder setUserId(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                userId_ = value;
+                bitField0_ |= 0x00000001;
+                onChanged();
+                return this;
+            }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @return The bytes for userId.
-       */
-      public com.google.protobuf.ByteString
-      getUserIdBytes() {
-        java.lang.Object ref = userId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-          userId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @return The bytes for userId.
+             */
+            public com.google.protobuf.ByteString
+            getUserIdBytes() {
+                java.lang.Object ref = userId_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    userId_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @param value The bytes for userId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserIdBytes(
-              com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        checkByteStringIsUtf8(value);
-        userId_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @param value The bytes for userId to set.
+             * @return This builder for chaining.
+             */
+            public Builder setUserIdBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                userId_ = value;
+                bitField0_ |= 0x00000001;
+                onChanged();
+                return this;
+            }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @return This builder for chaining.
-       */
-      public Builder clearUserId() {
-        userId_ = getDefaultInstance().getUserId();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
+            /**
+             * <code>string userName = 2;</code>
+             *
+             * @return The userName.
+             */
+            public java.lang.String getUserName() {
+                java.lang.Object ref = userName_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    userName_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
 
-      /**
-       * <code>string acceptId = 2;</code>
-       *
-       * @return The acceptId.
-       */
-      public java.lang.String getAcceptId() {
-        java.lang.Object ref = acceptId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          acceptId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-
-      /**
-       * <code>string acceptId = 2;</code>
-       *
-       * @param value The acceptId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAcceptId(
-              java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        acceptId_ = value;
+            /**
+             * <code>string userName = 2;</code>
+             *
+             * @param value The userName to set.
+             * @return This builder for chaining.
+             */
+            public Builder setUserName(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                userName_ = value;
         bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
 
       /**
-       * <code>string acceptId = 2;</code>
-       *
-       * @return The bytes for acceptId.
+       * <code>string userName = 2;</code>
+       * @return The bytes for userName.
        */
       public com.google.protobuf.ByteString
-      getAcceptIdBytes() {
-        java.lang.Object ref = acceptId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-          acceptId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      getUserNameBytes() {
+          java.lang.Object ref = userName_;
+          if (ref instanceof String) {
+              com.google.protobuf.ByteString b =
+                      com.google.protobuf.ByteString.copyFromUtf8(
+                              (java.lang.String) ref);
+              userName_ = b;
+              return b;
+          } else {
+              return (com.google.protobuf.ByteString) ref;
+          }
       }
 
-      /**
-       * <code>string acceptId = 2;</code>
-       *
-       * @param value The bytes for acceptId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAcceptIdBytes(
-              com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        checkByteStringIsUtf8(value);
-        acceptId_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
+            /**
+             * <code>string userName = 2;</code>
+             *
+             * @param value The bytes for userName to set.
+             * @return This builder for chaining.
+             */
+            public Builder setUserNameBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                userName_ = value;
+                bitField0_ |= 0x00000002;
+                onChanged();
+                return this;
+            }
 
-      /**
-       * <code>string acceptId = 2;</code>
-       *
-       * @return This builder for chaining.
-       */
-      public Builder clearAcceptId() {
-        acceptId_ = getDefaultInstance().getAcceptId();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
+            /**
+             * <code>string userName = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearUserName() {
+                userName_ = getDefaultInstance().getUserName();
+                bitField0_ = (bitField0_ & ~0x00000002);
+                onChanged();
+                return this;
+            }
 
-      /**
-       * <code>string message = 3;</code>
-       *
+            /**
+             * <code>string acceptId = 3;</code>
+             * @return The acceptId.
+             */
+            public java.lang.String getAcceptId() {
+                java.lang.Object ref = acceptId_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    acceptId_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string acceptId = 3;</code>
+             *
+             * @param value The acceptId to set.
+             * @return This builder for chaining.
+             */
+            public Builder setAcceptId(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                acceptId_ = value;
+                bitField0_ |= 0x00000004;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string acceptId = 3;</code>
+             *
+             * @return The bytes for acceptId.
+             */
+            public com.google.protobuf.ByteString
+            getAcceptIdBytes() {
+                java.lang.Object ref = acceptId_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    acceptId_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string acceptId = 3;</code>
+             *
+             * @param value The bytes for acceptId to set.
+             * @return This builder for chaining.
+             */
+            public Builder setAcceptIdBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                acceptId_ = value;
+                bitField0_ |= 0x00000004;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string acceptId = 3;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearAcceptId() {
+                acceptId_ = getDefaultInstance().getAcceptId();
+                bitField0_ = (bitField0_ & ~0x00000004);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string acceptName = 4;</code>
+             *
+             * @return The acceptName.
+             */
+            public java.lang.String getAcceptName() {
+                java.lang.Object ref = acceptName_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    acceptName_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string acceptName = 4;</code>
+             *
+             * @param value The acceptName to set.
+             * @return This builder for chaining.
+             */
+            public Builder setAcceptName(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                acceptName_ = value;
+                bitField0_ |= 0x00000008;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string acceptName = 4;</code>
+             *
+             * @return The bytes for acceptName.
+             */
+            public com.google.protobuf.ByteString
+            getAcceptNameBytes() {
+                java.lang.Object ref = acceptName_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    acceptName_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string acceptName = 4;</code>
+             * @param value The bytes for acceptName to set.
+             * @return This builder for chaining.
+             */
+            public Builder setAcceptNameBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                acceptName_ = value;
+                bitField0_ |= 0x00000008;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string acceptName = 4;</code>
+             * @return This builder for chaining.
+             */
+            public Builder clearAcceptName() {
+                acceptName_ = getDefaultInstance().getAcceptName();
+        bitField0_ = (bitField0_ & ~0x00000008);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string message = 5;</code>
        * @return The message.
-       */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          message_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+             */
+            public java.lang.String getMessage() {
+                java.lang.Object ref = message_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    message_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
       }
 
       /**
-       * <code>string message = 3;</code>
-       *
+       * <code>string message = 5;</code>
        * @param value The message to set.
        * @return This builder for chaining.
        */
       public Builder setMessage(
               java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        message_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
+          if (value == null) {
+              throw new NullPointerException();
+          }
+          message_ = value;
+          bitField0_ |= 0x00000010;
+          onChanged();
+          return this;
       }
 
-      /**
-       * <code>string message = 3;</code>
-       *
-       * @return The bytes for message.
-       */
-      public com.google.protobuf.ByteString
-      getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
+            /**
+             * <code>string message = 5;</code>
+             *
+             * @return The bytes for message.
+             */
+            public com.google.protobuf.ByteString
+            getMessageBytes() {
+                java.lang.Object ref = message_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    message_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
 
-      /**
-       * <code>string message = 3;</code>
-       *
-       * @param value The bytes for message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessageBytes(
-              com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        checkByteStringIsUtf8(value);
-        message_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
+            /**
+             * <code>string message = 5;</code>
+             *
+             * @param value The bytes for message to set.
+             * @return This builder for chaining.
+             */
+            public Builder setMessageBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                message_ = value;
+                bitField0_ |= 0x00000010;
+                onChanged();
+                return this;
+            }
 
-      /**
-       * <code>string message = 3;</code>
-       *
-       * @return This builder for chaining.
-       */
-      public Builder clearMessage() {
-        message_ = getDefaultInstance().getMessage();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
-        return this;
-      }
+            /**
+             * <code>string message = 5;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearMessage() {
+                message_ = getDefaultInstance().getMessage();
+                bitField0_ = (bitField0_ & ~0x00000010);
+                onChanged();
+                return this;
+            }
 
-      @java.lang.Override
-      public final Builder setUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
+            @java.lang.Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFields(unknownFields);
+            }
 
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
+            @java.lang.Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
 
 
       // @@protoc_insertion_point(builder_scope:ChatMsg)
@@ -2633,1695 +3192,1688 @@ public final class Message {
 
   }
 
-  /**
-   * Protobuf type {@code ChatMsgByGroup}
-   */
-  public static final class ChatMsgByGroup extends
-          com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:ChatMsgByGroup)
-          ChatMsgByGroupOrBuilder {
-    public static final int USERID_FIELD_NUMBER = 1;
-    public static final int GROUP_FIELD_NUMBER = 2;
-    public static final int MESSAGE_FIELD_NUMBER = 3;
-    // @@protoc_insertion_point(class_scope:ChatMsgByGroup)
-    private static final com.oik.api.netty.pojo.Message.ChatMsgByGroup DEFAULT_INSTANCE;
-    private static final com.google.protobuf.Parser<ChatMsgByGroup>
-            PARSER = new com.google.protobuf.AbstractParser<ChatMsgByGroup>() {
-      @java.lang.Override
-      public ChatMsgByGroup parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-                  .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-    private static final long serialVersionUID = 0L;
-
-    static {
-      DEFAULT_INSTANCE = new com.oik.api.netty.pojo.Message.ChatMsgByGroup();
-    }
-
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object userId_ = "";
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object group_ = "";
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object message_ = "";
-    private byte memoizedIsInitialized = -1;
-
-    // Use ChatMsgByGroup.newBuilder() to construct.
-    private ChatMsgByGroup(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-
-    private ChatMsgByGroup() {
-      userId_ = "";
-      group_ = "";
-      message_ = "";
-    }
-
-    public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-      return com.oik.api.netty.pojo.Message.internal_static_ChatMsgByGroup_descriptor;
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-
-    public static Builder newBuilder(com.oik.api.netty.pojo.Message.ChatMsgByGroup prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    public static com.oik.api.netty.pojo.Message.ChatMsgByGroup getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    public static com.google.protobuf.Parser<ChatMsgByGroup> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-            UnusedPrivateParameter unused) {
-      return new ChatMsgByGroup();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-      return com.oik.api.netty.pojo.Message.internal_static_ChatMsgByGroup_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                      com.oik.api.netty.pojo.Message.ChatMsgByGroup.class, com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder.class);
-    }
-
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The userId.
-     */
-    @java.lang.Override
-    public java.lang.String getUserId() {
-      java.lang.Object ref = userId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userId_ = s;
-        return s;
-      }
-    }
-
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The bytes for userId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getUserIdBytes() {
-      java.lang.Object ref = userId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-        userId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    /**
-     * <code>string group = 2;</code>
-     *
-     * @return The group.
-     */
-    @java.lang.Override
-    public java.lang.String getGroup() {
-      java.lang.Object ref = group_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        group_ = s;
-        return s;
-      }
-    }
-
-    /**
-     * <code>string group = 2;</code>
-     *
-     * @return The bytes for group.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getGroupBytes() {
-      java.lang.Object ref = group_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-        group_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    /**
-     * <code>string message = 3;</code>
-     *
-     * @return The message.
-     */
-    @java.lang.Override
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        message_ = s;
-        return s;
-      }
-    }
-
-    /**
-     * <code>string message = 3;</code>
-     *
-     * @return The bytes for message.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-        message_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(group_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, group_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(group_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, group_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-        return true;
-      }
-      if (!(obj instanceof com.oik.api.netty.pojo.Message.ChatMsgByGroup)) {
-        return super.equals(obj);
-      }
-      com.oik.api.netty.pojo.Message.ChatMsgByGroup other = (com.oik.api.netty.pojo.Message.ChatMsgByGroup) obj;
-
-      if (!getUserId()
-              .equals(other.getUserId())) return false;
-      if (!getGroup()
-              .equals(other.getGroup())) return false;
-      if (!getMessage()
-              .equals(other.getMessage())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + USERID_FIELD_NUMBER;
-      hash = (53 * hash) + getUserId().hashCode();
-      hash = (37 * hash) + GROUP_FIELD_NUMBER;
-      hash = (53 * hash) + getGroup().hashCode();
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ChatMsgByGroup> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.oik.api.netty.pojo.Message.ChatMsgByGroup getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
     /**
      * Protobuf type {@code ChatMsgByGroup}
      */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:ChatMsgByGroup)
-            com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder {
-      private int bitField0_;
-      private java.lang.Object userId_ = "";
-      private java.lang.Object group_ = "";
-      private java.lang.Object message_ = "";
+    public static final class ChatMsgByGroup extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:ChatMsgByGroup)
+            ChatMsgByGroupOrBuilder {
+        public static final int USERID_FIELD_NUMBER = 1;
 
-      // Construct using com.oik.api.netty.pojo.Message.ChatMsgByGroup.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-
-      }
-
-      public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-        return com.oik.api.netty.pojo.Message.internal_static_ChatMsgByGroup_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-        return com.oik.api.netty.pojo.Message.internal_static_ChatMsgByGroup_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        com.oik.api.netty.pojo.Message.ChatMsgByGroup.class, com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder.class);
-      }
-
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        bitField0_ = 0;
-        userId_ = "";
-        group_ = "";
-        message_ = "";
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
-        return com.oik.api.netty.pojo.Message.internal_static_ChatMsgByGroup_descriptor;
-      }
-
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsgByGroup getDefaultInstanceForType() {
-        return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsgByGroup build() {
-        com.oik.api.netty.pojo.Message.ChatMsgByGroup result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
+        // Use ChatMsgByGroup.newBuilder() to construct.
+        private ChatMsgByGroup(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-        return result;
-      }
 
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsgByGroup buildPartial() {
-        com.oik.api.netty.pojo.Message.ChatMsgByGroup result = new com.oik.api.netty.pojo.Message.ChatMsgByGroup(this);
-        if (bitField0_ != 0) {
-          buildPartial0(result);
+        private ChatMsgByGroup() {
+            userId_ = "";
+            group_ = "";
+            message_ = "";
         }
-        onBuilt();
-        return result;
-      }
 
-      private void buildPartial0(com.oik.api.netty.pojo.Message.ChatMsgByGroup result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
+        public static final int GROUP_FIELD_NUMBER = 2;
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
         }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.group_ = group_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.message_ = message_;
-        }
-      }
 
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-
-      @java.lang.Override
-      public Builder setField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
-        return super.setField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder clearField(
-              com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-
-      @java.lang.Override
-      public Builder clearOneof(
-              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-
-      @java.lang.Override
-      public Builder setRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-
-      @java.lang.Override
-      public Builder addRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.oik.api.netty.pojo.Message.ChatMsgByGroup) {
-          return mergeFrom((com.oik.api.netty.pojo.Message.ChatMsgByGroup) other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.oik.api.netty.pojo.Message.ChatMsgByGroup other) {
-        if (other == com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance()) return this;
-        if (!other.getUserId().isEmpty()) {
-          userId_ = other.userId_;
-          bitField0_ |= 0x00000001;
-          onChanged();
-        }
-        if (!other.getGroup().isEmpty()) {
-          group_ = other.group_;
-          bitField0_ |= 0x00000002;
-          onChanged();
-        }
-        if (!other.getMessage().isEmpty()) {
-          message_ = other.message_;
-          bitField0_ |= 0x00000004;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                userId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                group_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                message_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
+        public static final int MESSAGE_FIELD_NUMBER = 3;
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:ChatMsgByGroup)
+        private static final com.oik.api.netty.pojo.Message.ChatMsgByGroup DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<ChatMsgByGroup>
+                PARSER = new com.google.protobuf.AbstractParser<ChatMsgByGroup>() {
+            @java.lang.Override
+            public ChatMsgByGroup parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                Builder builder = newBuilder();
+                try {
+                    builder.mergeFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    throw e.setUnfinishedMessage(builder.buildPartial());
+                } catch (com.google.protobuf.UninitializedMessageException e) {
+                    throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+                } catch (java.io.IOException e) {
+                    throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                            .setUnfinishedMessage(builder.buildPartial());
                 }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.unwrapIOException();
-        } finally {
-          onChanged();
-        } // finally
-        return this;
-      }
+                return builder.buildPartial();
+            }
+        };
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @return The userId.
-       */
-      public java.lang.String getUserId() {
-        java.lang.Object ref = userId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          userId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
+        static {
+            DEFAULT_INSTANCE = new com.oik.api.netty.pojo.Message.ChatMsgByGroup();
         }
-      }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @param value The userId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserId(
-              java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object userId_ = "";
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object group_ = "";
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object message_ = "";
+        private byte memoizedIsInitialized = -1;
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.oik.api.netty.pojo.Message.internal_static_ChatMsgByGroup_descriptor;
         }
-        userId_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @return The bytes for userId.
-       */
-      public com.google.protobuf.ByteString
-      getUserIdBytes() {
-        java.lang.Object ref = userId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-          userId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
         }
-      }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @param value The bytes for userId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserIdBytes(
-              com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
         }
-        checkByteStringIsUtf8(value);
-        userId_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @return This builder for chaining.
-       */
-      public Builder clearUserId() {
-        userId_ = getDefaultInstance().getUserId();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-
-      /**
-       * <code>string group = 2;</code>
-       *
-       * @return The group.
-       */
-      public java.lang.String getGroup() {
-        java.lang.Object ref = group_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          group_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
         }
-      }
 
-      /**
-       * <code>string group = 2;</code>
-       *
-       * @param value The group to set.
-       * @return This builder for chaining.
-       */
-      public Builder setGroup(
-              java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
         }
-        group_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
 
-      /**
-       * <code>string group = 2;</code>
-       *
-       * @return The bytes for group.
-       */
-      public com.google.protobuf.ByteString
-      getGroupBytes() {
-        java.lang.Object ref = group_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-          group_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
         }
-      }
 
-      /**
-       * <code>string group = 2;</code>
-       *
-       * @param value The bytes for group to set.
-       * @return This builder for chaining.
-       */
-      public Builder setGroupBytes(
-              com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
+        @java.lang.Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
         }
-        checkByteStringIsUtf8(value);
-        group_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
 
-      /**
-       * <code>string group = 2;</code>
-       *
-       * @return This builder for chaining.
-       */
-      public Builder clearGroup() {
-        group_ = getDefaultInstance().getGroup();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
-
-      /**
-       * <code>string message = 3;</code>
-       *
-       * @return The message.
-       */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          message_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
         }
-      }
 
-      /**
-       * <code>string message = 3;</code>
-       *
-       * @param value The message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessage(
-              java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
+        @java.lang.Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(group_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, group_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
+            }
+            size += getUnknownFields().getSerializedSize();
+            memoizedSize = size;
+            return size;
         }
-        message_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
 
-      /**
-       * <code>string message = 3;</code>
-       *
-       * @return The bytes for message.
-       */
-      public com.google.protobuf.ByteString
-      getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
         }
-      }
 
-      /**
-       * <code>string message = 3;</code>
-       *
-       * @param value The bytes for message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessageBytes(
-              com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + USERID_FIELD_NUMBER;
+            hash = (53 * hash) + getUserId().hashCode();
+            hash = (37 * hash) + GROUP_FIELD_NUMBER;
+            hash = (53 * hash) + getGroup().hashCode();
+            hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+            hash = (53 * hash) + getMessage().hashCode();
+            hash = (29 * hash) + getUnknownFields().hashCode();
+            memoizedHashCode = hash;
+            return hash;
         }
-        checkByteStringIsUtf8(value);
-        message_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
 
-      /**
-       * <code>string message = 3;</code>
-       *
-       * @return This builder for chaining.
-       */
-      public Builder clearMessage() {
-        message_ = getDefaultInstance().getMessage();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final Builder setUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:ChatMsgByGroup)
-    }
-
-  }
-
-  /**
-   * Protobuf type {@code ChatMsgAll}
-   */
-  public static final class ChatMsgAll extends
-          com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:ChatMsgAll)
-          ChatMsgAllOrBuilder {
-    public static final int USERID_FIELD_NUMBER = 1;
-    public static final int MESSAGE_FIELD_NUMBER = 2;
-    // @@protoc_insertion_point(class_scope:ChatMsgAll)
-    private static final com.oik.api.netty.pojo.Message.ChatMsgAll DEFAULT_INSTANCE;
-    private static final com.google.protobuf.Parser<ChatMsgAll>
-            PARSER = new com.google.protobuf.AbstractParser<ChatMsgAll>() {
-      @java.lang.Override
-      public ChatMsgAll parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-                  .setUnfinishedMessage(builder.buildPartial());
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
         }
-        return builder.buildPartial();
-      }
-    };
-    private static final long serialVersionUID = 0L;
 
-    static {
-      DEFAULT_INSTANCE = new com.oik.api.netty.pojo.Message.ChatMsgAll();
-    }
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
 
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object userId_ = "";
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object message_ = "";
-    private byte memoizedIsInitialized = -1;
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
 
-    // Use ChatMsgAll.newBuilder() to construct.
-    private ChatMsgAll(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
 
-    private ChatMsgAll() {
-      userId_ = "";
-      message_ = "";
-    }
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-      return com.oik.api.netty.pojo.Message.internal_static_ChatMsgAll_descriptor;
-    }
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
+        public static Builder newBuilder(com.oik.api.netty.pojo.Message.ChatMsgByGroup prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
+        public static com.oik.api.netty.pojo.Message.ChatMsgByGroup getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
+        public static com.google.protobuf.Parser<ChatMsgByGroup> parser() {
+            return PARSER;
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+                UnusedPrivateParameter unused) {
+            return new ChatMsgByGroup();
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.oik.api.netty.pojo.Message.internal_static_ChatMsgByGroup_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.oik.api.netty.pojo.Message.ChatMsgByGroup.class, com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder.class);
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
+        /**
+         * <code>string userId = 1;</code>
+         * @return The userId.
+         */
+        @java.lang.Override
+        public java.lang.String getUserId() {
+            java.lang.Object ref = userId_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                userId_ = s;
+                return s;
+            }
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-    }
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The bytes for userId.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getUserIdBytes() {
+            java.lang.Object ref = userId_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                userId_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-    }
+        /**
+         * <code>string group = 2;</code>
+         *
+         * @return The group.
+         */
+        @java.lang.Override
+        public java.lang.String getGroup() {
+            java.lang.Object ref = group_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                group_ = s;
+                return s;
+            }
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input);
-    }
+        /**
+         * <code>string group = 2;</code>
+         * @return The bytes for group.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getGroupBytes() {
+            java.lang.Object ref = group_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                group_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
+        /**
+         * <code>string message = 3;</code>
+         *
+         * @return The message.
+         */
+        @java.lang.Override
+        public java.lang.String getMessage() {
+            java.lang.Object ref = message_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                message_ = s;
+                return s;
+            }
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-    }
+        /**
+         * <code>string message = 3;</code>
+         * @return The bytes for message.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getMessageBytes() {
+            java.lang.Object ref = message_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                message_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-    }
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(group_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, group_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
+            }
+            getUnknownFields().writeTo(output);
+        }
 
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.oik.api.netty.pojo.Message.ChatMsgByGroup)) {
+                return super.equals(obj);
+            }
+            com.oik.api.netty.pojo.Message.ChatMsgByGroup other = (com.oik.api.netty.pojo.Message.ChatMsgByGroup) obj;
 
-    public static Builder newBuilder(com.oik.api.netty.pojo.Message.ChatMsgAll prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+            if (!getUserId()
+                    .equals(other.getUserId())) return false;
+            if (!getGroup()
+                    .equals(other.getGroup())) return false;
+            if (!getMessage()
+                    .equals(other.getMessage())) return false;
+            if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+            return true;
+        }
 
-    public static com.oik.api.netty.pojo.Message.ChatMsgAll getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
+        @java.lang.Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
 
-    public static com.google.protobuf.Parser<ChatMsgAll> parser() {
-      return PARSER;
-    }
+        @java.lang.Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-            UnusedPrivateParameter unused) {
-      return new ChatMsgAll();
-    }
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
+        @java.lang.Override
+        public com.google.protobuf.Parser<ChatMsgByGroup> getParserForType() {
+            return PARSER;
+        }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-      return com.oik.api.netty.pojo.Message.internal_static_ChatMsgAll_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                      com.oik.api.netty.pojo.Message.ChatMsgAll.class, com.oik.api.netty.pojo.Message.ChatMsgAll.Builder.class);
-    }
+        @java.lang.Override
+        public com.oik.api.netty.pojo.Message.ChatMsgByGroup getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
 
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The userId.
-     */
-    @java.lang.Override
-    public java.lang.String getUserId() {
-      java.lang.Object ref = userId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userId_ = s;
-        return s;
-      }
-    }
+        /**
+         * Protobuf type {@code ChatMsgByGroup}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:ChatMsgByGroup)
+                com.oik.api.netty.pojo.Message.ChatMsgByGroupOrBuilder {
+            private int bitField0_;
+            private java.lang.Object userId_ = "";
+            private java.lang.Object group_ = "";
+            private java.lang.Object message_ = "";
 
-    /**
-     * <code>string userId = 1;</code>
-     *
-     * @return The bytes for userId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getUserIdBytes() {
-      java.lang.Object ref = userId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-        userId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
+            @java.lang.Override
+            public Builder clear() {
+                super.clear();
+                bitField0_ = 0;
+                userId_ = "";
+                group_ = "";
+                message_ = "";
+                return this;
+            }
 
-    /**
-     * <code>string message = 2;</code>
-     *
-     * @return The message.
-     */
-    @java.lang.Override
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        message_ = s;
-        return s;
-      }
-    }
+            // Construct using com.oik.api.netty.pojo.Message.ChatMsgByGroup.newBuilder()
+            private Builder() {
 
-    /**
-     * <code>string message = 2;</code>
-     *
-     * @return The bytes for message.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-        message_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
+            }
 
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsgByGroup getDefaultInstanceForType() {
+                return com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance();
+            }
 
-      memoizedIsInitialized = 1;
-      return true;
-    }
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsgByGroup build() {
+                com.oik.api.netty.pojo.Message.ChatMsgByGroup result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
 
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
-      }
-      getUnknownFields().writeTo(output);
-    }
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
 
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
+            }
 
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
+            private void buildPartial0(com.oik.api.netty.pojo.Message.ChatMsgByGroup result) {
+                int from_bitField0_ = bitField0_;
+                if (((from_bitField0_ & 0x00000001) != 0)) {
+                    result.userId_ = userId_;
+                }
+                if (((from_bitField0_ & 0x00000002) != 0)) {
+                    result.group_ = group_;
+                }
+                if (((from_bitField0_ & 0x00000004) != 0)) {
+                    result.message_ = message_;
+                }
+            }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-        return true;
-      }
-      if (!(obj instanceof com.oik.api.netty.pojo.Message.ChatMsgAll)) {
-        return super.equals(obj);
-      }
-      com.oik.api.netty.pojo.Message.ChatMsgAll other = (com.oik.api.netty.pojo.Message.ChatMsgAll) obj;
+            @java.lang.Override
+            public Builder clone() {
+                return super.clone();
+            }
 
-      if (!getUserId()
-              .equals(other.getUserId())) return false;
-      if (!getMessage()
-              .equals(other.getMessage())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-      return true;
-    }
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.oik.api.netty.pojo.Message.internal_static_ChatMsgByGroup_descriptor;
+            }
 
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + USERID_FIELD_NUMBER;
-      hash = (53 * hash) + getUserId().hashCode();
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.oik.api.netty.pojo.Message.internal_static_ChatMsgByGroup_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.oik.api.netty.pojo.Message.ChatMsgByGroup.class, com.oik.api.netty.pojo.Message.ChatMsgByGroup.Builder.class);
+            }
 
-    @java.lang.Override
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
+            @java.lang.Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.oik.api.netty.pojo.Message.internal_static_ChatMsgByGroup_descriptor;
+            }
 
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
-    }
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsgByGroup buildPartial() {
+                com.oik.api.netty.pojo.Message.ChatMsgByGroup result = new com.oik.api.netty.pojo.Message.ChatMsgByGroup(this);
+                if (bitField0_ != 0) { buildPartial0(result);
+                }
+                onBuilt();
+                return result;
+            }
 
-    @java.lang.Override
-    protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.setField(field, value);
+            }
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<ChatMsgAll> getParserForType() {
-      return PARSER;
-    }
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
 
-    @java.lang.Override
-    public com.oik.api.netty.pojo.Message.ChatMsgAll getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
+            public Builder mergeFrom(com.oik.api.netty.pojo.Message.ChatMsgByGroup other) {
+                if (other == com.oik.api.netty.pojo.Message.ChatMsgByGroup.getDefaultInstance()) return this;
+                if (!other.getUserId().isEmpty()) {
+                    userId_ = other.userId_;
+                    bitField0_ |= 0x00000001;
+                    onChanged();
+                }
+                if (!other.getGroup().isEmpty()) {
+                    group_ = other.group_;
+                    bitField0_ |= 0x00000002;
+                    onChanged();
+                }
+                if (!other.getMessage().isEmpty()) {
+                    message_ = other.message_;
+                    bitField0_ |= 0x00000004;
+                    onChanged();
+                }
+                this.mergeUnknownFields(other.getUnknownFields());
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            @java.lang.Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            @java.lang.Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @java.lang.Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.oik.api.netty.pojo.Message.ChatMsgByGroup) {
+                    return mergeFrom((com.oik.api.netty.pojo.Message.ChatMsgByGroup) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                if (extensionRegistry == null) {
+                    throw new java.lang.NullPointerException();
+                }
+                try {
+                    boolean done = false;
+                    while (!done) {
+                        int tag = input.readTag();
+                        switch (tag) {
+                            case 0:
+                                done = true;
+                                break;
+                            case 10: {
+                                userId_ = input.readStringRequireUtf8();
+                                bitField0_ |= 0x00000001;
+                                break;
+                            } // case 10
+                            case 18: {
+                                group_ = input.readStringRequireUtf8();
+                                bitField0_ |= 0x00000002;
+                                break;
+                            } // case 18
+                            case 26: {
+                                message_ = input.readStringRequireUtf8();
+                                bitField0_ |= 0x00000004;
+                                break;
+                            } // case 26
+                            default: {
+                                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                                    done = true; // was an endgroup tag
+                                }
+                                break;
+                            } // default:
+                        } // switch (tag)
+                    } // while (!done)
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    throw e.unwrapIOException();
+                } finally {
+                    onChanged();
+                } // finally
+                return this;
+            }
+
+            /**
+             * <code>string userId = 1;</code>
+             * @return The userId.
+             */
+            public java.lang.String getUserId() {
+                java.lang.Object ref = userId_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    userId_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearUserId() {
+                userId_ = getDefaultInstance().getUserId();
+                bitField0_ = (bitField0_ & ~0x00000001);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @param value The userId to set.
+             * @return This builder for chaining.
+             */
+            public Builder setUserId(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                userId_ = value;
+                bitField0_ |= 0x00000001;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @return The bytes for userId.
+             */
+            public com.google.protobuf.ByteString
+            getUserIdBytes() {
+                java.lang.Object ref = userId_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    userId_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @param value The bytes for userId to set.
+             * @return This builder for chaining.
+             */
+            public Builder setUserIdBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) { throw new NullPointerException(); }
+                checkByteStringIsUtf8(value);
+                userId_ = value;
+                bitField0_ |= 0x00000001;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string group = 2;</code>
+             * @return The group.
+             */
+            public java.lang.String getGroup() {
+                java.lang.Object ref = group_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    group_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string group = 2;</code>
+             * @param value The group to set.
+             * @return This builder for chaining.
+             */
+            public Builder setGroup(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                group_ = value;
+                bitField0_ |= 0x00000002;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string group = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearGroup() {
+                group_ = getDefaultInstance().getGroup();
+                bitField0_ = (bitField0_ & ~0x00000002);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string group = 2;</code>
+             *
+             * @return The bytes for group.
+             */
+            public com.google.protobuf.ByteString
+            getGroupBytes() {
+                java.lang.Object ref = group_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    group_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string group = 2;</code>
+             *
+             * @param value The bytes for group to set.
+             * @return This builder for chaining.
+             */
+            public Builder setGroupBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                group_ = value;
+                bitField0_ |= 0x00000002;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string message = 3;</code>
+             * @return The message.
+             */
+            public java.lang.String getMessage() {
+                java.lang.Object ref = message_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    message_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string message = 3;</code>
+             *
+             * @param value The message to set.
+             * @return This builder for chaining.
+             */
+            public Builder setMessage(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                message_ = value;
+                bitField0_ |= 0x00000004;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string message = 3;</code>
+             *
+             * @return The bytes for message.
+             */
+            public com.google.protobuf.ByteString
+            getMessageBytes() {
+                java.lang.Object ref = message_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    message_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string message = 3;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearMessage() {
+                message_ = getDefaultInstance().getMessage();
+                bitField0_ = (bitField0_ & ~0x00000004);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string message = 3;</code>
+             *
+             * @param value The bytes for message to set.
+             * @return This builder for chaining.
+             */
+            public Builder setMessageBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                message_ = value;
+                bitField0_ |= 0x00000004;
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFields(unknownFields);
+            }
+
+            @java.lang.Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:ChatMsgByGroup)
+        }
+
     }
 
     /**
      * Protobuf type {@code ChatMsgAll}
      */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:ChatMsgAll)
-            com.oik.api.netty.pojo.Message.ChatMsgAllOrBuilder {
-      private int bitField0_;
-      private java.lang.Object userId_ = "";
-      private java.lang.Object message_ = "";
+    public static final class ChatMsgAll extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:ChatMsgAll)
+            ChatMsgAllOrBuilder {
+        public static final int USERID_FIELD_NUMBER = 1;
 
-      // Construct using com.oik.api.netty.pojo.Message.ChatMsgAll.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-
-      }
-
-      public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-        return com.oik.api.netty.pojo.Message.internal_static_ChatMsgAll_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-        return com.oik.api.netty.pojo.Message.internal_static_ChatMsgAll_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        com.oik.api.netty.pojo.Message.ChatMsgAll.class, com.oik.api.netty.pojo.Message.ChatMsgAll.Builder.class);
-      }
-
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        bitField0_ = 0;
-        userId_ = "";
-        message_ = "";
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
-        return com.oik.api.netty.pojo.Message.internal_static_ChatMsgAll_descriptor;
-      }
-
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsgAll getDefaultInstanceForType() {
-        return com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsgAll build() {
-        com.oik.api.netty.pojo.Message.ChatMsgAll result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
+        // Use ChatMsgAll.newBuilder() to construct.
+        private ChatMsgAll(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-        return result;
-      }
 
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.ChatMsgAll buildPartial() {
-        com.oik.api.netty.pojo.Message.ChatMsgAll result = new com.oik.api.netty.pojo.Message.ChatMsgAll(this);
-        if (bitField0_ != 0) {
-          buildPartial0(result);
+        private ChatMsgAll() {
+            userId_ = "";
+            message_ = "";
         }
-        onBuilt();
-        return result;
-      }
 
-      private void buildPartial0(com.oik.api.netty.pojo.Message.ChatMsgAll result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
+        public static final int MESSAGE_FIELD_NUMBER = 2;
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
         }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.message_ = message_;
-        }
-      }
 
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-
-      @java.lang.Override
-      public Builder setField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
-        return super.setField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder clearField(
-              com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-
-      @java.lang.Override
-      public Builder clearOneof(
-              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-
-      @java.lang.Override
-      public Builder setRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-
-      @java.lang.Override
-      public Builder addRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.oik.api.netty.pojo.Message.ChatMsgAll) {
-          return mergeFrom((com.oik.api.netty.pojo.Message.ChatMsgAll) other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.oik.api.netty.pojo.Message.ChatMsgAll other) {
-        if (other == com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance()) return this;
-        if (!other.getUserId().isEmpty()) {
-          userId_ = other.userId_;
-          bitField0_ |= 0x00000001;
-          onChanged();
-        }
-        if (!other.getMessage().isEmpty()) {
-          message_ = other.message_;
-          bitField0_ |= 0x00000002;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                userId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                message_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:ChatMsgAll)
+        private static final com.oik.api.netty.pojo.Message.ChatMsgAll DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<ChatMsgAll>
+                PARSER = new com.google.protobuf.AbstractParser<ChatMsgAll>() {
+            @java.lang.Override
+            public ChatMsgAll parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                Builder builder = newBuilder();
+                try {
+                    builder.mergeFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    throw e.setUnfinishedMessage(builder.buildPartial());
+                } catch (com.google.protobuf.UninitializedMessageException e) {
+                    throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+                } catch (java.io.IOException e) {
+                    throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                            .setUnfinishedMessage(builder.buildPartial());
                 }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.unwrapIOException();
-        } finally {
-          onChanged();
-        } // finally
-        return this;
-      }
+                return builder.buildPartial();
+            }
+        };
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @return The userId.
-       */
-      public java.lang.String getUserId() {
-        java.lang.Object ref = userId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          userId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
+        static {
+            DEFAULT_INSTANCE = new com.oik.api.netty.pojo.Message.ChatMsgAll();
         }
-      }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @param value The userId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserId(
-              java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object userId_ = "";
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object message_ = "";
+        private byte memoizedIsInitialized = -1;
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.oik.api.netty.pojo.Message.internal_static_ChatMsgAll_descriptor;
         }
-        userId_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @return The bytes for userId.
-       */
-      public com.google.protobuf.ByteString
-      getUserIdBytes() {
-        java.lang.Object ref = userId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-          userId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
         }
-      }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @param value The bytes for userId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserIdBytes(
-              com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
         }
-        checkByteStringIsUtf8(value);
-        userId_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
 
-      /**
-       * <code>string userId = 1;</code>
-       *
-       * @return This builder for chaining.
-       */
-      public Builder clearUserId() {
-        userId_ = getDefaultInstance().getUserId();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-
-      /**
-       * <code>string message = 2;</code>
-       *
-       * @return The message.
-       */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          message_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
         }
-      }
 
-      /**
-       * <code>string message = 2;</code>
-       *
-       * @param value The message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessage(
-              java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
+        @java.lang.Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
         }
-        message_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
 
-      /**
-       * <code>string message = 2;</code>
-       *
-       * @return The bytes for message.
-       */
-      public com.google.protobuf.ByteString
-      getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
         }
-      }
 
-      /**
-       * <code>string message = 2;</code>
-       *
-       * @param value The bytes for message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessageBytes(
-              com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
+        @java.lang.Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
+            }
+            size += getUnknownFields().getSerializedSize();
+            memoizedSize = size;
+            return size;
         }
-        checkByteStringIsUtf8(value);
-        message_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
 
-      /**
-       * <code>string message = 2;</code>
-       *
-       * @return This builder for chaining.
-       */
-      public Builder clearMessage() {
-        message_ = getDefaultInstance().getMessage();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
 
-      @java.lang.Override
-      public final Builder setUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + USERID_FIELD_NUMBER;
+            hash = (53 * hash) + getUserId().hashCode();
+            hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+            hash = (53 * hash) + getMessage().hashCode();
+            hash = (29 * hash) + getUnknownFields().hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
 
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.oik.api.netty.pojo.Message.ChatMsgAll prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public static com.oik.api.netty.pojo.Message.ChatMsgAll getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        public static com.google.protobuf.Parser<ChatMsgAll> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+                UnusedPrivateParameter unused) {
+            return new ChatMsgAll();
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.oik.api.netty.pojo.Message.internal_static_ChatMsgAll_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.oik.api.netty.pojo.Message.ChatMsgAll.class, com.oik.api.netty.pojo.Message.ChatMsgAll.Builder.class);
+        }
+
+        /**
+         * <code>string userId = 1;</code>
+         * @return The userId.
+         */
+        @java.lang.Override
+        public java.lang.String getUserId() {
+            java.lang.Object ref = userId_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                userId_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string userId = 1;</code>
+         * @return The bytes for userId.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getUserIdBytes() {
+            java.lang.Object ref = userId_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                userId_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string message = 2;</code>
+         * @return The message.
+         */
+        @java.lang.Override
+        public java.lang.String getMessage() {
+            java.lang.Object ref = message_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                message_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string message = 2;</code>
+         *
+         * @return The bytes for message.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getMessageBytes() {
+            java.lang.Object ref = message_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                message_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
+            }
+            getUnknownFields().writeTo(output);
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.oik.api.netty.pojo.Message.ChatMsgAll)) {
+                return super.equals(obj);
+            }
+            com.oik.api.netty.pojo.Message.ChatMsgAll other = (com.oik.api.netty.pojo.Message.ChatMsgAll) obj;
+
+            if (!getUserId()
+                    .equals(other.getUserId())) return false;
+            if (!getMessage()
+                    .equals(other.getMessage())) return false;
+            if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+            return true;
+        }
+
+        @java.lang.Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        @java.lang.Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<ChatMsgAll> getParserForType() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public com.oik.api.netty.pojo.Message.ChatMsgAll getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+        /**
+         * Protobuf type {@code ChatMsgAll}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:ChatMsgAll)
+                com.oik.api.netty.pojo.Message.ChatMsgAllOrBuilder {
+            private int bitField0_;
+            private java.lang.Object userId_ = "";
+            private java.lang.Object message_ = "";
+
+            // Construct using com.oik.api.netty.pojo.Message.ChatMsgAll.newBuilder()
+            private Builder() {
+
+            }
+
+            @java.lang.Override
+            public Builder clear() {
+                super.clear();
+                bitField0_ = 0;
+                userId_ = "";
+                message_ = "";
+                return this;
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+
+            }
+
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsgAll getDefaultInstanceForType() {
+                return com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance();
+            }
+
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsgAll build() {
+                com.oik.api.netty.pojo.Message.ChatMsgAll result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.oik.api.netty.pojo.Message.internal_static_ChatMsgAll_descriptor;
+            }
+
+            private void buildPartial0(com.oik.api.netty.pojo.Message.ChatMsgAll result) {
+                int from_bitField0_ = bitField0_;
+                if (((from_bitField0_ & 0x00000001) != 0)) {
+                    result.userId_ = userId_;
+                }
+                if (((from_bitField0_ & 0x00000002) != 0)) {
+                    result.message_ = message_;
+                }
+            }
+
+            @java.lang.Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.oik.api.netty.pojo.Message.internal_static_ChatMsgAll_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.oik.api.netty.pojo.Message.ChatMsgAll.class, com.oik.api.netty.pojo.Message.ChatMsgAll.Builder.class);
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.oik.api.netty.pojo.Message.internal_static_ChatMsgAll_descriptor;
+            }
+
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.ChatMsgAll buildPartial() {
+                com.oik.api.netty.pojo.Message.ChatMsgAll result = new com.oik.api.netty.pojo.Message.ChatMsgAll(this);
+                if (bitField0_ != 0) { buildPartial0(result); }
+                onBuilt();
+                return result;
+            }
+
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.setField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
+
+            @java.lang.Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            public Builder mergeFrom(com.oik.api.netty.pojo.Message.ChatMsgAll other) {
+                if (other == com.oik.api.netty.pojo.Message.ChatMsgAll.getDefaultInstance()) return this;
+                if (!other.getUserId().isEmpty()) {
+                    userId_ = other.userId_;
+                    bitField0_ |= 0x00000001;
+                    onChanged();
+                }
+                if (!other.getMessage().isEmpty()) {
+                    message_ = other.message_;
+                    bitField0_ |= 0x00000002;
+                    onChanged();
+                }
+                this.mergeUnknownFields(other.getUnknownFields());
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            @java.lang.Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @java.lang.Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.oik.api.netty.pojo.Message.ChatMsgAll) {
+                    return mergeFrom((com.oik.api.netty.pojo.Message.ChatMsgAll) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                if (extensionRegistry == null) {
+                    throw new java.lang.NullPointerException();
+                }
+                try {
+                    boolean done = false;
+                    while (!done) {
+                        int tag = input.readTag();
+                        switch (tag) {
+                            case 0:
+                                done = true;
+                                break;
+                            case 10: {
+                                userId_ = input.readStringRequireUtf8();
+                                bitField0_ |= 0x00000001;
+                                break;
+                            } // case 10
+                            case 18: {
+                                message_ = input.readStringRequireUtf8();
+                                bitField0_ |= 0x00000002;
+                                break;
+                            } // case 18
+                            default: {
+                                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                                    done = true; // was an endgroup tag
+                                }
+                                break;
+                            } // default:
+                        } // switch (tag)
+                    } // while (!done)
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    throw e.unwrapIOException();
+                } finally {
+                    onChanged();
+                } // finally
+                return this;
+            }
+
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @return The userId.
+             */
+            public java.lang.String getUserId() {
+                java.lang.Object ref = userId_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    userId_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @param value The userId to set.
+             * @return This builder for chaining.
+             */
+            public Builder setUserId(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                userId_ = value;
+                bitField0_ |= 0x00000001;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearUserId() {
+                userId_ = getDefaultInstance().getUserId();
+                bitField0_ = (bitField0_ & ~0x00000001);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @return The bytes for userId.
+             */
+            public com.google.protobuf.ByteString
+            getUserIdBytes() {
+                java.lang.Object ref = userId_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    userId_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string userId = 1;</code>
+             *
+             * @param value The bytes for userId to set.
+             * @return This builder for chaining.
+             */
+            public Builder setUserIdBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                userId_ = value;
+                bitField0_ |= 0x00000001;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string message = 2;</code>
+             *
+             * @return The message.
+             */
+            public java.lang.String getMessage() {
+                java.lang.Object ref = message_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    message_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string message = 2;</code>
+             *
+             * @param value The message to set.
+             * @return This builder for chaining.
+             */
+            public Builder setMessage(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                message_ = value;
+                bitField0_ |= 0x00000002;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string message = 2;</code>
+             *
+             * @return The bytes for message.
+             */
+            public com.google.protobuf.ByteString
+            getMessageBytes() {
+                java.lang.Object ref = message_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    message_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string message = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearMessage() {
+                message_ = getDefaultInstance().getMessage();
+                bitField0_ = (bitField0_ & ~0x00000002);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string message = 2;</code>
+             *
+             * @param value The bytes for message to set.
+             * @return This builder for chaining.
+             */
+            public Builder setMessageBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) { throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                message_ = value;
+                bitField0_ |= 0x00000002;
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFields(unknownFields);
+            }
+
+            @java.lang.Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
 
 
-      // @@protoc_insertion_point(builder_scope:ChatMsgAll)
+            // @@protoc_insertion_point(builder_scope:ChatMsgAll)
+        }
+
     }
 
-  }
+    /**
+     * Protobuf type {@code BindChannel}
+     */
+    public static final class BindChannel extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:BindChannel)
+            BindChannelOrBuilder {
+        public static final int USERID_FIELD_NUMBER = 1;
 
-  /**
-   * Protobuf type {@code BindChannel}
-   */
-  public static final class BindChannel extends
-          com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:BindChannel)
-          BindChannelOrBuilder {
-    private static final long serialVersionUID = 0L;
-    // @@protoc_insertion_point(class_scope:BindChannel)
-    private static final com.oik.api.netty.pojo.Message.BindChannel DEFAULT_INSTANCE;
-    private static final com.google.protobuf.Parser<BindChannel>
-            PARSER = new com.google.protobuf.AbstractParser<BindChannel>() {
-      @java.lang.Override
-      public BindChannel parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-                  .setUnfinishedMessage(builder.buildPartial());
+        // Use BindChannel.newBuilder() to construct.
+        private BindChannel(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-        return builder.buildPartial();
-      }
-    };
 
-    static {
-      DEFAULT_INSTANCE = new com.oik.api.netty.pojo.Message.BindChannel();
-    }
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:BindChannel)
+        private static final com.oik.api.netty.pojo.Message.BindChannel DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<BindChannel>
+                PARSER = new com.google.protobuf.AbstractParser<BindChannel>() {
+            @java.lang.Override
+            public BindChannel parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                Builder builder = newBuilder();
+                try {
+                    builder.mergeFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    throw e.setUnfinishedMessage(builder.buildPartial());
+                } catch (com.google.protobuf.UninitializedMessageException e) {
+                    throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+                } catch (java.io.IOException e) {
+                    throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                            .setUnfinishedMessage(builder.buildPartial());
+                }
+                return builder.buildPartial();
+            }
+        };
 
-    private byte memoizedIsInitialized = -1;
+        static {
+            DEFAULT_INSTANCE = new com.oik.api.netty.pojo.Message.BindChannel();
+        }
 
-    // Use BindChannel.newBuilder() to construct.
-    private BindChannel(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object userId_ = "";
+        private byte memoizedIsInitialized = -1;
 
-    private BindChannel() {
-    }
+        private BindChannel() {
+            userId_ = "";
+        }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-      return com.oik.api.netty.pojo.Message.internal_static_BindChannel_descriptor;
-    }
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.oik.api.netty.pojo.Message.internal_static_BindChannel_descriptor;
+        }
 
-    public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
+        public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
 
-    public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+        public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
+                java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
 
@@ -4332,80 +4884,72 @@ public final class Message {
     }
 
     public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+        return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
+        public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
 
-    public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
+        public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
 
-    public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-    }
+        public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
 
-    public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-    }
+        public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
 
-    public static com.oik.api.netty.pojo.Message.BindChannel parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input);
-    }
+        public static com.oik.api.netty.pojo.Message.BindChannel parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
 
-    public static com.oik.api.netty.pojo.Message.BindChannel parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
+        public static com.oik.api.netty.pojo.Message.BindChannel parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
 
-    public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-    }
+        public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
 
-    public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-    }
+        public static com.oik.api.netty.pojo.Message.BindChannel parseFrom(
+                com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
 
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
+        public static com.oik.api.netty.pojo.Message.BindChannel getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
 
-    public static Builder newBuilder(com.oik.api.netty.pojo.Message.BindChannel prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    public static com.oik.api.netty.pojo.Message.BindChannel getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    public static com.google.protobuf.Parser<BindChannel> parser() {
+        public static com.google.protobuf.Parser<BindChannel> parser() {
       return PARSER;
     }
 
@@ -4413,244 +4957,326 @@ public final class Message {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
             UnusedPrivateParameter unused) {
-      return new BindChannel();
+        return new BindChannel();
     }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-      return com.oik.api.netty.pojo.Message.internal_static_BindChannel_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                      com.oik.api.netty.pojo.Message.BindChannel.class, com.oik.api.netty.pojo.Message.BindChannel.Builder.class);
-    }
-
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-      getUnknownFields().writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += getUnknownFields().getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-        return true;
-      }
-      if (!(obj instanceof com.oik.api.netty.pojo.Message.BindChannel)) {
-        return super.equals(obj);
-      }
-      com.oik.api.netty.pojo.Message.BindChannel other = (com.oik.api.netty.pojo.Message.BindChannel) obj;
-
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BindChannel> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.oik.api.netty.pojo.Message.BindChannel getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-    /**
-     * Protobuf type {@code BindChannel}
-     */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:BindChannel)
-            com.oik.api.netty.pojo.Message.BindChannelOrBuilder {
-      // Construct using com.oik.api.netty.pojo.Message.BindChannel.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-
-      }
-
-      public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-        return com.oik.api.netty.pojo.Message.internal_static_BindChannel_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-        return com.oik.api.netty.pojo.Message.internal_static_BindChannel_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        com.oik.api.netty.pojo.Message.BindChannel.class, com.oik.api.netty.pojo.Message.BindChannel.Builder.class);
-      }
-
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
-        return com.oik.api.netty.pojo.Message.internal_static_BindChannel_descriptor;
-      }
-
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.BindChannel getDefaultInstanceForType() {
-        return com.oik.api.netty.pojo.Message.BindChannel.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.BindChannel build() {
-        com.oik.api.netty.pojo.Message.BindChannel result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
         }
-        return result;
-      }
 
-      @java.lang.Override
-      public com.oik.api.netty.pojo.Message.BindChannel buildPartial() {
-        com.oik.api.netty.pojo.Message.BindChannel result = new com.oik.api.netty.pojo.Message.BindChannel(this);
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-
-      @java.lang.Override
-      public Builder setField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
-        return super.setField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder clearField(
-              com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-
-      @java.lang.Override
-      public Builder clearOneof(
-              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-
-      @java.lang.Override
-      public Builder setRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-
-      @java.lang.Override
-      public Builder addRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.oik.api.netty.pojo.Message.BindChannel) {
-          return mergeFrom((com.oik.api.netty.pojo.Message.BindChannel) other);
-        } else {
-          super.mergeFrom(other);
-          return this;
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.oik.api.netty.pojo.Message.internal_static_BindChannel_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.oik.api.netty.pojo.Message.BindChannel.class, com.oik.api.netty.pojo.Message.BindChannel.Builder.class);
         }
-      }
 
-      public Builder mergeFrom(com.oik.api.netty.pojo.Message.BindChannel other) {
-        if (other == com.oik.api.netty.pojo.Message.BindChannel.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The userId.
+         */
+        @java.lang.Override
+        public java.lang.String getUserId() {
+            java.lang.Object ref = userId_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                userId_ = s;
+                return s;
+            }
         }
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
+
+        /**
+         * <code>string userId = 1;</code>
+         *
+         * @return The bytes for userId.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getUserIdBytes() {
+            java.lang.Object ref = userId_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                userId_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.oik.api.netty.pojo.Message.BindChannel prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
+            }
+            getUnknownFields().writeTo(output);
+        }
+
+        @java.lang.Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
+            }
+            size += getUnknownFields().getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.oik.api.netty.pojo.Message.BindChannel)) {
+                return super.equals(obj);
+            }
+            com.oik.api.netty.pojo.Message.BindChannel other = (com.oik.api.netty.pojo.Message.BindChannel) obj;
+
+            if (!getUserId()
+                    .equals(other.getUserId())) return false;
+            if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+            return true;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + USERID_FIELD_NUMBER;
+            hash = (53 * hash) + getUserId().hashCode();
+            hash = (29 * hash) + getUnknownFields().hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        @java.lang.Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        @java.lang.Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<BindChannel> getParserForType() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public com.oik.api.netty.pojo.Message.BindChannel getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+        /**
+         * Protobuf type {@code BindChannel}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:BindChannel)
+                com.oik.api.netty.pojo.Message.BindChannelOrBuilder {
+            private int bitField0_;
+            private java.lang.Object userId_ = "";
+
+            // Construct using com.oik.api.netty.pojo.Message.BindChannel.newBuilder()
+            private Builder() {
+
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+
+            }
+
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.oik.api.netty.pojo.Message.internal_static_BindChannel_descriptor;
+            }
+
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.oik.api.netty.pojo.Message.internal_static_BindChannel_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.oik.api.netty.pojo.Message.BindChannel.class, com.oik.api.netty.pojo.Message.BindChannel.Builder.class);
+            }
+
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.BindChannel getDefaultInstanceForType() {
+                return com.oik.api.netty.pojo.Message.BindChannel.getDefaultInstance();
+            }
+
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.BindChannel build() {
+                com.oik.api.netty.pojo.Message.BindChannel result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            @java.lang.Override
+            public Builder clear() {
+                super.clear();
+                bitField0_ = 0;
+                userId_ = "";
+                return this;
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.oik.api.netty.pojo.Message.internal_static_BindChannel_descriptor;
+            }
+
+            @java.lang.Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            @java.lang.Override
+            public com.oik.api.netty.pojo.Message.BindChannel buildPartial() {
+                com.oik.api.netty.pojo.Message.BindChannel result = new com.oik.api.netty.pojo.Message.BindChannel(this);
+                if (bitField0_ != 0) {
+                    buildPartial0(result);
+                }
+                onBuilt();
+                return result;
+            }
+
+            private void buildPartial0(com.oik.api.netty.pojo.Message.BindChannel result) {
+                int from_bitField0_ = bitField0_;
+                if (((from_bitField0_ & 0x00000001) != 0)) {
+                    result.userId_ = userId_;
+                }
+            }
+
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.setField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
+
+            @java.lang.Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            @java.lang.Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @java.lang.Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @java.lang.Override
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.oik.api.netty.pojo.Message.BindChannel) {
+                    return mergeFrom((com.oik.api.netty.pojo.Message.BindChannel) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(com.oik.api.netty.pojo.Message.BindChannel other) {
+                if (other == com.oik.api.netty.pojo.Message.BindChannel.getDefaultInstance()) return this;
+                if (!other.getUserId().isEmpty()) {
+                    userId_ = other.userId_;
+                    bitField0_ |= 0x00000001;
+                    onChanged();
+                }
+                this.mergeUnknownFields(other.getUnknownFields());
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                if (extensionRegistry == null) {
+                    throw new java.lang.NullPointerException();
+                }
+                try {
+                    boolean done = false;
+                    while (!done) {
+                        int tag = input.readTag();
+                        switch (tag) {
+                            case 0:
+                                done = true;
+                                break;
+                            case 10: {
+                                userId_ = input.readStringRequireUtf8();
+                                bitField0_ |= 0x00000001;
+                                break;
+                            } // case 10
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -4667,15 +5293,90 @@ public final class Message {
         return this;
       }
 
+      /**
+       * <code>string userId = 1;</code>
+       * @return The userId.
+       */
+      public java.lang.String getUserId() {
+        java.lang.Object ref = userId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+
+      /**
+       * <code>string userId = 1;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        userId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>string userId = 1;</code>
+       * @return The bytes for userId.
+       */
+      public com.google.protobuf.ByteString
+          getUserIdBytes() {
+        java.lang.Object ref = userId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      /**
+       * <code>string userId = 1;</code>
+       * @param value The bytes for userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        userId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>string userId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        userId_ = getDefaultInstance().getUserId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
       public final Builder mergeUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
       }
 

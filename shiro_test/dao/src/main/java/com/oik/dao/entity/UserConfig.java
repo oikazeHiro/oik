@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -22,6 +23,7 @@ import java.io.Serializable;
 @Setter
 @TableName("sys_user_config")
 @ApiModel(value = "UserConfig对象", description = "")
+@Accessors(chain = true)
 public class UserConfig implements Serializable {
 
     private static final long serialVersionUID = 1L;

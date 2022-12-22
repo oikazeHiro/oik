@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -23,6 +24,7 @@ import java.time.LocalDateTime;
 @Setter
 @TableName("sys_greet")
 @ApiModel(value = "Greet对象", description = "")
+@Accessors(chain = true)
 public class Greet implements Serializable {
 
     private static final long serialVersionUID = 1L;

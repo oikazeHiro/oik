@@ -96,7 +96,7 @@ public class CacheClient {
     }
 
     //线程池
-    private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(20);
+    public static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(20);
 
     /**
      * 解决热点key缓存击穿问题

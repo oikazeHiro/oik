@@ -3,11 +3,12 @@ package com.oik.dao.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -21,6 +22,7 @@ import lombok.Setter;
 @Setter
 @TableName("sys_role_menu")
 @ApiModel(value = "RoleMenu对象", description = "")
+@Accessors(chain = true)
 public class RoleMenu implements Serializable {
 
     private static final long serialVersionUID = 1L;

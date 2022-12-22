@@ -41,11 +41,11 @@ public class ChannelOperateUtil {
         return socketGroup.remove(ch);
     }
 
-    public Channel findChannel(ChannelId id) {
+    public static Channel findChannel(ChannelId id) {
         return socketGroup.find(id);
     }
 
-    public void sendAll(TextWebSocketFrame tws) {
+    public static void sendAll(TextWebSocketFrame tws) {
         socketGroup.writeAndFlush(tws);
     }
 }
