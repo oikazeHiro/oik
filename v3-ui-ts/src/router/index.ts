@@ -58,17 +58,7 @@ router.beforeEach(async (to, from, next) => {
       component: () =>
           import(/* webpackChunkName: "home" */ '@/views/HomeView.vue'),
       children: [
-        {
-          path: '/default',
-          name: 'default',
-          meta: {
-            title: '首页',
-          },
-          component: () =>
-              import(
-                  /* webpackChunkName: "dashboard" */ '@/views/home/DefaultView.vue'
-                  ),
-        },
+
       ],
     }
     useMean.menuList.forEach((e) => {

@@ -34,6 +34,7 @@ import type {FormInstance} from 'element-plus'
 import router from '@/router'
 import {LoginFrom} from '@/entity/interface'
 import {login} from '@/api/request/login'
+import {User} from '@/store/UserDto'
 
 const ruleFormRef = ref<FormInstance>()
 const loginFrom = reactive<LoginFrom>({
@@ -74,9 +75,13 @@ const submitForm = async (formEl: FormInstance | undefined) => {
       const res = await login(loginFrom)
       console.log(res)
       localStorage.setItem('token', res.data.token)
+      const saveUser = User()
+      saveUser.setUserDto(res.data)
+      console.log(saveUser.userId)
+      console.log(saveUser.username)
       // localStorage.setItem('user', res.data)
 
-      router.push({path: '/'})
+      router.push({path: '/system/home/index'})
     } else {
       console.log('error submit!', fields)
     }

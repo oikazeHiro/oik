@@ -1,7 +1,9 @@
 package com.oik.service.impl;
 
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.json.JSONStrFormatter;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson2.JSON;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.oik.dao.entity.*;
@@ -88,7 +90,7 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
                         Collectors.mapping(Function.identity(), Collectors.toList())));
         father.stream().forEach(e -> e.setChildren(map.get(e.getMenuId())));
         cacheClient.set(RedisConstants.USER_CONFIG_CACHE_MENU + username,
-                JSONUtil.toJsonStr(father), 24L, TimeUnit.HOURS);
+                JSON.toJSONString(father), 24L, TimeUnit.HOURS);
         return father;
     }
 

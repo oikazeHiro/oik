@@ -3,25 +3,29 @@
 </template>
 
 <script lang="ts" setup>
-import message from '@/protobufs/Message_pb'
-import { onMounted, ref } from 'vue'
 
-const testDataType = async () => {
-  console.log(message)
-  console.log(message.Msg.DataType)
-  console.log(message.Msg.prototype)
-  console.log(message.Msg.DataType.CHATMSGALLTYPE)
+import {onMounted, reactive, ref} from 'vue'
+import {User} from '@/store/UserDto'
+import {Msg,Msg_DataType,ChatMsg,ChatMsgByGroup,ChatMsgAll,BindChannel} from "@/protobufs/Message"
 
-  const a = message.Msg.prototype.setDataType(
-    message.Msg.DataType.CHATMSGALLTYPE,
-  )
-  console.log(a)
-  const b = message.Msg.prototype.getDataType()
-  console.log(b)
+const user = User()
+const bindChannel = reactive<BindChannel>({
+  userId: user.userId,
+  userName: user.username,
+})
+const msg = reactive<Msg>({
+  dataType: Msg_DataType.bindChannelType,
+  bindChannel: bindChannel
+})
+const test = async() => {
+  console.log(1)
+  console.log(msg)
+  console.log(Msg.encode(msg))
 }
 
 onMounted(() => {
-  testDataType()
+  console.log()
+  test()
 })
 </script>
 

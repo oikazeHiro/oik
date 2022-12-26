@@ -119,6 +119,7 @@ class RequestHttp {
         switch (code) {
             case 401:
                 ElMessage.error('登录失败，请重新登录');
+                localStorage.setItem('token', '');
                 break;
             default:
                 ElMessage.error('请求失败');

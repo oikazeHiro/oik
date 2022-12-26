@@ -1120,6 +1120,7 @@ $root.Message = (function() {
          * @memberof Message
          * @interface IBindChannel
          * @property {string|null} [userId] BindChannel userId
+         * @property {string|null} [userName] BindChannel userName
          */
 
         /**
@@ -1144,6 +1145,14 @@ $root.Message = (function() {
          * @instance
          */
         BindChannel.prototype.userId = "";
+
+        /**
+         * BindChannel userName.
+         * @member {string} userName
+         * @memberof Message.BindChannel
+         * @instance
+         */
+        BindChannel.prototype.userName = "";
 
         /**
          * Creates a new BindChannel instance using the specified properties.
@@ -1171,6 +1180,8 @@ $root.Message = (function() {
                 writer = $Writer.create();
             if (message.userId != null && Object.hasOwnProperty.call(message, "userId"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.userId);
+            if (message.userName != null && Object.hasOwnProperty.call(message, "userName"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.userName);
             return writer;
         };
 
@@ -1207,6 +1218,9 @@ $root.Message = (function() {
                 switch (tag >>> 3) {
                 case 1:
                     message.userId = reader.string();
+                    break;
+                case 2:
+                    message.userName = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1246,6 +1260,9 @@ $root.Message = (function() {
             if (message.userId != null && message.hasOwnProperty("userId"))
                 if (!$util.isString(message.userId))
                     return "userId: string expected";
+            if (message.userName != null && message.hasOwnProperty("userName"))
+                if (!$util.isString(message.userName))
+                    return "userName: string expected";
             return null;
         };
 
@@ -1263,6 +1280,8 @@ $root.Message = (function() {
             var message = new $root.Message.BindChannel();
             if (object.userId != null)
                 message.userId = String(object.userId);
+            if (object.userName != null)
+                message.userName = String(object.userName);
             return message;
         };
 
@@ -1279,10 +1298,14 @@ $root.Message = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
+            if (options.defaults) {
                 object.userId = "";
+                object.userName = "";
+            }
             if (message.userId != null && message.hasOwnProperty("userId"))
                 object.userId = message.userId;
+            if (message.userName != null && message.hasOwnProperty("userName"))
+                object.userName = message.userName;
             return object;
         };
 

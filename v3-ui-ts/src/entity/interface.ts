@@ -34,3 +34,16 @@ export interface result<T> {
     data: T
     count?: number
 }
+
+export interface userDto {
+    userId: string
+    username: string
+    deptId: string
+    email: string
+    mobile: string
+    description: string
+    token: string
+    ssex: string
+    avatar: string
+    ip: string
+}

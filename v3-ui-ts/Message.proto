@@ -40,4 +40,5 @@ message ChatMsgAll {
 
 message BindChannel {
   string userId = 1;
+  string userName = 2;
 }
