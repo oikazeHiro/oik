@@ -4,14 +4,10 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
-import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -70,19 +66,19 @@ public class JwtUtil {
     }
 
     //获取过期时间
-    public static Long getExpire(String token){
+    public static Long getExpire(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
             return jwt.getClaim("current").asLong();
-        }catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }
 
 
-    public static void main(String[] args) {
-        boolean verify = verify("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50IjoxNjcwODI5OTUyODk0LCJleHAiOjE2NzA4MzE3NTIsImlhdCI6MTY3MDgyOTk1MiwidXNlcm5hbWUiOiJ0ZXN0MSJ9.kMonXszOmrliOQOdum733nBpYoMU8-dBiwZ-qq7HYGY");
-        System.out.println("verify = " + verify);
-
-    }
+//    public static void main(String[] args) {
+//        boolean verify = verify("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50IjoxNjcwODI5OTUyODk0LCJleHAiOjE2NzA4MzE3NTIsImlhdCI6MTY3MDgyOTk1MiwidXNlcm5hbWUiOiJ0ZXN0MSJ9.kMonXszOmrliOQOdum733nBpYoMU8-dBiwZ-qq7HYGY");
+//        System.out.println("verify = " + verify);
+//
+//    }
 }

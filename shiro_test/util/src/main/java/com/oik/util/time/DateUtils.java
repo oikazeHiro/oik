@@ -1062,14 +1062,14 @@ public class DateUtils {
 
     }
 
-    public static void main(String[] args) {
-        List<String> betweenDateList = getBetweenDateList("2022-8-11 10:00:00", "2022-8-15 10:00:00", true);
-        System.err.println(betweenDateList);
-        List<Date> dates = new ArrayList<>();
-        betweenDateList.forEach(date -> {
-            dates.add(parseDateTime(date + " 9:00:00"));
-            dates.add(parseDateTime(date + " 11:00:00"));
-        });
-        System.err.println(dates);
-    }
+//    public static void main(String[] args) {
+//        List<String> betweenDateList = getBetweenDateList("2022-8-11 10:00:00", "2022-8-15 10:00:00", true);
+//        System.err.println(betweenDateList);
+//        List<Date> dates = new ArrayList<>();
+//        betweenDateList.forEach(date -> {
+//            dates.add(parseDateTime(date + " 9:00:00"));
+//            dates.add(parseDateTime(date + " 11:00:00"));
+//        });
+//        System.err.println(dates);
+//    }
 }
