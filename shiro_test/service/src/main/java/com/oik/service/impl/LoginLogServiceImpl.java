@@ -1,9 +1,9 @@
 package com.oik.service.impl;
 
+import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.oik.dao.entity.LoginLog;
 import com.oik.dao.mapper.LoginLogMapper;
 import com.oik.service.service.LoginLogService;
-import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.oik.util.uncategorized.HttpContextUtil;
 import com.oik.util.uncategorized.IPUtil;
 import org.springframework.stereotype.Service;
@@ -28,14 +28,16 @@ import java.util.Map;
 public class LoginLogServiceImpl extends MPJBaseServiceImpl<LoginLogMapper, LoginLog> implements LoginLogService {
     @Override
     @Transactional
-    public void saveLoginLog(LoginLog loginLog){
+    public void saveLoginLog(LoginLog loginLog) {
         loginLog.setLoginTime(LocalDateTime.now());
         HttpServletRequest request = HttpContextUtil.getHttpServletRequest();
         String ip = IPUtil.getIpAddr(request);
         System.out.println("ip = " + ip);
         loginLog.setIp(ip);
-        Map<String,String> cityInfo = IPUtil.getCityInfo(ip);
-        loginLog.setLocation(cityInfo.get("city"));
+        Map<String, String> cityInfo = IPUtil.getCityInfo(ip);
+        if (cityInfo != null) {
+            loginLog.setLocation(cityInfo.get("city"));
+        }
         this.save(loginLog);
     }
 

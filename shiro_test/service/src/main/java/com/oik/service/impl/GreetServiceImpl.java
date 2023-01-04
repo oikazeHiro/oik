@@ -10,10 +10,10 @@ import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.GreetService;
 import com.oik.util.redis.CacheClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
+import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 import static com.oik.util.redis.RedisConstants.SYS_GREET;
@@ -30,7 +30,7 @@ import static com.oik.util.redis.RedisConstants.SYS_GREET_LOCK;
 @Service
 public class GreetServiceImpl extends MPJBaseServiceImpl<GreetMapper, Greet> implements GreetService {
 
-    @Autowired
+    @Resource
     private CacheClient cacheClient;
 
     @Override

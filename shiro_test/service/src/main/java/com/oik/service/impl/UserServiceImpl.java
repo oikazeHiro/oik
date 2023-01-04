@@ -21,9 +21,9 @@ import com.oik.util.redis.UserHolder;
 import com.oik.util.uncategorized.EncryptUtil;
 import com.oik.util.uncategorized.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -45,9 +45,9 @@ import java.util.Map;
 @Service
 public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implements UserService {
 
-    @Autowired
+    @Resource
     private CacheClient cacheClient;
-    @Autowired
+    @Resource
     private LoginLogService loginLogService;
     @Override
     public String findSubordinates(Long deptId) {
@@ -56,8 +56,7 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
 
     @Override
     public User findByName(String username) {
-        User user = getOne(new LambdaQueryWrapper<User>().eq(User::getUsername, username));
-        return user;
+        return getOne(new LambdaQueryWrapper<User>().eq(User::getUsername, username));
     }
 
     @Override

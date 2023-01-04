@@ -7,9 +7,9 @@ import com.oik.dao.entity.Dict;
 import com.oik.dao.mapper.DictMapper;
 import com.oik.service.service.DictService;
 import com.oik.util.redis.CacheClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -30,7 +30,7 @@ import static com.oik.util.redis.RedisConstants.SYS_DICT;
 @Service
 public class DictServiceImpl extends MPJBaseServiceImpl<DictMapper, Dict> implements DictService {
 
-    @Autowired
+    @Resource
     private CacheClient cacheClient;
 
     @Override
@@ -41,17 +41,17 @@ public class DictServiceImpl extends MPJBaseServiceImpl<DictMapper, Dict> implem
         List<Dict> father = list(wrapper);
         wrapper.clear();
         List<Long> fatherId = father
-                .stream().map(e -> e.getDictId()).collect(Collectors.toList());
+                .stream().map(Dict::getDictId).collect(Collectors.toList());
         wrapper.in(Dict::getFatherId, fatherId);
         List<Dict> children = list(wrapper);
-        List<Long> childrenId = children.stream().map(e -> e.getDictId()).collect(Collectors.toList());
+        List<Long> childrenId = children.stream().map(Dict::getDictId).collect(Collectors.toList());
         wrapper.clear();
         wrapper.in(Dict::getFatherId, childrenId);
         List<Dict> grandson = list(wrapper);
         Map<Long, List<Dict>> grandsonMap = grandson.stream()
                 .collect(Collectors.groupingBy(Dict::getFatherId,
                         Collectors.mapping(Function.identity(), Collectors.toList())));
-        children.stream().forEach(e -> e.setChildren(grandsonMap.get(e.getDictId())));
+        children.forEach(e -> e.setChildren(grandsonMap.get(e.getDictId())));
         Map<Long, List<Dict>> childrenMap = children.stream()
                 .collect(Collectors.groupingBy(Dict::getFatherId,
                         Collectors.mapping(Function.identity(), Collectors.toList())));

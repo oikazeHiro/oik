@@ -11,9 +11,9 @@ import com.oik.service.service.CacheService;
 import com.oik.util.redis.CacheClient;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +24,7 @@ import static com.oik.util.redis.RedisConstants.*;
 @Slf4j
 public class CacheServiceImpl implements CacheService {
 
-    @Autowired
+    @Resource
     private CacheClient cacheClient;
     @Override
     public User getUser(String username) throws Exception {
@@ -32,7 +32,7 @@ public class CacheServiceImpl implements CacheService {
     }
 
     @Override
-    public List<Role> getRoles(String username) throws Exception {
+    public List<Role> getRoles(String username) {
         String value = cacheClient.getValue(USER_ROLE_CACHE_PREFIX, username);
         if (StrUtil.isBlank(value)) {
             return null;
@@ -42,7 +42,7 @@ public class CacheServiceImpl implements CacheService {
     }
 
     @Override
-    public String getUserSubordinates(Long deptId) throws Exception {
+    public String getUserSubordinates(Long deptId) {
         return null;
     }
 
@@ -55,7 +55,7 @@ public class CacheServiceImpl implements CacheService {
         }
         JSONArray jsonArray = JSONUtil.parseArray(value);
         List<String> strings = JSONUtil.toList(jsonArray, String.class);
-        return new HashSet<String>(strings);
+        return new HashSet<>(strings);
     }
 
     @Override

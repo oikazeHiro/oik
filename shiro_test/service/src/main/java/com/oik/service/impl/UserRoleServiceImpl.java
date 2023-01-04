@@ -1,8 +1,7 @@
 package com.oik.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
-import com.oik.dao.entity.Menu;
 import com.oik.dao.entity.Role;
 import com.oik.dao.entity.User;
 import com.oik.dao.entity.UserRole;
@@ -11,13 +10,10 @@ import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.RoleService;
 import com.oik.service.service.UserRoleService;
-import com.github.yulichang.base.MPJBaseServiceImpl;
-import com.oik.service.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * <p>

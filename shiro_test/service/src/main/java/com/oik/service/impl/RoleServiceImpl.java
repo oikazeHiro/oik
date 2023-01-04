@@ -54,7 +54,6 @@ public class RoleServiceImpl extends MPJBaseServiceImpl<RoleMapper, Role> implem
                 .eq(StringUtils.isNotEmpty(role.getStatus()), Role::getStatus, role.getStatus())
                 .ge(role.getStartTime() != null, Role::getCreateTime, role.getStartTime())
                 .le(role.getEndTime() != null, Role::getCreateTime, role.getEndTime());
-        IPage<Role> roleIPage = selectJoinListPage(page, Role.class,wrapper);
-        return roleIPage;
+        return selectJoinListPage(page, Role.class, wrapper);
     }
 }

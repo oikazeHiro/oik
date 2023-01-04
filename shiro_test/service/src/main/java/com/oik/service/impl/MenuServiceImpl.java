@@ -1,7 +1,6 @@
 package com.oik.service.impl;
 
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.json.JSONStrFormatter;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson2.JSON;
 import com.github.yulichang.base.MPJBaseServiceImpl;
@@ -15,9 +14,9 @@ import com.oik.service.service.MenuService;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.RedisConstants;
 import com.oik.util.redis.UserHolder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -36,9 +35,9 @@ import java.util.stream.Collectors;
 @Service
 public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implements MenuService {
 
-    @Autowired
+    @Resource
     private CacheClient cacheClient;
-    @Autowired
+    @Resource
     private CacheService cacheService;
 
     @Override
@@ -55,15 +54,14 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
     @Override
     public List<Menu> getMenus() {
         String username = UserHolder.getUser().getUsername();
-        List<Menu> permissionList = CacheClient.selectCacheByTemplate(
+        return CacheClient.selectCacheByTemplate(
                 () -> this.cacheService.getMenus(username),
                 () -> getMenuTree(username));
-        return permissionList;
     }
 
 
     public List<Menu> getAll(String username) {
-        List<Menu> menus = selectJoinList(Menu.class, new MPJLambdaWrapper<Menu>()
+        return selectJoinList(Menu.class, new MPJLambdaWrapper<Menu>()
                         .selectAll(Menu.class)
                         .leftJoin(RoleMenu.class, RoleMenu::getMenuId, Menu::getMenuId)
                         .leftJoin(Role.class, Role::getRoleId, RoleMenu::getRoleId)
@@ -73,7 +71,6 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
                         .orderByAsc(Menu::getOrderNum)
 //                .isNotNull(Menu::getPerms)
         );
-        return menus;
     }
 
     @Override
@@ -88,7 +85,7 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
         Map<Long, List<Menu>> map = collect.stream()
                 .collect(Collectors.groupingBy(Menu::getParentId,
                         Collectors.mapping(Function.identity(), Collectors.toList())));
-        father.stream().forEach(e -> e.setChildren(map.get(e.getMenuId())));
+        father.forEach(e -> e.setChildren(map.get(e.getMenuId())));
         cacheClient.set(RedisConstants.USER_CONFIG_CACHE_MENU + username,
                 JSON.toJSONString(father), 24L, TimeUnit.HOURS);
         return father;

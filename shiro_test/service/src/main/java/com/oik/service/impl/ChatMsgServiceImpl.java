@@ -8,8 +8,6 @@ import com.oik.service.service.ChatMsgService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.Serializable;
-
 /**
  * <p>
  * 服务实现类
