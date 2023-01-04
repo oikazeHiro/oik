@@ -77,10 +77,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
       localStorage.setItem('token', res.data.token)
       const saveUser = User()
       saveUser.setUserDto(res.data)
-      console.log(saveUser.userId)
-      console.log(saveUser.username)
-      // localStorage.setItem('user', res.data)
-
+      console.log(saveUser.userDto)
       router.push({path: '/system/home/index'})
     } else {
       console.log('error submit!', fields)

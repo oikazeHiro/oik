@@ -2,6 +2,7 @@ package com.oik.service.service;
 
 import com.github.yulichang.base.service.MPJJoinService;
 import com.oik.dao.entity.ChatMsg;
+import com.oik.service.exception.Result;
 
 /**
  * <p>
@@ -13,4 +14,7 @@ import com.oik.dao.entity.ChatMsg;
  */
 public interface ChatMsgService extends MPJJoinService<ChatMsg> {
 
+    Result getMsg();
+
+    ChatMsg sendChatMsg(ChatMsg msg);
 }

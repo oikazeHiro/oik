@@ -45,7 +45,7 @@ public class ChannelOperateUtil {
         return socketGroup.find(id);
     }
 
-    public static void sendAll(TextWebSocketFrame tws) {
+    public static void sendAll(Object tws) {
         socketGroup.writeAndFlush(tws);
     }
 }

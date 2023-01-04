@@ -69,6 +69,7 @@ public class HttpAspect {
         log.info("请求结束时间：" + LocalDateTime.now());
         log.info("请求耗时：{}", (System.currentTimeMillis() - startTime) + "ms");
         Log logSave = new Log(username,
+                request.getRequestURL().toString(),
                 name,
                 (System.currentTimeMillis() - startTime),
                 request.getMethod(),

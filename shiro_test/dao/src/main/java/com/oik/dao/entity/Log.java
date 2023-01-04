@@ -42,6 +42,10 @@ public class Log implements Serializable {
     @TableField("USERNAME")
     private String username;
 
+    @ApiModelProperty("url")
+    @TableField("URL")
+    private String url;
+
     @ApiModelProperty("操作内容")
     @TableField("OPERATION")
     private String operation;
@@ -82,8 +86,9 @@ public class Log implements Serializable {
     @TableField("`TYPE`")
     private String type;
 
-    public Log(String username, String operation, Long time, String method, String params, String ip, LocalDateTime createTime, String location, Integer responseCode, String responseText, String type) {
+    public Log(String username, String url, String operation, Long time, String method, String params, String ip, LocalDateTime createTime, String location, Integer responseCode, String responseText, String type) {
         this.username = username;
+        this.url = url;
         this.operation = operation;
         this.time = time;
         this.method = method;

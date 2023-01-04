@@ -1,13 +1,7 @@
 <template>
   <el-container>
-    <el-header>
-      <!-- <el-radio-group v-model="isCollapse" style="">
-        <el-radio-button :label="false">expand</el-radio-button>
-        <el-radio-button :label="true">collapse</el-radio-button>
-      </el-radio-group> -->
-    </el-header>
     <el-container>
-      <el-aside :width="isCollapse ? '64px' : '200px'" >
+      <el-aside :width="isCollapse ? '64px' : '200px'">
         <el-menu
             :collapse="isCollapse"
             active-text-color="#ffd04b"
@@ -19,9 +13,8 @@
             @close="handleClose"
             @open="handleOpen"
         >
-          <div class="toggle-button" @click="toggleCollapse">|||</div>
-
-          <template  v-for="menu in menuList" :key="menu.menuName">
+          <div class="logo"></div>
+          <template v-for="menu in menuList" :key="menu.menuName">
             <el-sub-menu
                 v-if="menu.children.length > 1"
                 :index="menu.path"
@@ -42,8 +35,14 @@
                 </template>
               </el-menu-item>
             </el-sub-menu>
-            <el-menu-item v-if="menu.children.length === 1" :index="menu.children[0].path">
-              <component :is="menu.children[0].icon" class="el-icon"></component>
+            <el-menu-item
+                v-if="menu.children.length === 1"
+                :index="menu.children[0].path"
+            >
+              <component
+                  :is="menu.children[0].icon"
+                  class="el-icon">
+              </component>
               <template #title>
                 <span>{{ menu.children[0].menuName }}</span>
               </template>
@@ -51,9 +50,44 @@
           </template>
         </el-menu>
       </el-aside>
-      <el-main>
-        <router-view/>
-      </el-main>
+      <el-container style="background-color: rgba(177,177,177,0.9)">
+        <el-header style="font-size: 14px;background-color: white">
+          <el-row :gutter="20" class="home-row" style="height: 100%">
+            <el-col :span="2" class="vertical-Center">
+              <!-- <div @click="toggleCollapse">|||</div> -->
+              <component
+                  :is="toggle"
+                  class="el-icon toggle"
+                  @click="toggleCollapse">
+              </component>
+            </el-col>
+            <el-col :span="19"></el-col>
+            <el-col :span="1" class="vertical-Center">
+              <div class="toolbar">
+                <el-dropdown>
+                  <el-avatar :size="60" :src="avatar" style="width: 35px;height: 35px">
+                    <!--                  <el-avatar :size="60" src="@/assets/default.jpg" style="width: 35px;height: 35px">-->
+                  </el-avatar>
+                  <template #dropdown>
+                    <el-dropdown-menu>
+                      <el-dropdown-item>个人中心</el-dropdown-item>
+                      <el-dropdown-item>修改密码</el-dropdown-item>
+                      <el-dropdown-item>退出登录</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </template>
+                </el-dropdown>
+
+              </div>
+            </el-col>
+            <el-col :span="2">
+              <span>{{ username }}</span>
+            </el-col>
+          </el-row>
+        </el-header>
+        <el-main>
+          <router-view/>
+        </el-main>
+      </el-container>
     </el-container>
   </el-container>
 </template>
@@ -61,6 +95,7 @@
 <script lang="ts" setup>
 import {onMounted, ref} from 'vue'
 import {useMeanStore} from '@/store/menus'
+import {User} from '@/store/UserDto'
 import {RouterView} from 'vue-router'
 
 const isCollapse = ref(false)
@@ -70,23 +105,38 @@ const handleOpen = (key: string, keyPath: string[]) => {
 const handleClose = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }
-
+const toggle = ref('Fold')
 const toggleCollapse = () => {
   isCollapse.value = !isCollapse.value
+  if (isCollapse.value) {
+    toggle.value = 'Expand'
+  } else {
+    toggle.value = 'Fold'
+  }
 }
 
 const useMean = useMeanStore()
 const menuList = useMean.menuList
-
+const userDto = User()
+const avatar = ref<string>("https://tse2-mm.cn.bing.net/th/id/OIP-C.vNn5RXHfCzUZGcdtzYG92AHaHa?w=203&h=203&c=7&r=0&o=5&pid=1.7")
+const username = ref<string>(userDto.userDto.username)
+const getAvatar = async () => {
+  if (userDto.userDto.avatar != '' && userDto.userDto.avatar != null) {
+    avatar.value = userDto.userDto.avatar
+  }
+}
 onMounted(() => {
-  console.log()
+  console.log(userDto)
+  getAvatar()
+  console.log(username)
 })
 </script>
 
 <style lang="scss" scoped>
 .el-header {
-  height: 80px;
-  background-color: #545c64;
+  margin: 0;
+  padding: 0;
+  height: 64px;
 }
 
 .el-aside {
@@ -96,9 +146,10 @@ onMounted(() => {
   -webkit-transition: width 0.25s;
   -o-transition: width 0.25s;
   background-color: #545c64;
-
+  // height: 100%;
   .el-menu {
-    height: calc(100vh - 80px);
+    // height: calc(100vh - 80px);
+    height: 100vh;
   }
 
   .toggle-button {
@@ -117,5 +168,34 @@ onMounted(() => {
     // 设置鼠标悬浮变小手效果
     cursor: pointer;
   }
+
+  .layout-container-demo .toolbar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    right: 20px;
+  }
+}
+
+.logo {
+  height: 64px;
+  width: 100%;
+  background-color: #545c64;
+}
+
+.toggle {
+  font-size: 24px;
+  color: #545c64;
+}
+
+.vertical-Center {
+  display: flex;
+  justify-content: center;
+}
+
+.home-row {
+  display: flex;
+  align-items: center;
 }
 </style>

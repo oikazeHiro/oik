@@ -1,5 +1,6 @@
 package com.oik.api.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.User;
 import com.oik.service.exception.MyException;
@@ -7,6 +8,8 @@ import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultEnum;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.UserService;
+import com.oik.util.dto.LoginDto;
+import com.oik.util.dto.UserDTO;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.web.bind.annotation.*;
@@ -30,9 +33,9 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/login")
-    public Result login(@RequestBody User user) {
+    public Result login(@RequestBody LoginDto loginDto) {
         try {
-            return userService.login(user);
+            return userService.login(BeanUtil.copyProperties(loginDto, User.class));
         } catch (MyException e) {
             throw new MyException(401, e.getMessage());
         } catch (UnsupportedEncodingException e) {

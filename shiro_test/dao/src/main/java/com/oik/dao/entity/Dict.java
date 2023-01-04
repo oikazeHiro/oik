@@ -1,9 +1,6 @@
 package com.oik.dao.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -56,7 +53,7 @@ public class Dict implements Serializable {
     private Long fatherId;
 
     @ApiModelProperty("创建时间")
-    @TableField("CREATE_TIME")
+    @TableField(value = "CREATE_TIME",fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
     @ApiModelProperty("创建人ID")

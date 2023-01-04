@@ -3,8 +3,12 @@ package com.oik.service.impl;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.oik.dao.entity.ChatMsg;
 import com.oik.dao.mapper.ChatMsgMapper;
+import com.oik.service.exception.Result;
 import com.oik.service.service.ChatMsgService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -16,5 +20,17 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ChatMsgServiceImpl extends MPJBaseServiceImpl<ChatMsgMapper, ChatMsg> implements ChatMsgService {
+
+    @Override
+    public Result getMsg() {
+        return null;
+    }
+
+    @Override
+    @Transactional
+    public ChatMsg sendChatMsg(ChatMsg msg) {
+        this.saveOrUpdate(msg);
+        return msg;
+    }
 
 }

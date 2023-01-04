@@ -35,6 +35,16 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:/com/oik/dao/**/*.xml
 
+mybatis-plus-join:
+  #是否打印 mybatis plus join banner 默认true
+  banner: true
+  #全局启用副表逻辑删除(默认true) 关闭后关联查询不会加副表逻辑删除
+  sub-table-logic: true
+  #拦截器MappedStatement缓存(默认true)
+  ms-cache: true
+  #表别名(默认 t)
+  table-alias: t
+
 # ===== 自定义swagger配置 ===== #
 swagger:
   enable: true

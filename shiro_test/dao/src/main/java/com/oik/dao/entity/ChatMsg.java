@@ -1,11 +1,11 @@
 package com.oik.dao.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
@@ -25,12 +25,14 @@ import java.time.LocalDateTime;
 @TableName("t_chat_msg")
 @ApiModel(value = "ChatMsg对象", description = "")
 @Accessors(chain = true)
+@AllArgsConstructor
+@NoArgsConstructor
 public class ChatMsg implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("id")
-    @TableId("id")
+    @TableId(value = "id",type = IdType.ASSIGN_ID)
     private Long id;
 
     @ApiModelProperty("发送者的id")
@@ -50,6 +52,12 @@ public class ChatMsg implements Serializable {
     private Byte signFlag;
 
     @ApiModelProperty("创建时间")
-    @TableField("create_time")
+    @TableField(value = "create_time",fill = FieldFill.INSERT)
     private LocalDateTime createTime;
+
+    public ChatMsg(String sendId, String acceptId,String msg){
+        this.sendId = Long.valueOf(sendId);
+        this.acceptId = Long.valueOf(acceptId);
+        this.msg = msg;
+    }
 }
