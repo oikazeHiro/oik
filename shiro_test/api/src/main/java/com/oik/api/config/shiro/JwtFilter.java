@@ -3,8 +3,6 @@ package com.oik.api.config.shiro;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson2.JSON;
-import com.auth0.jwt.exceptions.SignatureVerificationException;
-import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.oik.service.exception.MyException;
 import com.oik.service.exception.ResultEnum;
 import com.oik.service.exception.ResultUtil;
@@ -12,19 +10,17 @@ import com.oik.util.application.ApplicationContextUtil;
 import com.oik.util.dto.UserDTO;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.RedisConstants;
-import com.oik.util.redis.UserHolder;
 import com.oik.util.str.YamlReader;
 import com.oik.util.uncategorized.JwtUtil;
-import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -32,30 +28,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.List;
 
 @Slf4j
 public class JwtFilter extends BasicHttpAuthenticationFilter {
 
-    @Autowired
-    private ShiroProperties shiroProperties;
+    private static final List<String> list;
 
-//    private static final String TOKEN = "Authentication"; Authorization
-
-    private static List<String> list;
+    //    private static final String TOKEN = "Authentication"; Authorization
+    private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
     static {
         list = (List<String>) YamlReader.getValueByKey("oik.shiro.anonUrl");
     }
 
-    private AntPathMatcher pathMatcher = new AntPathMatcher();
+    @Resource
+    private ShiroProperties shiroProperties;
 
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws UnauthorizedException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         boolean match = false;
+        assert list != null;
         for (String u : list) {
             if (pathMatcher.match(u, httpServletRequest.getRequestURI()))
                 match = true;
@@ -122,7 +116,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
     }
 
     @Override
-    public boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+    public boolean onAccessDenied(ServletRequest request, ServletResponse response) {
         this.sendChallenge(request, response);
         return false;
     }
@@ -143,7 +137,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
             return false;
         }
         // 刷新AccessToken，设置时间戳为当前最新时间戳
-        String jwt = null;
+        String jwt;
         try {
             jwt = JwtUtil.createToken(username, System.currentTimeMillis());
         } catch (UnsupportedEncodingException e) {

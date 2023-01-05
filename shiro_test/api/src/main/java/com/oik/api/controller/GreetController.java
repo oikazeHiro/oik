@@ -33,7 +33,7 @@ public class GreetController {
         return ResultUtil.getSuccess(greetService.saveOrUpdate(greet));
     }
 
-    @DeleteMapping("/greet")
+    @DeleteMapping("/greet/{id}")
     public Result remove(@PathVariable("id") String id) {
         return ResultUtil.getSuccess(greetService.removeById(id));
     }

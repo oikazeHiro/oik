@@ -6,7 +6,6 @@ import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.CacheService;
 import com.oik.service.service.UserRoleService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,14 +24,14 @@ import static com.oik.util.redis.RedisConstants.USER_ROLE_CACHE_PREFIX;
 @RequestMapping("/")
 public class UserRoleController {
 
-    @Autowired
+    @Resource
     private CacheService cacheService;
     @Resource
     private UserRoleService userRoleService;
 
     @GetMapping("/roles/{username}")
     @RequiresPermissions("role:view")
-    public Result getRole(String username) {
+    public Result getRole(@PathVariable String username) {
         return userRoleService.getRole(username);
     }
 

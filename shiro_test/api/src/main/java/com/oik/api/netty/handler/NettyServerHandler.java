@@ -18,7 +18,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<Message.Msg>
     private Read0Service read0Service;
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, Message.Msg msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, Message.Msg msg) {
         EXECUTOR_SERVICE.submit(() -> {
             try {
                 read0Service.operate(ctx, msg);
@@ -30,17 +30,17 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<Message.Msg>
     }
 
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+    public void channelActive(ChannelHandlerContext ctx) {
         ChannelOperateUtil.addSocketGroup(ctx.channel());
     }
 
     @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+    public void channelReadComplete(ChannelHandlerContext ctx) {
         ctx.flush();
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         log.error(cause.getMessage());
         ctx.close();
     }

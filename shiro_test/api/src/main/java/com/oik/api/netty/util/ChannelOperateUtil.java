@@ -4,7 +4,6 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelId;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
-import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
 import java.util.LinkedList;
@@ -12,10 +11,10 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ChannelOperateUtil {
-    private static ConcurrentHashMap<String, ChannelId> socketChannelHashMap = new ConcurrentHashMap<>();
-    private static List<Channel> socketChannelList = new LinkedList<>();
+    private static final ConcurrentHashMap<String, ChannelId> socketChannelHashMap = new ConcurrentHashMap<>();
+    private static final List<Channel> socketChannelList = new LinkedList<>();
 
-    private static ChannelGroup socketGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+    private static final ChannelGroup socketGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
     public static void addChannelMap(String id, ChannelId ch) {
         socketChannelHashMap.put(id, ch);

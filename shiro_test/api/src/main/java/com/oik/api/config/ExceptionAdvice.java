@@ -1,7 +1,6 @@
 package com.oik.api.config;
 
 
-import com.auth0.jwt.exceptions.*;
 import com.oik.service.exception.MyException;
 import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultEnum;
@@ -20,9 +19,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,7 +52,7 @@ public class ExceptionAdvice {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NoHandlerFoundException.class)
     public Result handle(NoHandlerFoundException e) {
-        return ResultUtil.getError(ResultEnum.NO_PAGE.getCode(), "未找到api接口请校验url地址");
+        return ResultUtil.getError(ResultEnum.NO_PAGE.getCode(), "未找到api接口请校验url地址" + e.getMessage());
     }
 
     @ExceptionHandler(UnauthorizedException.class)
@@ -103,28 +100,8 @@ public class ExceptionAdvice {
      */
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
-    public Result globalException(HttpServletRequest request, Throwable e) {
-        //如果是自定义的异常
-        if (e instanceof MyException) {
-            MyException myException = (MyException) e;
-            return ResultUtil.getError(myException.getCode(), myException.getMessage());
-        } else if (e instanceof UnsupportedEncodingException) {
-            return ResultUtil.getError(ResultEnum.ParamException.getCode(), "JWTToken认证解密出现UnsupportedEncodingException异常:" + e.getMessage());
-        } else if (e instanceof JWTDecodeException) {
-            return ResultUtil.getError(ResultEnum.ParamException.getCode(), "解密Token中的公共信息出现JWTDecodeException异常:" + e.getMessage());
-        } else if (e instanceof TokenExpiredException) {
-            return ResultUtil.getError(ResultEnum.ParamException.getCode(), "TOKEN已过期请重新登陆");
-        } else if (e instanceof SignatureVerificationException) {
-            return ResultUtil.getError(ResultEnum.ParamException.getCode(), "TOKEN签名不一致");
-        } else if (e instanceof AlgorithmMismatchException) {
-            return ResultUtil.getError(ResultEnum.ParamException.getCode(), "TOKEN算法不匹配");
-        } else if (e instanceof InvalidClaimException) {
-            return ResultUtil.getError(ResultEnum.ParamException.getCode(), "TOKEN失效的payload异常");
-        } else {
-            log.error("发生异常时间:{}", LocalDateTime.now());
-            log.error("异常描述:{}", e);
-            return ResultUtil.getError(ResultEnum.SystemException.getCode(), ResultEnum.SystemException.getMsg());
-        }
+    public Result globalException(Throwable e) {
+        return ResultUtil.getError(ResultEnum.SystemException.getCode(), e.getMessage());
     }
 
     /**

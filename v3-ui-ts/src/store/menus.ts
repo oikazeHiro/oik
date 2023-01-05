@@ -2,23 +2,28 @@
 import {defineStore} from 'pinia'
 import {ref} from 'vue'
 
-export const useMeanStore = defineStore('mean', () => {
-    const menuList = ref([])
-    const hasRoute = ref(false)
+export const useMeanStore = defineStore('mean',  {
+    // const menuList = ref([])
+    // const hasRoute = ref(false)
+    state: () => ({
+        menuList:[],
+        hasRoute:false
+    }),
 
-    function setMenuList(menus: any) {
-        menuList.value = menus
-    }
+    getters: {
+        getMenuList: (menuList) => menuList,
+        getHasRoute: (hasRoute) => hasRoute
+    },
 
-    function changeRouteStatus(state: any) {
-        hasRoute.value = state
-        sessionStorage.setItem('hasRoute', state)
-    }
-
-    return {
-        menuList,
-        hasRoute,
-        setMenuList,
-        changeRouteStatus
-    }
+    actions: {
+        setMenuList (menuList) {
+        this.menuList = menuList
+        },
+        setHasRoute(hasRoute) {
+            this.hasRoute = hasRoute
+        }
+    },
+    // persist: {
+    //     enabled: true, // 开启数据缓存
+    // }
 })

@@ -5,7 +5,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import springfox.documentation.oas.annotations.EnableOpenApi;
 
 @SpringBootApplication(scanBasePackages = {"com.oik"})
 @MapperScan(value = "com.oik.dao.mapper")
@@ -16,7 +15,7 @@ public class ApiApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         NettyServer.getInstance().start();
     }
 }

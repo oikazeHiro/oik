@@ -1,6 +1,7 @@
 package com.oik.util.uncategorized;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 
@@ -16,13 +17,8 @@ public class Base64Util {
      * 加密JDK1.8
      */
     public static String encode(String str) {
-        try {
-            byte[] encodeBytes = Base64.getEncoder().encode(str.getBytes("utf-8"));
-            return new String(encodeBytes);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return null;
+        byte[] encodeBytes = Base64.getEncoder().encode(str.getBytes(StandardCharsets.UTF_8));
+        return new String(encodeBytes);
     }
 
     public static String encode(byte[] str) {
@@ -34,20 +30,15 @@ public class Base64Util {
      * 解密JDK1.8
      */
     public static String decode(String str) {
-        try {
-            byte[] decodeBytes = Base64.getDecoder().decode(str.getBytes("utf-8"));
-            return new String(decodeBytes);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return null;
+        byte[] decodeBytes = Base64.getDecoder().decode(str.getBytes(StandardCharsets.UTF_8));
+        return new String(decodeBytes);
     }
 
     /**
      * 加密JDK1.8
      */
     public static String encodeThrowsException(String str) throws UnsupportedEncodingException {
-        byte[] encodeBytes = Base64.getEncoder().encode(str.getBytes("utf-8"));
+        byte[] encodeBytes = Base64.getEncoder().encode(str.getBytes(StandardCharsets.UTF_8));
         return new String(encodeBytes);
     }
 
@@ -55,7 +46,7 @@ public class Base64Util {
      * 解密JDK1.8
      */
     public static String decodeThrowsException(String str) throws UnsupportedEncodingException {
-        byte[] decodeBytes = Base64.getDecoder().decode(str.getBytes("utf-8"));
+        byte[] decodeBytes = Base64.getDecoder().decode(str.getBytes(StandardCharsets.UTF_8));
         return new String(decodeBytes);
     }
 

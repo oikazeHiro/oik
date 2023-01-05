@@ -68,17 +68,17 @@ public class MD5Util {
     private static final String[] hexDigits = {"0", "1", "2", "3", "4", "5",
             "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
 
-    public static String MD5EncodeParam(String origin, String charsetname) {
+    public static String MD5EncodeParam(String origin, String charset) {
         String resultString = null;
         try {
             resultString = origin;
             MessageDigest md = MessageDigest.getInstance("MD5");
-            if (charsetname == null || "".equals(charsetname))
+            if (charset == null || "".equals(charset))
                 resultString = byteArrayToHexString(md.digest(resultString
                         .getBytes()));
             else
                 resultString = byteArrayToHexString(md.digest(resultString
-                        .getBytes(charsetname)));
+                        .getBytes(charset)));
         } catch (Exception ignored) {
         }
         return resultString;

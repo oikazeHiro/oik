@@ -19,8 +19,6 @@ import org.springframework.stereotype.Component;
 public class NettyServer {
     private EventLoopGroup bossGroup;
     private EventLoopGroup workerGroup;
-    private ChannelFuture channelFuture;
-    private ServerBootstrap serverBootstrap;
 
     private static final NettyServer NETTY_SERVER = new NettyServer();
 
@@ -29,7 +27,7 @@ public class NettyServer {
 
     // 设置端口
     //    @Value("${oik.netty.port}")
-    private Integer nettyPort = (Integer) YamlReader.getValueByKey("oik.netty.port");
+    private final int nettyPort = (int) YamlReader.getValueByKey("oik.netty.port");
 
     //设置单例模型
     public static NettyServer getInstance() {
@@ -42,7 +40,7 @@ public class NettyServer {
             bossGroup = new NioEventLoopGroup();
             workerGroup = new NioEventLoopGroup();
             //服务对象
-            serverBootstrap = new ServerBootstrap();
+            ServerBootstrap serverBootstrap = new ServerBootstrap();
             //构建工程线程池
             serverBootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
@@ -51,7 +49,7 @@ public class NettyServer {
                     //
                     .childOption(ChannelOption.SO_KEEPALIVE, true)
                     .childHandler(new NettyServerInitializer());
-            channelFuture = serverBootstrap.bind(nettyPort).sync();
+            ChannelFuture channelFuture = serverBootstrap.bind(nettyPort).sync();
             log.info("---netty socket server start port: " + nettyPort + "---");
             channelFuture.channel().closeFuture().sync();
         } catch (Exception e) {

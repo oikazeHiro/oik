@@ -1,11 +1,8 @@
 package com.oik.util.uncategorized;
 
-import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.lionsoul.ip2region.xdb.Searcher;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.FileCopyUtils;
@@ -27,7 +24,7 @@ public class IPUtil {
 
     /**
      * 获取客户端IP地址
-     *
+     * <p>
      * 使用Nginx等反向代理软件， 则不能通过request.getRemoteAddr()获取IP地址
      * 如果使用了多级反向代理的话，X-Forwarded-For的值并不止一个，而是一串IP地址，X-Forwarded-For中第一个非unknown的有效IP字符串，则为真实IP地址
      */
@@ -57,6 +54,7 @@ public class IPUtil {
                     } catch (UnknownHostException e) {
                         log.error("getIpAddress exception:", e);
                     }
+                    assert inet != null;
                     ip = inet.getHostAddress();
                 }
             }
@@ -69,7 +67,7 @@ public class IPUtil {
     /**
      * 根据ip从 ip2region.db 中获取地理位置
      *
-     * @param ip
+     * @param ip ip
      * @return 地理位置
      */
     public static Map<String,String> getCityInfo(String ip) {
@@ -101,7 +99,6 @@ public class IPUtil {
      * 在服务启动时加载 ip2region.db 到内存中
      * 解决打包jar后找不到 ip2region.db 的问题
      *
-     * @throws Exception 出现异常应该直接抛出终止程序启动，避免后续invoke时出现更多错误
      */
     @PostConstruct
     private static void initIp2regionResource() {

@@ -1,20 +1,7 @@
 package com.oik.util.uncategorized;
 
-import com.aliyun.oss.ClientBuilderConfiguration;
-import com.aliyun.oss.OSS;
-import com.aliyun.oss.OSSClientBuilder;
-import com.aliyun.oss.event.ProgressListener;
-import com.aliyun.oss.model.CannedAccessControlList;
-import com.aliyun.oss.model.CreateBucketRequest;
-import com.aliyun.oss.model.PutObjectRequest;
-import com.aliyuncs.utils.StringUtils;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
-import java.io.InputStream;
-import java.util.List;
 
 /**
  * 王坚oss跑龙套

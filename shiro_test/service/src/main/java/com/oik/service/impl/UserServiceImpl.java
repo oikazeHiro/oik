@@ -82,7 +82,7 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
         userDTO.setToken(token);
         cacheClient.set(RedisConstants.USER_CACHE_PREFIX+userDTO.getUsername(),userDTO);
         log.info(byName.getUsername()+"登录");
-        return ResultUtil.getSuccess(userDTO);
+        return ResultUtil.getSuccess(userDTO, "Login success");
     }
 
     @Override

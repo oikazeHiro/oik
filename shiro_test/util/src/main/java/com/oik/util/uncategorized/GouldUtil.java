@@ -86,10 +86,10 @@ public class GouldUtil {
             JSONObject obj = JSONObject.parseObject(queryResult);
             if (obj.get("status").toString().equals("1")) {
                 // 如果没有返回-1
-                JSONObject regeocode = obj.getJSONObject("regeocode");
-                if (regeocode.size() > 0) {
-                    // 在regeocode中拿到 formatted_address 具体位置
-                    String formatted = regeocode.get("formatted_address").toString();
+                JSONObject jsonObject = obj.getJSONObject("jsonObject");
+                if (jsonObject.size() > 0) {
+                    // 在re-jsonObject formatted_address 具体位置
+                    String formatted = jsonObject.get("formatted_address").toString();
                     return formatted;
 
                 } else {

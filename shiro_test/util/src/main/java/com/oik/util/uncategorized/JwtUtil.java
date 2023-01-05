@@ -31,7 +31,7 @@ public class JwtUtil {
         map.put("typ","JWT");
 
         //使用jwt的api生成token
-        String token= null;//签名
+        String token;//签名
         token = JWT.create()
                 .withHeader(map)
                 .withClaim("username", username)//私有声明
@@ -76,9 +76,4 @@ public class JwtUtil {
     }
 
 
-//    public static void main(String[] args) {
-//        boolean verify = verify("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50IjoxNjcwODI5OTUyODk0LCJleHAiOjE2NzA4MzE3NTIsImlhdCI6MTY3MDgyOTk1MiwidXNlcm5hbWUiOiJ0ZXN0MSJ9.kMonXszOmrliOQOdum733nBpYoMU8-dBiwZ-qq7HYGY");
-//        System.out.println("verify = " + verify);
-//
-//    }
 }

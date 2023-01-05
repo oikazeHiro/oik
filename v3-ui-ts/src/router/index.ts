@@ -35,7 +35,7 @@ router.beforeEach(async (to, from, next) => {
     const token = localStorage.getItem('token')
     // 注意：在beforeEach中调用pinia存储的菜单状态是为了避免` Did you forget to install pinia?`这个bug
     const useMean = useMeanStore()
-    console.log('hasRoute', useMean.hasRoute)
+    // console.log('hasRoute', useMean.hasRoute)
     if (to.path == '/login') {
         next()
     } else if (!token) {
@@ -71,8 +71,7 @@ router.beforeEach(async (to, from, next) => {
             }
         })
         router.addRoute(home)
-        useMean.changeRouteStatus(true)
-        console.log(useMean.menuList)
+        useMean.setHasRoute(true)
         next({path: to.path})
     } else {
         next()

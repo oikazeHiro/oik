@@ -34,7 +34,7 @@ public class DictServiceImpl extends MPJBaseServiceImpl<DictMapper, Dict> implem
     private CacheClient cacheClient;
 
     @Override
-    public List<Dict> getDicts() {
+    public List<Dict> getdicts() {
         LambdaQueryWrapper<Dict> wrapper = new QueryWrapper<Dict>().lambda();
         wrapper.eq(Dict::getFatherId, 0)
                 .orderByAsc(Dict::getSort);

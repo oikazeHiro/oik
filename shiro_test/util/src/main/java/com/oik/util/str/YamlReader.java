@@ -19,7 +19,7 @@ public class YamlReader {
 
     static {
         Yaml yaml = new Yaml();
-        try (InputStream in = YamlReader.class.getClassLoader().getResourceAsStream("application.yml");) {
+        try (InputStream in = YamlReader.class.getClassLoader().getResourceAsStream("application.yml")) {
             properties = yaml.loadAs(in, HashMap.class);
         } catch (Exception e) {
             log.error("Init yaml failed !", e);
@@ -34,7 +34,7 @@ public class YamlReader {
      */
     public static Object getValueByKey(String key) {
         String separator = ".";
-        String[] separatorKeys = null;
+        String[] separatorKeys;
         if (key.contains(separator)) {
             separatorKeys = key.split("\\.");
         } else {

@@ -36,7 +36,7 @@ public class GreetServiceImpl extends MPJBaseServiceImpl<GreetMapper, Greet> imp
     @Override
     public Result getGreet(Page<Greet> page) {
         String value = cacheClient.getValue(SYS_GREET, "");
-        Page<Greet> greetPage = null;
+        Page greetPage = null;
         if (StringUtils.isEmpty(value)) {
                 try {
                     if (cacheClient.tryLock(SYS_GREET_LOCK)) {

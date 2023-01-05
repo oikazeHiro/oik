@@ -13,9 +13,9 @@ import com.oik.service.service.RoleService;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.RedisConstants;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class RoleServiceImpl extends MPJBaseServiceImpl<RoleMapper, Role> implements RoleService {
 
-    @Autowired
+    @Resource
     private CacheClient cacheClient;
 
     @Override

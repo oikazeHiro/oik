@@ -148,8 +148,6 @@ public class CacheClient {
     /**
      * 获取互斥锁
      *
-     * @param key
-     * @return
      */
     public boolean tryLock(String key) {
         Boolean flag = stringRedisTemplate.opsForValue().setIfAbsent(key, "1", 10L, TimeUnit.SECONDS);
@@ -159,7 +157,7 @@ public class CacheClient {
     /**
      * 释放锁
      *
-     * @param key
+     * @param key key
      */
     public void unLock(String key) {
         stringRedisTemplate.delete(key);
@@ -194,6 +192,7 @@ public class CacheClient {
 
     public Long deletes(String key) {
         Set<String> keys = stringRedisTemplate.keys(key + "*");
+        assert keys != null;
         return stringRedisTemplate.delete(keys);
 
     }

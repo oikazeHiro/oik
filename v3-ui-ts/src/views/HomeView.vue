@@ -50,7 +50,7 @@
           </template>
         </el-menu>
       </el-aside>
-      <el-container style="background-color: rgba(177,177,177,0.9)">
+      <el-container style="background-color: #f0f2f5">
         <el-header style="font-size: 14px;background-color: white">
           <el-row :gutter="20" class="home-row" style="height: 100%">
             <el-col :span="2" class="vertical-Center">
@@ -72,7 +72,7 @@
                     <el-dropdown-menu>
                       <el-dropdown-item>个人中心</el-dropdown-item>
                       <el-dropdown-item>修改密码</el-dropdown-item>
-                      <el-dropdown-item>退出登录</el-dropdown-item>
+                      <el-dropdown-item @click="doLogout">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                   </template>
                 </el-dropdown>
@@ -97,6 +97,8 @@ import {onMounted, ref} from 'vue'
 import {useMeanStore} from '@/store/menus'
 import {User} from '@/store/UserDto'
 import {RouterView} from 'vue-router'
+import {logout} from '@/api/request/login'
+import router from "@/router";
 
 const isCollapse = ref(false)
 const handleOpen = (key: string, keyPath: string[]) => {
@@ -125,8 +127,16 @@ const getAvatar = async () => {
     avatar.value = userDto.userDto.avatar
   }
 }
+
+const doLogout = async () => {
+  const res = await logout()
+  console.log(res)
+  localStorage.clear();
+  router.push({path: '/login'})
+}
 onMounted(() => {
-  console.log(userDto)
+  console.log(menuList)
+  console.log(userDto.userDto)
   getAvatar()
   console.log(username)
 })

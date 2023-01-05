@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 public class NettyServerInitializer extends ChannelInitializer<SocketChannel> {
     @Override
-    protected void initChannel(SocketChannel socketChannel) throws Exception {
+    protected void initChannel(SocketChannel socketChannel) {
         ChannelPipeline pipeline = socketChannel.pipeline();
         //因为基于http协议，使用http的编码和解码器
         pipeline.addLast("http-codec", new HttpServerCodec());

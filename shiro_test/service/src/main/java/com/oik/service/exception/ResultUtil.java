@@ -16,16 +16,28 @@ public class ResultUtil {
         //设置操作成功的返回码
         result.setCode(200);
         //设置操作成功的消息
-        result.setMsg("成功");
+        result.setMsg("success");
         result.setData(data);
         return result;
     }
-    public static <T> Result<T> getSuccess(T data,Long count) {
+
+    public static <T> Result<T> getSuccess(T data, Long count) {
         Result<T> result = new Result<>();
         //设置操作成功的返回码
         result.setCode(200);
         //设置操作成功的消息
-        result.setMsg("成功");
+        result.setMsg("success");
+        result.setData(data);
+        result.setCount(count);
+        return result;
+    }
+
+    public static <T> Result<T> getSuccess(T data, Long count, String message) {
+        Result<T> result = new Result<>();
+        //设置操作成功的返回码
+        result.setCode(200);
+        //设置操作成功的消息
+        result.setMsg(message);
         result.setData(data);
         result.setCount(count);
         return result;

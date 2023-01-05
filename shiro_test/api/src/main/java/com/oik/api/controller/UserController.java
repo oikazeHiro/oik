@@ -9,9 +9,7 @@ import com.oik.service.exception.ResultEnum;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.UserService;
 import com.oik.util.dto.LoginDto;
-import com.oik.util.dto.UserDTO;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

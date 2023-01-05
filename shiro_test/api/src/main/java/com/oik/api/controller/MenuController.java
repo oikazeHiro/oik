@@ -8,7 +8,6 @@ import com.oik.service.service.CacheService;
 import com.oik.service.service.MenuService;
 import com.oik.util.redis.CacheClient;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -33,7 +32,7 @@ public class MenuController {
     @GetMapping("/getMenus")
     public Result getMenus() {
         List<Menu> collect = menuService.getMenus();
-        return ResultUtil.getSuccess(collect, (long) collect.size());
+        return ResultUtil.getSuccess(collect, (long) collect.size(), "Get menu success");
     }
 
     @GetMapping("/menus/{username}")

@@ -20,31 +20,31 @@ public enum ResultEnum {
     /**
      * 未知异常. ErrorCode : 01
      */
-    UnknownException(01, "未知异常"),
+    UnknownException(1, "未知异常"),
 
     /**
      * 服务异常. ErrorCode : 02
      */
-    ServiceException(02, "服务异常"),
+    ServiceException(2, "服务异常"),
 
     /**
      * 业务错误. ErrorCode : 03
      */
-    MyException(03, "业务错误"),
+    MyException(3, "业务错误"),
     /**
      * 提示级错误. ErrorCode : 04
      */
-    InfoException(04, "提示级错误"),
+    InfoException(4, "提示级错误"),
 
     /**
      * 数据库操作异常. ErrorCode : 05
      */
-    DBException(05, "数据库操作异常"),
+    DBException(5, "数据库操作异常"),
 
     /**
      * 参数验证错误. ErrorCode : 06
      */
-    ParamException(06, "参数验证错误"),
+    ParamException(6, "参数验证错误"),
     /**
      * 参数验证错误. ErrorCode : 5001数据为空
      */

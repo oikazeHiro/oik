@@ -9,3 +9,7 @@ export const getMenus = () => {
   return request.get<menus>('/api/getMenus')
 }
 
+export const logout = () => {
+  return request.get<any>("/api/user/logout")
+}
+

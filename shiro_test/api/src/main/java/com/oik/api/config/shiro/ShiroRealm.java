@@ -1,22 +1,15 @@
 package com.oik.api.config.shiro;
 
 import cn.hutool.json.JSONUtil;
-import com.auth0.jwt.exceptions.TokenExpiredException;
-import com.oik.util.dto.UserDTO;
-import com.oik.util.redis.UserHolder;
-import com.oik.util.uncategorized.JwtUtil;
-import com.oik.dao.entity.Menu;
 import com.oik.dao.entity.Role;
-import com.oik.dao.entity.User;
 import com.oik.service.service.CacheService;
 import com.oik.service.service.MenuService;
 import com.oik.service.service.RoleService;
-import com.oik.service.service.UserService;
+import com.oik.util.dto.UserDTO;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.RedisConstants;
-import com.oik.util.uncategorized.HttpContextUtil;
-import com.oik.util.uncategorized.IPUtil;
-import io.jsonwebtoken.ExpiredJwtException;
+import com.oik.util.redis.UserHolder;
+import com.oik.util.uncategorized.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -29,7 +22,6 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -60,7 +52,6 @@ public class ShiroRealm extends AuthorizingRealm {
     /**
      * 授权模块，获取角色和权限
      *
-     * @param principalCollection
      * @return simpleAuthorizationInfo 权限信息
      */
     @Override
@@ -81,18 +72,14 @@ public class ShiroRealm extends AuthorizingRealm {
 
     /**
      * 用户认证
-     *
-     * @param authenticationToken
-     * @return
-     * @throws AuthenticationException
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         //获取token
+        //        HttpServletRequest request = HttpContextUtil.getHttpServletRequest();
         String token = (String) authenticationToken.getCredentials();
-        HttpServletRequest request = HttpContextUtil.getHttpServletRequest();
-        String ip = IPUtil.getIpAddr(request);
-        String username = null;
+        //        String ip = IPUtil.getIpAddr(request);
+        String username;
         username = JwtUtil.getUsername(token);
         // 通过用户名查询用户信息
         String value = cacheClient.getValue(RedisConstants.USER_CACHE_PREFIX, username);

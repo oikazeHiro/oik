@@ -11,14 +11,15 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 /**
  *
@@ -28,9 +29,7 @@ import java.time.LocalDateTime;
 @Slf4j
 public class HttpAspect {
 
-    private Long startTime;
-
-    @Autowired
+    @Resource
     private LogService logService;
 
     //    @Pointcut("@annotation(com.oik.api.config.aop.EagleEye)")
@@ -51,12 +50,12 @@ public class HttpAspect {
             UserDTO user = UserHolder.getUser();
             username = user.getUsername();
         }catch (Exception e) {
-
+            log.info(e.getMessage());
         }
         String str = JSONUtil.toJsonStr(pjp.getArgs());
         String ipAddr = IPUtil.getIpAddr(request);
         String name = pjp.getSignature().getName();
-        startTime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         log.info("请求Url : {}", request.getRequestURL().toString());
         log.info("请求方式 : {}", request.getMethod());
         log.info("请求ip : {}", ipAddr);
@@ -68,15 +67,16 @@ public class HttpAspect {
         Object result = pjp.proceed();
         log.info("请求结束时间：" + LocalDateTime.now());
         log.info("请求耗时：{}", (System.currentTimeMillis() - startTime) + "ms");
+        assert response != null;
         Log logSave = new Log(username,
                 request.getRequestURL().toString(),
                 name,
                 (System.currentTimeMillis() - startTime),
                 request.getMethod(),
-                name.equals("login")||name.equals("register")||name.equals("resetUser")?"保密":str,
+                name.equals("login") || name.equals("register") || name.equals("resetUser") ? "保密" : str,
                 ipAddr,
                 LocalDateTime.now(),
-                IPUtil.getCityInfo(ipAddr).get("city"),
+                Objects.requireNonNull(IPUtil.getCityInfo(ipAddr)).get("city"),
                 response.getStatus(),
                 JSONUtil.toJsonStr(result),
                 "0");

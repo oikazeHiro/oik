@@ -37,7 +37,7 @@ public class DictController {
     public Result dict() {
         List<Dict> dict = CacheClient.selectCacheByTemplate(
                 () -> cacheService.getDict(),
-                () -> dictService.getDicts()
+                () -> dictService.getdicts()
         );
         return ResultUtil.getSuccess(dict);
     }

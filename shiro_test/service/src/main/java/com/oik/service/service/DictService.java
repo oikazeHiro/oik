@@ -15,5 +15,5 @@ import java.util.List;
  */
 public interface DictService extends MPJJoinService<Dict> {
 
-    List<Dict> getDicts();
+    List<Dict> getdicts();
 }

@@ -1,6 +1,5 @@
 package com.oik.api.config.shiro;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.shiro.authc.AuthenticationToken;

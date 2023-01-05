@@ -45,7 +45,6 @@ class RequestHttp {
     /**
      * 请求拦截器
      * 客户端发送请求 -> [请求拦截器] -> 服务器
-     * token校验(JWT) : 接受服务器返回的token,存储到vuex/pinia/本地储存当中
      */
     this.service.interceptors.request.use(
         (config: AxiosRequestConfig) => {
@@ -98,6 +97,7 @@ class RequestHttp {
           if (response.headers.Authorization != null) {
             localStorage.setItem('token', response.headers.Authorization)
           }
+          ElNotification.success(data.msg)
           return data
         },
         (error: AxiosError) => {
