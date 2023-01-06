@@ -17,7 +17,6 @@ oik:
     # 后端免认证接口 url
     anonUrl:
       - /user/login
-      - /user/logout/**
       - /user/regist
       - /user/check/**
       - /swagger-resources/**

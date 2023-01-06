@@ -1,6 +1,7 @@
 <template>
   <div class="login-box">
     <el-form
+        v-loading="loading"
         ref="ruleFormRef"
         :model="loginFrom"
         :rules="rules"
@@ -67,19 +68,21 @@ const rules = reactive({
     },
   ],
 })
-
+const loading = ref(false)
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
   await formEl.validate(async (valid, fields) => {
     if (valid) {
+      loading.value=true
       const res = await login(loginFrom)
+      loading.value=false
       console.log(res)
       localStorage.setItem('token', res.data.token)
       const saveUser = User()
       saveUser.setUserDto(res.data)
-      console.log(saveUser.userDto)
-      router.push({path: '/system/home/index'})
+      await router.push({path: '/system/home/index'})
     } else {
+      loading.value=false
       console.log('error submit!', fields)
     }
   })

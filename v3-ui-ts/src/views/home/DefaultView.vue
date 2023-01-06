@@ -1,7 +1,7 @@
 <template>
   <el-container style="height: 100%;background-color: white">
     <el-main>
-
+      <el-card shadow="always"> Always </el-card>
     </el-main>
   </el-container>
 </template>
