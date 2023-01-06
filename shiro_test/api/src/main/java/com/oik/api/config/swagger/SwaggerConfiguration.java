@@ -2,7 +2,6 @@ package com.oik.api.config.swagger;
 
 import io.swagger.models.auth.In;
 import org.apache.commons.lang3.reflect.FieldUtils;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.SpringBootVersion;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -101,7 +100,7 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void addInterceptors(@NotNull InterceptorRegistry registry) {
+    public void addInterceptors(InterceptorRegistry registry) {
         try {
             Field registrationsField = FieldUtils.getField(InterceptorRegistry.class, "registrations", true);
             List<InterceptorRegistration> registrations = (List<InterceptorRegistration>) ReflectionUtils.getField(registrationsField, registry);

@@ -1,6 +1,8 @@
 <template>
-  <el-container>
+  <el-container style="height: 100%;background-color: white">
+    <el-main>
 
+    </el-main>
   </el-container>
 </template>
 

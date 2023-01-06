@@ -60,7 +60,7 @@ public class Menu implements Serializable {
     private String icon;
 
     @ApiModelProperty("类型 0菜单 1按钮")
-    @TableField("`TYPE`")
+    @TableField("TYPE")
     private String type;
 
     @TableField("ORDER_NUM")

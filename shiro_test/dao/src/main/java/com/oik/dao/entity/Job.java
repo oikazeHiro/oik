@@ -51,7 +51,7 @@ public class Job implements Serializable {
     private String cronExpression;
 
     @ApiModelProperty("任务状态  0：正常  1：暂停")
-    @TableField("`STATUS`")
+    @TableField("STATUS")
     private String status;
 
     @ApiModelProperty("备注")

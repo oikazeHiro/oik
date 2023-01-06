@@ -51,7 +51,7 @@ public class Log implements Serializable {
     private String operation;
 
     @ApiModelProperty("耗时")
-    @TableField("`TIME`")
+    @TableField("TIME")
     private Long time;
 
     @ApiModelProperty("操作方法")
@@ -67,7 +67,7 @@ public class Log implements Serializable {
     private String ip;
 
     @ApiModelProperty("创建时间")
-    @TableField("CREATE_TIME")
+    @TableField(value = "CREATE_TIME")
     private LocalDateTime createTime;
 
     @ApiModelProperty("操作地点")
@@ -83,7 +83,7 @@ public class Log implements Serializable {
     private String responseText;
 
     @ApiModelProperty("0系统内部操作日志, 1系统外部请求日志")
-    @TableField("`TYPE`")
+    @TableField("TYPE")
     private String type;
 
     public Log(String username, String url, String operation, Long time, String method, String params, String ip, LocalDateTime createTime, String location, Integer responseCode, String responseText, String type) {

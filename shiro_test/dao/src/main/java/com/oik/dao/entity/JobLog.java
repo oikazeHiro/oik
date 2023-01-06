@@ -51,11 +51,11 @@ public class JobLog implements Serializable {
     private String params;
 
     @ApiModelProperty("任务状态    0：成功    1：失败")
-    @TableField("`STATUS`")
+    @TableField("STATUS")
     private String status;
 
     @ApiModelProperty("失败信息")
-    @TableField("`ERROR`")
+    @TableField("ERROR")
     private String error;
 
     @ApiModelProperty("耗时(单位：毫秒)")

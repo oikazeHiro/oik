@@ -50,7 +50,7 @@ public class Dept implements Serializable {
     @TableField(value = "UPDATE_TIME",fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
-    @TableField("`STATUS`")
+    @TableField("STATUS")
     private String status;
 
     @TableField(value = "CREATE_USER",fill = FieldFill.INSERT)

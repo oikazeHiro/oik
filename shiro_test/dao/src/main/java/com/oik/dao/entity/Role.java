@@ -50,7 +50,7 @@ public class Role implements Serializable {
     @TableField("UPDATE_TIME")
     private LocalDateTime updateTime;
 
-    @TableField("`STATUS`")
+    @TableField("STATUS")
     private String status;
 
     @TableField("CREATE_USERNAME")

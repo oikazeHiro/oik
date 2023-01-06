@@ -43,6 +43,7 @@ public class ExceptionAdvice {
     public Result validException(BindException e) {
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
         Map<String, Object> error = this.getValidError(fieldErrors);
+        e.printStackTrace();
         return ResultUtil.getError(ResultEnum.ERROR.getCode(), error.get("errorMsg").toString(), error.get("errorList"));
     }
 
@@ -52,46 +53,55 @@ public class ExceptionAdvice {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NoHandlerFoundException.class)
     public Result handle(NoHandlerFoundException e) {
+        e.printStackTrace();
         return ResultUtil.getError(ResultEnum.NO_PAGE.getCode(), "未找到api接口请校验url地址" + e.getMessage());
     }
 
     @ExceptionHandler(UnauthorizedException.class)
     public Result Unauthorized(UnauthorizedException e) {
+        e.printStackTrace();
         return ResultUtil.getError(407, e.getMessage());
     }
 
     @ExceptionHandler(Throwable.class)
     public Result Unauthorized(Throwable e) {
+        e.printStackTrace();
         return ResultUtil.getError(500, e.getMessage());
     }
 
     @ExceptionHandler(SignatureException.class)
     public Result method(SignatureException e) {
+        e.printStackTrace();
         return ResultUtil.getError(ResultEnum.NO_PAGE.getCode(), e.getMessage());
     }
 
     @ExceptionHandler(AuthenticationException.class)
     public Result method(AuthenticationException e) {
+        e.printStackTrace();
         return ResultUtil.getError(ResultEnum.NO_PAGE.getCode(), e.getMessage());
     }
     @ExceptionHandler(UnknownHostException.class)
     public Result method(UnknownHostException e) {
+        e.printStackTrace();
         return ResultUtil.getError(405, e.getMessage());
     }
 
     @ExceptionHandler(MyException.class)
     public Result method(MyException e) {
+        e.printStackTrace();
         return ResultUtil.getError(e.getCode(), e.getMessage());
     }
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public Result method(HttpRequestMethodNotSupportedException e) {
+        e.printStackTrace();
         return ResultUtil.getError(ResultEnum.NO_PAGE.getCode(), e.getMessage());
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(NullPointerException.class)
     public Result nullpo(NullPointerException e) {
+        e.printStackTrace();
         return ResultUtil.getError(ResultEnum.SystemException.getCode(), e.getMessage());
     }
 
@@ -101,6 +111,7 @@ public class ExceptionAdvice {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     public Result globalException(Throwable e) {
+        e.printStackTrace();
         return ResultUtil.getError(ResultEnum.SystemException.getCode(), e.getMessage());
     }
 

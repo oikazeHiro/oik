@@ -45,7 +45,7 @@ public class Dict implements Serializable {
     private String fieldName;
 
     @ApiModelProperty("表名")
-    @TableField("`TABLE_NAME`")
+    @TableField("TABLE_NAME")
     private String tableName;
 
     @ApiModelProperty("0 一级")
@@ -75,7 +75,7 @@ public class Dict implements Serializable {
     private String updateUsername;
 
     @ApiModelProperty("逻辑删除：1：生效0：失效")
-    @TableField("`STATUS`")
+    @TableField("STATUS")
     private String status;
 
     @ApiModelProperty("其他判断依据")

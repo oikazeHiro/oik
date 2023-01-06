@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container style="height: 100%;width: 100%">
     <el-container>
       <el-aside :width="isCollapse ? '64px' : '200px'">
         <el-menu
@@ -50,9 +50,9 @@
           </template>
         </el-menu>
       </el-aside>
-      <el-container style="background-color: #f0f2f5">
+      <el-container style="background-color: #f0f2f5;" >
         <el-header style="font-size: 14px;background-color: white">
-          <el-row :gutter="20" class="home-row" style="height: 100%">
+          <el-row :gutter="20" class="home-row" style="height: 100%;width: 100%">
             <el-col :span="2" class="vertical-Center">
               <!-- <div @click="toggleCollapse">|||</div> -->
               <component
@@ -102,10 +102,10 @@ import router from "@/router";
 
 const isCollapse = ref(false)
 const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+  // console.log(key, keyPath)
 }
 const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+  // console.log(key, keyPath)
 }
 const toggle = ref('Fold')
 const toggleCollapse = () => {
@@ -159,7 +159,7 @@ onMounted(() => {
   // height: 100%;
   .el-menu {
     // height: calc(100vh - 80px);
-    height: 100vh;
+    height: 100%;
   }
 
   .toggle-button {

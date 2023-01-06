@@ -80,7 +80,13 @@ public class HttpAspect {
                 response.getStatus(),
                 JSONUtil.toJsonStr(result),
                 "0");
-        logService.save(logSave);
+
+        try {
+            logService.save(logSave);
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.info("sqlserver 插入数据异常");
+        }
         // 处理完请求，返回内容
         return result;
     }

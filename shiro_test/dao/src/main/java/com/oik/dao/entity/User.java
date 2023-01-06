@@ -36,7 +36,7 @@ public class User implements Serializable {
     private String username;
 
     @ApiModelProperty("密码")
-    @TableField("`PASSWORD`")
+    @TableField("PASSWORD")
     private String password;
 
     @ApiModelProperty("部门ID")
@@ -52,7 +52,7 @@ public class User implements Serializable {
     private String mobile;
 
     @ApiModelProperty("状态 0无效 1有效")
-    @TableField("`STATUS`")
+    @TableField("STATUS")
     private Integer status;
 
     @ApiModelProperty("最近访问时间")
