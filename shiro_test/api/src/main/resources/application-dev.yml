@@ -5,7 +5,7 @@ spring:
     ansi:
       enabled: always
   application:
-    name: hmdp
+    name: oik
     datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://127.0.0.1:13306/shiro_test?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
