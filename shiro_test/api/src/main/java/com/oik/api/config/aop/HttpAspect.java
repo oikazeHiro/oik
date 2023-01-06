@@ -79,8 +79,7 @@ public class HttpAspect {
                 Objects.requireNonNull(IPUtil.getCityInfo(ipAddr)).get("city"),
                 response.getStatus(),
                 JSONUtil.toJsonStr(result),
-                "0");
-
+                "1");
         try {
             logService.save(logSave);
         } catch (Exception e) {
