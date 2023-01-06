@@ -13,7 +13,7 @@ import {onMounted, reactive, ref} from 'vue'
 
 
 onMounted(() => {
-
+  console.log()
 })
 </script>
 
