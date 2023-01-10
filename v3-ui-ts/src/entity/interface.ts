@@ -17,14 +17,14 @@ export class LoginFrom2 {
 }
 
 export interface menus {
-    menuId: number
-    parentId: number
-    menuName: string
-    path: string
-    component: string
-    icon: string
-    type: string
-    orderNum: number
+    menuId?: number
+    parentId?: number
+    menuName?: string
+    path?: string
+    component?: string
+    icon?: string
+    type?: string
+    orderNum?: number
     children?: Array<menus>
 }
 
@@ -46,4 +46,41 @@ export interface userDto {
     ssex: string
     avatar: string
     ip: string
+}
+
+
+export interface page<T> {
+    records:Array<T>,
+    total:number,
+    size:number,
+    current:number,
+    orders?: {
+        column?:string,
+        asc?:boolean
+    },
+    optimizeCountSql?:boolean,
+    searchCount?:boolean,
+    maxLimit?:number,
+    countId?:string
+}
+
+export interface query<T> {
+    page:page<T>,
+    param:T
+}
+
+export interface dict {
+    dictId?:number,
+    keyy?:number,
+    valuee?:string,
+    fieldName?:string,
+    tableName?:string,
+    createTime?:string
+    createUserId?:number,
+    createUsername?:string,
+    updateTime?:string,
+    updateUsername?:string,
+    status?:string,
+    sort?:number,
+    children?:Array<dict>
 }

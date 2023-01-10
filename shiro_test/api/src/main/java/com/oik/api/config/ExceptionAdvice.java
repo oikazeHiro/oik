@@ -69,6 +69,12 @@ public class ExceptionAdvice {
         return ResultUtil.getError(500, e.getMessage());
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public Result Unauthorized(IllegalArgumentException e) {
+        e.printStackTrace();
+        return ResultUtil.getError(400, e.getMessage());
+    }
+
     @ExceptionHandler(SignatureException.class)
     public Result method(SignatureException e) {
         e.printStackTrace();

@@ -6,7 +6,6 @@ import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.CacheService;
 import com.oik.service.service.DictService;
 import com.oik.util.redis.CacheClient;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -33,7 +32,7 @@ public class DictController {
     private DictService dictService;
 
     @GetMapping("/dicts")
-    @RequiresPermissions("dict:view")
+//    @RequiresPermissions("dict:view")
     public Result dict() {
         List<Dict> dict = CacheClient.selectCacheByTemplate(
                 () -> cacheService.getDict(),

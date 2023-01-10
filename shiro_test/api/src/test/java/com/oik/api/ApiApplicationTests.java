@@ -1,11 +1,9 @@
 package com.oik.api;
 
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.symmetric.SymmetricAlgorithm;
 import cn.hutool.crypto.symmetric.SymmetricCrypto;
 import cn.hutool.json.JSONUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -15,7 +13,6 @@ import com.oik.dao.entity.Role;
 import com.oik.dao.entity.User;
 import com.oik.service.exception.Result;
 import com.oik.service.service.*;
-
 import com.oik.util.dto.UserDTO;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.UserHolder;
@@ -30,7 +27,6 @@ import java.time.LocalTime;
 import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @SpringBootTest
 class ApiApplicationTests {
@@ -121,10 +117,18 @@ class ApiApplicationTests {
     }
 
     @Test
-    void getIndex(){
+    void getIndex() {
         Result admin = userService.index("admin");
         System.out.println("JSONUtil.toJsonStr(admin) = " + JSONUtil.toJsonStr(admin));
     }
 
+    @Test
+    void menus() {
+        Page page = new Page(1, 10);
+        Menu menu = new Menu();
+//        menu.setMenuName()
+        IPage<Menu> menus = menuService.menus(page, menu);
+        System.out.println("JSONUtil.toJsonStr(menus) = " + JSONUtil.toJsonStr(menus));
+    }
 
 }

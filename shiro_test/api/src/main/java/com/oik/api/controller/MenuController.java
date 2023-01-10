@@ -1,6 +1,7 @@
 package com.oik.api.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.Menu;
 import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultUtil;
@@ -37,7 +38,7 @@ public class MenuController {
 
     @GetMapping("/menus/{username}")
     @RequiresPermissions("menu:view")
-    public Result menus(@PathVariable("username") String username) {
+    public Result getMenus(@PathVariable("username") String username) {
         List<Menu> permissionList = CacheClient.selectCacheByTemplate(
                 () -> cacheService.getMenus(username),
                 () -> menuService.getMenuTree(username));
@@ -66,13 +67,20 @@ public class MenuController {
 
     @GetMapping("/perms/{roleId}")
     @RequiresPermissions("menu:view")
-    public Result getPermsByRoleId(@PathVariable("roleId") Long roleId){
+    public Result getPermsByRoleId(@PathVariable("roleId") Long roleId) {
         return menuService.getPermsByRoleId(roleId);
     }
+
     @GetMapping("/perms")
     @RequiresPermissions("menu:view")
-    public Result getPerms(){
+    public Result getPerms() {
         return ResultUtil.getSuccess(menuService.list(new QueryWrapper<Menu>().lambda().isNotNull(Menu::getPerms)));
+    }
+
+    @GetMapping("/menu-get")
+    @RequiresPermissions("menu:view")
+    public Result menus(Page page, Menu param) {
+        return ResultUtil.getSuccess(menuService.menus(page, param));
     }
 
 }

@@ -3,6 +3,8 @@ package com.oik.service.impl;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson2.JSON;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.oik.dao.entity.*;
@@ -14,6 +16,7 @@ import com.oik.service.service.MenuService;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.RedisConstants;
 import com.oik.util.redis.UserHolder;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -99,5 +102,31 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
                 .eq(RoleMenu::getRoleId, roleId);
         List<Menu> menus = selectJoinList(Menu.class, wrapper);
         return ResultUtil.getSuccess(menus);
+    }
+
+    @Override
+    public IPage<Menu> menus(Page page, Menu menu) {
+        MPJLambdaWrapper<Menu> wrapper = new MPJLambdaWrapper<Menu>()
+                .selectAll(Menu.class)
+                .eq(StringUtils.isNotEmpty(menu.getMenuName()), Menu::getMenuName, menu.getMenuName())
+                .eq(Menu::getParentId, 0);
+        IPage<Menu> parent = selectJoinListPage(page, Menu.class, wrapper);
+        wrapper.clear();
+        wrapper.selectAll(Menu.class).eq(Menu::getType, 0);
+        List<Menu> menus = list(wrapper);
+        wrapper.clear();
+        wrapper.selectAll(Menu.class).eq(Menu::getType, 1);
+        List<Menu> perms = list(wrapper);
+        Map<Long, List<Menu>> permsMap = perms.stream()
+                .collect(Collectors
+                        .groupingBy(Menu::getParentId, Collectors
+                                .mapping(Function.identity(), Collectors.toList())));
+        menus.forEach(e -> e.setChildren(permsMap.get(e.getMenuId())));
+        Map<Long, List<Menu>> menusMap = menus.stream()
+                .collect(Collectors
+                        .groupingBy(Menu::getParentId, Collectors
+                                .mapping(Function.identity(), Collectors.toList())));
+        parent.getRecords().forEach(e -> e.setChildren(menusMap.get(e.getMenuId())));
+        return parent;
     }
 }

@@ -97,7 +97,9 @@ class RequestHttp {
           if (response.headers.Authorization != null) {
             localStorage.setItem('token', response.headers.Authorization)
           }
-          ElNotification.success(data.msg)
+          if (data.msg != null && data.msg != ''){
+              ElNotification.success(data.msg)
+          }
           return data
         },
         (error: AxiosError) => {

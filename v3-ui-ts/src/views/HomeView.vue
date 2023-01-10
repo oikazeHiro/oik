@@ -135,10 +135,7 @@ const doLogout = async () => {
   router.push({path: '/login'})
 }
 onMounted(() => {
-  console.log(menuList)
-  console.log(userDto.userDto)
   getAvatar()
-  console.log(username)
 })
 </script>
 

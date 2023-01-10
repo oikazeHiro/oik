@@ -1,7 +1,9 @@
 package com.oik.service.service;
 
-import com.oik.dao.entity.Menu;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.service.MPJJoinService;
+import com.oik.dao.entity.Menu;
 import com.oik.service.exception.Result;
 
 import java.util.List;
@@ -24,4 +26,6 @@ public interface MenuService extends MPJJoinService<Menu> {
     List<Menu> getMenuTree(String username);
 
     Result getPermsByRoleId(Long roleId);
+
+    IPage<Menu> menus(Page page, Menu menu);
 }

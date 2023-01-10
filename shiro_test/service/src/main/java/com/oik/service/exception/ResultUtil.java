@@ -16,7 +16,6 @@ public class ResultUtil {
         //设置操作成功的返回码
         result.setCode(200);
         //设置操作成功的消息
-        result.setMsg("success");
         result.setData(data);
         return result;
     }
