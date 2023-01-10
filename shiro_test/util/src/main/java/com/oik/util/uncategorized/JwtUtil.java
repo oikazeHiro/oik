@@ -19,7 +19,7 @@ public class JwtUtil {
     //wt秘钥 此秘钥一定要保留好在服务端, 不能暴露出去, 否则sign就可以被伪造, 如果对接多个客户端建议改造成多个
     private final static String JWT_SEC_KEY = "OIK_JWT_SEC_SHIRO";
 
-    private final static long JWT_EXPIRE = 2*60*60*1000;
+    private final static long JWT_EXPIRE = 7*24*60*60*1000;
 
     public static String createToken(String username,Long current) throws UnsupportedEncodingException {
         //token过期时间

@@ -25,6 +25,7 @@ export interface menus {
     icon?: string
     type?: string
     orderNum?: number
+    createTime?: number
     children?: Array<menus>
 }
 

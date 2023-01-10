@@ -3,6 +3,7 @@ package com.oik.dao.entity;
 import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.models.auth.In;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,7 +50,7 @@ public class ChatMsg implements Serializable {
 
     @ApiModelProperty("接收状态")
     @TableField("sign_flag")
-    private Byte signFlag;
+    private Integer signFlag;
 
     @ApiModelProperty("创建时间")
     @TableField(value = "create_time",fill = FieldFill.INSERT)

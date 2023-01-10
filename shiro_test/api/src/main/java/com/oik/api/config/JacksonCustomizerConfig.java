@@ -10,10 +10,12 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Date;
 
 /**
  * @author 15093
@@ -24,11 +26,14 @@ import java.time.ZoneOffset;
 /**
  * jackson全局配置java8 LocalDateTime的序列化 全局配置时间返回格式
  */
+/**
+ * jackson全局配置java8 LocalDateTime的序列化 全局配置时间返回格式
+ */
 @Configuration
 public class JacksonCustomizerConfig {
 
     /**
-     * description:适配自定义序列化和反序列化策略，返回前端指定数据类型的数据
+     * description:适配自定义序列化和反序列化策略
      */
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
@@ -69,6 +74,39 @@ public class JacksonCustomizerConfig {
             }
         }
     }
+
+    /**
+     * description:LocalDateTime转换器，用于转换RequestParam和PathVariable参数
+     * 接收毫秒级时间戳字符串——>LocalDateTime
+     */
+    @Bean
+    public Converter<String, LocalDateTime> localDateTimeConverter() {
+        return new Converter<String, LocalDateTime>() {
+            @Override
+            public LocalDateTime convert(String source) {
+                //毫秒级时间戳转LocalDateTime
+                return LocalDateTimeUtil.of(Long.parseLong(source), ZoneOffset.of("+8"));
+            }
+        };
+    }
+
+    /**
+     * description:java.util.Date转换器
+     * 接收毫秒级时间戳字符串——>Date
+     */
+    @Bean
+    public Converter<String, Date> dateConverter() {
+        return new Converter<String, Date>() {
+            @Override
+            public Date convert(String source) {
+                long longTimeStamp = new Long(source);
+                return new Date(longTimeStamp);
+            }
+        };
+    }
+
 }
+
+
 
 

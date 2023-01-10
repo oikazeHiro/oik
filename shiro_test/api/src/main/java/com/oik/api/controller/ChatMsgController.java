@@ -1,10 +1,10 @@
 package com.oik.api.controller;
 
+import com.oik.dao.entity.ChatMsg;
 import com.oik.service.exception.Result;
+import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.ChatMsgService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -28,4 +28,9 @@ public class ChatMsgController {
         return chatMsgService.getMsg();
     }
 
+//    @PostMapping
+//    public Result save(@RequestBody ChatMsg msg){
+//        chatMsgService.save(msg);
+//        return ResultUtil.getSuccess();
+//    }
 }

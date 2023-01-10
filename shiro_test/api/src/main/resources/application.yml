@@ -26,4 +26,5 @@ oik:
       - /swagger-ui.html/**
       - /swagger-ui/**
       - /favicon.ico
+      - /test/do2
 

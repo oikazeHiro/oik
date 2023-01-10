@@ -8,10 +8,28 @@
       border
       :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
   >
-    <el-table-column prop="menuName" label="menuName" />
-    <el-table-column prop="path" label="path" />
-    <el-table-column prop="perms" label="perms" />
-    <el-table-column prop="createTime" label="createTime" />
+    <el-table-column prop="menuName" label="menuName"/>
+    <el-table-column prop="path" label="path"/>
+    <el-table-column label="perms" prop="perms"/>
+    <el-table-column prop="perms" label="perms"/>
+    <el-table-column label="type">
+      <template #default="scope">
+        <DictComponents
+            ref="dictComponents"
+            :keyy="scope.row.type"
+            field-name="type"
+            table-name="sys_menu"
+        ></DictComponents>
+      </template>
+    </el-table-column>
+
+    <el-table-column label="createTime">
+      <template #default="scope">
+        <TimeComponents ref="timeComponents"
+                        :conversion-type="0"
+                        :timestamp=scope.row.createTime></TimeComponents>
+      </template>
+    </el-table-column>
   </el-table>
   </el-main>
 </el-container>
@@ -19,17 +37,19 @@
 
 <script lang="ts" setup>
 import {onMounted, reactive} from "vue";
-import {query,menus} from '@/entity/interface'
+import {menus, query} from '@/entity/interface'
 import {getMenus} from '@/api/request/menu'
+import TimeComponents from "@/components/TimeComponents.vue";
+import DictComponents from "@/components/DictComponents.vue";
 
 const result = reactive<query<menus>>({
-  page:{
-    records:[],
-    total:0,
-    size:10,
-    current:1,
+  page: {
+    records: [],
+    total: 0,
+    size: 10,
+    current: 1,
   },
-  param:{
+  param: {
     menuName: '',
   }
 })
@@ -39,7 +59,6 @@ const getList = async () => {
   result.page = res.data
   console.log(res)
 }
-
 onMounted(() => {
   getList()
 })

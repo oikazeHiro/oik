@@ -2,9 +2,9 @@
   <el-container style="height: 100%;width: 100%">
     <el-container>
       <el-aside :width="isCollapse ? '64px' : '200px'">
+<!--        active-text-color="#ffd04b"    -->
         <el-menu
             :collapse="isCollapse"
-            active-text-color="#ffd04b"
             background-color="#545c64"
             class="el-menu-vertical-demo"
             default-active="/system/home/index"

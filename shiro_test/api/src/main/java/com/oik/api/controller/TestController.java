@@ -1,7 +1,12 @@
 package com.oik.api.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import cn.hutool.json.JSONUtil;
+import com.oik.dao.entity.ChatMsg;
+import com.oik.service.exception.Result;
+import com.oik.service.exception.ResultUtil;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -15,4 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
 
+//    @PostMapping("/do")
+//    public Result test(@RequestBody ChatMsg chatMsg){
+//        JSONUtil.toJsonStr(chatMsg);
+//        return ResultUtil.getSuccess(chatMsg);
+//    }
+//    @GetMapping("/do2")
+//    public Result test2(@RequestParam LocalDateTime time){
+//        System.out.println("time ==================== " + time);
+//        return ResultUtil.getSuccess(time);
+//    }
 }

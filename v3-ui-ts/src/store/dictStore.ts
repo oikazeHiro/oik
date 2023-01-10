@@ -3,7 +3,7 @@ import {dict} from '@/entity/interface'
 
 export const dictStore = defineStore('dict', {
     state: () => ({
-        dictList:[],
+        dictList: []
     }),
 
     getters: {
