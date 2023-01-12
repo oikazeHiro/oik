@@ -25,7 +25,13 @@ export interface menus {
     icon?: string
     type?: string
     orderNum?: number
-    createTime?: number
+    createTime?: string
+    updateTime?: string
+    status?: string
+    createUsername?: string
+    createUserId?: string
+    updateUsername?: string
+    updateUserId?: string
     children?: Array<menus>
 }
 
@@ -51,17 +57,17 @@ export interface userDto {
 
 
 export interface page<T> {
-    records:Array<T>,
-    total:number,
-    size:number,
-    current:number,
+    records?: Array<T>,
+    total: number,
+    size: number,
+    current: number,
     orders?: {
-        column?:string,
-        asc?:boolean
+        column?: string,
+        asc?: boolean
     },
-    optimizeCountSql?:boolean,
-    searchCount?:boolean,
-    maxLimit?:number,
+    optimizeCountSql?: boolean,
+    searchCount?: boolean,
+    maxLimit?: number,
     countId?:string
 }
 
@@ -73,15 +79,16 @@ export interface query<T> {
 export interface dict {
     dictId?:number,
     keyy?:number,
-    valuee?:string,
-    fieldName?:string,
-    tableName?:string,
-    createTime?:string
-    createUserId?:number,
-    createUsername?:string,
-    updateTime?:string,
-    updateUsername?:string,
-    status?:string,
-    sort?:number,
-    children?:Array<dict>
+    valuee?: string,
+    fieldName?: string,
+    tableName?: string,
+    createTime?: string
+    createUserId?: number,
+    createUsername?: string,
+    updateTime?: string,
+    updateUsername?: string,
+    status?: string,
+    sort?: number,
+    otherKeyy?: number,
+    children?: Array<dict>
 }

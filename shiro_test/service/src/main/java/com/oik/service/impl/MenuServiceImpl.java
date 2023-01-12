@@ -16,6 +16,7 @@ import com.oik.service.service.MenuService;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.RedisConstants;
 import com.oik.util.redis.UserHolder;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +37,7 @@ import java.util.stream.Collectors;
  * @since 2022-11-18
  */
 @Service
+@Slf4j
 public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implements MenuService {
 
     @Resource
@@ -108,7 +110,7 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
     public IPage<Menu> menus(Page page, Menu menu) {
         MPJLambdaWrapper<Menu> wrapper = new MPJLambdaWrapper<Menu>()
                 .selectAll(Menu.class)
-                .eq(StringUtils.isNotEmpty(menu.getMenuName()), Menu::getMenuName, menu.getMenuName())
+                .like(StringUtils.isNotEmpty(menu.getMenuName()), Menu::getMenuName, menu.getMenuName())
                 .eq(Menu::getParentId, 0);
         IPage<Menu> parent = selectJoinListPage(page, Menu.class, wrapper);
         wrapper.clear();
@@ -127,6 +129,7 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
                         .groupingBy(Menu::getParentId, Collectors
                                 .mapping(Function.identity(), Collectors.toList())));
         parent.getRecords().forEach(e -> e.setChildren(menusMap.get(e.getMenuId())));
+        log.info(parent.getSize()+"============================");
         return parent;
     }
 }

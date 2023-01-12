@@ -18,13 +18,6 @@ public class ApiApplication implements CommandLineRunner {
         SpringApplication.run(ApiApplication.class, args);
     }
 
-    @Bean
-    public ConfigurableServletWebServerFactory webServerFactory() {
-        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
-        factory.addConnectorCustomizers((TomcatConnectorCustomizer) connector -> connector.setProperty("relaxedQueryChars", "|{}[]\\"));
-        return factory;
-    }
-
     @Override
     public void run(String... args) {
         NettyServer.getInstance().start();

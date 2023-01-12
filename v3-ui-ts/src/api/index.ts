@@ -1,11 +1,14 @@
 import axios, {AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse,} from 'axios'
 import {ElNotification} from 'element-plus'
 import router from '@/router'
+import qs from 'qs'
+import {query} from "@/entity/interface";
+
 // 数据返回的接口
 // 定义请求响应参数，不含data
 interface Result {
-  code: number
-  msg: string
+    code: number
+    msg: string
 }
 
 // 请求响应参数，包含data
@@ -136,23 +139,34 @@ class RequestHttp {
     }
   }
 
-  // 常用方法封装
+
+    // 常用方法封装
   get<T>(url: string, params?: object): Promise<ResultData<T>> {
-    return this.service.get(url, {params})
+      const json = qs.stringify(params, {indices: false})
+      console.log(json)
+      return this.service.get(url, {params})
   }
 
   post<T>(url: string, params?: object): Promise<ResultData<T>> {
     // console.log(URL)
-    return this.service.post(url, params)
+      return this.service.post(url, params)
   }
 
-  put<T>(url: string, params?: object): Promise<ResultData<T>> {
-    return this.service.put(url, params)
-  }
+    put<T>(url: string, params?: object): Promise<ResultData<T>> {
+        return this.service.put(url, params)
+    }
 
-  delete<T>(url: string, params?: object): Promise<ResultData<T>> {
-    return this.service.delete(url, {params})
-  }
+    delete<T>(url: string, params?: object): Promise<ResultData<T>> {
+        return this.service.delete(url, {params})
+    }
+
+    get2<T>(url: string, params?: query<T>): Promise<ResultData<T>> {
+        params.page.records = []
+        const page = qs.stringify(params.page, {allowDots: true})
+        const param = qs.stringify(params.param, {allowDots: true})
+        return this.service.get(url + "?" + page + '&' + param)
+    }
+
 }
 
 // 导出一个实例对象

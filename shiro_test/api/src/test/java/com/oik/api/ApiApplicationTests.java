@@ -124,7 +124,7 @@ class ApiApplicationTests {
 
     @Test
     void menus() {
-        Page page = new Page(1, 10);
+        Page page = new Page(1, 20);
         Menu menu = new Menu();
 //        menu.setMenuName()
         IPage<Menu> menus = menuService.menus(page, menu);

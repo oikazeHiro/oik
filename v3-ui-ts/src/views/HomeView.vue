@@ -85,7 +85,11 @@
           </el-row>
         </el-header>
         <el-main>
-          <router-view/>
+          <el-container style="height: 100%">
+            <el-main style="height: 100%;background-color: white">
+              <router-view/>
+            </el-main>
+          </el-container>
         </el-main>
       </el-container>
     </el-container>
@@ -134,7 +138,12 @@ const doLogout = async () => {
   localStorage.clear();
   router.push({path: '/login'})
 }
+
+const init = () => {
+  router.push({path: '/system/home/index'})
+}
 onMounted(() => {
+  // init()
   getAvatar()
 })
 </script>

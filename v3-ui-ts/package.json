@@ -16,6 +16,7 @@
     "pinia": "^2.0.27",
     "pinia-plugin-persist": "^1.0.0",
     "protobufjs": "^7.0.0",
+    "qs": "^6.11.0",
     "ts-proto": "^1.136.1",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
