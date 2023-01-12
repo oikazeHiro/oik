@@ -19,6 +19,7 @@ import com.oik.service.service.CacheService;
 import com.oik.service.service.MenuService;
 import com.oik.service.service.RoleMenuService;
 import com.oik.service.service.RoleService;
+import com.oik.util.dto.UserDTO;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.RedisConstants;
 import com.oik.util.redis.UserHolder;
@@ -150,6 +151,7 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
         lambda.eq(Role :: getRoleName,"管理员");
         Role one = roleService.getOne(lambda);
         roleMenuService.add(new RoleMenu(one.getRoleId(),menu.getMenuId()));
+        UserDTO user = UserHolder.getUser();
         return null;
     }
 }
