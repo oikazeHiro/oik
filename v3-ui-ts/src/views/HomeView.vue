@@ -101,7 +101,7 @@ import {onMounted, ref} from 'vue'
 import {useMeanStore} from '@/store/menus'
 import {User} from '@/store/UserDto'
 import {RouterView} from 'vue-router'
-import {logout} from '@/api/request/login'
+import {getUserDto, logout} from '@/api/request/login'
 import router from "@/router";
 
 const isCollapse = ref(false)
@@ -139,11 +139,15 @@ const doLogout = async () => {
   router.push({path: '/login'})
 }
 
-const init = () => {
-  router.push({path: '/system/home/index'})
+const init = async () => {
+  if (userDto.userDto.userId == '' || !userDto.userDto.userId) {
+    const res = await getUserDto()
+    userDto.setUserDto(res.data)
+  }
+  // await router.push({path: '/system/home/index'})
 }
 onMounted(() => {
-  // init()
+  init()
   getAvatar()
 })
 </script>

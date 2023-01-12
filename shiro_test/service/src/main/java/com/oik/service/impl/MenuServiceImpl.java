@@ -3,6 +3,10 @@ package com.oik.service.impl;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson2.JSON;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.MPJBaseServiceImpl;
@@ -13,6 +17,8 @@ import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.CacheService;
 import com.oik.service.service.MenuService;
+import com.oik.service.service.RoleMenuService;
+import com.oik.service.service.RoleService;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.RedisConstants;
 import com.oik.util.redis.UserHolder;
@@ -44,6 +50,10 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
     private CacheClient cacheClient;
     @Resource
     private CacheService cacheService;
+    @Resource
+    private RoleMenuService roleMenuService;
+    @Resource
+    private RoleService roleService;
 
     @Override
     public Set<String> findUserPermissions(String username) {
@@ -131,5 +141,15 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
         parent.getRecords().forEach(e -> e.setChildren(menusMap.get(e.getMenuId())));
         log.info(parent.getSize()+"============================");
         return parent;
+    }
+
+    @Override
+    public Menu addOrSet(Menu menu) {
+        saveOrUpdate(menu);
+        LambdaQueryWrapper<Role> lambda = new QueryWrapper<Role>().lambda();
+        lambda.eq(Role :: getRoleName,"管理员");
+        Role one = roleService.getOne(lambda);
+        roleMenuService.add(new RoleMenu(one.getRoleId(),menu.getMenuId()));
+        return null;
     }
 }

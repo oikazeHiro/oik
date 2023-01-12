@@ -28,4 +28,6 @@ public interface MenuService extends MPJJoinService<Menu> {
     Result getPermsByRoleId(Long roleId);
 
     IPage<Menu> menus(Page page, Menu menu);
+
+    Menu addOrSet(Menu menu);
 }

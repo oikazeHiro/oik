@@ -13,4 +13,5 @@ import com.github.yulichang.base.service.MPJJoinService;
  */
 public interface RoleMenuService extends MPJJoinService<RoleMenu> {
 
+    RoleMenu add(RoleMenu roleMenu);
 }

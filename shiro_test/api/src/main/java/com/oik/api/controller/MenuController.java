@@ -48,15 +48,15 @@ public class MenuController {
 
     @PostMapping("/menu")
     @RequiresPermissions("menu:add")
-    public Result add(@RequestBody Menu menu) {
-        return ResultUtil.getSuccess(menuService.save(menu));
+    public Result addOrSet(@RequestBody Menu menu) {
+        return ResultUtil.getSuccess(menuService.addOrSet(menu));
     }
 
-    @PutMapping("/menu")
-    @RequiresPermissions("menu:update")
-    public Result set(@RequestBody Menu menu) {
-        return ResultUtil.getSuccess(menuService.updateById(menu));
-    }
+//    @PutMapping("/menu")
+//    @RequiresPermissions("menu:update")
+//    public Result set(@RequestBody Menu menu) {
+//        return ResultUtil.getSuccess(menuService.updateById(menu));
+//    }
 
     @DeleteMapping("/menu/{id}")
     @RequiresPermissions("menu:delete")

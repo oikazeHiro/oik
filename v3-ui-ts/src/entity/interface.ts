@@ -17,21 +17,21 @@ export class LoginFrom2 {
 }
 
 export interface menus {
-    menuId?: number
-    parentId?: number
-    menuName?: string
-    path?: string
-    component?: string
-    icon?: string
-    type?: string
-    orderNum?: number
-    createTime?: string
-    updateTime?: string
-    status?: string
-    createUsername?: string
-    createUserId?: string
-    updateUsername?: string
-    updateUserId?: string
+    menuId?: number,
+    parentId?: number,
+    menuName?: string,
+    path?: string,
+    component?: string,
+    icon?: string,
+    type?: string,
+    orderNum?: number,
+    createTime?: string,
+    updateTime?: string,
+    status?: string,
+    createUsername?: string,
+    createUserId?: string,
+    updateUsername?: string,
+    updateUserId?: string,
     children?: Array<menus>
 }
 

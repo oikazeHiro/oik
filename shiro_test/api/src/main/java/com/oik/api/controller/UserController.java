@@ -9,6 +9,7 @@ import com.oik.service.exception.ResultEnum;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.UserService;
 import com.oik.util.dto.LoginDto;
+import com.oik.util.redis.UserHolder;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
@@ -83,5 +84,10 @@ public class UserController {
     public Result delete(@NotNull(message = "userId is not null")@PathVariable("userId") Long userId){
         if(userId == 1) throw new MyException(ResultEnum.UNAUTHORIZED_ERROR);
         return ResultUtil.getSuccess(userService.removeById(userId));
+    }
+
+    @GetMapping("/get-user")
+    public Result getUserDto(){
+        return ResultUtil.getSuccess(UserHolder.getUser());
     }
 }

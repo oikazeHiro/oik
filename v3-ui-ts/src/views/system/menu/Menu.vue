@@ -27,7 +27,7 @@
                              icon="Plus"
                              placement="bottom"
                              type="primary"
-                             @click="addSubMenu(null)"/>
+                             @click="addSubMenu(null,0)"/>
           </el-col>
         </el-row>
       </div>
@@ -94,14 +94,14 @@
                                icon="Plus"
                                placement="bottom-start"
                                type="warning"
-                               @click="addSubMenu(scope.row)"/>
+                               @click="addSubMenu(scope.row,0)"/>
               <oik-icon-button circle
                                content="编辑"
                                effect="light"
                                icon="Edit"
                                placement="bottom"
                                type="success"
-                               @click="addSubMenu(scope.row)"/>
+                               @click="addSubMenu(scope.row,1)"/>
               <oik-icon-button circle
                                content="删除"
                                effect="light"
@@ -131,12 +131,13 @@
       </el-row>
     </el-main>
   </el-container>
+  <MenuForm ref="menuForm" @saveOk="saveOk"/>
 </template>
 
 <script lang="ts" setup>
 import {onMounted, reactive, ref} from "vue";
 import {menus, query} from '@/entity/interface'
-import {getMenus2} from '@/api/request/menu'
+import {deleteMenu, getMenus2} from '@/api/request/menu'
 //引入vue方法
 import {ElConfigProvider} from 'element-plus'
 //中文包
@@ -144,6 +145,7 @@ import zhCn from "element-plus/lib/locale/lang/zh-cn"
 import OikIconButton from "@/components/button/OikIconButton.vue";
 import TimeComponents from "@/components/table/TimeComponents.vue";
 import DictComponents from "@/components/table/DictComponents.vue";
+import MenuForm from "@/views/system/menu/component/MenuForm.vue";
 
 
 const locale = zhCn
@@ -160,30 +162,32 @@ const result = reactive<query<menus>>({
   }
 })
 
-const addSubMenu = async (data: any, type?: number) => {
-  console.log(data, type)
-}
-
-const DeleteRow = async (data: any) => {
-  console.log(data)
-}
-
 const getList = async () => {
   loading.value = true
   const res = await getMenus2(result)
   result.page = res.data
   loading.value = false
-  console.log(res)
 }
 const handleSizeChange = (val: number) => {
   getList()
-  console.log(`${val} items per page`)
-  console.log(result)
 }
 const handleCurrentChange = (val: number) => {
   getList()
-  console.log(`current page: ${val}`)
-  console.log(result)
+}
+const menuForm = ref<any>();
+const addSubMenu = async (data: menus, type?: number) => {
+  if (data != null) data.children = null
+  menuForm.value.show(data, type)
+}
+
+const DeleteRow = async (data: menus) => {
+  console.log(data)
+  const res = deleteMenu(data.menuId)
+  console.log(res)
+}
+const saveOk = async () => {
+  await getList()
+  console.log('ok')
 }
 onMounted(() => {
   getList()

@@ -13,3 +13,7 @@ export const logout = () => {
   return request.get<any>("/api/user/logout")
 }
 
+export const getUserDto = () => {
+  return request.get<any>("/api/user/get-user")
+}
+

@@ -41,7 +41,7 @@ public class RoleMenuController {
         Long deletes1 = cacheClient.deletes(USER_PERMISSION_CACHE_PREFIX);
         log.info("用户菜单remove" + deletes);
         log.info("用户权限remove" + deletes1);
-        return ResultUtil.getSuccess(roleMenuService.save(roleMenu));
+        return ResultUtil.getSuccess(roleMenuService.add(roleMenu));
     }
 
     @DeleteMapping("/role-menu/{id}")
