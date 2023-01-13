@@ -49,19 +49,15 @@ public class MenuController {
     @PostMapping("/menu")
     @RequiresPermissions("menu:add")
     public Result addOrSet(@RequestBody Menu menu) {
-        return ResultUtil.getSuccess(menuService.addOrSet(menu));
+        menuService.addOrSet(menu);
+        return ResultUtil.getSuccess();
     }
-
-//    @PutMapping("/menu")
-//    @RequiresPermissions("menu:update")
-//    public Result set(@RequestBody Menu menu) {
-//        return ResultUtil.getSuccess(menuService.updateById(menu));
-//    }
 
     @DeleteMapping("/menu/{id}")
     @RequiresPermissions("menu:delete")
     public Result remove(@PathVariable("id") Long id) {
-        return ResultUtil.getSuccess(menuService.delete(id));
+        menuService.delete(id);
+        return ResultUtil.getSuccess();
     }
 
 
@@ -74,7 +70,7 @@ public class MenuController {
     @GetMapping("/perms")
     @RequiresPermissions("menu:view")
     public Result getPerms() {
-        return ResultUtil.getSuccess(menuService.list(new QueryWrapper<Menu>().lambda().isNotNull(Menu::getPerms)));
+        return ResultUtil.getSuccess(menuService.list(new QueryWrapper<Menu>().lambda().isNotNull(Menu::getPerms)),"数据获取成功");
     }
 
     @GetMapping("/menu-get")

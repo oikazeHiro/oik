@@ -183,10 +183,13 @@ const addSubMenu = async (data: menus, type?: number) => {
 }
 
 const DeleteRow = async (data: menus) => {
-  console.log(data)
-  const res = deleteMenu(data.menuId)
-  console.log(data.menuId)
-  await getList()
+  try {
+    const res = await deleteMenu(data.menuId)
+    if (res.code == 200)
+      await getList()
+  } catch (e) {
+    console.log(e);
+  }
 }
 const saveOk = async () => {
   await getList()

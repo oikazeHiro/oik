@@ -25,6 +25,7 @@ enum RequestEnums {
   FAIL = 400, // 请求失败
   SUCCESS = 200, // 请求成功
   NOTFOUND = 404,
+  permsError = 407,
 }
 
 const config = {
@@ -72,27 +73,31 @@ class RequestHttp {
      */
     this.service.interceptors.response.use(
         (response: AxiosResponse) => {
-          const {data, config} = response // 解构
-          if (data.code === RequestEnums.OVERDUE) {
-            // 登录信息失效，应跳转到登录页面，并清空本地的token
-            localStorage.setItem('token', '')
-            router.replace({
-              path: '/login',
-            })
-            return Promise.reject(data)
-          }
-          // 全局错误信息拦截（防止下载文件得时候返回数据流，没有code，直接报错）
-          if (!data.code && data.code !== RequestEnums.SUCCESS) {
-              console.log(data.code)
-              console.log(data.code && data.code !== RequestEnums.SUCCESS)
-            //   ElMessage.error(data) // 此处也可以使用组件提示报错信息
-            ElNotification.error(data)
-            return Promise.reject(data)
-          }
-          // eslint-disable-next-line no-empty
-          if (response.headers.Authorization != null) {
-            localStorage.setItem('token', response.headers.Authorization)
-          }
+            const {data, config} = response // 解构
+            debugger
+            console.log(data.code)
+            if (data.code == RequestEnums.OVERDUE) {
+                // 登录信息失效，应跳转到登录页面，并清空本地的token
+                localStorage.setItem('token', '')
+                router.replace({
+                    path: '/login',
+                })
+                return Promise.reject(data)
+            }
+            if (data.code == RequestEnums.permsError) {
+                ElNotification.warning(data.msg)
+                return Promise.reject(data)
+            }
+            // 全局错误信息拦截（防止下载文件得时候返回数据流，没有code，直接报错）
+            if (!data.code) {
+                //   ElMessage.error(data) // 此处也可以使用组件提示报错信息
+                ElNotification.error(data)
+                return Promise.reject(data)
+            }
+            // eslint-disable-next-line no-empty
+            if (response.headers.Authorization != null) {
+                localStorage.setItem('token', response.headers.Authorization)
+            }
           if (data.msg != null && data.msg != ''){
               ElNotification.success(data.msg)
           }
