@@ -30,4 +30,6 @@ public interface MenuService extends MPJJoinService<Menu> {
     IPage<Menu> menus(Page page, Menu menu);
 
     Menu addOrSet(Menu menu);
+
+    Object delete(Long id);
 }

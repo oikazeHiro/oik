@@ -3,10 +3,8 @@ package com.oik.service.impl;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson2.JSON;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.MPJBaseServiceImpl;
@@ -19,13 +17,13 @@ import com.oik.service.service.CacheService;
 import com.oik.service.service.MenuService;
 import com.oik.service.service.RoleMenuService;
 import com.oik.service.service.RoleService;
-import com.oik.util.dto.UserDTO;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.RedisConstants;
 import com.oik.util.redis.UserHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -145,13 +143,22 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
     }
 
     @Override
+    @Transactional
     public Menu addOrSet(Menu menu) {
         saveOrUpdate(menu);
         LambdaQueryWrapper<Role> lambda = new QueryWrapper<Role>().lambda();
-        lambda.eq(Role :: getRoleName,"管理员");
+        lambda.eq(Role::getRoleName, "管理员");
         Role one = roleService.getOne(lambda);
-        roleMenuService.add(new RoleMenu(one.getRoleId(),menu.getMenuId()));
-        UserDTO user = UserHolder.getUser();
+        roleMenuService.add(new RoleMenu(one.getRoleId(), menu.getMenuId()));
+//        UserDTO user = UserHolder.getUser();
+        return null;
+    }
+
+    @Override
+    @Transactional
+    public Object delete(Long id) {
+        removeById(id);
+        roleMenuService.remove(new QueryWrapper<RoleMenu>().lambda().eq(RoleMenu::getMenuId, id));
         return null;
     }
 }

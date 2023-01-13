@@ -17,11 +17,12 @@ export class LoginFrom2 {
 }
 
 export interface menus {
-    menuId?: number,
+    menuId?: string,
     parentId?: number,
     menuName?: string,
     path?: string,
     component?: string,
+    perms?: string,
     icon?: string,
     type?: string,
     orderNum?: number,

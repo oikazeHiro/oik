@@ -61,7 +61,7 @@ public class MenuController {
     @DeleteMapping("/menu/{id}")
     @RequiresPermissions("menu:delete")
     public Result remove(@PathVariable("id") Long id) {
-        return ResultUtil.getSuccess(menuService.removeById(id));
+        return ResultUtil.getSuccess(menuService.delete(id));
     }
 
 

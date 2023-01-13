@@ -73,7 +73,7 @@ public enum ResultEnum {
     /**
      * 无页面 . ErrorCode : 4004
      */
-    NO_PAGE(4004, "请求失败"),
+    NO_PAGE(401, "请求失败"),
     STATUS_LOCK(401, "账号已被禁用"),
 
     CLEAR_TOKRN(411, "清除令牌"),

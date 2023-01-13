@@ -1,21 +1,17 @@
 package com.oik.api.config.shiro;
 
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson2.JSON;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oik.service.exception.MyException;
+import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultEnum;
 import com.oik.service.exception.ResultUtil;
-import com.oik.util.application.ApplicationContextUtil;
-import com.oik.util.dto.UserDTO;
-import com.oik.util.redis.CacheClient;
-import com.oik.util.redis.RedisConstants;
+import com.oik.util.application.SpringContextUtil;
 import com.oik.util.str.YamlReader;
-import com.oik.util.uncategorized.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
+import org.apache.shiro.web.util.WebUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,7 +23,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @Slf4j
@@ -35,7 +30,6 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
 
     private static final List<String> list;
 
-    //    private static final String TOKEN = "Authentication"; Authorization
     private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
     static {
@@ -56,14 +50,11 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         }
         if (match) return true;
         if (isLoginAttempt(request, response)) {
-            try {
-                return executeLogin(request, response);
-            } catch (Exception e) {
-                System.out.println("e.getCause() = " + e.getCause());
-                String msg = e.getMessage();
-                this.response401(request, response, msg);
-                return false;
-            }
+
+
+            return executeLogin(request, response);
+
+
         }
         return false;
     }
@@ -81,18 +72,13 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
      * 进行AccessToken登录认证授权
      */
     @Override
-    protected boolean executeLogin(ServletRequest request, ServletResponse response) throws Exception {
+    protected boolean executeLogin(ServletRequest request, ServletResponse response) {
         String jwt = this.getAuthzHeader(request);
         JwtToken token = new JwtToken(jwt);
-        if (!JwtUtil.verify(jwt)) {
-            return refreshToken(request,response);
-        }
         try {
             getSubject(request, response).login(token);
             return true;
-        } catch (AuthenticationException e) {
-            response.setContentType("application/json;charset=utf-8");
-            response.getWriter().write(JSON.toJSONString(ResultUtil.getError(401, e.getMessage())));
+        } catch (Exception e) {
             return false;
         }
     }
@@ -115,47 +101,31 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         return super.preHandle(request, response);
     }
 
+//    @Override
+//    public boolean onAccessDenied(ServletRequest request, ServletResponse response) {
+//        this.sendChallenge(request, response);
+//        return false;
+//    }
+
     @Override
-    public boolean onAccessDenied(ServletRequest request, ServletResponse response) {
-        this.sendChallenge(request, response);
+    protected boolean sendChallenge(ServletRequest request, ServletResponse response) {
+        log.debug("Authentication required: sending 401 Authentication challenge response.");
+        HttpServletResponse httpResponse = WebUtils.toHttp(response);
+        httpResponse.setStatus(HttpStatus.UNAUTHORIZED.value());
+        httpResponse.setCharacterEncoding("utf-8");
+        httpResponse.setContentType("application/json; charset=utf-8");
+//        final String message = "未认证，请在前端系统进行认证";
+        try (PrintWriter out = httpResponse.getWriter()) {
+            Result result = ResultUtil.getError(401, "请重新登录");
+            String json = SpringContextUtil.getBean("jacksonObjectMapper", ObjectMapper.class).writeValueAsString(result);
+            System.out.println(json);
+            out.print(json);
+        } catch (IOException e) {
+            log.error("sendChallenge error：", e);
+        }
         return false;
     }
 
-
-    private Boolean refreshToken(ServletRequest request, ServletResponse response){
-        String token = this.getAuthzHeader(request);
-        CacheClient cacheClient = (CacheClient) ApplicationContextUtil.getBean(CacheClient.class);
-        String username = JwtUtil.getUsername(token);
-        String value = cacheClient.getValue(RedisConstants.USER_CACHE_PREFIX, username);
-        if (StrUtil.isBlank(value)) {
-            response401(request, response,"登录过期");
-            return false;
-        }
-        UserDTO userDTO = JSONUtil.toBean(value, UserDTO.class);
-        if (!userDTO.getToken().equals(token)) {
-            response401(request, response,"账号已在别处登录");
-            return false;
-        }
-        // 刷新AccessToken，设置时间戳为当前最新时间戳
-        String jwt;
-        try {
-            jwt = JwtUtil.createToken(username, System.currentTimeMillis());
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
-        userDTO.setToken(jwt);
-        cacheClient.set(RedisConstants.USER_CACHE_PREFIX + userDTO.getUsername(), userDTO);
-        // 将新刷新的AccessToken再次进行Shiro的登录
-        JwtToken jwtToken = new JwtToken(jwt);
-        // 提交给UserRealm进行认证，如果错误他会抛出异常并被捕获，如果没有抛出异常则代表登入成功，返回true
-        // 最后将刷新的AccessToken存放在Response的Header中的Authorization字段返回
-        HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-        httpServletResponse.setHeader("Authorization", jwt);
-        httpServletResponse.setHeader("Access-Control-Expose-Headers", "Authorization");
-        httpServletResponse.setStatus(455);
-        getSubject(request, httpServletResponse).login(jwtToken);
-        return true;
-    }
     private void response401(ServletRequest req, ServletResponse resp, String msg) {
         HttpServletResponse httpServletResponse = (HttpServletResponse) resp;
         httpServletResponse.setStatus(HttpStatus.UNAUTHORIZED.value());

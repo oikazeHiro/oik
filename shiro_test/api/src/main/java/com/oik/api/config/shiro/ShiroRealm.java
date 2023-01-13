@@ -83,9 +83,10 @@ public class ShiroRealm extends AuthorizingRealm {
         username = JwtUtil.getUsername(token);
         // 通过用户名查询用户信息
         String value = cacheClient.getValue(RedisConstants.USER_CACHE_PREFIX, username);
-        UserDTO user = JSONUtil.toBean(value, UserDTO.class);
+
         if (StringUtils.isEmpty(value))
             throw new AuthenticationException("请从新登录");
+        UserDTO user = JSONUtil.toBean(value, UserDTO.class);
         if (!token.equals(user.getToken()))//||!ip.equals(user.getIp()))
             throw new AuthenticationException("该账号已在其他位置登录");
         UserHolder.saveUser(user);

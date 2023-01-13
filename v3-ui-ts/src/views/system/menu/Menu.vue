@@ -167,6 +167,8 @@ const getList = async () => {
   const res = await getMenus2(result)
   result.page = res.data
   loading.value = false
+  // const token = localStorage.getItem("token")
+  console.log(res)
 }
 const handleSizeChange = (val: number) => {
   getList()
@@ -176,18 +178,16 @@ const handleCurrentChange = (val: number) => {
 }
 const menuForm = ref<any>();
 const addSubMenu = async (data: menus, type?: number) => {
-  if (data != null) data.children = null
   menuForm.value.show(data, type)
 }
 
 const DeleteRow = async (data: menus) => {
-  console.log(data)
   const res = deleteMenu(data.menuId)
-  console.log(res)
+  await getList()
 }
 const saveOk = async () => {
   await getList()
-  console.log('ok')
+  // console.log('ok')
 }
 onMounted(() => {
   getList()
