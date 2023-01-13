@@ -25,7 +25,7 @@ public interface MenuService extends MPJJoinService<Menu> {
 
     List<Menu> getMenuTree(String username);
 
-    Result getPermsByRoleId(Long roleId);
+    Result getPermsByRoleId(String roleId);
 
     IPage<Menu> menus(Page page, Menu menu);
 

@@ -30,7 +30,7 @@ public class UserConfig implements Serializable {
 
     @ApiModelProperty("用户ID")
     @TableId("USER_ID")
-    private Long userId;
+    private String userId;
 
     @ApiModelProperty("系统主题 dark暗色风格，light明亮风格")
     @TableField("THEME")

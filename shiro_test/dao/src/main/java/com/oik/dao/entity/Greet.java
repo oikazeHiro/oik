@@ -30,22 +30,22 @@ public class Greet implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.ASSIGN_ID)
-    private Integer id;
+    private String id;
 
     @TableField("greet")
     private String greet;
 
-    @TableField("creat_by")
-    private String creatBy;
+    @TableField("CREATE_USER")
+    private String creatUser;
     @TableField("sort")
     private Integer sort;
 
-    @TableField("creat_time")
+    @TableField("CREATE_TIME")
     private LocalDateTime creatTime;
 
-    @TableField("update_by")
-    private String updateBy;
+    @TableField("UPDATE_USER")
+    private String updateUser;
 
     @TableField("update_time")
-    private LocalDateTime updateTime;
+    private LocalDateTime UPDATE_TIME;
 }

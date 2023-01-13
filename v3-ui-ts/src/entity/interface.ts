@@ -18,7 +18,7 @@ export class LoginFrom2 {
 
 export interface menus {
     menuId?: string,
-    parentId?: number,
+    parentId?: string,
     menuName?: string,
     path?: string,
     component?: string,
@@ -78,13 +78,13 @@ export interface query<T> {
 }
 
 export interface dict {
-    dictId?:number,
+    dictId?:string,
     keyy?:number,
     valuee?: string,
     fieldName?: string,
     tableName?: string,
     createTime?: string
-    createUserId?: number,
+    createUserId?: string,
     createUsername?: string,
     updateTime?: string,
     updateUsername?: string,

@@ -26,7 +26,7 @@ public interface CacheService {
     List<Role> getRoles(String username) throws Exception;
 
 
-    String getUserSubordinates(Long deptId) throws Exception;
+    String getUserSubordinates(String deptId) throws Exception;
 
     Set<String> getPermissions(String username);
 

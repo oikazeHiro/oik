@@ -28,8 +28,8 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("用户ID")
-    @TableId(value = "USER_ID", type = IdType.ASSIGN_ID)
-    private Long userId;
+    @TableId(value = "USER_ID", type = IdType.ASSIGN_UUID)
+    private String userId;
 
     @ApiModelProperty("用户名")
     @TableField("USERNAME")
@@ -41,7 +41,7 @@ public class User implements Serializable {
 
     @ApiModelProperty("部门ID")
     @TableField("DEPT_ID")
-    private Long deptId;
+    private String deptId;
 
     @ApiModelProperty("邮箱")
     @TableField("EMAIL")
@@ -75,7 +75,7 @@ public class User implements Serializable {
     private String createUsername;
 
     @TableField(value = "CREATE_USER_ID", fill = FieldFill.INSERT)
-    private Long createUserId;
+    private String createUserId;
 
     @ApiModelProperty("创建时间")
     @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
@@ -89,7 +89,7 @@ public class User implements Serializable {
     private LocalDateTime updateTime;
 
     @TableField(value = "UPDATE_USER_ID", fill = FieldFill.INSERT_UPDATE)
-    private Long updateUserId;
+    private String updateUserId;
 
 
 }

@@ -30,9 +30,9 @@ public class UserRole implements Serializable {
 
     @ApiModelProperty("用户ID")
     @TableId("USER_ID")
-    private Long userId;
+    private String userId;
 
     @ApiModelProperty("角色ID")
     @TableField("ROLE_ID")
-    private Long roleId;
+    private String roleId;
 }

@@ -31,8 +31,8 @@ public class Role implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("角色ID")
-    @TableId(value = "ROLE_ID", type = IdType.ASSIGN_ID)
-    private Long roleId;
+    @TableId(value = "ROLE_ID", type = IdType.ASSIGN_UUID)
+    private String roleId;
 
     @ApiModelProperty("角色名称")
     @TableField("ROLE_NAME")
@@ -57,13 +57,13 @@ public class Role implements Serializable {
     private String createUsername;
 
     @TableField("CREATE_USER_ID")
-    private Long createUserId;
+    private String createUserId;
 
     @TableField("UPDATE_USERNAME")
     private String updateUsername;
 
     @TableField("UPDATE_USER_ID")
-    private Long updateUserId;
+    private String updateUserId;
 
     @TableField("DATA_SCOPE")
     private Integer dataScope;

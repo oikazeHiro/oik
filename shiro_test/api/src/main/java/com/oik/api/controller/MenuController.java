@@ -67,7 +67,7 @@ public class MenuController {
 
     @GetMapping("/perms/{roleId}")
     @RequiresPermissions("menu:view")
-    public Result getPermsByRoleId(@PathVariable("roleId") Long roleId) {
+    public Result getPermsByRoleId(@PathVariable("roleId") String roleId) {
         return menuService.getPermsByRoleId(roleId);
     }
 

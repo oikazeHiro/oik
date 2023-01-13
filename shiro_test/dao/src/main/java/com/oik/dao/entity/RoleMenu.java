@@ -32,8 +32,8 @@ public class RoleMenu implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId("ROLE_ID")
-    private Long roleId;
+    private String roleId;
 
     @TableField("MENU_ID")
-    private Long menuId;
+    private String menuId;
 }

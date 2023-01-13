@@ -31,12 +31,12 @@ public class JobLog implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("任务日志id")
-    @TableId(value = "LOG_ID", type = IdType.ASSIGN_ID)
-    private Long logId;
+    @TableId(value = "LOG_ID", type = IdType.ASSIGN_UUID)
+    private String logId;
 
     @ApiModelProperty("任务id")
     @TableField("JOB_ID")
-    private Long jobId;
+    private String jobId;
 
     @ApiModelProperty("spring bean名称")
     @TableField("BEAN_NAME")

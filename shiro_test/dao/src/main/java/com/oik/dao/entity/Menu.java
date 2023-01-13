@@ -29,12 +29,12 @@ public class Menu implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("菜单/按钮ID")
-    @TableId(value = "MENU_ID", type = IdType.ASSIGN_ID)
-    private Long menuId;
+    @TableId(value = "MENU_ID", type = IdType.ASSIGN_UUID)
+    private String menuId;
 
     @ApiModelProperty("上级菜单ID")
     @TableField("PARENT_ID")
-    private Long parentId;
+    private String parentId;
 
     @ApiModelProperty("菜单/按钮名称")
     @TableField("MENU_NAME")
@@ -78,13 +78,13 @@ public class Menu implements Serializable {
     private String createUsername;
 
     @TableField(value = "CREATE_USER_ID", fill = FieldFill.INSERT)
-    private Long createUserId;
+    private String createUserId;
 
     @TableField(value = "UPDATE_USERNAME", fill = FieldFill.INSERT_UPDATE)
     private String updateUsername;
 
     @TableField(value = "UPDATE_USER_ID", fill = FieldFill.INSERT_UPDATE)
-    private Long updateUserId;
+    private String updateUserId;
 
     @TableField(exist = false)
     private List<Menu> children;

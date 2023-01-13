@@ -42,7 +42,7 @@ public class CacheServiceImpl implements CacheService {
     }
 
     @Override
-    public String getUserSubordinates(Long deptId) {
+    public String getUserSubordinates(String deptId) {
         return null;
     }
 

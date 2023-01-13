@@ -3,7 +3,6 @@ package com.oik.dao.entity;
 import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.models.auth.In;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,16 +32,16 @@ public class ChatMsg implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("id")
-    @TableId(value = "id",type = IdType.ASSIGN_ID)
-    private Long id;
+    @TableId(value = "id", type = IdType.ASSIGN_UUID)
+    private String id;
 
     @ApiModelProperty("发送者的id")
     @TableField("send_id")
-    private Long sendId;
+    private String sendId;
 
     @ApiModelProperty("接收者的id")
     @TableField("accept_id")
-    private Long acceptId;
+    private String acceptId;
 
     @ApiModelProperty("消息")
     @TableField("msg")
@@ -56,9 +55,9 @@ public class ChatMsg implements Serializable {
     @TableField(value = "create_time",fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    public ChatMsg(String sendId, String acceptId,String msg){
-        this.sendId = Long.valueOf(sendId);
-        this.acceptId = Long.valueOf(acceptId);
+    public ChatMsg(String sendId, String acceptId,String msg) {
+        this.sendId = sendId;
+        this.acceptId = acceptId;
         this.msg = msg;
     }
 }

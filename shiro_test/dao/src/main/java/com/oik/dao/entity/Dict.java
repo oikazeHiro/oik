@@ -29,8 +29,8 @@ public class Dict implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("字典ID")
-    @TableId(value = "DICT_ID", type = IdType.ASSIGN_ID)
-    private Long dictId;
+    @TableId(value = "DICT_ID", type = IdType.ASSIGN_UUID)
+    private String dictId;
 
     @ApiModelProperty("键")
     @TableField("KEYY")
@@ -50,7 +50,7 @@ public class Dict implements Serializable {
 
     @ApiModelProperty("0 一级")
     @TableField("FATHER_ID")
-    private Long fatherId;
+    private String fatherId;
 
     @ApiModelProperty("创建时间")
     @TableField(value = "CREATE_TIME",fill = FieldFill.INSERT)
@@ -58,7 +58,7 @@ public class Dict implements Serializable {
 
     @ApiModelProperty("创建人ID")
     @TableField("CREATE_USER_ID")
-    private Long createUserId;
+    private String createUserId;
 
     @TableField("CREATE_USERNAME")
     private String createUsername;

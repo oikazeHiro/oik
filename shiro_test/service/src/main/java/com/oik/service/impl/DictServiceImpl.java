@@ -40,19 +40,19 @@ public class DictServiceImpl extends MPJBaseServiceImpl<DictMapper, Dict> implem
                 .orderByAsc(Dict::getSort);
         List<Dict> father = list(wrapper);
         wrapper.clear();
-        List<Long> fatherId = father
+        List<String> fatherId = father
                 .stream().map(Dict::getDictId).collect(Collectors.toList());
         wrapper.in(Dict::getFatherId, fatherId);
         List<Dict> children = list(wrapper);
-        List<Long> childrenId = children.stream().map(Dict::getDictId).collect(Collectors.toList());
+        List<String> childrenId = children.stream().map(Dict::getDictId).collect(Collectors.toList());
         wrapper.clear();
         wrapper.in(Dict::getFatherId, childrenId);
         List<Dict> grandson = list(wrapper);
-        Map<Long, List<Dict>> grandsonMap = grandson.stream()
+        Map<String, List<Dict>> grandsonMap = grandson.stream()
                 .collect(Collectors.groupingBy(Dict::getFatherId,
                         Collectors.mapping(Function.identity(), Collectors.toList())));
         children.forEach(e -> e.setChildren(grandsonMap.get(e.getDictId())));
-        Map<Long, List<Dict>> childrenMap = children.stream()
+        Map<String, List<Dict>> childrenMap = children.stream()
                 .collect(Collectors.groupingBy(Dict::getFatherId,
                         Collectors.mapping(Function.identity(), Collectors.toList())));
         father.forEach(e -> e.setChildren(childrenMap.get(e.getDictId())));

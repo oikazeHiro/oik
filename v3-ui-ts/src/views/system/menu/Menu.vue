@@ -79,7 +79,7 @@
         <el-table-column fixed="right" label="Operations" width="150">
           <template #default="scope">
             <el-row justify="space-around">
-              <oik-icon-button v-if="scope.row.parentId === 0"
+              <oik-icon-button v-if="scope.row.parentId === '0'"
                                circle
                                content="添加路由"
                                effect="light"
@@ -87,7 +87,7 @@
                                placement="bottom-start"
                                type="primary"
                                @click="addSubMenu(scope.row)"/>
-              <oik-icon-button v-if="scope.row.parentId !=0 && scope.row.path"
+              <oik-icon-button v-if="scope.row.parentId !='0' && scope.row.path"
                                circle
                                content="添加权限"
                                effect="light"
@@ -164,11 +164,12 @@ const result = reactive<query<menus>>({
 
 const getList = async () => {
   loading.value = true
-  const res = await getMenus2(result)
-  result.page = res.data
-  loading.value = false
-  // const token = localStorage.getItem("token")
-  console.log(res)
+  try {
+    const res = await getMenus2(result)
+    result.page = res.data
+  }finally {
+    loading.value = false
+  }
 }
 const handleSizeChange = (val: number) => {
   getList()
@@ -182,7 +183,9 @@ const addSubMenu = async (data: menus, type?: number) => {
 }
 
 const DeleteRow = async (data: menus) => {
+  console.log(data)
   const res = deleteMenu(data.menuId)
+  console.log(data.menuId)
   await getList()
 }
 const saveOk = async () => {

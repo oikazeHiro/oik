@@ -94,9 +94,9 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
                 .filter(e -> StrUtil.isNotBlank(e.getPath()))
                 .collect(Collectors.toList());
         List<Menu> father = collect.stream()
-                .filter(e -> e.getParentId() == 0)
+                .filter(e -> e.getParentId().equals("0"))
                 .collect(Collectors.toList());
-        Map<Long, List<Menu>> map = collect.stream()
+        Map<String, List<Menu>> map = collect.stream()
                 .collect(Collectors.groupingBy(Menu::getParentId,
                         Collectors.mapping(Function.identity(), Collectors.toList())));
         father.forEach(e -> e.setChildren(map.get(e.getMenuId())));
@@ -106,7 +106,7 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
     }
 
     @Override
-    public Result getPermsByRoleId(Long roleId) {
+    public Result getPermsByRoleId(String roleId) {
         MPJLambdaWrapper<Menu> wrapper = new MPJLambdaWrapper<Menu>()
                 .selectAll(Menu.class)
                 .leftJoin(RoleMenu.class, RoleMenu::getMenuId, Menu::getMenuId)
@@ -128,12 +128,12 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
         wrapper.clear();
         wrapper.selectAll(Menu.class).eq(Menu::getType, 1);
         List<Menu> perms = list(wrapper);
-        Map<Long, List<Menu>> permsMap = perms.stream()
+        Map<String, List<Menu>> permsMap = perms.stream()
                 .collect(Collectors
                         .groupingBy(Menu::getParentId, Collectors
                                 .mapping(Function.identity(), Collectors.toList())));
         menus.forEach(e -> e.setChildren(permsMap.get(e.getMenuId())));
-        Map<Long, List<Menu>> menusMap = menus.stream()
+        Map<String, List<Menu>> menusMap = menus.stream()
                 .collect(Collectors
                         .groupingBy(Menu::getParentId, Collectors
                                 .mapping(Function.identity(), Collectors.toList())));

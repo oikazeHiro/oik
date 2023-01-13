@@ -22,7 +22,6 @@ const URL = ''
 enum RequestEnums {
   TIMEOUT = 20000,
   OVERDUE = 401, // 登录失效
-  REFRESH = 455,
   FAIL = 400, // 请求失败
   SUCCESS = 200, // 请求成功
   NOTFOUND = 404,
@@ -82,16 +81,10 @@ class RequestHttp {
             })
             return Promise.reject(data)
           }
-          if (
-              data.code === RequestEnums.REFRESH ||
-              response.status === RequestEnums.REFRESH
-          ) {
-            // 登录信息失效 刷新token
-            localStorage.setItem('token', response.headers.Authorization)
-            return data
-          }
           // 全局错误信息拦截（防止下载文件得时候返回数据流，没有code，直接报错）
-          if (data.code && data.code !== RequestEnums.SUCCESS) {
+          if (!data.code && data.code !== RequestEnums.SUCCESS) {
+              console.log(data.code)
+              console.log(data.code && data.code !== RequestEnums.SUCCESS)
             //   ElMessage.error(data) // 此处也可以使用组件提示报错信息
             ElNotification.error(data)
             return Promise.reject(data)
@@ -143,7 +136,6 @@ class RequestHttp {
     // 常用方法封装
   get<T>(url: string, params?: object): Promise<ResultData<T>> {
       const json = qs.stringify(params, {indices: false})
-      console.log(json)
       return this.service.get(url, {params})
   }
 

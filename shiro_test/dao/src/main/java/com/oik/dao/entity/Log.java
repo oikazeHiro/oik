@@ -35,8 +35,8 @@ public class Log implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("日志ID")
-    @TableId(value = "ID", type = IdType.ASSIGN_ID)
-    private Long id;
+    @TableId(value = "ID", type = IdType.ASSIGN_UUID)
+    private String id;
 
     @ApiModelProperty("操作用户")
     @TableField("USERNAME")

@@ -16,4 +16,10 @@ public class CustomIdGenerator implements IdentifierGenerator {
         //返回生成的id值即可.
         return snowflake.nextId();
     }
+
+    @Override
+    public String nextUUID(Object entity) {
+//        return IdentifierGenerator.super.nextUUID(entity);
+        return IdUtil.getSnowflake(1, 1).nextIdStr();
+    }
 }

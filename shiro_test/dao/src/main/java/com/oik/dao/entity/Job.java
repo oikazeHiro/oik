@@ -31,8 +31,8 @@ public class Job implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("任务id")
-    @TableId(value = "JOB_ID", type = IdType.ASSIGN_ID)
-    private Long jobId;
+    @TableId(value = "JOB_ID", type = IdType.ASSIGN_UUID)
+    private String jobId;
 
     @ApiModelProperty("spring bean名称")
     @TableField("BEAN_NAME")
@@ -62,7 +62,7 @@ public class Job implements Serializable {
     private String updateUsername;
 
     @TableField("UPDATE_USER")
-    private Long updateUser;
+    private String updateUser;
 
     @TableField("UPDATE_TIME")
     private LocalDateTime updateTime;
@@ -71,7 +71,7 @@ public class Job implements Serializable {
     private String createUsername;
 
     @TableField("CREATE_USER")
-    private Long createUser;
+    private String createUser;
 
     @ApiModelProperty("创建时间")
     @TableField("CREATE_TIME")

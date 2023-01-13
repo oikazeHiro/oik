@@ -51,10 +51,10 @@ const show = async (data: menus, type: number) => {
   title.value = type === 0 ? '添加' : '编辑'
   if (data != null) {
     formData.value.parentId = data.menuId
-    if (data.parentId != 0) flag.value = false
+    if (data.parentId != '0') flag.value = false
     console.log(flag.value)
   }else {
-    formData.value.parentId = 0
+    formData.value.parentId = '0'
   }
   if (type != 0) {
     data.children = null
@@ -67,7 +67,7 @@ const show = async (data: menus, type: number) => {
 const formDataInit = async () => {
   formData.value = {
     menuId: null,
-    parentId: 0,
+    parentId: '0',
     menuName: '',
     path: '',
     component: '',
@@ -86,7 +86,7 @@ const formDataInit = async () => {
 }
 const emits = defineEmits(['save-ok']);
 const submit = async () => {
-  if (formData.value.parentId != 0) formData.value.type = '1';
+  if (formData.value.parentId != '0') formData.value.type = '1';
   const res = await saveMenu(formData.value)
   console.log(formData)
   emits("save-ok")

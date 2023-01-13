@@ -26,8 +26,8 @@ public class Test implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "ID", type = IdType.ASSIGN_ID)
-    private Long id;
+    @TableId(value = "ID", type = IdType.ASSIGN_UUID)
+    private String id;
 
     @TableField("FIELD1")
     private String field1;
