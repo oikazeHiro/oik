@@ -18,7 +18,7 @@ import java.time.ZoneOffset;
 import java.util.Date;
 
 /**
- * @author 15093
+ * @author oik
  * @description jackson全局配置java8 LocalDateTime的序列化 全局配置时间返回格式
  * @date 2023/1/10 11:18
  */
