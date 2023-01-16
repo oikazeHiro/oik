@@ -41,7 +41,7 @@ public class RoleServiceImpl extends MPJBaseServiceImpl<RoleMapper, Role> implem
                         .leftJoin(UserRole.class, UserRole::getRoleId, Role::getRoleId)
                         .leftJoin(User.class, User::getUserId, UserRole::getUserId)
                         .eq(User::getUsername, username));
-        cacheClient.set(RedisConstants.USER_ROLE_CACHE_PREFIX + username, JSONUtil.toJsonStr(roles), 30L, TimeUnit.MINUTES);
+        cacheClient.set(RedisConstants.USER_ROLE_CACHE_PREFIX + username, JSONUtil.toJsonStr(roles));
         return roles;
     }
 

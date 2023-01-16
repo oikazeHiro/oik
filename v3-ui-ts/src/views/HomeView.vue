@@ -134,7 +134,6 @@ const getAvatar = async () => {
 
 const doLogout = async () => {
   const res = await logout()
-  console.log(res)
   localStorage.clear();
   router.push({path: '/login'})
 }

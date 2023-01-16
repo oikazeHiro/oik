@@ -151,6 +151,10 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
         Role one = roleService.getOne(lambda);
         roleMenuService.add(new RoleMenu(one.getRoleId(), menu.getMenuId()));
 //        UserDTO user = UserHolder.getUser();
+        Long deletes = cacheClient.deletes(RedisConstants.USER_PERMISSION_CACHE_PREFIX);
+        Long deletes2 = cacheClient.deletes(RedisConstants.USER_CONFIG_CACHE_MENU);
+        log.info("redis删除"+RedisConstants.USER_PERMISSION_CACHE_PREFIX+"数据共"+deletes+"条");
+        log.info("redis删除"+RedisConstants.USER_CONFIG_CACHE_MENU+"数据共"+deletes2+"条");
         return null;
     }
 
@@ -158,7 +162,12 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
     @Transactional
     public Object delete(Long id) {
         removeById(id);
+        remove(new LambdaQueryWrapper<Menu>().eq(Menu :: getParentId,id));
         roleMenuService.remove(new QueryWrapper<RoleMenu>().lambda().eq(RoleMenu::getMenuId, id));
+        Long deletes = cacheClient.deletes(RedisConstants.USER_PERMISSION_CACHE_PREFIX);
+        Long deletes2 = cacheClient.deletes(RedisConstants.USER_CONFIG_CACHE_MENU);
+        log.info("redis删除"+RedisConstants.USER_PERMISSION_CACHE_PREFIX+"数据共"+deletes+"条");
+        log.info("redis删除"+RedisConstants.USER_CONFIG_CACHE_MENU+"数据共"+deletes2+"条");
         return null;
     }
 }

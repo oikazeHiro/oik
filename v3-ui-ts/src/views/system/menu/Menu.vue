@@ -188,12 +188,11 @@ const DeleteRow = async (data: menus) => {
     if (res.code == 200)
       await getList()
   } catch (e) {
-    console.log(e);
+    console.log(e)
   }
 }
 const saveOk = async () => {
   await getList()
-  // console.log('ok')
 }
 onMounted(() => {
   getList()

@@ -167,6 +167,13 @@ public class CacheClient {
          return stringRedisTemplate.opsForValue().get(keyPrefix + key);
     }
 
+    /**
+     * 如果缓存没有数据，则去查数据库
+     * @param cacheSelector
+     * @param databaseSelector
+     * @return
+     * @param <T>
+     */
     public static <T> T selectCacheByTemplate(CacheSelector<T> cacheSelector, Supplier<T> databaseSelector) {
         try {
             log.debug("query data from redis ······");
@@ -186,10 +193,19 @@ public class CacheClient {
         }
     }
 
+    /**
+     *根据key删除redis数据
+     * @param key
+     */
     public void delete(String key) {
         stringRedisTemplate.delete(key);
     }
 
+    /**
+     * 根据key前缀批量删除数据
+     * @param key
+     * @return 删除总条数
+     */
     public Long deletes(String key) {
         Set<String> keys = stringRedisTemplate.keys(key + "*");
         assert keys != null;

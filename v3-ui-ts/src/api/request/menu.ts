@@ -13,6 +13,7 @@ export const getMenus2 = (param: any) => {
 }
 
 export const saveMenu = (data: menus) => {
+    data.children = []
     return request.post<any>('/api/menu', data)
 }
 

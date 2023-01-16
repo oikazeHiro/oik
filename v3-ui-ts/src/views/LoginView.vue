@@ -36,7 +36,7 @@ import router from '@/router'
 import {LoginFrom} from '@/entity/interface'
 import {login} from '@/api/request/login'
 import {User} from '@/store/UserDto'
-import {getDictionary,setDictionary} from '@/api/request/dict'
+import {getDictionary, setDictionary} from '@/api/request/dict'
 
 const ruleFormRef = ref<FormInstance>()
 const loginFrom = reactive<LoginFrom>({
@@ -74,20 +74,20 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
   await formEl.validate(async (valid, fields) => {
     if (valid) {
-      loading.value=true
-      const res = await login(loginFrom)
-      console.log(res)
-      localStorage.setItem('token', res.data.token)
-      const saveUser = User()
-      saveUser.setUserDto(res.data)
-      const res2 = await getDictionary()
-      setDictionary(res2.data)
-      console.log(res2.data)
-      loading.value=false
+      try {
+        loading.value = true
+        const res = await login(loginFrom)
+        localStorage.setItem('token', res.data.token)
+        const saveUser = User()
+        saveUser.setUserDto(res.data)
+        const res2 = await getDictionary()
+        setDictionary(res2.data)
+      } finally {
+        loading.value = false
+      }
       await router.push({path: '/system/home/index'})
     } else {
       loading.value=false
-      console.log('error submit!', fields)
     }
   })
 }

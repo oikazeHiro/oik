@@ -26,8 +26,8 @@ export interface menus {
     icon?: string,
     type?: string,
     orderNum?: number,
-    createTime?: string,
-    updateTime?: string,
+    createTime?: string | number,
+    updateTime?: string | number,
     status?: string,
     createUsername?: string,
     createUserId?: string,
@@ -56,6 +56,25 @@ export interface userDto {
     ip: string
 }
 
+export interface user {
+    userId?: string,
+    username?: string,
+    password?: string,
+    deptId?: string,
+    email?: string,
+    mobile?: string,
+    status?: number,
+    lastLoginTime?: string | number,
+    description?: string,
+    avatar?: string
+    createUsername?: string,
+    createUserId?: string,
+    createTime?: string | number,
+    updateUsername?: string,
+    updateTime?: string | number,
+    updateUserId?: string,
+}
+
 
 export interface page<T> {
     records?: Array<T>,
@@ -78,15 +97,15 @@ export interface query<T> {
 }
 
 export interface dict {
-    dictId?:string,
-    keyy?:number,
+    dictId?: string,
+    keyy?: number,
     valuee?: string,
     fieldName?: string,
     tableName?: string,
-    createTime?: string
+    createTime?: string | number
     createUserId?: string,
     createUsername?: string,
-    updateTime?: string,
+    updateTime?: string | number,
     updateUsername?: string,
     status?: string,
     sort?: number,

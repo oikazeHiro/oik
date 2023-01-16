@@ -26,9 +26,9 @@
     </el-form>
     <template #footer>
       <span class="dialog-footer">
-       <el-button type="primary" @click="submitForm(ruleFormRef)">Submit</el-button>
+       <el-button type="primary" @click="submitForm(ruleFormRef)">提交</el-button>
         <el-button type="primary" @click="dialogFormVisible = false">
-          Confirm
+          取消
         </el-button>
       </span>
     </template>
@@ -36,10 +36,11 @@
 </template>
 
 <script lang="ts" setup>
-import {ref, reactive} from "vue";
+import {reactive, ref} from "vue";
 import {menus} from "@/entity/interface";
 import {saveMenu} from '@/api/request/menu'
 import type {FormInstance} from 'element-plus'
+
 const dialogFormVisible = ref(false)
 const title = ref<string>('')
 const type = ref(0)
@@ -52,17 +53,14 @@ const show = async (data: menus, type: number) => {
   if (data != null) {
     formData.value.parentId = data.menuId
     if (data.parentId != '0') flag.value = false
-    console.log(flag.value)
   }else {
     formData.value.parentId = '0'
   }
   if (type != 0) {
-    data.children = null
+    // data.children = null
     formData.value = data
   }
   dialogFormVisible.value = true
-  console.log(data)
-  console.log(flag.value)
 }
 const formDataInit = async () => {
   formData.value = {
@@ -88,7 +86,6 @@ const emits = defineEmits(['save-ok']);
 const submit = async () => {
   if (formData.value.parentId != '0') formData.value.type = '1';
   const res = await saveMenu(formData.value)
-  console.log(formData)
   emits("save-ok")
   dialogFormVisible.value = false
 }
@@ -151,10 +148,8 @@ const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.validate((valid) => {
     if (valid) {
-      console.log('submit!')
       submit()
     } else {
-      console.log('error submit!')
       return false
     }
   })
