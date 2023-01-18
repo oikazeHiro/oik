@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import {onMounted, ref, watchEffect} from "vue";
+import {ref, watchEffect} from "vue";
 
 const props = defineProps({
   timestamp: {
@@ -63,9 +63,6 @@ const getTimeStr = () => {
 }
 watchEffect(() => {
   getTimeStr()
-})
-onMounted(() => {
-  console.log()
 })
 </script>
 

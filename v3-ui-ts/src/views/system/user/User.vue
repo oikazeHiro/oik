@@ -118,7 +118,7 @@
 <script lang="ts" setup>
 import {onMounted, reactive, ref} from "vue";
 import {query, user} from "@/entity/interface";
-import {getUsers,del} from '@/api/request/user'
+import {del, getUsers} from '@/api/request/user'
 import OikIconButton from "@/components/button/OikIconButton.vue";
 import zhCn from "element-plus/lib/locale/lang/zh-cn"
 import OikAvatar from "@/components/table/OikAvatar.vue";
@@ -143,7 +143,6 @@ const getList = async () => {
   try {
     loading.value = true
     const res = await getUsers(result)
-    console.log(res)
     result.page = res.data
   } finally {
     loading.value = false
@@ -179,8 +178,6 @@ const tableRowClassName = ({
 const userForm = ref<any>()
 
 const showForm = (data:user,type:number) =>{
-  console.log(data)
-  console.log(type)
     userForm.value.show(data,type)
 }
 const DeleteRow = async (data?: any) => {

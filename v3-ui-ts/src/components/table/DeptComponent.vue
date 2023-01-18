@@ -18,11 +18,8 @@ const getDeptStr = async () => {
   if (!deptSto.deptList || deptSto.deptList.length === 0){
     await initDeptCache()
   }
-  console.log(deptSto.deptList)
   deptSto.deptList.forEach((item)=>{
     if (item.deptId === props.deptId){
-      str.value = item.deptName
-      console.log(item)
       return
     }
   })
