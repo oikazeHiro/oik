@@ -64,4 +64,5 @@ public class RedisConstants {
     public static final String SYS_DICT = "oik.cache.dict";
     public static final String SYS_GREET = "oik.cache.greet";
     public static final String SYS_GREET_LOCK = "oik.cache.greet.lock.";
+    public static final String SYS_DEPT = "oik.cache.dept";
 }

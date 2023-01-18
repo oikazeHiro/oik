@@ -9,6 +9,7 @@ import com.oik.service.exception.ResultEnum;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.UserService;
 import com.oik.util.dto.LoginDto;
+import com.oik.util.dto.UserDTO;
 import com.oik.util.redis.UserHolder;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.validation.constraints.NotNull;
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 /**
  * <p>
@@ -32,7 +34,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/login")
-    public Result login(@RequestBody LoginDto loginDto) {
+    public Result<UserDTO> login(@RequestBody LoginDto loginDto) {
         try {
             return userService.login(BeanUtil.copyProperties(loginDto, User.class));
         } catch (MyException e) {
@@ -53,41 +55,48 @@ public class UserController {
 
     @PostMapping("/register")
     @RequiresPermissions("user:add")
-    public Result register(@RequestBody User user) {
+    public Result<UserDTO> register(@RequestBody User user) {
         return userService.register(user);
     }
 
     @GetMapping("/logout")
-    public Result logout() {
+    public Result<Boolean> logout() {
         return userService.logout();
     }
 
     @GetMapping("/users")
     @RequiresPermissions("user:view")
-    public Result getUser(Page page,User user) {
-        return userService.getUser(page,user);
+    public Result<Page<User>> getUser(Page<User> page, User user) {
+        return userService.getUser(page, user);
     }
 
     @GetMapping("/index/{username}")
-    public Result index(@NotNull(message = "username is not null") @PathVariable("username") String username){
+    public Result<Map<String, Object>> index(@NotNull(message = "username is not null") @PathVariable("username") String username) {
         return userService.index(username);
+    }
+
+    @PutMapping("/resetUser")
+    @RequiresPermissions("user:update")
+    public Result<Boolean> resetUser(@RequestBody User user) {
+        user.setPassword(user.getPassword());
+        return ResultUtil.getSuccess(userService.updateById(user));
     }
 
     @PutMapping("/update")
     @RequiresPermissions("user:update")
-    public Result resetUser(@RequestBody User user) {
-        return ResultUtil.getSuccess(userService.updateById(user));
+    public Result<Boolean> update(@RequestBody User user) {
+        return ResultUtil.getSuccess(userService.updateUser(user));
     }
 
     @DeleteMapping("/delete/{userId}")
     @RequiresPermissions("user:delete")
-    public Result delete(@NotNull(message = "userId is not null")@PathVariable("userId") Long userId){
-        if(userId == 1) throw new MyException(ResultEnum.UNAUTHORIZED_ERROR);
+    public Result<Boolean> delete(@NotNull(message = "userId is not null") @PathVariable("userId") String userId) {
+        if (userId.equals("1")) throw new MyException(ResultEnum.UNAUTHORIZED_ERROR);
         return ResultUtil.getSuccess(userService.removeById(userId));
     }
 
     @GetMapping("/get-user")
-    public Result getUserDto(){
+    public Result<UserDTO> getUserDto() {
         return ResultUtil.getSuccess(UserHolder.getUser());
     }
 }

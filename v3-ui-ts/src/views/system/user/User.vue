@@ -27,6 +27,7 @@
                            icon="Plus"
                            placement="bottom"
                            type="primary"
+                           @click="showForm(null,0)"
           />
         </el-col>
       </el-row>
@@ -37,14 +38,23 @@
           height="640"
           row-key="menuId"
           style="width: 100%"
+          border
       >
         <el-table-column :index="indexMethod" type="index"/>
         <el-table-column label="用户名" prop="username" width="120"/>
-        <el-table-column label="部门" prop="deptId" width="120"/>
-        <el-table-column label="邮箱" prop="email" width="300"/>
+        <el-table-column label="部门" prop="deptId" width="120" >
+          <template #default="scope">
+            <DeptComponent :dept-id="scope.row.deptId" />
+          </template>
+        </el-table-column>
+        <el-table-column label="邮箱" prop="email" show-overflow-tooltip width="120"/>
         <el-table-column label="联系电话" prop="mobile" width="120"/>
         <el-table-column label="状态" prop="status" width="120"/>
-        <el-table-column label="最近访问时间" prop="lastLoginTime" width="200"/>
+        <el-table-column label="最近访问时间" width="200">
+          <template #default="scope">
+            <TimeComponents :timestamp="scope.row.lastLoginTime"/>
+          </template>
+        </el-table-column>
         <el-table-column label="描述" prop="description" width="180"/>
         <el-table-column label="头像" width="120">
           <template #default="scope">
@@ -72,7 +82,7 @@
                                icon="Edit"
                                placement="bottom"
                                type="success"
-                               @click="addSubMenu(scope.row)"/>
+                               @click="showForm(scope.row,1)"/>
               <oik-icon-button circle
                                content="删除"
                                effect="light"
@@ -102,16 +112,19 @@
       </el-row>
     </el-main>
   </el-container>
+  <user-from ref="userForm" @save-ok="getList" />
 </template>
 
 <script lang="ts" setup>
 import {onMounted, reactive, ref} from "vue";
 import {query, user} from "@/entity/interface";
-import {getUsers} from '@/api/request/user'
+import {getUsers,del} from '@/api/request/user'
 import OikIconButton from "@/components/button/OikIconButton.vue";
 import zhCn from "element-plus/lib/locale/lang/zh-cn"
 import OikAvatar from "@/components/table/OikAvatar.vue";
 import TimeComponents from "@/components/table/TimeComponents.vue";
+import UserFrom from "@/views/system/user/component/UserFrom.vue";
+import DeptComponent from "@/components/table/DeptComponent.vue";
 
 const locale = zhCn
 const loading = ref(false)
@@ -136,12 +149,6 @@ const getList = async () => {
     loading.value = false
   }
 }
-const addSubMenu = async (data?: any) => {
-  console.log(data)
-}
-const DeleteRow = async (data?: any) => {
-  console.log(data)
-}
 
 const handleSizeChange = (val: number) => {
   getList()
@@ -154,6 +161,7 @@ const indexMethod = (index: number) => {
 }
 
 const tableRowClassName = ({
+                             // eslint-disable-next-line @typescript-eslint/no-unused-vars
                              row,
                              rowIndex,
                            }: {
@@ -166,6 +174,17 @@ const tableRowClassName = ({
     return 'success-row'
   }
   return ''
+}
+
+const userForm = ref<any>()
+
+const showForm = (data:user,type:number) =>{
+  console.log(data)
+  console.log(type)
+    userForm.value.show(data,type)
+}
+const DeleteRow = async (data?: any) => {
+  const res = await del(data.userId)
 }
 onMounted(async () => {
   await getList()

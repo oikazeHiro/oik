@@ -1,13 +1,14 @@
 package com.oik.service.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.oik.dao.entity.User;
 import com.github.yulichang.base.service.MPJJoinService;
+import com.oik.dao.entity.User;
 import com.oik.service.exception.MyException;
 import com.oik.service.exception.Result;
 import com.oik.util.dto.UserDTO;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 /**
  * <p>
@@ -23,15 +24,17 @@ public interface UserService extends MPJJoinService<User> {
 
     User findByName(String username);
 
-    Result login(User user) throws MyException, UnsupportedEncodingException;
+    Result<UserDTO> login(User user) throws MyException, UnsupportedEncodingException;
 
     UserDTO updateLoginTime(String username) throws MyException;
 
     Result register(User user);
 
-    Result logout();
+    Result<Boolean> logout();
 
-    Result getUser(Page page, User user);
+    Result<Page<User>> getUser(Page page, User user);
 
-    Result index(String username);
+    Result<Map<String, Object>> index(String username);
+
+    Boolean updateUser(User user);
 }

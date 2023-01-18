@@ -54,6 +54,7 @@ export interface userDto {
     ssex: string
     avatar: string
     ip: string
+    lastLoginTime: number | string
 }
 
 export interface user {
@@ -64,7 +65,7 @@ export interface user {
     email?: string,
     mobile?: string,
     status?: number,
-    lastLoginTime?: string | number,
+    lastLoginTime?: number | string,
     description?: string,
     avatar?: string
     createUsername?: string,
@@ -111,4 +112,18 @@ export interface dict {
     sort?: number,
     otherKeyy?: number,
     children?: Array<dict>
+}
+
+export interface dept {
+    deptId:string,
+    parentId:string,
+    deptName:string,
+    orderNum:string,
+    status:string,
+    createUser:string,
+    createTime:number|string,
+    createUsername:string,
+    updateUser:string,
+    updateTime:number|string,
+    updateUsername:string,
 }

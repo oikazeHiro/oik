@@ -106,7 +106,7 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
     }
 
     @Override
-    public Result getPermsByRoleId(String roleId) {
+    public Result<List<Menu>> getPermsByRoleId(String roleId) {
         MPJLambdaWrapper<Menu> wrapper = new MPJLambdaWrapper<Menu>()
                 .selectAll(Menu.class)
                 .leftJoin(RoleMenu.class, RoleMenu::getMenuId, Menu::getMenuId)
@@ -160,14 +160,14 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
 
     @Override
     @Transactional
-    public Object delete(Long id) {
+    public Object delete(String id) {
         removeById(id);
-        remove(new LambdaQueryWrapper<Menu>().eq(Menu :: getParentId,id));
+        remove(new LambdaQueryWrapper<Menu>().eq(Menu::getParentId, id));
         roleMenuService.remove(new QueryWrapper<RoleMenu>().lambda().eq(RoleMenu::getMenuId, id));
         Long deletes = cacheClient.deletes(RedisConstants.USER_PERMISSION_CACHE_PREFIX);
         Long deletes2 = cacheClient.deletes(RedisConstants.USER_CONFIG_CACHE_MENU);
-        log.info("redis删除"+RedisConstants.USER_PERMISSION_CACHE_PREFIX+"数据共"+deletes+"条");
-        log.info("redis删除"+RedisConstants.USER_CONFIG_CACHE_MENU+"数据共"+deletes2+"条");
+        log.info("redis删除" + RedisConstants.USER_PERMISSION_CACHE_PREFIX + "数据共" + deletes + "条");
+        log.info("redis删除" + RedisConstants.USER_CONFIG_CACHE_MENU + "数据共" + deletes2 + "条");
         return null;
     }
 }

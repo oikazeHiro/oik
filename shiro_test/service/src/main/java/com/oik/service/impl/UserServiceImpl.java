@@ -60,7 +60,7 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
     }
 
     @Override
-    public Result login(User user) throws MyException, UnsupportedEncodingException {
+    public Result<UserDTO> login(User user) throws MyException, UnsupportedEncodingException {
         User byName = this.findByName(user.getUsername());
         if (byName == null) {
             throw new MyException(ResultEnum.PASSWORD_ERROR);
@@ -98,37 +98,38 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
     public Result register(User user) {
         User one = getOne(new LambdaQueryWrapper<User>().eq(User::getUsername, user.getUsername()));
         if (one != null) throw new MyException(ResultEnum.USERNAME_IS_USE);
+        user.setPassword(EncryptUtil.encode(user.getPassword()));
         save(user);
         return ResultUtil.getSuccess();
     }
 
     @Override
-    public Result logout() {
+    public Result<Boolean> logout() {
         try {
             UserDTO userDTO = UserHolder.getUser();
             String username = userDTO.getUsername();
-            cacheClient.delete(RedisConstants.USER_CACHE_PREFIX+ username);
+            cacheClient.delete(RedisConstants.USER_CACHE_PREFIX + username);
             cacheClient.delete(RedisConstants.USER_ROLE_CACHE_PREFIX + username);
             cacheClient.delete(RedisConstants.USER_PERMISSION_CACHE_PREFIX + username);
             cacheClient.delete(RedisConstants.USER_CONFIG_CACHE_MENU + username);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new MyException(ResultEnum.ServiceException);
         }
-        return ResultUtil.getSuccess();
+        return ResultUtil.getSuccess(true);
     }
 
     @Override
-    public Result getUser(Page page, User user) {
+    public Result<Page<User>> getUser(Page page, User user) {
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.like(user.getUsername()!=null, User::getUsername, user.getUsername())
-        .eq(user.getStatus()!=null,User::getStatus, user.getStatus())
-        .orderByDesc(User::getLastLoginTime);
+        queryWrapper.like(user.getUsername() != null, User::getUsername, user.getUsername())
+                .eq(user.getStatus() != null, User::getStatus, user.getStatus())
+                .orderByDesc(User::getLastLoginTime);
         page = this.baseMapper.selectPage(page, queryWrapper);
         return ResultUtil.getSuccess(page);
     }
 
     @Override
-    public Result index(String username) {
+    public Result<Map<String, Object>> index(String username) {
         //获取访问记录
         long totalVisitCount = loginLogService.count();
         long min = LocalDateTime.of(LocalDate.now(), LocalTime.MIN).toInstant(ZoneOffset.of("+8")).toEpochMilli();
@@ -151,5 +152,14 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
         data.put("lastSevenVisitCount", lastSevenVisitCount);
         data.put("lastSevenUserVisitCount", lastSevenUserVisitCount);
         return ResultUtil.getSuccess(data);
+    }
+
+    @Override
+    public Boolean updateUser(User user) {
+        User one = getOne(new LambdaQueryWrapper<User>().eq(User::getUsername, user.getUsername()));
+        if (one != null && !one.getUserId().equals(user.getUserId())) {
+            throw new MyException(ResultEnum.USERNAME_IS_USE);
+        }
+        return updateById(user);
     }
 }

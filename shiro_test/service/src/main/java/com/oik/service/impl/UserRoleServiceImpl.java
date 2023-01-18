@@ -30,7 +30,7 @@ public class UserRoleServiceImpl extends MPJBaseServiceImpl<UserRoleMapper, User
     private RoleService roleService;
 
     @Override
-    public Result getRole(String username) {
+    public Result<List<Role>> getRole(String username) {
         MPJLambdaWrapper<Role> wrapper = new MPJLambdaWrapper<Role>()
                 .selectAll(Role.class)
                 .leftJoin(UserRole.class, UserRole::getRoleId, Role::getRoleId)

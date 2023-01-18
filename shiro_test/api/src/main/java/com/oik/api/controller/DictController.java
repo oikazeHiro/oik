@@ -33,7 +33,7 @@ public class DictController {
 
     @GetMapping("/dicts")
 //    @RequiresPermissions("dict:view")
-    public Result dict() {
+    public Result<List<Dict>> dict() {
         List<Dict> dict = CacheClient.selectCacheByTemplate(
                 () -> cacheService.getDict(),
                 () -> dictService.getdicts()
@@ -42,13 +42,13 @@ public class DictController {
     }
 
     @PostMapping("/dict")
-    public Result add(Dict dict) {
+    public Result<Boolean> add(Dict dict) {
         cacheService.delete(SYS_DICT);
         return ResultUtil.getSuccess(dictService.saveOrUpdate(dict));
     }
 
     @DeleteMapping("/dict/{id}")
-    public Result delete(@NotNull(message = "id is not null") @PathVariable("id") Long id) {
+    public Result<Boolean> delete(@NotNull(message = "id is not null") @PathVariable("id") String id) {
         return ResultUtil.getSuccess(dictService.removeById(id));
     }
 

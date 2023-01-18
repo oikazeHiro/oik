@@ -36,7 +36,7 @@ public class RoleMenuController {
 
     @PostMapping("/role-menu")
     @RequiresPermissions("menu::add")
-    public Result add(RoleMenu roleMenu) {
+    public Result<RoleMenu> add(RoleMenu roleMenu) {
         Long deletes = cacheClient.deletes(USER_CONFIG_CACHE_MENU);
         Long deletes1 = cacheClient.deletes(USER_PERMISSION_CACHE_PREFIX);
         log.info("用户菜单remove" + deletes);
@@ -46,7 +46,7 @@ public class RoleMenuController {
 
     @DeleteMapping("/role-menu/{id}")
     @RequiresPermissions("menu:delete")
-    public Result remove(@NotNull(message = "id is not null") @PathVariable("id") Long id) {
+    public Result<Boolean> remove(@NotNull(message = "id is not null") @PathVariable("id") String id) {
         Long deletes = cacheClient.deletes(USER_CONFIG_CACHE_MENU);
         Long deletes1 = cacheClient.deletes(USER_PERMISSION_CACHE_PREFIX);
         log.info("用户菜单remove" + deletes);

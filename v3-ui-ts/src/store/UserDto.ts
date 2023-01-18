@@ -14,6 +14,7 @@ export const User = defineStore('userDto', {
             ssex: '',
             avatar: '',
             ip: '',
+            lastLoginTime: 0,
         }
     }),
 

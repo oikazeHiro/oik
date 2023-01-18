@@ -8,6 +8,8 @@ import com.oik.service.service.ChatMsgService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * <p>
  * 服务实现类
@@ -20,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ChatMsgServiceImpl extends MPJBaseServiceImpl<ChatMsgMapper, ChatMsg> implements ChatMsgService {
 
     @Override
-    public Result getMsg() {
+    public Result<List<ChatMsg>> getMsg() {
         return null;
     }
 

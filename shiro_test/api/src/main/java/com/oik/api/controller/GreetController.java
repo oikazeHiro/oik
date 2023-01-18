@@ -24,17 +24,17 @@ public class GreetController {
     private GreetService greetService;
 
     @GetMapping("/greets")
-    public Result getGreet(Page<Greet> page) {
+    public Result<Page<Greet>> getGreet(Page<Greet> page) {
         return greetService.getGreet(page);
     }
 
     @PostMapping("/greet")
-    public Result set(@RequestBody Greet greet) {
+    public Result<Boolean> set(@RequestBody Greet greet) {
         return ResultUtil.getSuccess(greetService.saveOrUpdate(greet));
     }
 
     @DeleteMapping("/greet/{id}")
-    public Result remove(@PathVariable("id") String id) {
+    public Result<Boolean> remove(@PathVariable("id") String id) {
         return ResultUtil.getSuccess(greetService.removeById(id));
     }
 }

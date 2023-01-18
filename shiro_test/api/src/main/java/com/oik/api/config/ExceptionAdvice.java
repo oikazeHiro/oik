@@ -49,6 +49,8 @@ public class ExceptionAdvice {
 
     /**
      * 捕捉404异常
+     *
+     * @return
      */
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NoHandlerFoundException.class)

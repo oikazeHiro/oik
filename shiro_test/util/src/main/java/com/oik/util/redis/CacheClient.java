@@ -4,6 +4,7 @@ import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson2.JSON;
 import com.oik.util.uncategorized.CacheSelector;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -70,29 +71,42 @@ public class CacheClient {
      * @param <R> 返回结果
      * @param <ID> 参数
      */
-    public  <R,ID> R queryWithPassThrough(
-            String keyPrefix,ID id,Class<R> type, Function<ID,R> dbFallback, Long time, TimeUnit timeUnit
-    ) {
+    public <R, ID> R queryWithPassThrough(
+            String keyPrefix, ID id, Class<R> type, Function<ID, R> dbFallback, Long time, TimeUnit timeUnit
+    ) throws InterruptedException {
         String key = keyPrefix + id;
         // redis 查取缓存
         String json = stringRedisTemplate.opsForValue().get(key);
+        log.info(json);
         // 判断缓存是否命中
         if (StrUtil.isNotBlank(json)) {
-            return JSONUtil.toBean(json, type);
+            return JSON.parseObject(json, type);
+//            return JSONUtil.toBean(json, type);
         }
         //判断是否是空值
         if (json != null) {
             return null;
         }
-        //查询数据库
-        R r = dbFallback.apply(id);
-        if (r == null) {
-            stringRedisTemplate.opsForValue().set(key,"", CACHE_NULL_TTL, TimeUnit.MINUTES);
-            return null;
+        String lockKey = LOCK_SHOP_KEY + id;
+        boolean lock = tryLock(lockKey);
+        if (lock) {
+            EXECUTOR_SERVICE.submit(() -> {
+                try {
+                    R r = dbFallback.apply(id);
+                    if (r == null) {
+                        stringRedisTemplate.opsForValue().set(key, "", CACHE_NULL_TTL, TimeUnit.MINUTES);
+                    }
+                    this.set(key, r, time, timeUnit);
+                } catch (Exception e) {
+                    log.error(e.getMessage());
+                } finally {
+                    unLock(lockKey);
+                }
+            });
+        } else {
+            Thread.sleep(100L);
         }
-        // 添加缓存
-        this.set(key, r, time, timeUnit);
-        return r;
+        return queryWithPassThrough(keyPrefix, id, type, dbFallback, time, timeUnit);
     }
 
     //线程池

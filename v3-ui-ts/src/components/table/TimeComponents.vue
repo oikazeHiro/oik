@@ -26,8 +26,8 @@ const getMonth = (date: Date) => {
     return '0' + num
   else return num
 }
-const getDay = (date: Date) => {
-  return date.getDay() < 10 ? '0' + date.getDay() : date.getDay()
+const getDate = (date: Date) => {
+  return date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
 }
 const getHours = (date: Date) => {
   return date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
@@ -48,16 +48,16 @@ const getTimeStr = () => {
   const type = props.ConversionType
   switch (type) {
     case 0:
-      timeStr.value = getYear(date) + '-' + getMonth(date) + '-' + getDay(date) + ' ' + getHours(date) + ':' + getMinutes(date) + ':' + getSeconds(date)
+      timeStr.value = getYear(date) + '-' + getMonth(date) + '-' + getDate(date) + ' ' + getHours(date) + ':' + getMinutes(date) + ':' + getSeconds(date)
       break;
     case 1:
-      timeStr.value = getYear(date) + '/' + getMonth(date) + '/' + getDay(date) + ' ' + getHours(date) + ':' + getMinutes(date) + ':' + getSeconds(date)
+      timeStr.value = getYear(date) + '/' + getMonth(date) + '/' + getDate(date) + ' ' + getHours(date) + ':' + getMinutes(date) + ':' + getSeconds(date)
       break;
     case 2:
-      timeStr.value = getYear(date) + '-' + getMonth(date) + '-' + getDay(date)
+      timeStr.value = getYear(date) + '-' + getMonth(date) + '-' + getDate(date)
       break;
     case 3:
-      timeStr.value = getYear(date) + '/' + getMonth(date) + '/' + getDay(date)
+      timeStr.value = getYear(date) + '/' + getMonth(date) + '/' + getDate(date)
       break;
   }
 }

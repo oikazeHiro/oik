@@ -2,7 +2,7 @@ import axios, {AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse,} fr
 import {ElNotification} from 'element-plus'
 import router from '@/router'
 import qs from 'qs'
-import {query} from "@/entity/interface";
+import {dept, query} from "@/entity/interface";
 
 // 数据返回的接口
 // 定义请求响应参数，不含data
@@ -83,7 +83,7 @@ class RequestHttp {
                 })
                 return Promise.reject(data)
             }
-            if (data.code == RequestEnums.permsError) {
+            if (data.code == RequestEnums.permsError || data.code == RequestEnums.FAIL) {
                 ElNotification.warning(data.msg)
                 return Promise.reject(data)
             }
@@ -156,7 +156,7 @@ class RequestHttp {
         return this.service.delete(url, {params})
     }
 
-    get2<T>(url: string, params?: query<T>): Promise<ResultData<T>> {
+    get2<T,R>(url: string, params?: query<T>): Promise<ResultData<R>> {
         params.page.records = []
         const page = qs.stringify(params.page, {allowDots: true})
         const param = qs.stringify(params.param, {allowDots: true})

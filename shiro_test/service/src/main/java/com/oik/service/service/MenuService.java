@@ -25,11 +25,11 @@ public interface MenuService extends MPJJoinService<Menu> {
 
     List<Menu> getMenuTree(String username);
 
-    Result getPermsByRoleId(String roleId);
+    Result<List<Menu>> getPermsByRoleId(String roleId);
 
-    IPage<Menu> menus(Page page, Menu menu);
+    IPage<Menu> menus(Page<Menu> page, Menu menu);
 
     Menu addOrSet(Menu menu);
 
-    Object delete(Long id);
+    Object delete(String id);
 }

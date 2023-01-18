@@ -19,15 +19,10 @@ import java.util.Date;
 
 /**
  * @author oik
- * @description jackson全局配置java8 LocalDateTime的序列化 全局配置时间返回格式
- * @date 2023/1/10 11:18
- */
-
-/**
+ * &#064;description  jackson全局配置java8 LocalDateTime的序列化 全局配置时间返回格式
  * jackson全局配置java8 LocalDateTime的序列化 全局配置时间返回格式
- */
-/**
  * jackson全局配置java8 LocalDateTime的序列化 全局配置时间返回格式
+ * &#064;date  2023/1/10 11:18
  */
 @Configuration
 public class JacksonCustomizerConfig {

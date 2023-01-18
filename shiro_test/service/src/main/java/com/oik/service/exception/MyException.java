@@ -7,7 +7,7 @@ package com.oik.service.exception;
  * @date 2022/7/23 15:35
  */
 public class MyException extends RuntimeException {
-    private Integer code;
+    private Integer code = 500;
 
 
     public Integer getCode() {

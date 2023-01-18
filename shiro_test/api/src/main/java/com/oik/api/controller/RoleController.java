@@ -28,26 +28,26 @@ public class RoleController {
 
     @GetMapping("/roles")
     @RequiresPermissions("role:view")
-    public Result getRoles(Page<Role> page, Role role){
+    public Result<IPage<Role>> getRoles(Page<Role> page, Role role) {
         IPage<Role> roles = roleService.getRoles(page, role);
         return ResultUtil.getSuccess(roles);
     }
 
     @PostMapping("/role")
     @RequiresPermissions("role:add")
-    public Result add(@RequestBody Role role){
+    public Result<Boolean> add(@RequestBody Role role) {
         return ResultUtil.getSuccess(roleService.save(role));
     }
 
     @PutMapping("/role")
     @RequiresPermissions("role:update")
-    public Result update(@RequestBody Role role){
+    public Result<Boolean> update(@RequestBody Role role) {
         return ResultUtil.getSuccess(roleService.save(role));
     }
 
     @DeleteMapping("/role/{id}")
     @RequiresPermissions("role:delete")
-    public Result delete(@PathVariable("id") Long id){
+    public Result<Boolean> delete(@PathVariable("id") String id) {
         return ResultUtil.getSuccess(roleService.removeById(id));
     }
 

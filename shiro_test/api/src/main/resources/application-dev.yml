@@ -11,6 +11,7 @@ spring:
     url: jdbc:mysql://127.0.0.1:13306/shiro_test?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: root
+  #  注意缩进
   #  datasource:
   #    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   #    url: jdbc:sqlserver://localhost:1433;DatabaseName=test_name

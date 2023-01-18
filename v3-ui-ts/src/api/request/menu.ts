@@ -9,7 +9,7 @@ export const getMenus = (param: any) => {
 }
 export const getMenus2 = (param: any) => {
     console.log(param)
-    return request.get2<page<menus>>('/api/menu-get', param)
+    return request.get2<Array<menus>,page<menus>>('/api/menu-get', param)
 }
 
 export const saveMenu = (data: menus) => {

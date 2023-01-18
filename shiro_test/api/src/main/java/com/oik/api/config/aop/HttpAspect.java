@@ -62,8 +62,7 @@ public class HttpAspect {
         log.info("请求用户 : {}", username);
         log.info("请求控制器 : {}", pjp.getSignature().getDeclaringTypeName());
         log.info("请求方法 : {}", name);
-        String param = name.equals("login") || name.equals("register") || name.equals("resetUser") ? "保密" : str;
-        log.info("请求参数 : {}", param);
+        log.info("请求参数 : {}", name.equals("login") || name.equals("register") || name.equals("resetUser") ? "保密" : str);
         // 执行方法
         Object result = pjp.proceed();
         log.info("请求结束时间：" + LocalDateTime.now());
@@ -74,7 +73,7 @@ public class HttpAspect {
                 name,
                 (System.currentTimeMillis() - startTime),
                 request.getMethod(),
-                param,
+                name.equals("login") || name.equals("register") || name.equals("resetUser") ? "保密" : str,
                 ipAddr,
                 LocalDateTime.now(),
                 Objects.requireNonNull(IPUtil.getCityInfo(ipAddr)).get("city"),

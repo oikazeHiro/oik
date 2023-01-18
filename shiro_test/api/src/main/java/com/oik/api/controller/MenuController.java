@@ -1,6 +1,7 @@
 package com.oik.api.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.Menu;
 import com.oik.service.exception.Result;
@@ -30,15 +31,16 @@ public class MenuController {
     private CacheService cacheService;
     @Resource
     private MenuService menuService;
+
     @GetMapping("/getMenus")
-    public Result getMenus() {
+    public Result<List<Menu>> getMenus() {
         List<Menu> collect = menuService.getMenus();
         return ResultUtil.getSuccess(collect, (long) collect.size(), "Get menu success");
     }
 
     @GetMapping("/menus/{username}")
     @RequiresPermissions("menu:view")
-    public Result getMenus(@PathVariable("username") String username) {
+    public Result<List<Menu>> getMenus(@PathVariable("username") String username) {
         List<Menu> permissionList = CacheClient.selectCacheByTemplate(
                 () -> cacheService.getMenus(username),
                 () -> menuService.getMenuTree(username));
@@ -48,34 +50,32 @@ public class MenuController {
 
     @PostMapping("/menu")
     @RequiresPermissions("menu:add")
-    public Result addOrSet(@RequestBody Menu menu) {
-        menuService.addOrSet(menu);
-        return ResultUtil.getSuccess();
+    public Result<Menu> addOrSet(@RequestBody Menu menu) {
+        return ResultUtil.getSuccess(menuService.addOrSet(menu));
     }
 
     @DeleteMapping("/menu/{id}")
     @RequiresPermissions("menu:delete")
-    public Result remove(@PathVariable("id") Long id) {
-        menuService.delete(id);
-        return ResultUtil.getSuccess();
+    public Result<Object> remove(@PathVariable("id") String id) {
+        return ResultUtil.getSuccess(menuService.delete(id));
     }
 
 
     @GetMapping("/perms/{roleId}")
     @RequiresPermissions("menu:view")
-    public Result getPermsByRoleId(@PathVariable("roleId") String roleId) {
+    public Result<List<Menu>> getPermsByRoleId(@PathVariable("roleId") String roleId) {
         return menuService.getPermsByRoleId(roleId);
     }
 
     @GetMapping("/perms")
     @RequiresPermissions("menu:view")
-    public Result getPerms() {
-        return ResultUtil.getSuccess(menuService.list(new QueryWrapper<Menu>().lambda().isNotNull(Menu::getPerms)),"数据获取成功");
+    public Result<List<Menu>> getPerms() {
+        return ResultUtil.getSuccess(menuService.list(new QueryWrapper<Menu>().lambda().isNotNull(Menu::getPerms)), "数据获取成功");
     }
 
     @GetMapping("/menu-get")
     @RequiresPermissions("menu:view")
-    public Result menus(Page page, Menu param) {
+    public Result<IPage<Menu>> menus(Page<Menu> page, Menu param) {
         return ResultUtil.getSuccess(menuService.menus(page, param));
     }
 

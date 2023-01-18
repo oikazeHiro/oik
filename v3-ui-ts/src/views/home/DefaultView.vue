@@ -15,7 +15,7 @@
                 <p>{{ user.description ? user.description : '你甚至不愿意介绍一下自己' }}</p>
               </div>
               <div class="head-info-time">
-                上次登录时间：
+                上次登录时间：<time-components :timestamp="user.lastLoginTime" />
               </div>
             </div>
           </el-col>
@@ -30,6 +30,7 @@
 import {onMounted, ref} from 'vue'
 import {User} from '@/store/UserDto';
 import {getWelcomeMsg} from '@/api/request/greet'
+import TimeComponents from "@/components/table/TimeComponents.vue";
 
 const user = User().userDto
 const avatar = user.avatar ? user.avatar : 'https://tse2-mm.cn.bing.net/th/id/OIP-C.vNn5RXHfCzUZGcdtzYG92AHaHa?w=203&h=203&c=7&r=0&o=5&pid=1.7'

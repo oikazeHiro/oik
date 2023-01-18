@@ -1,6 +1,17 @@
 import request from '@/api/index'
-import {page, user} from '@/entity/interface'
+import {page, query, user} from '@/entity/interface'
 
-export const getUsers = async (param: any) => {
-    return request.get2<page<user>>('/api/user/users', param)
+export const getUsers = async (param: query<user>) => {
+    return request.get2<user,page<user>>('/api/user/users', param)
+}
+
+export const setUser = async (data : user) => {
+    return request.put<user>('/api/user/update',data)
+}
+export const register = async (data : user) => {
+    return request.post<user>('/api/user/register',data)
+}
+
+export const del = async (param : string) => {
+    return request.delete<any>('/api/user/delete'+'/'+param)
 }

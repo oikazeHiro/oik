@@ -9,6 +9,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -57,14 +58,16 @@ public class Dept implements Serializable {
     private String createUser;
 
     @ApiModelProperty("创建时间")
-    @TableField(value = "CREATE_TIME",fill = FieldFill.INSERT)
+    @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    @TableField(value = "CREATE_USERNAME",fill = FieldFill.INSERT)
+    @TableField(value = "CREATE_USERNAME", fill = FieldFill.INSERT)
     private String createUsername;
 
-    @TableField(value = "UPDATE_USERNAME",fill = FieldFill.INSERT_UPDATE)
+    @TableField(value = "UPDATE_USERNAME", fill = FieldFill.INSERT_UPDATE)
     private String updateUsername;
 
 
+    @TableField(exist = false)
+    private List<Dept> children;
 }
