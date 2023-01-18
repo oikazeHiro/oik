@@ -76,7 +76,7 @@ public enum ResultEnum {
     NO_PAGE(401, "请求失败"),
     STATUS_LOCK(401, "账号已被禁用"),
 
-    CLEAR_TOKRN(411, "清除令牌"),
+    CLEAR_TOKEN(411, "清除令牌"),
     USERNAME_IS_USE(400, "用户名已被使用");
 
     private Integer code;
