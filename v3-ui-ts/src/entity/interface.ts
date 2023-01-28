@@ -115,15 +115,16 @@ export interface dict {
 }
 
 export interface dept {
-    deptId:string,
-    parentId:string,
-    deptName:string,
-    orderNum:string,
-    status:string,
-    createUser:string,
-    createTime:number|string,
-    createUsername:string,
-    updateUser:string,
-    updateTime:number|string,
-    updateUsername:string,
+    deptId?:string,
+    parentId?:string,
+    deptName?:string,
+    orderNum?:string,
+    status?:string,
+    createUser?:string,
+    createTime?:number|string,
+    createUsername?:string,
+    updateUser?:string,
+    updateTime?:number|string,
+    updateUsername?:string,
+    children?:dept
 }
