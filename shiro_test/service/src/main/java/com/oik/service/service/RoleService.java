@@ -2,8 +2,8 @@ package com.oik.service.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.oik.dao.entity.Role;
 import com.github.yulichang.base.service.MPJJoinService;
+import com.oik.dao.entity.Role;
 
 import java.util.List;
 
@@ -20,4 +20,6 @@ public interface RoleService extends MPJJoinService<Role> {
     List<Role> findUserRole(String username);
 
     IPage<Role> getRoles(Page<Role> page, Role role);
+
+    List<Role> getUserRole(String userID);
 }

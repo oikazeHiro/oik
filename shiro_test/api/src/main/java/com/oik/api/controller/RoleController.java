@@ -10,6 +10,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -49,6 +50,10 @@ public class RoleController {
     @RequiresPermissions("role:delete")
     public Result<Boolean> delete(@PathVariable("id") String id) {
         return ResultUtil.getSuccess(roleService.removeById(id));
+    }
+
+    private Result<List<Role>> getUserRole(String userID) {
+        return ResultUtil.getSuccess(roleService.getUserRole(userID));
     }
 
 }

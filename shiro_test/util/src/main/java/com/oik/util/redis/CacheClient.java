@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -107,6 +108,44 @@ public class CacheClient {
             Thread.sleep(100L);
         }
         return queryWithPassThrough(keyPrefix, id, type, dbFallback, time, timeUnit);
+    }
+
+    public <R, ID> List<R> queryWithPassThroughList(
+            String keyPrefix, ID id, Class<R> type, Function<ID, List<R>> dbFallback, Long time, TimeUnit timeUnit
+    ) throws InterruptedException {
+        String key = keyPrefix + id;
+        // redis 查取缓存
+        String json = stringRedisTemplate.opsForValue().get(key);
+        log.info(json);
+        // 判断缓存是否命中
+        if (StrUtil.isNotBlank(json)) {
+            return JSON.parseArray(json, type);
+//            return JSONUtil.toBean(json, type);
+        }
+        //判断是否是空值
+        if (json != null) {
+            return null;
+        }
+        String lockKey = LOCK_SHOP_KEY + id;
+        boolean lock = tryLock(lockKey);
+        if (lock) {
+            EXECUTOR_SERVICE.submit(() -> {
+                try {
+                    List<R> r = dbFallback.apply(id);
+                    if (r == null) {
+                        stringRedisTemplate.opsForValue().set(key, "", CACHE_NULL_TTL, TimeUnit.MINUTES);
+                    }
+                    this.set(key, r, time, timeUnit);
+                } catch (Exception e) {
+                    log.error(e.getMessage());
+                } finally {
+                    unLock(lockKey);
+                }
+            });
+        } else {
+            Thread.sleep(100L);
+        }
+        return queryWithPassThroughList(keyPrefix, id, type, dbFallback, time, timeUnit);
     }
 
     //线程池

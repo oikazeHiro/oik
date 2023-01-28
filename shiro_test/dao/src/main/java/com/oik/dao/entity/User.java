@@ -9,6 +9,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -91,5 +92,6 @@ public class User implements Serializable {
     @TableField(value = "UPDATE_USER_ID", fill = FieldFill.INSERT_UPDATE)
     private String updateUserId;
 
-
+    @TableField(exist = false)
+    private List<String> roleArray;
 }

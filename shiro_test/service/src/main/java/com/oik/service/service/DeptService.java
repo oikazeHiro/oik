@@ -19,5 +19,5 @@ public interface DeptService extends MPJJoinService<Dept> {
 
     Page<Dept> dept(Page<Dept> page, Dept dept);
 
-    List<Dept> getALLDepth();
+    List<Dept> getALLDepth(Integer option);
 }

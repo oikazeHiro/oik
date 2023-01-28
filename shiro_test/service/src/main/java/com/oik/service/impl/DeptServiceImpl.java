@@ -52,9 +52,22 @@ public class DeptServiceImpl extends MPJBaseServiceImpl<DeptMapper, Dept> implem
     }
 
     @Override
-    public List<Dept> getALLDepth() {
+    public List<Dept> getALLDepth(Integer option) {
         try {
-            return cacheClient.queryWithPassThrough(SYS_DEPT, "", List.class, e -> this.list(), 30L, TimeUnit.MINUTES);
+            List<Dept> allDepth = cacheClient.queryWithPassThroughList(SYS_DEPT, "", Dept.class, e -> this.list(), 30L, TimeUnit.MINUTES);
+            if (option != 0) {
+                Map<String, List<Dept>> collect = allDepth.stream()
+                        .filter(e -> !e.getDeptId().equals("0"))
+                        .collect(Collectors.toList())
+                        .stream()
+                        .collect(Collectors.groupingBy(Dept::getParentId,
+                                Collectors.mapping(Function.identity(), Collectors.toList())));
+                allDepth = allDepth.stream().filter(e -> e.getParentId().equals("0")).collect(Collectors.toList());
+                allDepth.forEach(e -> {
+                    e.setChildren(collect.get(e.getDeptId()));
+                });
+            }
+            return allDepth;
         } catch (InterruptedException e) {
             throw new MyException(e.getMessage());
         }

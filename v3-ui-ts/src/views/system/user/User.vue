@@ -38,7 +38,6 @@
           height="640"
           row-key="menuId"
           style="width: 100%"
-          border
       >
         <el-table-column :index="indexMethod" type="index"/>
         <el-table-column label="用户名" prop="username" width="120"/>
@@ -80,6 +79,13 @@
                                content="编辑"
                                effect="light"
                                icon="Edit"
+                               placement="bottom"
+                               type="primary"
+                               @click="showForm(scope.row,1)"/>
+              <oik-icon-button circle
+                               content="设置"
+                               effect="light"
+                               icon="Setting"
                                placement="bottom"
                                type="success"
                                @click="showForm(scope.row,1)"/>

@@ -15,8 +15,8 @@
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="密码" prop="password" v-if="formType === 0">
-            <el-input v-model="formData.password" type="password" autocomplete="off"/>
+          <el-form-item label="密码" prop="password" >
+            <el-input v-model="formData.password" :disabled="formType !== 0" type="password" autocomplete="off"/>
           </el-form-item>
         </el-col>
       </el-row>
@@ -26,7 +26,8 @@
       <el-row :gutter="20">
         <el-col :span="12">
           <el-form-item label="部门" prop="deptId">
-            <el-input v-model="formData.deptId" autocomplete="off"/>
+<!--            <el-input v-model="formData.deptId" autocomplete="off"/>-->
+              <el-cascader v-model="formData.deptId" :options="options" :props="props1" clearable />
           </el-form-item>
         </el-col>
         <el-col :span="12">
@@ -80,6 +81,17 @@ import {reactive, ref} from "vue";
 import {user} from "@/entity/interface";
 import {FormInstance} from "element-plus";
 import {setUser, register} from '@/api/request/user'
+import {deptCache} from '@/api/request/dept'
+
+const optionsKey = ref('disciplines')
+
+const props1 = {
+  checkStrictly: true,
+  value:'deptId',
+  label:'deptName'
+}
+
+const options = ref()
 
 const formData = ref<user>({
   userId: '',
@@ -165,7 +177,13 @@ const resetForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.resetFields()
 }
-const show = (data: any, type: number) => {
+const show = async(data: any, type: number) => {
+  try {
+    const res = await deptCache(1);
+    options.value = res.data
+  }catch (e){
+    console.log(e)
+  }
   if (type != 0) {
     formType.value = type
     formData.value = data

@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -55,5 +54,10 @@ public class RoleServiceImpl extends MPJBaseServiceImpl<RoleMapper, Role> implem
                 .ge(role.getStartTime() != null, Role::getCreateTime, role.getStartTime())
                 .le(role.getEndTime() != null, Role::getCreateTime, role.getEndTime());
         return selectJoinListPage(page, Role.class, wrapper);
+    }
+
+    @Override
+    public List<Role> getUserRole(String userID) {
+        return null;
     }
 }

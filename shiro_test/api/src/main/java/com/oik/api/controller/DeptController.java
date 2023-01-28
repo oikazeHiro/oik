@@ -6,6 +6,7 @@ import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.DeptService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,9 +34,10 @@ public class DeptController {
         return ResultUtil.getSuccess(deptPage);
     }
 
-    @GetMapping("/all-dept")
-    public Result<List<Dept>> getALLDepth() {
-        return ResultUtil.getSuccess(deptService.getALLDepth());
+    @GetMapping("/all-dept/{option}")
+    public Result<List<Dept>> getALLDepth(@PathVariable("option") Integer option) {
+        List<Dept> allDepth = deptService.getALLDepth(option);
+        return ResultUtil.getSuccess(allDepth);
     }
 
 }
