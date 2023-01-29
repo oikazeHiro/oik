@@ -61,10 +61,10 @@ export interface user {
     userId?: string,
     username?: string,
     password?: string,
-    deptId?: string,
+    deptId?: string|any,
     email?: string,
     mobile?: string,
-    status?: number,
+    status?: string|number,
     lastLoginTime?: number | string,
     description?: string,
     avatar?: string

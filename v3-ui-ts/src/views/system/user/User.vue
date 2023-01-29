@@ -60,6 +60,11 @@
             <OikAvatar :src="scope.row.avatar" size="default"/>
           </template>
         </el-table-column>
+        <el-table-column label="状态" width="120">
+          <template #default="scope">
+            <status-components :num = "scope.row.status" zero-str="无效" one-str="有效"/>
+          </template>
+        </el-table-column>
         <el-table-column label="创建者" prop="createUsername" width="120"/>
         <el-table-column label="创建时间" width="200">
           <template #default="scope">
@@ -88,7 +93,7 @@
                                icon="Setting"
                                placement="bottom"
                                type="success"
-                               @click="showForm(scope.row,1)"/>
+                               @click="showDrawer(scope.row)"/>
               <oik-icon-button circle
                                content="删除"
                                effect="light"
@@ -119,6 +124,7 @@
     </el-main>
   </el-container>
   <user-from ref="userForm" @save-ok="getList" />
+  <user-drawer ref="userDrawer" title="设置" />
 </template>
 
 <script lang="ts" setup>
@@ -131,7 +137,8 @@ import OikAvatar from "@/components/table/OikAvatar.vue";
 import TimeComponents from "@/components/table/TimeComponents.vue";
 import UserFrom from "@/views/system/user/component/UserFrom.vue";
 import DeptComponent from "@/components/table/DeptComponent.vue";
-
+import StatusComponents from "@/components/table/StatusComponents.vue";
+import UserDrawer from "@/views/system/user/component/UserDrawer.vue";
 const locale = zhCn
 const loading = ref(false)
 const result = reactive<query<user>>({
@@ -189,6 +196,12 @@ const showForm = (data:user,type:number) =>{
 const DeleteRow = async (data?: any) => {
   const res = await del(data.userId)
 }
+
+const userDrawer = ref<any>()
+const showDrawer = (param:any) => {
+  userDrawer.value.show(param)
+}
+
 onMounted(async () => {
   await getList()
 })

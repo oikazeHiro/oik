@@ -27,7 +27,7 @@
         <el-col :span="12">
           <el-form-item label="部门" prop="deptId">
 <!--            <el-input v-model="formData.deptId" autocomplete="off"/>-->
-              <el-cascader v-model="formData.deptId" :options="options" :props="props1" clearable />
+              <el-cascader v-model="value" :options="options" :props="props1" clearable @change="valueChange" />
           </el-form-item>
         </el-col>
         <el-col :span="12">
@@ -43,8 +43,16 @@
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="状态" prop="status">
-            <el-input v-model.number="formData.status"/>
+          <el-form-item label="状态">
+            <el-select v-model="formData.status" clearable placeholder="Select">
+              <el-option
+                  v-for="item in options2"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+              />
+            </el-select>
+<!--            <el-input v-model.number="formData.status"/>-->
           </el-form-item>
         </el-col>
       </el-row>
@@ -83,7 +91,16 @@ import {FormInstance} from "element-plus";
 import {setUser, register} from '@/api/request/user'
 import {deptCache} from '@/api/request/dept'
 
-const optionsKey = ref('disciplines')
+const options2 = [
+  {
+    value: 0,
+    label: '无效',
+  },
+  {
+    value: 1,
+    label: '有效',
+  },
+]
 
 const props1 = {
   checkStrictly: true,
@@ -92,13 +109,13 @@ const props1 = {
 }
 
 const options = ref()
-
+const value = ref()
 const formData = ref<user>({
   userId: '',
   username: '',
   password: '',
   avatar: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.vNn5RXHfCzUZGcdtzYG92AHaHa?w=203&h=203&c=7&r=0&o=5&pid=1.7',
-  deptId: undefined,
+  deptId: '',
   email: '',
   mobile: '',
   status: 1,
@@ -187,7 +204,9 @@ const show = async(data: any, type: number) => {
   if (type != 0) {
     formType.value = type
     formData.value = data
+    value.value = formData.value.deptId
   } else {
+    value.value = ''
     formType.value = 0
     formData.value = {
       userId: '',
@@ -203,6 +222,9 @@ const show = async(data: any, type: number) => {
     resetForm(ruleFormRef.value)
   }
   dialogFormVisible.value = true
+}
+const valueChange = () => {
+  formData.value.deptId = value.value[value.value.length-1]
 }
 //暴露方法
 defineExpose({show})

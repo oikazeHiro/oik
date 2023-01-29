@@ -8,7 +8,8 @@ spring:
     name: oik
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:13306/oik?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    #    url: jdbc:mysql://127.0.0.1:13306/oik?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://101.42.151.233:13306/oik?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: root
   #  注意缩进
@@ -18,8 +19,9 @@ spring:
   #    username: sa
   #    password: Fyy@12345678
   redis:
-    host: 127.0.0.1
-    port: 26379
+    #    host: 127.0.0.1
+    host: 101.42.151.233
+    port: 16379
     password: '000415'
     lettuce:
       pool:
