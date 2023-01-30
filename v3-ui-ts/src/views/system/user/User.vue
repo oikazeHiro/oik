@@ -124,7 +124,7 @@
     </el-main>
   </el-container>
   <user-from ref="userForm" @save-ok="getList" />
-  <user-drawer ref="userDrawer" title="设置" />
+  <user-drawer ref="userDrawer" :with_header="true" title="设置角色"/>
 </template>
 
 <script lang="ts" setup>
@@ -139,6 +139,7 @@ import UserFrom from "@/views/system/user/component/UserFrom.vue";
 import DeptComponent from "@/components/table/DeptComponent.vue";
 import StatusComponents from "@/components/table/StatusComponents.vue";
 import UserDrawer from "@/views/system/user/component/UserDrawer.vue";
+
 const locale = zhCn
 const loading = ref(false)
 const result = reactive<query<user>>({
@@ -198,7 +199,7 @@ const DeleteRow = async (data?: any) => {
 }
 
 const userDrawer = ref<any>()
-const showDrawer = (param:any) => {
+const showDrawer = (param: user) => {
   userDrawer.value.show(param)
 }
 

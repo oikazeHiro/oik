@@ -118,13 +118,34 @@ export interface dept {
     deptId?:string,
     parentId?:string,
     deptName?:string,
-    orderNum?:string,
-    status?:string,
-    createUser?:string,
-    createTime?:number|string,
-    createUsername?:string,
-    updateUser?:string,
-    updateTime?:number|string,
-    updateUsername?:string,
-    children?:dept
+    orderNum?: string,
+    status?: string,
+    createUser?: string,
+    createTime?: number | string,
+    createUsername?: string,
+    updateUser?: string,
+    updateTime?: number | string,
+    updateUsername?: string,
+    children?: dept
+}
+
+export interface role {
+    roleId?: string,
+    roleName?: string,
+    remark?: string,
+    createTime?: number | string,
+    updateTime?: number | string,
+    status?: string | number,
+    createUsername?: string,
+    createUserId?: string,
+    updateUsername?: string,
+    updateUserId?: string,
+    dataScope?: string,
+    startTime?: number | string,
+    endTime?: number | string
+}
+
+export interface addRole {
+    youRole: Array<string>,
+    userId: string
 }

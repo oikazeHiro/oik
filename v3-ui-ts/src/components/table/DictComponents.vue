@@ -5,9 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import {getDictByFieldName, getDictByKeyy, getDictByTableName, getDictionary, setDictionary} from '@/api/request/dict'
+import {getDictByFieldName, getDictByKeyy, getDictByTableName} from '@/api/request/dict'
 import {reactive, watchEffect} from "vue";
-import {dictStore} from '@/store/dictStore'
 
 const props = defineProps({
   tableName: {
@@ -26,7 +25,6 @@ const dictOne = reactive({
   }
 })
 const getDictValue = async () => {
-  await initDict()
   if (!props.tableName) return;
   if (!props.fieldName) return;
   if (!props.keyy) return;
@@ -37,14 +35,6 @@ const getDictValue = async () => {
   if (!t) return;
   if (!t.children) return;
   dictOne.dict = getDictByKeyy(t, props.keyy)
-}
-
-const initDict = async () => {
-  const dictSto = dictStore()
-  if (dictSto.dictList == null || !dictSto.dictList || dictSto.dictList.length == 0) {
-    const res = await getDictionary()
-    setDictionary(res.data)
-  }
 }
 
 watchEffect(() => {

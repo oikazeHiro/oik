@@ -1,6 +1,9 @@
 server:
   port: 7000
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   output:
     ansi:
       enabled: always
@@ -9,7 +12,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     #    url: jdbc:mysql://127.0.0.1:13306/oik?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
-    url: jdbc:mysql://101.42.151.233:13306/oik?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+#    url: jdbc:mysql://101.42.151.233:13306/oik?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://101.42.224.188:13306/oik?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: root
   #  注意缩进
@@ -20,9 +24,16 @@ spring:
   #    password: Fyy@12345678
   redis:
     #    host: 127.0.0.1
-    host: 101.42.151.233
+#    host: 101.42.151.233
+    host: 101.42.224.188
     port: 16379
     password: '000415'
+#    sentinel:
+#      master: master
+#      nodes:
+#        - 101.42.224.188:16379
+#        - 101.42.224.188:26379
+#        - 101.42.224.188:36379
     lettuce:
       pool:
         max-active: 10
@@ -35,9 +46,6 @@ spring:
     #    generator:
     #      write_numbers_as_strings: true # 数字返回json 转成string 类型
     default-property-inclusion: non_null # JSON处理时忽略非空字段
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
 mybatis-plus:
   type-aliases-package: com.oik.dao.entity # 别名扫描包
   configuration:

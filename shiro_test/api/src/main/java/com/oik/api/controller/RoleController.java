@@ -34,6 +34,11 @@ public class RoleController {
         return ResultUtil.getSuccess(roles);
     }
 
+    @GetMapping("/role-user/{userId}")
+    public Result getURoleByUserId(@PathVariable("userId") String userId){
+        return ResultUtil.getSuccess(roleService.viewAddRole(userId));
+    }
+
     @PostMapping("/role")
     @RequiresPermissions("role:add")
     public Result<Boolean> add(@RequestBody Role role) {
@@ -52,8 +57,5 @@ public class RoleController {
         return ResultUtil.getSuccess(roleService.removeById(id));
     }
 
-    private Result<List<Role>> getUserRole(String userID) {
-        return ResultUtil.getSuccess(roleService.getUserRole(userID));
-    }
 
 }

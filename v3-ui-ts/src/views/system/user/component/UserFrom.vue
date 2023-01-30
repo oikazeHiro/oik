@@ -11,7 +11,7 @@
       <el-row :gutter="20">
         <el-col :span="12">
           <el-form-item label="用户名" prop="username">
-            <el-input v-model="formData.username" autocomplete="off"/>
+            <el-input v-model="formData.username" autocomplete="off" clearable/>
           </el-form-item>
         </el-col>
         <el-col :span="12">
@@ -32,14 +32,14 @@
         </el-col>
         <el-col :span="12">
           <el-form-item label="邮箱" prop="email">
-            <el-input v-model.number="formData.email"/>
+            <el-input v-model="formData.email" clearable/>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row :gutter="20">
         <el-col :span="12">
           <el-form-item label="联系电话" prop="mobile">
-            <el-input v-model.number="formData.mobile"/>
+            <el-input v-model="formData.mobile" clearable/>
           </el-form-item>
         </el-col>
         <el-col :span="12">
@@ -67,6 +67,7 @@
                 type="textarea"
                 placeholder="Please input"
                 style="width: 190px"
+                clearable
             />
           </el-form-item>
         </el-col>
@@ -88,7 +89,7 @@
 import {reactive, ref} from "vue";
 import {user} from "@/entity/interface";
 import {FormInstance} from "element-plus";
-import {setUser, register} from '@/api/request/user'
+import {register, setUser} from '@/api/request/user'
 import {deptCache} from '@/api/request/dept'
 
 const options2 = [
@@ -144,14 +145,14 @@ const validateUsername = (rule: any, value: any, callback: any) => {
 const validateMobile = (rule: any, value: any, callback: any) => {
   if (value === '') {
     callback(new Error('请输入联系电话'))
-  } else if (mobile.test(value)) {
+  } else if (!mobile.test(value)) {
     callback(new Error('请输入正确的手机号'))
   } else {
     callback()
   }
 }
 const validateEmail = (rule: any, value: any, callback: any) => {
-  if (email.test(value)) {
+  if (!email.test(value)) {
     callback(new Error('请输入正确的邮箱'))
   } else {
     callback()
@@ -164,7 +165,14 @@ const validateDescription = (rule: any, value: any, callback: any) => {
     callback()
   }
 }
-const rules = reactive({})
+
+
+const rules = reactive({
+  username: [{validator: validateUsername, trigger: 'blur'}],
+  mobile: [{validator: validateMobile, trigger: 'blur'}],
+  email: [{validator: validateEmail, trigger: 'blur'}],
+  description: [{validator: validateDescription, trigger: 'blur'}],
+})
 const emits = defineEmits(['save-ok']);
 const submit = async () => {
   try {

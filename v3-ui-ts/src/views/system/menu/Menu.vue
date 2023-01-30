@@ -146,6 +146,8 @@ import OikIconButton from "@/components/button/OikIconButton.vue";
 import TimeComponents from "@/components/table/TimeComponents.vue";
 import DictComponents from "@/components/table/DictComponents.vue";
 import MenuForm from "@/views/system/menu/component/MenuForm.vue";
+import {dictStore} from "@/store/dictStore";
+import {getDictionary, setDictionary} from "@/api/request/dict";
 
 
 const locale = zhCn
@@ -194,7 +196,15 @@ const DeleteRow = async (data: menus) => {
 const saveOk = async () => {
   await getList()
 }
+const initDict = async () => {
+  const dictSto = dictStore()
+  if (dictSto.dictList == null || !dictSto.dictList || dictSto.dictList.length == 0) {
+    const res = await getDictionary()
+    setDictionary(res.data)
+  }
+}
 onMounted(() => {
+  initDict()
   getList()
 })
 

@@ -6,6 +6,7 @@ import com.github.yulichang.base.service.MPJJoinService;
 import com.oik.dao.entity.Role;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -22,4 +23,7 @@ public interface RoleService extends MPJJoinService<Role> {
     IPage<Role> getRoles(Page<Role> page, Role role);
 
     List<Role> getUserRole(String userID);
+
+    Map<String,Object> viewAddRole(String userID);
+
 }
