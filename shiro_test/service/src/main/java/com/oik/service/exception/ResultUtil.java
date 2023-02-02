@@ -54,8 +54,8 @@ public class ResultUtil {
     /**
      * 重载返回成功的方法，因为有时候我们不需要任何的消息数据被返回
      */
-    public static Result getSuccess() {
-        Result result = new Result<>();
+    public static <T> Result<T> getSuccess() {
+        Result<T> result = new Result<>();
         result.setCode(200);
         result.setMsg("success");
         return result;
@@ -79,10 +79,17 @@ public class ResultUtil {
     /**
      * 重载，操作失败的方法（因为操作失败一般都不需要返回数据内容）
      */
-    public static <T> Result getError(Integer code, String msg) {
+    public static <T> Result<T> getError(Integer code, String msg) {
         Result<T> result = new Result<>();
         result.setCode(code);
         result.setMsg(msg);
+        return result;
+    }
+
+    public static <T> Result<T> getError(ResultEnum resultEnum) {
+        Result<T> result = new Result<>();
+        result.setCode(resultEnum.getCode());
+        result.setMsg(resultEnum.getMsg());
         return result;
     }
 }

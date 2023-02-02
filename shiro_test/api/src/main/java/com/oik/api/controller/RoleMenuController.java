@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 import static com.oik.util.redis.RedisConstants.USER_CONFIG_CACHE_MENU;
 import static com.oik.util.redis.RedisConstants.USER_PERMISSION_CACHE_PREFIX;
@@ -26,7 +27,7 @@ import static com.oik.util.redis.RedisConstants.USER_PERMISSION_CACHE_PREFIX;
  */
 @Slf4j
 @RestController
-@RequestMapping("/roleMenu")
+@RequestMapping("")
 public class RoleMenuController {
 
     @Autowired
@@ -52,5 +53,10 @@ public class RoleMenuController {
         log.info("用户菜单remove" + deletes);
         log.info("用户权限remove" + deletes1);
         return ResultUtil.getSuccess(roleMenuService.removeById(id));
+    }
+
+    @GetMapping("/role-menu/{id}")
+    public Result<List<String>> getListBtRole(@PathVariable("id") String id) {
+        return ResultUtil.getSuccess(roleMenuService.getListBtRole(id));
     }
 }

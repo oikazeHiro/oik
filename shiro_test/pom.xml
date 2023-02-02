@@ -85,11 +85,18 @@
         </dependency>
         <!--    连表查询    -->
         <!-- https://mvnrepository.com/artifact/com.github.yulichang/mybatis-plus-join -->
+        <!--        <dependency>-->
+        <!--            <groupId>com.github.yulichang</groupId>-->
+        <!--            <artifactId>mybatis-plus-join</artifactId>-->
+        <!--            <version>1.4.2.1</version>-->
+        <!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/com.github.yulichang/mybatis-plus-join-boot-starter -->
         <dependency>
             <groupId>com.github.yulichang</groupId>
-            <artifactId>mybatis-plus-join</artifactId>
-            <version>1.4.2.1</version>
+            <artifactId>mybatis-plus-join-boot-starter</artifactId>
+            <version>1.4.2.2</version>
         </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator -->
         <dependency>

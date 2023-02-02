@@ -26,4 +26,5 @@ public interface RoleService extends MPJJoinService<Role> {
 
     Map<String,Object> viewAddRole(String userID);
 
+    Boolean saveRole(Role role);
 }

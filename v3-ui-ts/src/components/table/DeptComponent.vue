@@ -15,9 +15,6 @@ const props = defineProps({
 })
 const str = ref('')
 const getDeptStr = async () => {
-  if (!deptSto.deptList || deptSto.deptList.length === 0){
-    await initDeptCache()
-  }
   deptSto.deptList.forEach((item)=>{
     if (item.deptId === props.deptId){
       str.value = item.deptName

@@ -1,5 +1,6 @@
 package com.oik.api.controller;
 
+import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.Role;
@@ -10,7 +11,6 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * <p>
@@ -42,13 +42,15 @@ public class RoleController {
     @PostMapping("/role")
     @RequiresPermissions("role:add")
     public Result<Boolean> add(@RequestBody Role role) {
-        return ResultUtil.getSuccess(roleService.save(role));
+        System.out.println("JSON.toJSONString(role) = " + JSON.toJSONString(role));
+        return ResultUtil.getSuccess(//roleService.saveRole(role)
+        );
     }
 
     @PutMapping("/role")
     @RequiresPermissions("role:update")
     public Result<Boolean> update(@RequestBody Role role) {
-        return ResultUtil.getSuccess(roleService.save(role));
+        return ResultUtil.getSuccess(roleService.saveRole(role));
     }
 
     @DeleteMapping("/role/{id}")

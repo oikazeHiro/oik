@@ -103,6 +103,8 @@ import {User} from '@/store/UserDto'
 import {RouterView} from 'vue-router'
 import {getUserDto, logout} from '@/api/request/login'
 import router from "@/router";
+import {initDeptCache} from "@/api/request/dept";
+import {deptStore} from "@/store/deptStore";
 
 const isCollapse = ref(false)
 const handleOpen = (key: string, keyPath: string[]) => {
@@ -135,19 +137,25 @@ const getAvatar = async () => {
 const doLogout = async () => {
   const res = await logout()
   localStorage.clear();
-  router.push({path: '/login'})
+  await router.push({path: '/login'})
 }
 
 const init = async () => {
   if (userDto.userDto.userId == '' || !userDto.userDto.userId) {
     const res = await getUserDto()
     userDto.setUserDto(res.data)
+    username.value = userDto.userDto.username
+    const deptSto = deptStore()
+    if (!deptSto.deptList || deptSto.deptList.length === 0){
+      await initDeptCache()
+    }
+    await getAvatar()
   }
   // await router.push({path: '/system/home/index'})
 }
-onMounted(() => {
-  init()
-  getAvatar()
+onMounted(async () => {
+  await init()
+
 })
 </script>
 

@@ -108,7 +108,7 @@ public class ExceptionAdvice {
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(NullPointerException.class)
-    public Result nullpo(NullPointerException e) {
+    public Result nullptr(NullPointerException e) {
         e.printStackTrace();
         return ResultUtil.getError(ResultEnum.SystemException.getCode(), e.getMessage());
     }
@@ -120,7 +120,7 @@ public class ExceptionAdvice {
     @ExceptionHandler(Exception.class)
     public Result globalException(Throwable e) {
         e.printStackTrace();
-        return ResultUtil.getError(ResultEnum.SystemException.getCode(), e.getMessage());
+        return ResultUtil.getError(ResultEnum.SystemException);
     }
 
     /**

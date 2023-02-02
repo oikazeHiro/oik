@@ -12,6 +12,8 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -51,7 +53,7 @@ public class Role implements Serializable {
     private LocalDateTime updateTime;
 
     @TableField("STATUS")
-    private String status;
+    private Integer status;
 
     @TableField("CREATE_USERNAME")
     private String createUsername;
@@ -69,8 +71,6 @@ public class Role implements Serializable {
     private Integer dataScope;
 
     @TableField(exist = false)
-    private LocalDateTime startTime;
+    private List<String> perms = new ArrayList<>();
 
-    @TableField(exist = false)
-    private LocalDateTime endTime;
 }

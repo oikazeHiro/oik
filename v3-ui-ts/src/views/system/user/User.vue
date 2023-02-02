@@ -31,10 +31,11 @@
           />
         </el-col>
       </el-row>
+<!--      :row-class-name="tableRowClassName"-->
       <el-table
           v-loading="loading"
           :data="result.page.records"
-          :row-class-name="tableRowClassName"
+
           height="640"
           row-key="menuId"
           style="width: 100%"
@@ -48,7 +49,11 @@
         </el-table-column>
         <el-table-column label="邮箱" prop="email" show-overflow-tooltip width="120"/>
         <el-table-column label="联系电话" prop="mobile" width="120"/>
-        <el-table-column label="状态" prop="status" width="120"/>
+        <el-table-column label="状态" width="120">
+          <template #default="scope">
+            <status-components :num = "scope.row.status" zero-str="无效" one-str="有效"/>
+          </template>
+        </el-table-column>
         <el-table-column label="最近访问时间" width="200">
           <template #default="scope">
             <TimeComponents :timestamp="scope.row.lastLoginTime"/>

@@ -1,6 +1,7 @@
 package com.oik.api.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.oik.dao.dto.AddRole;
 import com.oik.dao.entity.Role;
 import com.oik.dao.entity.User;
 import com.oik.dao.entity.UserRole;
@@ -47,6 +48,12 @@ public class UserRoleController {
     public Result<Boolean> add(@RequestBody UserRole userRole, @RequestParam String username) {
         cacheService.delete(USER_ROLE_CACHE_PREFIX + username);
         return ResultUtil.getSuccess(userRoleService.save(userRole));
+    }
+
+    @PostMapping("/user-role2")
+    public Result<Boolean> add2(@RequestBody AddRole param) {
+        userRoleService.addRole(param);
+        return ResultUtil.getSuccess(true, "success");
     }
 
     @DeleteMapping("/user-role/{id}")

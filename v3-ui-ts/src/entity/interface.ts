@@ -135,7 +135,7 @@ export interface role {
     remark?: string,
     createTime?: number | string,
     updateTime?: number | string,
-    status?: string | number,
+    status?: number,
     createUsername?: string,
     createUserId?: string,
     updateUsername?: string,
@@ -143,6 +143,7 @@ export interface role {
     dataScope?: string,
     startTime?: number | string,
     endTime?: number | string
+    perms?: Array<string|number>
 }
 
 export interface addRole {

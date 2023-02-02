@@ -1,11 +1,13 @@
 package com.oik.service.service;
 
-import com.oik.dao.entity.RoleMenu;
 import com.github.yulichang.base.service.MPJJoinService;
+import com.oik.dao.entity.RoleMenu;
+
+import java.util.List;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author oik
@@ -14,4 +16,6 @@ import com.github.yulichang.base.service.MPJJoinService;
 public interface RoleMenuService extends MPJJoinService<RoleMenu> {
 
     RoleMenu add(RoleMenu roleMenu);
+
+    List<String> getListBtRole(String id);
 }
