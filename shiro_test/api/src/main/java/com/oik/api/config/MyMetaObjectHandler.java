@@ -27,7 +27,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         // 或者
         //this.fillStrategy(metaObject, "createTime", LocalDateTime.now()); // 也可以使用(3.3.0 该方法有bug)
         String createUser = "";
-        Long id = 0L;
+        String id = "";
         try {
             UserDTO user = UserHolder.getUser();
             createUser = user.getUsername();
@@ -35,9 +35,9 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         } catch (Exception e) {
             log.error(e.getMessage());
         }
-        this.strictInsertFill(metaObject, "createUserId", Long.class, id);
+        this.strictInsertFill(metaObject, "createUserId", String.class, id);
         this.strictInsertFill(metaObject, "createUsername", String.class, createUser);
-        this.strictInsertFill(metaObject, "updateUserId", Long.class, id);
+        this.strictInsertFill(metaObject, "updateUserId", String.class, id);
         this.strictInsertFill(metaObject, "updateUsername", String.class, createUser);
 
         //this.setFieldValByName("createUser",user.getUsername(),metaObject); //
@@ -55,7 +55,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         // 或者
         //this.fillStrategy(metaObject, "updateTime", LocalDateTime.now()); // 也可以使用(3.3.0 该方法有bug)
         String updateUser = "";
-        Long id = 0L;
+        String id = "";
         try {
             UserDTO user = UserHolder.getUser();
             updateUser = user.getUsername();
@@ -64,6 +64,6 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
             log.error(e.getMessage());
         }
         this.strictInsertFill(metaObject, "updateUsername", String.class, updateUser);
-        this.strictInsertFill(metaObject, "updateUserId", Long.class, id);
+        this.strictInsertFill(metaObject, "updateUserId", String.class, id);
     }
 }

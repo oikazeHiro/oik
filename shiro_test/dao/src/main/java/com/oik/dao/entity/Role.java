@@ -1,9 +1,6 @@
 package com.oik.dao.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -45,26 +42,26 @@ public class Role implements Serializable {
     private String remark;
 
     @ApiModelProperty("创建时间")
-    @TableField("CREATE_TIME")
+    @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
     @ApiModelProperty("修改时间")
-    @TableField("UPDATE_TIME")
+    @TableField(value = "UPDATE_TIME", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
     @TableField("STATUS")
     private Integer status;
 
-    @TableField("CREATE_USERNAME")
+    @TableField(value = "CREATE_USERNAME", fill = FieldFill.INSERT)
     private String createUsername;
 
-    @TableField("CREATE_USER_ID")
+    @TableField(value = "CREATE_USER_ID", fill = FieldFill.INSERT)
     private String createUserId;
 
-    @TableField("UPDATE_USERNAME")
+    @TableField(value = "UPDATE_USERNAME", fill = FieldFill.INSERT_UPDATE)
     private String updateUsername;
 
-    @TableField("UPDATE_USER_ID")
+    @TableField(value = "UPDATE_USER_ID", fill = FieldFill.INSERT_UPDATE)
     private String updateUserId;
 
     @TableField("DATA_SCOPE")

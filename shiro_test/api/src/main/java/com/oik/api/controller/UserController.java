@@ -92,7 +92,8 @@ public class UserController {
     @RequiresPermissions("user:delete")
     public Result<Boolean> delete(@NotNull(message = "userId is not null") @PathVariable("userId") String userId) {
         if (userId.equals("1")) throw new MyException(ResultEnum.UNAUTHORIZED_ERROR);
-        return ResultUtil.getSuccess(userService.removeById(userId));
+        userService.removeUser(userId);
+        return ResultUtil.getSuccess();
     }
 
     @GetMapping("/get-user")

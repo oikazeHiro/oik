@@ -43,8 +43,7 @@ public class RoleController {
     @RequiresPermissions("role:add")
     public Result<Boolean> add(@RequestBody Role role) {
         System.out.println("JSON.toJSONString(role) = " + JSON.toJSONString(role));
-        return ResultUtil.getSuccess(//roleService.saveRole(role)
-        );
+        return ResultUtil.getSuccess(roleService.saveRole(role));
     }
 
     @PutMapping("/role")
@@ -56,7 +55,8 @@ public class RoleController {
     @DeleteMapping("/role/{id}")
     @RequiresPermissions("role:delete")
     public Result<Boolean> delete(@PathVariable("id") String id) {
-        return ResultUtil.getSuccess(roleService.removeById(id));
+        roleService.removeRole(id);
+        return ResultUtil.getSuccess();
     }
 
 

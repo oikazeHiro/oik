@@ -1,4 +1,6 @@
 spring:
+  main:
+    allow-circular-references: true
   application:
     name: baisea-cc-efarm-api
   profiles:

@@ -37,4 +37,6 @@ public interface UserService extends MPJJoinService<User> {
     Result<Map<String, Object>> index(String username);
 
     Boolean updateUser(User user);
+
+    void removeUser(String userId);
 }

@@ -7,12 +7,14 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.oik.dao.entity.LoginLog;
 import com.oik.dao.entity.User;
+import com.oik.dao.entity.UserRole;
 import com.oik.dao.mapper.UserMapper;
 import com.oik.service.exception.MyException;
 import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultEnum;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.LoginLogService;
+import com.oik.service.service.UserRoleService;
 import com.oik.service.service.UserService;
 import com.oik.util.dto.UserDTO;
 import com.oik.util.redis.CacheClient;
@@ -22,6 +24,7 @@ import com.oik.util.uncategorized.EncryptUtil;
 import com.oik.util.uncategorized.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
@@ -49,6 +52,9 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
     private CacheClient cacheClient;
     @Resource
     private LoginLogService loginLogService;
+    @Resource
+    private UserRoleService userRoleService;
+
     @Override
     public String findSubordinates(Long deptId) {
         return baseMapper.findSubordinates(deptId);
@@ -161,5 +167,13 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
             throw new MyException(ResultEnum.USERNAME_IS_USE);
         }
         return updateById(user);
+    }
+
+    @Override
+    @Transactional
+    public void removeUser(String userId) {
+        removeById(userId);
+        LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<UserRole>().eq(UserRole::getUserId, userId);
+        userRoleService.remove(wrapper);
     }
 }

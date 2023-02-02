@@ -24,3 +24,7 @@ export const saveRoleAndPerms = (data:role) => {
 export const setRoleAndPerms = (data:role) => {
     return request.put('/api/role',data)
 }
+
+export const delRole = (data:role) => {
+    return request.delete('/api/role/'+data.roleId)
+}

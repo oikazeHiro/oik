@@ -70,7 +70,8 @@ public class RoleServiceImpl extends MPJBaseServiceImpl<RoleMapper, Role> implem
                 .selectAll(Role.class)
                 .like(StringUtils.isNotEmpty(role.getRoleName()), Role::getRoleName, role.getRoleName())
                 .like(StringUtils.isNotEmpty(role.getRemark()), Role::getRemark, role.getRemark())
-                .eq(role.getStatus() != null, Role::getStatus, role.getStatus());
+                .eq(role.getStatus() != null, Role::getStatus, role.getStatus())
+                .orderByAsc(Role::getCreateTime);
         return selectJoinListPage(page, Role.class, wrapper);
     }
 
@@ -104,6 +105,13 @@ public class RoleServiceImpl extends MPJBaseServiceImpl<RoleMapper, Role> implem
         saveOrUpdate(role);
         savePerms(perms, role.getRoleId());
         return true;
+    }
+
+    @Override
+    @Transactional
+    public void removeRole(String id) {
+        removeById(id);
+        roleMenuService.remove(new LambdaQueryWrapper<RoleMenu>().eq(RoleMenu::getRoleId, id));
     }
 
     @Transactional

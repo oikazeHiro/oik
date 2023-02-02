@@ -4,7 +4,7 @@
       <el-row :gutter="20">
         <el-col :span="4">
           <el-input
-              v-model="result.param.username"
+              v-model="result.param.roleName"
               class="w-50 m-2"
               placeholder="Type something"
               prefix-icon="Search"
@@ -26,7 +26,7 @@
                            icon="Plus"
                            placement="bottom"
                            type="primary"
-                           @click="showDrawer(null)"
+                           @click="showDrawer(null,'新增角色')"
           />
         </el-col>
       </el-row>
@@ -66,7 +66,7 @@
                                icon="Setting"
                                placement="bottom"
                                type="success"
-                               @click="showDrawer(scope.row)"/>
+                               @click="showDrawer(scope.row,'编辑角色')"/>
               <oik-icon-button circle
                                content="删除"
                                effect="light"
@@ -96,14 +96,14 @@
       </el-row>
     </el-main>
   </el-container>
-  <RoleDrawer ref="roleDrawer" :with_header="true" title="编辑角色"/>
+  <RoleDrawer ref="roleDrawer" :with_header="true" :title="titleNum" @save-ok="getList"/>
 </template>
 
 <script lang="ts" setup>
 import zhCn from "element-plus/lib/locale/lang/zh-cn";
 import {onMounted, reactive, ref} from "vue";
 import {query, role, } from "@/entity/interface";
-import {getRoleList} from "@/api/request/role";
+import {getRoleList,delRole} from "@/api/request/role";
 import OikIconButton from "@/components/button/OikIconButton.vue";
 import TimeComponents from "@/components/table/TimeComponents.vue";
 import RoleDrawer from "@/views/system/role/comoonent/RoleDrawer.vue";
@@ -128,7 +128,6 @@ const getList = async () => {
     loading.value = true
     const res = await getRoleList(result)
     result.page = res.data
-    console.log(result)
   } finally {
     loading.value = false
   }
@@ -144,10 +143,16 @@ const indexMethod = (index: number) => {
   return index + 1
 }
 const roleDrawer = ref<any>()
-const showDrawer = async (row:role) => {
-  if (!row) row = result.param
+const titleNum = ref("新增角色")
+const showDrawer = async (row:role,str?:string) => {
+  titleNum.value = str
+  if (!row) row = {}
   roleDrawer.value.show(row)
-  console.log(row)
+}
+
+const DeleteRow = async (data:role) => {
+  await delRole(data);
+  await getList()
 }
 
 onMounted(async () => {
