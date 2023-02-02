@@ -5,10 +5,8 @@ import com.oik.dao.entity.Dept;
 import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.DeptService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -38,6 +36,18 @@ public class DeptController {
     public Result<List<Dept>> getALLDepth(@PathVariable("option") Integer option) {
         List<Dept> allDepth = deptService.getALLDepth(option);
         return ResultUtil.getSuccess(allDepth);
+    }
+
+    @PostMapping("/dept")
+    @RequiresPermissions("dept:addOrSet")
+    public Result<Boolean> save(Dept dept){
+        return ResultUtil.getSuccess(deptService.saveOrUpdate(dept),"success");
+    }
+
+    @DeleteMapping("/dept")
+    @RequiresPermissions("dept:delete")
+    public Result<Boolean> del(String id){
+        return ResultUtil.getSuccess(deptService.removeById(id),"success");
     }
 
 }

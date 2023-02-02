@@ -6,6 +6,7 @@ import com.oik.service.exception.ResultUtil;
 import com.oik.service.service.CacheService;
 import com.oik.service.service.DictService;
 import com.oik.util.redis.CacheClient;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -42,12 +43,14 @@ public class DictController {
     }
 
     @PostMapping("/dict")
+    @RequiresPermissions("dict:addOrSet")
     public Result<Boolean> add(Dict dict) {
         cacheService.delete(SYS_DICT);
         return ResultUtil.getSuccess(dictService.saveOrUpdate(dict));
     }
 
     @DeleteMapping("/dict/{id}")
+    @RequiresPermissions("dict:delete")
     public Result<Boolean> delete(@NotNull(message = "id is not null") @PathVariable("id") String id) {
         return ResultUtil.getSuccess(dictService.removeById(id));
     }

@@ -8,19 +8,19 @@
         label-width="120px"
         class="demo-ruleForm"
     >
-      <el-form-item label="menuName" prop="menuName">
+      <el-form-item label="名称" prop="menuName">
         <el-input v-model="formData.menuName" autocomplete="off"/>
       </el-form-item>
-      <el-form-item label="path" prop="path" v-if="flag">
+      <el-form-item v-if="flag" label="路径" prop="path">
         <el-input v-model="formData.path" autocomplete="off"/>
       </el-form-item>
-      <el-form-item label="component" prop="component" v-if="flag">
+      <el-form-item v-if="flag" label="组件" prop="component">
         <el-input v-model.number="formData.component"/>
       </el-form-item>
-      <el-form-item label="perms" prop="perms" v-if="!flag">
+      <el-form-item v-if="!flag" label="权限" prop="perms">
         <el-input v-model.number="formData.perms"/>
       </el-form-item>
-      <el-form-item label="icon" prop="icon">
+      <el-form-item label="图标" prop="icon">
         <el-input v-model.number="formData.icon"/>
       </el-form-item>
     </el-form>
@@ -47,13 +47,15 @@ const type = ref(0)
 const flag = ref(true)
 const formData = ref<menus>({})
 const show = async (data: menus, type: number) => {
+  console.log(flag.value)
+  console.log(data)
   await formDataInit()
   if (!type) type = 0;
   title.value = type === 0 ? '添加' : '编辑'
   if (data != null) {
     formData.value.parentId = data.menuId
-    if (data.parentId != '0') flag.value = false
-  }else {
+    if (data.type != '0') flag.value = false
+  } else {
     formData.value.parentId = '0'
   }
   if (type != 0) {
@@ -63,6 +65,7 @@ const show = async (data: menus, type: number) => {
   dialogFormVisible.value = true
 }
 const formDataInit = async () => {
+  flag.value = true
   formData.value = {
     menuId: null,
     parentId: '0',
