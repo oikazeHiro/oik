@@ -137,7 +137,7 @@
 <script lang="ts" setup>
 import {onMounted, reactive, ref} from "vue";
 import {menus, query} from '@/entity/interface'
-import {deleteMenu, getMenus2} from '@/api/request/menu'
+import {deleteMenu, getMenus} from '@/api/request/menu'
 //引入vue方法
 import {ElConfigProvider} from 'element-plus'
 //中文包
@@ -167,7 +167,7 @@ const result = reactive<query<menus>>({
 const getList = async () => {
   loading.value = true
   try {
-    const res = await getMenus2(result)
+    const res = await getMenus(result)
     result.page = res.data
   }finally {
     loading.value = false
