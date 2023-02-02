@@ -320,7 +320,7 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <configuration>
                     <delimiters>@</delimiters>
-                    <useDefaultDelimiters>false</useDefaultDelimiters>
+                    <useDefaultDelimiters>true</useDefaultDelimiters>
                 </configuration>
             </plugin>
         </plugins>

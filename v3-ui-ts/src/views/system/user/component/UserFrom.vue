@@ -15,7 +15,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="密码" prop="password" >
+          <el-form-item label="密码" prop="password">
             <el-input v-model="formData.password" :disabled="formType !== 0" type="password" autocomplete="off"/>
           </el-form-item>
         </el-col>
@@ -26,8 +26,8 @@
       <el-row :gutter="20">
         <el-col :span="12">
           <el-form-item label="部门" prop="deptId">
-<!--            <el-input v-model="formData.deptId" autocomplete="off"/>-->
-              <el-cascader v-model="value" :options="options" :props="props1" clearable @change="valueChange" />
+            <!--            <el-input v-model="formData.deptId" autocomplete="off"/>-->
+            <el-cascader v-model="value" :options="options" :props="props1" clearable @change="valueChange"/>
           </el-form-item>
         </el-col>
         <el-col :span="12">
@@ -52,7 +52,7 @@
                   :value="item.value"
               />
             </el-select>
-<!--            <el-input v-model.number="formData.status"/>-->
+            <!--            <el-input v-model.number="formData.status"/>-->
           </el-form-item>
         </el-col>
       </el-row>
@@ -105,8 +105,8 @@ const options2 = [
 
 const props1 = {
   checkStrictly: true,
-  value:'deptId',
-  label:'deptName'
+  value: 'deptId',
+  label: 'deptName'
 }
 
 const options = ref()
@@ -152,14 +152,18 @@ const validateMobile = (rule: any, value: any, callback: any) => {
   }
 }
 const validateEmail = (rule: any, value: any, callback: any) => {
-  if (!email.test(value)) {
+  if (value === '' || !value) {
+    callback(new Error('请输入邮箱'))
+  } else if (!email.test(value)) {
     callback(new Error('请输入正确的邮箱'))
   } else {
     callback()
   }
 }
 const validateDescription = (rule: any, value: any, callback: any) => {
-  if (value.length > 100) {
+  if (value === '' || !value) {
+    callback(new Error('请输入描述'))
+  } else if (value.length > 100) {
     callback(new Error('请不要写小作文'))
   } else {
     callback()
@@ -202,11 +206,11 @@ const resetForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.resetFields()
 }
-const show = async(data: any, type: number) => {
+const show = async (data: any, type: number) => {
   try {
     const res = await deptCache(1);
     options.value = res.data
-  }catch (e){
+  } catch (e) {
     console.log(e)
   }
   if (type != 0) {
@@ -232,7 +236,7 @@ const show = async(data: any, type: number) => {
   dialogFormVisible.value = true
 }
 const valueChange = () => {
-  formData.value.deptId = value.value[value.value.length-1]
+  formData.value.deptId = value.value[value.value.length - 1]
 }
 //暴露方法
 defineExpose({show})

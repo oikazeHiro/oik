@@ -19,6 +19,7 @@ import com.oik.service.service.RoleMenuService;
 import com.oik.service.service.RoleService;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.RedisConstants;
+import com.oik.util.redis.RedisDeserialization;
 import com.oik.util.redis.UserHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -116,12 +117,12 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
     }
 
     @Override
-    public IPage<Menu> menus(Page page, Menu menu) {
+    public Page<Menu> menus(Page page, Menu menu) {
         MPJLambdaWrapper<Menu> wrapper = new MPJLambdaWrapper<Menu>()
                 .selectAll(Menu.class)
                 .like(StringUtils.isNotEmpty(menu.getMenuName()), Menu::getMenuName, menu.getMenuName())
                 .eq(Menu::getParentId, 0);
-        IPage<Menu> parent = selectJoinListPage(page, Menu.class, wrapper);
+        Page<Menu> parent = (Page<Menu>) selectJoinListPage(page, Menu.class, wrapper);
         wrapper.clear();
         wrapper.selectAll(Menu.class).eq(Menu::getType, 0);
         List<Menu> menus = list(wrapper);
@@ -142,6 +143,7 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
         return parent;
     }
 
+
     @Override
     @Transactional
     public Menu addOrSet(Menu menu) {
@@ -153,7 +155,8 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
 //        UserDTO user = UserHolder.getUser();
         Long deletes = cacheClient.deletes(RedisConstants.USER_PERMISSION_CACHE_PREFIX);
         Long deletes2 = cacheClient.deletes(RedisConstants.USER_CONFIG_CACHE_MENU);
-        log.info("redis删除"+RedisConstants.USER_PERMISSION_CACHE_PREFIX+"数据共"+deletes+"条");
+        cacheClient.delete(RedisConstants.SYS_SELECT_MENU);
+        log.info("redis删除" + RedisConstants.USER_PERMISSION_CACHE_PREFIX + "数据共" + deletes + "条");
         log.info("redis删除"+RedisConstants.USER_CONFIG_CACHE_MENU+"数据共"+deletes2+"条");
         return null;
     }
@@ -166,8 +169,20 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
         roleMenuService.remove(new QueryWrapper<RoleMenu>().lambda().eq(RoleMenu::getMenuId, id));
         Long deletes = cacheClient.deletes(RedisConstants.USER_PERMISSION_CACHE_PREFIX);
         Long deletes2 = cacheClient.deletes(RedisConstants.USER_CONFIG_CACHE_MENU);
+        cacheClient.delete(RedisConstants.SYS_SELECT_MENU);
         log.info("redis删除" + RedisConstants.USER_PERMISSION_CACHE_PREFIX + "数据共" + deletes + "条");
         log.info("redis删除" + RedisConstants.USER_CONFIG_CACHE_MENU + "数据共" + deletes2 + "条");
+
         return null;
+    }
+
+    @Override
+    public IPage<Menu> menusRedis(Page<Menu> page, Menu param) {
+        RedisDeserialization<Menu> Deserialization = new RedisDeserialization<>(cacheClient);
+        try {
+            return Deserialization.queryWithPassThrough2(RedisConstants.SYS_SELECT_MENU, "", () -> (Page<Menu>) menus(page, param), 30L, TimeUnit.MINUTES);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -129,7 +129,8 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.like(user.getUsername() != null, User::getUsername, user.getUsername())
                 .eq(user.getStatus() != null, User::getStatus, user.getStatus())
-                .orderByDesc(User::getLastLoginTime);
+                .orderByDesc(User::getLastLoginTime)
+                .orderByAsc(User::getCreateTime);
         page = this.baseMapper.selectPage(page, queryWrapper);
         return ResultUtil.getSuccess(page);
     }

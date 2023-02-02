@@ -110,6 +110,7 @@ public class CacheClient {
         return queryWithPassThrough(keyPrefix, id, type, dbFallback, time, timeUnit);
     }
 
+
     public <R, ID> List<R> queryWithPassThroughList(
             String keyPrefix, ID id, Class<R> type, Function<ID, List<R>> dbFallback, Long time, TimeUnit timeUnit
     ) throws InterruptedException {
@@ -263,7 +264,7 @@ public class CacheClient {
         Set<String> keys = stringRedisTemplate.keys(key + "*");
         assert keys != null;
         return stringRedisTemplate.delete(keys);
-
     }
+
 
 }

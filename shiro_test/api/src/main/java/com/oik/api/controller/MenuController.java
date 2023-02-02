@@ -76,7 +76,15 @@ public class MenuController {
     @GetMapping("/menu-get")
     @RequiresPermissions("menu:view")
     public Result<IPage<Menu>> menus(Page<Menu> page, Menu param) {
-        return ResultUtil.getSuccess(menuService.menus(page, param));
+//        IPage<Menu> iPage = menuService.menusRedis(page,param);
+        IPage<Menu> menus = menuService.menus(page, param);
+        return ResultUtil.getSuccess(menus);
+    }
+
+    @GetMapping("/menu-get2")
+//    @RequiresPermissions("menu:view")
+    public Result<IPage<Menu>> menus2(Page<Menu> page, Menu param) {
+        return ResultUtil.getSuccess(menuService.menusRedis(page, param));
     }
 
 }

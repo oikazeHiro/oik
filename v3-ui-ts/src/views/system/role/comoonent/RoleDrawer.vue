@@ -1,5 +1,5 @@
 <template>
-  <el-drawer v-model="drawer_" :direction="direction" :title="title" :with-header="with_header" size="40%">
+  <el-drawer v-model="drawer_" :direction="direction" :title="title" :with-header="with_header" size="40%" >
     <el-form
         v-if="open"
         ref="ruleFormRef"
@@ -164,18 +164,20 @@ const rules = reactive({
   ],
 })
 const emits = defineEmits(['save-ok']);
-const submit = () => {
+const submit = async () => {
+  loading.value = true
   data.value.perms = treeRef.value!.getCheckedKeys(false)
   try {
     if (!data.value.roleId||data.value.roleId === ''){
-      saveRoleAndPerms(data.value)
+      await saveRoleAndPerms(data.value)
     }else {
-      setRoleAndPerms(data.value)
+      await setRoleAndPerms(data.value)
     }
   }finally {
-    emits("save-ok")
+    loading.value = false
     open.value = false
     drawer_.value = false
+    emits("save-ok")
   }
 }
 

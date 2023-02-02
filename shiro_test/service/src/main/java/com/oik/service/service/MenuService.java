@@ -32,4 +32,6 @@ public interface MenuService extends MPJJoinService<Menu> {
     Menu addOrSet(Menu menu);
 
     Object delete(String id);
+
+    IPage<Menu> menusRedis(Page<Menu> page, Menu param);
 }
