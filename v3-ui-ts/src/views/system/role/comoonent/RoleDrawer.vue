@@ -127,9 +127,9 @@ const validateRolename = (rule: any, value: any, callback: any) => {
   if (value === '') {
     callback(new Error('请输入角色名'))
   } else if (value.length < 2) {
-    callback(new Error('用户名不能小于2'))
+    callback(new Error('名称不能小于2'))
   } else if (value.length > 20) {
-    callback(new Error('用户名不能超过20'))
+    callback(new Error('名称不能超过20'))
   } else {
     callback()
   }

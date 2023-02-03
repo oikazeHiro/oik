@@ -10,6 +10,7 @@ import com.oik.service.service.DeptService;
 import com.oik.util.redis.CacheClient;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -39,7 +40,8 @@ public class DeptServiceImpl extends MPJBaseServiceImpl<DeptMapper, Dept> implem
         LambdaQueryWrapper<Dept> wrapper = new LambdaQueryWrapper<>();
         wrapper.like(StringUtils.isNotEmpty(dept.getDeptName()), Dept::getDeptName, dept.getDeptName())
                 .eq(Dept::getParentId, 0)
-                .orderByAsc(Dept::getOrderNum);
+                .orderByAsc(Dept::getOrderNum)
+                .orderByAsc(Dept::getCreateTime);
         Page<Dept> deptPage = baseMapper.selectPage(page, wrapper);
         wrapper.clear();
         wrapper.ne(Dept::getParentId, 0)
@@ -72,5 +74,13 @@ public class DeptServiceImpl extends MPJBaseServiceImpl<DeptMapper, Dept> implem
             throw new MyException(e.getMessage());
         }
 
+    }
+
+    @Transactional
+    @Override
+    public Boolean removeDept(String id) {
+        remove(new LambdaQueryWrapper<Dept>().eq(Dept::getParentId, id));
+        removeById(id);
+        return true;
     }
 }

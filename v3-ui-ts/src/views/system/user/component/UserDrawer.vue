@@ -12,6 +12,7 @@
             :key="item.roleId"
             :label="item.roleName"
             :value="item.roleId"
+            :disabled = "item.status === 0"
         />
       </el-select>
     </div>

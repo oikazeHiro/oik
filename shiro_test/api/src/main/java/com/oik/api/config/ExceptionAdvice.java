@@ -62,7 +62,7 @@ public class ExceptionAdvice {
     @ExceptionHandler(UnauthorizedException.class)
     public Result Unauthorized(UnauthorizedException e) {
         e.printStackTrace();
-        return ResultUtil.getError(407, e.getMessage());
+        return ResultUtil.getError(407, "未经授权" + e.getMessage());
     }
 
     @ExceptionHandler(Throwable.class)

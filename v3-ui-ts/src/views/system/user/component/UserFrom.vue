@@ -106,7 +106,8 @@ const options2 = [
 const props1 = {
   checkStrictly: true,
   value: 'deptId',
-  label: 'deptName'
+  label: 'deptName',
+  disabled:'verify'
 }
 
 const options = ref()
@@ -209,7 +210,17 @@ const resetForm = (formEl: FormInstance | undefined) => {
 const show = async (data: any, type: number) => {
   try {
     const res = await deptCache(1);
+    res.data.forEach((e) => {
+      e.verify = e.status === 0
+      if (e.children) {
+        e.children.forEach((f) => {
+          f.verify = f.status === 0
+        })
+      }
+    })
     options.value = res.data
+    console.log(res.data)
+    console.log(options.value)
   } catch (e) {
     console.log(e)
   }

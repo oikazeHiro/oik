@@ -52,7 +52,7 @@ public class Dept implements Serializable {
     private LocalDateTime updateTime;
 
     @TableField("STATUS")
-    private String status;
+    private Integer status;
 
     @TableField(value = "CREATE_USER", fill = FieldFill.INSERT)
     private String createUser;

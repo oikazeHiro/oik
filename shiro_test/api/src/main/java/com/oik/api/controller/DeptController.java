@@ -40,14 +40,15 @@ public class DeptController {
 
     @PostMapping("/dept")
     @RequiresPermissions("dept:addOrSet")
-    public Result<Boolean> save(Dept dept){
-        return ResultUtil.getSuccess(deptService.saveOrUpdate(dept),"success");
+    public Result<Boolean> save(@RequestBody Dept dept) {
+        boolean b = deptService.saveOrUpdate(dept);
+        return ResultUtil.getSuccess(b, "success");
     }
 
-    @DeleteMapping("/dept")
+    @DeleteMapping("/dept/{id}")
     @RequiresPermissions("dept:delete")
-    public Result<Boolean> del(String id){
-        return ResultUtil.getSuccess(deptService.removeById(id),"success");
+    public Result<Boolean> del(@PathVariable("id") String id) {
+        return ResultUtil.getSuccess(deptService.removeDept(id), "success");
     }
 
 }

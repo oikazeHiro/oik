@@ -20,4 +20,6 @@ public interface DeptService extends MPJJoinService<Dept> {
     Page<Dept> dept(Page<Dept> page, Dept dept);
 
     List<Dept> getALLDepth(Integer option);
+
+    Boolean removeDept(String id);
 }

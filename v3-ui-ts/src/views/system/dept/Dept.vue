@@ -26,7 +26,7 @@
                            icon="Plus"
                            placement="bottom"
                            type="primary"
-                           @click="editDept(null,'新增角色')"
+                           @click="editDept({},0)"
           />
         </el-col>
       </el-row>
@@ -34,20 +34,38 @@
           v-loading="loading"
           :data="result.page.records"
           height="600"
-          row-key="menuId"
-          style="width: 100%"
+          style="width: 70%;margin: auto"
       >
+        <el-table-column label="部门名称" prop="deptName" width="120"/>
+        <el-table-column label="状态" prop="status" width="120">
+          <template #default="scope">
+            <status-components :num = "scope.row.status" zero-str="无效" one-str="有效"/>
+          </template>
+        </el-table-column>
+        <el-table-column label="排序" prop="orderNum" width="120"/>
+        <el-table-column label="创建人" prop="createUsername" width="120"/>
+        <el-table-column label="创建时间" width="180">
+          <template #default="scope">
+            <TimeComponents :timestamp="scope.row.createTime"/>
+          </template>
+        </el-table-column>
+        <el-table-column label="更新人" prop="updateUsername" width="120"/>
+        <el-table-column label="更新时间" width="180">
+          <template #default="scope">
+            <TimeComponents :timestamp="scope.row.updateTime"/>
+          </template>
+        </el-table-column>
         <el-table-column fixed="right" label="Operations" width="150">
           <template #default="scope">
             <el-row justify="space-around">
-              <oik-icon-button v-if="scope.row.parentId === '0'"
+              <oik-icon-button
                                circle
-                               content="添加路由"
+                               content="编辑"
                                effect="light"
-                               icon="Plus"
+                               icon="EditPen"
                                placement="bottom-start"
                                type="primary"
-                               @click="editDept(scope.row,'编辑角色')"/>
+                               @click="editDept(scope.row,1)"/>
               <oik-icon-button circle
                                content="设置"
                                effect="light"
@@ -73,7 +91,7 @@
               v-model:page-size="result.page.size"
               :background="false"
               :disabled="false"
-              :page-sizes="[10, 20, 50, 100]"
+              :page-sizes="[10, 30, 50, 100]"
               :small="false"
               :total="result.page.total"
               layout="total, sizes, prev, pager, next, jumper"
@@ -84,13 +102,20 @@
       </el-row>
     </el-main>
   </el-container>
+  <dept-form ref="deptForm" @save-ok="getList"/>
+  <dept-drawer ref="deptDrawer" @save-ok="getList" :with_header="true"/>
 </template>
 
 <script lang="ts" setup>
 import zhCn from "element-plus/lib/locale/lang/zh-cn";
 import {onMounted, reactive, ref} from "vue";
 import {dept, query} from "@/entity/interface";
+import {deptList,delOne} from "@/api/request/dept"
 import OikIconButton from "@/components/button/OikIconButton.vue";
+import StatusComponents from "@/components/table/StatusComponents.vue";
+import DeptForm from "@/views/system/dept/component/DeptForm.vue";
+import DeptDrawer from "@/views/system/dept/component/DeptDrawer.vue";
+import TimeComponents from "@/components/table/TimeComponents.vue";
 
 const locale = zhCn
 const loading = ref(false)
@@ -98,7 +123,7 @@ const result = reactive<query<dept>>({
   page: {
     records: [],
     total: 0,
-    size: 10,
+    size: 30,
     current: 1,
   },
   param: {
@@ -108,6 +133,8 @@ const result = reactive<query<dept>>({
 const getList = async () => {
   try {
     loading.value = true
+    const res = await deptList(result);
+    result.page = res.data
   } finally {
     loading.value = false
   }
@@ -119,13 +146,20 @@ const handleCurrentChange = (val: number) => {
   getList()
 }
 
-const editDept = (data: dept, Str: string) => {
+const deptForm = ref<any>()
+const deptDrawer = ref<any>()
+
+const editDept = (data: dept, num: number) => {
+  deptForm.value.show(data,num)
   console.log()
 }
 const SetUpDept = (data: dept) => {
+  deptDrawer.value.show(data)
   console.log()
 }
 const DeleteDept = (data: dept) => {
+  delOne(data);
+  getList()
   console.log()
 }
 

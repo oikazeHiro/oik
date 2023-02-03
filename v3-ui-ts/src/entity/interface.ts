@@ -119,14 +119,15 @@ export interface dept {
     parentId?:string,
     deptName?:string,
     orderNum?: string,
-    status?: string,
+    status?: number,
     createUser?: string,
     createTime?: number | string,
     createUsername?: string,
     updateUser?: string,
     updateTime?: number | string,
     updateUsername?: string,
-    children?: dept
+    children?: Array<dept>
+    verify?: boolean
 }
 
 export interface role {

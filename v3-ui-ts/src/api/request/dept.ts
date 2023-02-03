@@ -7,7 +7,18 @@ export const deptCache = async (option:number) => {
 }
 
 export const deptList = async (param:query<dept>) => {
-    return request.get2<dept,Array<dept>>('/api/dept',param)
+    return request.get2<dept,page<dept>>('/api/dept',param)
+}
+
+export const saveOrSetDept = async  (data:dept) =>{
+    if (data.children){
+        data.children = undefined
+    }
+    return request.post<boolean>('/api/dept',data)
+}
+
+export const delOne = async (data: dept) => {
+    return request.delete('/api/dept/'+data.deptId)
 }
 
 export const initDeptCache = async () =>{
