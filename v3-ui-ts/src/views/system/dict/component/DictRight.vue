@@ -1,8 +1,5 @@
 <template>
-  <el-container>
-    <el-aside width="50%"></el-aside>
-    <el-main></el-main>
-  </el-container>
+
 </template>
 
 <script lang="ts" setup>

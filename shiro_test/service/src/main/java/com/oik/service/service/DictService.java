@@ -1,5 +1,6 @@
 package com.oik.service.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.service.MPJJoinService;
 import com.oik.dao.entity.Dict;
 
@@ -16,4 +17,6 @@ import java.util.List;
 public interface DictService extends MPJJoinService<Dict> {
 
     List<Dict> getdicts();
+
+    Page<Dict> findDictList(Page<Dict> page, Dict dict);
 }

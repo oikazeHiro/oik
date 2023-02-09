@@ -1,5 +1,6 @@
 package com.oik.api.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.Dict;
 import com.oik.service.exception.Result;
 import com.oik.service.exception.ResultUtil;
@@ -55,4 +56,9 @@ public class DictController {
         return ResultUtil.getSuccess(dictService.removeById(id));
     }
 
+    @GetMapping("/dict-list")
+    @RequiresPermissions("dict:view")
+    public Result<Page<Dict>> findDictList(Page<Dict> page, Dict dict) {
+        return ResultUtil.getSuccess(dictService.findDictList(page, dict));
+    }
 }

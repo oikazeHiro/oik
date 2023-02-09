@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow>
+    <nodes>
+        <node id="a" class="com.oik.api.liteflow.ACmp"/>
+    </nodes>
+    <chain name="chain1">
+        THEN(a);
+    </chain>
+</flow>

@@ -105,7 +105,7 @@ const saveOk = () => {
   emits("save-ok")
   console.log()
 }
-defineExpose({show,show2})
+defineExpose({show})
 </script>
 
 <style lang="scss" scoped>

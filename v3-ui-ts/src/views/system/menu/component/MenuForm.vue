@@ -1,6 +1,7 @@
 <template>
   <el-dialog v-model="dialogFormVisible" :title="title">
     <el-form
+        v-loading="loading"
         ref="ruleFormRef"
         :model="formData"
         status-icon
@@ -54,7 +55,7 @@ const show = async (data: menus, type: number) => {
   title.value = type === 0 ? '添加' : '编辑'
   if (data != null) {
     formData.value.parentId = data.menuId
-    if (data.type != '0') flag.value = false
+    if (data.parentId != '0') flag.value = false
   } else {
     formData.value.parentId = '0'
   }
@@ -63,6 +64,7 @@ const show = async (data: menus, type: number) => {
     formData.value = data
   }
   dialogFormVisible.value = true
+  console.log(flag.value)
 }
 const formDataInit = async () => {
   flag.value = true
@@ -86,11 +88,18 @@ const formDataInit = async () => {
   }
 }
 const emits = defineEmits(['save-ok']);
+const loading = ref(false)
 const submit = async () => {
-  if (formData.value.parentId != '0') formData.value.type = '1';
-  const res = await saveMenu(formData.value)
-  emits("save-ok")
-  dialogFormVisible.value = false
+  try {
+    loading.value = true
+    if (formData.value.parentId != '0') formData.value.type = '1';
+    const res = await saveMenu(formData.value)
+  }finally {
+    loading.value = false
+    emits("save-ok")
+    dialogFormVisible.value = false
+  }
+
 }
 const ruleFormRef = ref<FormInstance>()
 const validateMenuName = (rule: any, value: any, callback: any) => {
