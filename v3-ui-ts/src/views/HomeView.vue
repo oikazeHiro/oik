@@ -76,7 +76,6 @@
                     </el-dropdown-menu>
                   </template>
                 </el-dropdown>
-
               </div>
             </el-col>
             <el-col :span="2">
@@ -88,6 +87,9 @@
           <el-container style="height: 100%">
             <el-main style="height: 100%;background-color: white">
               <router-view/>
+              <el-affix position="bottom" :offset="20">
+                <el-button type="primary">Offset bottom 20px</el-button>
+              </el-affix>
             </el-main>
           </el-container>
         </el-main>

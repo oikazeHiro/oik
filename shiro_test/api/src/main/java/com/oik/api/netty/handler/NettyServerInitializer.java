@@ -1,14 +1,11 @@
 package com.oik.api.netty.handler;
 
-import com.oik.api.netty.pojo.Message;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
-import io.netty.handler.codec.protobuf.ProtobufDecoder;
-import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.stream.ChunkedWriteHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 
@@ -30,8 +27,7 @@ public class NettyServerInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast("http-chunked", new ChunkedWriteHandler());
         // websocket
         pipeline.addLast("websocket", new WebSocketServerProtocolHandler("ws"));
-        pipeline.addLast("encoder", new ProtobufEncoder());
-        pipeline.addLast("decoder", new ProtobufDecoder(Message.Msg.getDefaultInstance()));
-        pipeline.addLast(new NettyServerHandler());
+//        pipeline.addLast(new NettyServerHandler()); // 等前端的protobuf 和实体设计搞好再用这个
+        pipeline.addLast(new ChatMsgServerHander());
     }
 }

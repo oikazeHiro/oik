@@ -8,14 +8,17 @@ import com.oik.service.service.ChatMsgService;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelId;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
 
+@Service
 public class Read0ServiceImpl implements Read0Service {
 
     @Resource
     private ChatMsgService chatMsgService;
+
     @Override
     public void operate(ChannelHandlerContext ctx, Message.Msg msg) {
         int number = msg.getDataType().getNumber();

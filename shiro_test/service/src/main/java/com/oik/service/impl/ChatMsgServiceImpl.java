@@ -29,7 +29,7 @@ public class ChatMsgServiceImpl extends MPJBaseServiceImpl<ChatMsgMapper, ChatMs
     @Override
     @Transactional
     public ChatMsg sendChatMsg(ChatMsg msg) {
-        this.saveOrUpdate(msg);
+        this.save(msg);
         return msg;
     }
 
