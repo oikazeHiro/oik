@@ -151,3 +151,48 @@ export interface addRole {
     youRole: Array<string>,
     userId: string
 }
+
+
+export default class User implements user {
+    userId?: string
+    username?: string
+    deptId?: string|any
+    email?: string
+    mobile?: string
+    status?: string|number
+    lastLoginTime?: number | string
+    description?: string
+    avatar?: string
+    createUsername?: string
+    createUserId?: string
+    createTime?: string | number
+    updateUsername?: string
+    updateTime?: string | number
+    updateUserId?: string
+
+    online?: boolean
+
+
+    constructor(userId?: string, username?: string, deptId?: any,
+                email?: string, mobile?: string, status?: string | number,
+                lastLoginTime?: number | string, description?: string,
+                avatar?: string, createUsername?: string, createUserId?: string,
+                createTime?: string | number, updateUsername?: string,
+                updateTime?: string | number, updateUserId?: string) {
+        this.userId = userId;
+        this.username = username;
+        this.deptId = deptId;
+        this.email = email;
+        this.mobile = mobile;
+        this.status = status;
+        this.lastLoginTime = lastLoginTime;
+        this.description = description;
+        this.avatar = avatar;
+        this.createUsername = createUsername;
+        this.createUserId = createUserId;
+        this.createTime = createTime;
+        this.updateUsername = updateUsername;
+        this.updateTime = updateTime;
+        this.updateUserId = updateUserId;
+    }
+}

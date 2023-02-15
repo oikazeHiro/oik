@@ -9,7 +9,7 @@ oik:
   # 是否异步记录用户操作日志
   openAopLog: true
   netty:
-    port: 6000
+    port: 7001
   # 单次最大批量入库数量
   max:
     batch:

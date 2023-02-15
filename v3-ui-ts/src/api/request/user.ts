@@ -15,3 +15,7 @@ export const register = async (data : user) => {
 export const del = async (param : string) => {
     return request.delete<any>('/api/user/delete'+'/'+param)
 }
+
+export const getUserList = async (param: string) => {
+    return request.get<Array<user>>('/api/user/get-user-list/'+param)
+}

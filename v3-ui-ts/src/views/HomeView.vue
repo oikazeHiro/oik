@@ -88,7 +88,7 @@
             <el-main style="height: 100%;background-color: white">
               <router-view/>
               <el-affix position="bottom" :offset="20">
-                <el-button type="primary">Offset bottom 20px</el-button>
+                <el-button type="primary" @click="msgShow">Offset bottom 20px</el-button>
               </el-affix>
             </el-main>
           </el-container>
@@ -96,6 +96,7 @@
       </el-container>
     </el-container>
   </el-container>
+  <chat-msg ref="charMsg"/>
 </template>
 
 <script lang="ts" setup>
@@ -107,6 +108,7 @@ import {getUserDto, logout} from '@/api/request/login'
 import router from "@/router";
 import {initDeptCache} from "@/api/request/dept";
 import {deptStore} from "@/store/deptStore";
+import ChatMsg from "@/components/home/ChatMsg.vue";
 
 const isCollapse = ref(false)
 const handleOpen = (key: string, keyPath: string[]) => {
@@ -154,6 +156,11 @@ const init = async () => {
     await getAvatar()
   }
   // await router.push({path: '/system/home/index'})
+}
+const charMsg = ref<any>()
+
+const msgShow = () => {
+  charMsg.value.show()
 }
 onMounted(async () => {
   await init()

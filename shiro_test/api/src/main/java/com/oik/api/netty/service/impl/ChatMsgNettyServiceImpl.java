@@ -1,7 +1,6 @@
 package com.oik.api.netty.service.impl;
 
 import com.alibaba.fastjson2.JSON;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oik.api.netty.constant.MessageCodeConstant;
 import com.oik.api.netty.constant.MessageTypeConstant;
 import com.oik.api.netty.constant.WebSocketConstant;
@@ -9,7 +8,9 @@ import com.oik.api.netty.service.ChatMsgNettyService;
 import com.oik.api.netty.util.ChannelOperateUtil;
 import com.oik.api.netty.util.RequestParamUtil;
 import com.oik.dao.entity.ChatMsg;
+import com.oik.dao.entity.User;
 import com.oik.service.service.ChatMsgService;
+import com.oik.service.service.UserService;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
@@ -20,6 +21,7 @@ import io.netty.handler.codec.http.HttpVersion;
 import io.netty.handler.codec.http.websocketx.*;
 import io.netty.util.CharsetUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,8 +48,8 @@ public class ChatMsgNettyServiceImpl implements ChatMsgNettyService {
     @Resource
     private ChatMsgService chatMsgService;
 
-    private ObjectMapper objectMapper = new ObjectMapper();
-
+    @Resource
+    private UserService userService;
 
     @Override
     public void handHttpRequest(ChannelHandlerContext ctx, FullHttpRequest request) {
@@ -68,6 +70,7 @@ public class ChatMsgNettyServiceImpl implements ChatMsgNettyService {
             String userId = params.get("userId");
             Channel channel = ctx.channel();
             ChannelId id = channel.id();
+            verify(userId, channel);
             ChannelOperateUtil.addSocketGroup(channel);
             ChannelOperateUtil.addChannelMap(userId, id);
             ChannelOperateUtil.addChannelList(channel);
@@ -75,8 +78,10 @@ public class ChatMsgNettyServiceImpl implements ChatMsgNettyService {
             Set<String> userList = ChannelOperateUtil.getMapKeySet();
             Map<String, Object> ext = new HashMap<>();
             ext.put("userList", userList);
+            User user = userService.getById(userId);
             ChatMsg chatMsg = new ChatMsg()
                     .setExpandMsg(JSON.toJSONString(ext))
+                    .setMsg("user: " + user.getUsername() + " Online,Welcome.")
                     .setCode(MessageCodeConstant.SYSTEM_MESSAGE_CODE.getCode())
                     .setMsgType(MessageTypeConstant.UPDATE_USER_LIST_SYSTEM_MESSAGE.getType());
             ChannelOperateUtil.sendAll(new TextWebSocketFrame(JSON.toJSONString(chatMsg)));
@@ -109,11 +114,9 @@ public class ChatMsgNettyServiceImpl implements ChatMsgNettyService {
             throw new RuntimeException("【" + this.getClass().getName() + "】不支持消息");
         }
         String message = ((TextWebSocketFrame) frame).text();
-        log.info(message);
+        log.info(message + "=================");
         try {
-
-
-            ChatMsg chatMsg = objectMapper.readValue(message, ChatMsg.class);
+            ChatMsg chatMsg = JSON.parseObject(message, ChatMsg.class);
             Integer code = chatMsg.getCode();
             switch (code) {
                 // 私聊
@@ -175,9 +178,13 @@ public class ChatMsgNettyServiceImpl implements ChatMsgNettyService {
     @Override
     public void clearSession(Channel ch) {
         ChannelId id = ch.id();
+        log.info("清除SocketGroup");
         ChannelOperateUtil.removeSocketGroup(ch);
+        log.info("清除ChannelList");
         ChannelOperateUtil.removeChannelList(ch);
+        log.info("清除SocketGroupByValue");
         ChannelOperateUtil.removeSocketGroupByValue(id);
+        ChannelOperateUtil.infoString();
     }
 
     @Transactional
@@ -185,12 +192,30 @@ public class ChatMsgNettyServiceImpl implements ChatMsgNettyService {
         try {
             chatMsgService.sendChatMsg(chatMsg);
             Channel channel = ChannelOperateUtil.findChannel(ChannelOperateUtil.getChannelMap(chatMsg.getAcceptId()));
-            TextWebSocketFrame frame = new TextWebSocketFrame(objectMapper.writeValueAsString(chatMsg));
-            channel.writeAndFlush(frame);
-            ch.writeAndFlush(frame);
+            channel.writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(chatMsg)));
+            ch.writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(chatMsg)));
         } catch (Exception e) {
             log.error(e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 验证是否一个key有没有绑定的channel 有就把原来的删掉
+     *
+     * @param userId
+     */
+    public void verify(String userId, Channel channel) {
+        ChannelId id = ChannelOperateUtil.getChannelMap(userId);
+        if (StringUtils.isEmpty(userId)) {
+            log.warn("userId为空，关闭管道");
+            channel.close();
+        }
+        if (id != null) {
+            log.warn("清除旧的channel");
+            Channel ch = ChannelOperateUtil.findChannel(id);
+            clearSession(ch);
+        }
+
     }
 }

@@ -53,6 +53,7 @@ public class NettyServer {
             log.info("---netty socket server start port: " + nettyPort + "---");
             channelFuture.channel().closeFuture().sync();
         } catch (Exception e) {
+            e.printStackTrace();
             log.error("netty start error: " + e.getMessage());
         } finally {
             close();

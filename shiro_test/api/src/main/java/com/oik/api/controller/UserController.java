@@ -1,6 +1,7 @@
 package com.oik.api.controller;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.User;
 import com.oik.service.exception.MyException;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.validation.constraints.NotNull;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -101,4 +103,11 @@ public class UserController {
         return ResultUtil.getSuccess(UserHolder.getUser());
     }
 
+    @GetMapping("/get-user-list/{userId}")
+    public Result<List<User>> getUserList(@PathVariable("userId") String userId) {
+        LambdaQueryWrapper<User> Wrapper = new LambdaQueryWrapper<>();
+        Wrapper.ne(User::getUserId, userId);
+        List<User> list = userService.list(Wrapper);
+        return ResultUtil.getSuccess(list);
+    }
 }

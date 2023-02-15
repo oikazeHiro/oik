@@ -136,4 +136,9 @@ public class ChannelOperateUtil {
         Collection<ChannelId> values = socketChannelHashMap.values();
         return values.remove(id);
     }
+
+    public static void infoString() {
+        System.out.println("socketChannelHashMap = " + socketChannelHashMap.toString());
+        System.out.println("socketGroup = " + socketGroup.toString());
+    }
 }
