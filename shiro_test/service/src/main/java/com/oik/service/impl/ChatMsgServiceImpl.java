@@ -1,14 +1,13 @@
 package com.oik.service.impl;
 
-import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.oik.dao.entity.ChatMsg;
 import com.oik.dao.mapper.ChatMsgMapper;
+import com.oik.service.service.ChatMsgService;
 import com.oik.util.channelUitl.MessageUtil;
 import com.oik.util.exception.Result;
-import com.oik.service.service.ChatMsgService;
 import com.oik.util.exception.ResultUtil;
 import com.oik.util.str.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -67,10 +66,10 @@ public class ChatMsgServiceImpl extends MPJBaseServiceImpl<ChatMsgMapper, ChatMs
     @Override
     @Transactional
     public Result sendPrivateMsg(ChatMsg chatMsg) {
-        save(chatMsg);
-        boolean b = messageUtil.sendMessage(chatMsg.getAcceptId(), jsonUtil.fastJsonSerializer(chatMsg));
-        messageUtil.sendMessage(chatMsg.getSendId(),jsonUtil.fastJsonSerializer(chatMsg));
-        return ResultUtil.getSuccess(b);
+        boolean save = save(chatMsg);
+        messageUtil.sendMessage(chatMsg.getAcceptId(), jsonUtil.fastJsonSerializer(chatMsg));
+        messageUtil.sendMessage(chatMsg.getSendId(), jsonUtil.fastJsonSerializer(chatMsg));
+        return ResultUtil.getSuccess(save);
     }
 
     @Override

@@ -26,7 +26,7 @@ public class NettyServerInitializer extends ChannelInitializer<SocketChannel> {
         // websocket
 //        pipeline.addLast("websocket", new WebSocketServerProtocolHandler("ws"));
         //心跳检测
-        pipeline.addLast("ping", new IdleStateHandler(2, 1, 3, TimeUnit.MINUTES));
+        pipeline.addLast("ping", new IdleStateHandler(6, 5, 7, TimeUnit.MINUTES));
 //        pipeline.addLast(new NettyServerHandler()); // 等前端的protobuf 和实体设计搞好再用这个
 //        pipeline.addLast(chatMsgServerHandler);
         pipeline.addLast(new ChatMsgServerHandler());

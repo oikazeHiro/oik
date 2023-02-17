@@ -2,9 +2,6 @@ package com.oik.dao.entity;
 
 import com.alibaba.fastjson2.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.*;
-
-import com.oik.util.time.LocalDateTimeDeserializer;
-import com.oik.util.time.LocalDateTimeSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -69,6 +66,11 @@ public class ChatMsg implements Serializable {
     public ChatMsg(String sendId, String acceptId, String msg) {
         this.sendId = sendId;
         this.acceptId = acceptId;
+        this.msg = msg;
+    }
+
+    public ChatMsg(int code, String msg) {
+        this.code = code;
         this.msg = msg;
     }
 }

@@ -26,7 +26,7 @@ export default class chatMsgImpl implements chatMsg {
 
     constructor(id?: string, code?: number, sendId?: string,
                 acceptId?: string, msg?: string, signFlag?: string,
-                createTime?: string, msgType?: number, acceptGroup?: string, expandMsg?: any) {
+                createTime?: string|number|Array<number>, msgType?: number, acceptGroup?: string, expandMsg?: any) {
         this.id = id;
         this.code = code;
         this.sendId = sendId;
