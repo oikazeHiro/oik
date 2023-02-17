@@ -1,10 +1,10 @@
 package com.oik.api.config;
 
 
-import com.oik.service.exception.MyException;
-import com.oik.service.exception.Result;
-import com.oik.service.exception.ResultEnum;
-import com.oik.service.exception.ResultUtil;
+import com.oik.util.exception.MyException;
+import com.oik.util.exception.Result;
+import com.oik.util.exception.ResultEnum;
+import com.oik.util.exception.ResultUtil;
 import io.jsonwebtoken.SignatureException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;

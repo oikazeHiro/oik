@@ -2,7 +2,6 @@ package com.oik.api.netty.handler;
 
 import com.oik.api.netty.service.ChatMsgNettyService;
 import com.oik.api.netty.service.impl.ChatMsgNettyServiceImpl;
-import com.oik.api.netty.util.ChannelOperateUtil;
 import com.oik.util.application.SpringContextUtil;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -31,7 +30,6 @@ public class ChatMsgServerHandler extends SimpleChannelInboundHandler<Object> {
             WebSocketFrame webSocketFrame = (WebSocketFrame) o;
             chatMsgNettyService.handWebsocketFrame(channelHandlerContext, webSocketFrame);
         }
-        ChannelOperateUtil.infoString();
     }
 
     @Override
@@ -52,7 +50,7 @@ public class ChatMsgServerHandler extends SimpleChannelInboundHandler<Object> {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        log.error(cause.getMessage() + "====");
+        log.error(cause.getMessage());
         cause.printStackTrace();
         ctx.close();
     }

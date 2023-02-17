@@ -4,7 +4,7 @@ import com.github.yulichang.base.service.MPJJoinService;
 import com.oik.dao.dto.AddRole;
 import com.oik.dao.entity.Role;
 import com.oik.dao.entity.UserRole;
-import com.oik.service.exception.Result;
+import com.oik.util.exception.Result;
 
 import java.util.List;
 

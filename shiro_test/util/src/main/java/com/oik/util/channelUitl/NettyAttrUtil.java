@@ -1,4 +1,4 @@
-package com.oik.api.netty.util;
+package com.oik.util.channelUitl;
 
 /**
  * @author 15093

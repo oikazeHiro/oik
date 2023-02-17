@@ -2,7 +2,7 @@ package com.oik.api.netty.handler;
 
 import com.oik.api.netty.pojo.Message;
 import com.oik.api.netty.service.Read0Service;
-import com.oik.api.netty.util.ChannelOperateUtil;
+import com.oik.util.channelUitl.ChannelOperateUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;

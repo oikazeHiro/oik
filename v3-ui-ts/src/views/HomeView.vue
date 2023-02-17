@@ -109,6 +109,7 @@ import router from "@/router";
 import {initDeptCache} from "@/api/request/dept";
 import {deptStore} from "@/store/deptStore";
 import ChatMsg from "@/components/home/ChatMsg.vue";
+import {initSocket} from "@/util/InitSocket";
 
 const isCollapse = ref(false)
 const handleOpen = (key: string, keyPath: string[]) => {
@@ -155,6 +156,7 @@ const init = async () => {
     }
     await getAvatar()
   }
+  initSocket(userDto.userDto.userId)
   // await router.push({path: '/system/home/index'})
 }
 const charMsg = ref<any>()

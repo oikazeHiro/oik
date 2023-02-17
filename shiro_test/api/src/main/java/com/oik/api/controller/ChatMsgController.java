@@ -1,14 +1,13 @@
 package com.oik.api.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.ChatMsg;
-import com.oik.service.exception.Result;
+import com.oik.util.exception.Result;
+import com.oik.util.exception.ResultUtil;
 import com.oik.service.service.ChatMsgService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * <p>
@@ -19,20 +18,27 @@ import java.util.List;
  * @since 2022-12-22
  */
 @RestController
-@RequestMapping("/chatMsg")
+@RequestMapping("/")
 public class ChatMsgController {
 
     @Resource
     private ChatMsgService chatMsgService;
 
-    @GetMapping("")
-    public Result<List<ChatMsg>> get() {
-        return chatMsgService.getMsg();
+    @GetMapping("/chatMsg")
+    public Result<Page<ChatMsg>> get(Page<ChatMsg> page,ChatMsg chatMsg) {
+        page = chatMsgService.getChatMsg(page,chatMsg);
+        return ResultUtil.getSuccess(page);
     }
 
-//    @PostMapping
-//    public Result save(@RequestBody ChatMsg msg){
-//        chatMsgService.save(msg);
-//        return ResultUtil.getSuccess();
-//    }
+    @PostMapping("/send-private-msg")
+    public Result sendPrivateMsg(@RequestBody ChatMsg chatMsg){
+        return chatMsgService.sendPrivateMsg(chatMsg);
+    }
+
+    @PostMapping("/send-sys-msg")
+    public Result sendSysMsg(@RequestBody ChatMsg chatMsg){
+        chatMsgService.sendSysMsg(chatMsg);
+        return ResultUtil.getSuccess();
+    }
+
 }

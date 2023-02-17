@@ -5,28 +5,28 @@ export interface chatMsg {
     acceptId?: string,
     msg?: string,
     signFlag?: string,
-    createTime?: string,
-    msgType?: string,
+    createTime?: number | string | Array<number>,
+    msgType?: number,
     acceptGroup?: string,
     expandMsg?: any
 }
 
-export default class chatMsgImpl implements chatMsg{
+export default class chatMsgImpl implements chatMsg {
     id?: string
     code?: number
     sendId?: string
     acceptId?: string
     msg?: string
     signFlag?: string
-    createTime?: string
-    msgType?: string
+    createTime?: number | string | Array<number>
+    msgType?: number
     acceptGroup?: string
     expandMsg?: any
 
 
     constructor(id?: string, code?: number, sendId?: string,
                 acceptId?: string, msg?: string, signFlag?: string,
-                createTime?: string, msgType?: string, acceptGroup?: string, expandMsg?: any) {
+                createTime?: string, msgType?: number, acceptGroup?: string, expandMsg?: any) {
         this.id = id;
         this.code = code;
         this.sendId = sendId;

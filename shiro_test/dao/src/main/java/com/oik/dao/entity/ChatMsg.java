@@ -1,6 +1,10 @@
 package com.oik.dao.entity;
 
+import com.alibaba.fastjson2.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.*;
+
+import com.oik.util.time.LocalDateTimeDeserializer;
+import com.oik.util.time.LocalDateTimeSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -48,6 +52,7 @@ public class ChatMsg implements Serializable {
     @TableField("sign_flag")
     private Integer signFlag;
     @ApiModelProperty("创建时间")
+    @JSONField()
     @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
     @ApiModelProperty("消息类型")

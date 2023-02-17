@@ -76,12 +76,10 @@ const data = ref<dept>({})
 const show = (row:dept) => {
   data.value = row
   drawer.value = true
-  console.log(data.value)
 }
 const show2 = (row:dept) => {
   data.value = row
   drawer.value = true
-  console.log(data.value)
 }
 const deptForm = ref<any>()
 
@@ -92,18 +90,15 @@ const editDept = (row: dept, num: number) => {
     }
   }
   deptForm.value.show(row,num)
-  console.log()
 }
 const DeleteDept = (data: dept) => {
   delOne(data);
   emits("save-ok")
-  console.log()
 }
 const emits = defineEmits(['save-ok']);
 const saveOk = () => {
   drawer.value=false
   emits("save-ok")
-  console.log()
 }
 defineExpose({show})
 </script>

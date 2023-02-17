@@ -1,16 +1,16 @@
 package com.oik.api.netty.service.impl;
 
-import com.alibaba.fastjson2.JSON;
 import com.oik.api.netty.constant.MessageCodeConstant;
 import com.oik.api.netty.constant.MessageTypeConstant;
 import com.oik.api.netty.constant.WebSocketConstant;
 import com.oik.api.netty.service.ChatMsgNettyService;
-import com.oik.api.netty.util.ChannelOperateUtil;
-import com.oik.api.netty.util.RequestParamUtil;
 import com.oik.dao.entity.ChatMsg;
 import com.oik.dao.entity.User;
 import com.oik.service.service.ChatMsgService;
 import com.oik.service.service.UserService;
+import com.oik.util.channelUitl.ChannelOperateUtil;
+import com.oik.util.channelUitl.RequestParamUtil;
+import com.oik.util.str.JsonUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
@@ -51,6 +51,9 @@ public class ChatMsgNettyServiceImpl implements ChatMsgNettyService {
     @Resource
     private UserService userService;
 
+    @Resource
+    private JsonUtil jsonUtil;
+
     @Override
     public void handHttpRequest(ChannelHandlerContext ctx, FullHttpRequest request) {
         // 如果请求失败或者该请求不是客户端向服务端发起的 http 请求，则响应错误信息
@@ -77,14 +80,19 @@ public class ChatMsgNettyServiceImpl implements ChatMsgNettyService {
             handshake.handshake(ctx.channel(), request);
             Set<String> userList = ChannelOperateUtil.getMapKeySet();
             Map<String, Object> ext = new HashMap<>();
-            ext.put("userList", userList);
+            ext.put("userOnlineList", userList);
             User user = userService.getById(userId);
-            ChatMsg chatMsg = new ChatMsg()
-                    .setExpandMsg(JSON.toJSONString(ext))
-                    .setMsg("user: " + user.getUsername() + " Online,Welcome.")
-                    .setCode(MessageCodeConstant.SYSTEM_MESSAGE_CODE.getCode())
-                    .setMsgType(MessageTypeConstant.UPDATE_USER_LIST_SYSTEM_MESSAGE.getType());
-            ChannelOperateUtil.sendAll(new TextWebSocketFrame(JSON.toJSONString(chatMsg)));
+            try {
+                ChatMsg chatMsg = new ChatMsg()
+                        .setExpandMsg(jsonUtil.fastJsonSerializer(ext))
+                        .setMsg("user: " + user.getUsername() + " Online,Welcome.")
+                        .setCode(MessageCodeConstant.SYSTEM_MESSAGE_CODE.getCode())
+                        .setMsgType(MessageTypeConstant.UPDATE_USER_LIST_SYSTEM_MESSAGE.getType());
+                ChannelOperateUtil.sendAll(new TextWebSocketFrame(jsonUtil.fastJsonSerializer(chatMsg)));
+            } catch (Exception e) {
+//                throw new RuntimeException(e);
+            }
+
         }
     }
 
@@ -114,9 +122,8 @@ public class ChatMsgNettyServiceImpl implements ChatMsgNettyService {
             throw new RuntimeException("【" + this.getClass().getName() + "】不支持消息");
         }
         String message = ((TextWebSocketFrame) frame).text();
-        log.info(message + "=================");
         try {
-            ChatMsg chatMsg = JSON.parseObject(message, ChatMsg.class);
+            ChatMsg chatMsg = jsonUtil.fastJsonDeserializer(message, ChatMsg.class);
             Integer code = chatMsg.getCode();
             switch (code) {
                 // 私聊
@@ -178,22 +185,18 @@ public class ChatMsgNettyServiceImpl implements ChatMsgNettyService {
     @Override
     public void clearSession(Channel ch) {
         ChannelId id = ch.id();
-        log.info("清除SocketGroup");
         ChannelOperateUtil.removeSocketGroup(ch);
-        log.info("清除ChannelList");
         ChannelOperateUtil.removeChannelList(ch);
-        log.info("清除SocketGroupByValue");
         ChannelOperateUtil.removeSocketGroupByValue(id);
-        ChannelOperateUtil.infoString();
     }
 
     @Transactional
     public void privateChat(Channel ch, ChatMsg chatMsg) {
         try {
-            chatMsgService.sendChatMsg(chatMsg);
+            chatMsgService.saveChatMsg(chatMsg);
             Channel channel = ChannelOperateUtil.findChannel(ChannelOperateUtil.getChannelMap(chatMsg.getAcceptId()));
-            channel.writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(chatMsg)));
-            ch.writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(chatMsg)));
+            channel.writeAndFlush(new TextWebSocketFrame(jsonUtil.fastJsonSerializer(chatMsg)));
+            ch.writeAndFlush(new TextWebSocketFrame(jsonUtil.fastJsonSerializer(chatMsg)));
         } catch (Exception e) {
             log.error(e.getMessage());
             e.printStackTrace();
@@ -208,13 +211,13 @@ public class ChatMsgNettyServiceImpl implements ChatMsgNettyService {
     public void verify(String userId, Channel channel) {
         ChannelId id = ChannelOperateUtil.getChannelMap(userId);
         if (StringUtils.isEmpty(userId)) {
-            log.warn("userId为空，关闭管道");
             channel.close();
         }
         if (id != null) {
-            log.warn("清除旧的channel");
             Channel ch = ChannelOperateUtil.findChannel(id);
-            clearSession(ch);
+            if (ch != null) {
+                clearSession(ch);
+            }
         }
 
     }

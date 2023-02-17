@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.oik.dao.entity.Dept;
 import com.oik.dao.mapper.DeptMapper;
-import com.oik.service.exception.MyException;
+import com.oik.util.exception.MyException;
 import com.oik.service.service.DeptService;
 import com.oik.util.redis.CacheClient;
 import org.apache.commons.lang3.StringUtils;

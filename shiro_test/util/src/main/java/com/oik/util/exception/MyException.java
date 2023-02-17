@@ -1,4 +1,4 @@
-package com.oik.service.exception;
+package com.oik.util.exception;
 
 /**
  * 自定义异常处理

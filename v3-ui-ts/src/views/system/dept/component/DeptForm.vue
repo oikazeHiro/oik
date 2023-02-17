@@ -45,7 +45,6 @@ const show = (row: dept, num: number) => {
   data.value = row
   operate.value = num
   dialogFormVisible.value = true
-  console.log(data.value)
 }
 
 const validateDeptName = (rule: any, value: any, callback: any) => {
@@ -84,7 +83,6 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
   await formEl.validate(async (valid, fields) => {
     if (valid) {
-      console.log('submit')
       try {
         await saveOrSetDept(data.value)
         emits("save-ok")

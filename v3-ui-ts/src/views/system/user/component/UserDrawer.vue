@@ -57,7 +57,6 @@ const initOptions = async () => {
   const res = await viewAddRole(data.value.userId)
   options.value = res.data.allRole
   value.value = res.data.youRole
-  // console.log(res)
 }
 
 const addroleMode = reactive<addRole>({
@@ -67,9 +66,7 @@ const addroleMode = reactive<addRole>({
 const confirmClick = async () => {
   addroleMode.youRole = value.value
   addroleMode.userId = data.value.userId
-  console.log(addroleMode)
   const res = await AddRole(addroleMode)
-  console.log(res)
   drawer_.value = false
 }
 

@@ -48,8 +48,6 @@ const type = ref(0)
 const flag = ref(true)
 const formData = ref<menus>({})
 const show = async (data: menus, type: number) => {
-  console.log(flag.value)
-  console.log(data)
   await formDataInit()
   if (!type) type = 0;
   title.value = type === 0 ? '添加' : '编辑'
@@ -64,7 +62,7 @@ const show = async (data: menus, type: number) => {
     formData.value = data
   }
   dialogFormVisible.value = true
-  console.log(flag.value)
+
 }
 const formDataInit = async () => {
   flag.value = true

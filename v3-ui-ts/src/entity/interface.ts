@@ -74,6 +74,7 @@ export interface user {
     updateUsername?: string,
     updateTime?: string | number,
     updateUserId?: string,
+    online?: boolean
 }
 
 

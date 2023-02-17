@@ -1,8 +1,9 @@
 package com.oik.service.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.service.MPJJoinService;
 import com.oik.dao.entity.ChatMsg;
-import com.oik.service.exception.Result;
+import com.oik.util.exception.Result;
 
 import java.util.List;
 
@@ -18,5 +19,11 @@ public interface ChatMsgService extends MPJJoinService<ChatMsg> {
 
     Result<List<ChatMsg>> getMsg();
 
-    ChatMsg sendChatMsg(ChatMsg msg);
+    ChatMsg saveChatMsg(ChatMsg msg);
+
+    Page<ChatMsg> getChatMsg(Page<ChatMsg> page, ChatMsg chatMsg);
+
+    Result sendPrivateMsg(ChatMsg chatMsg);
+
+    void sendSysMsg(ChatMsg chatMsg);
 }

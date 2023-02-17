@@ -4,10 +4,10 @@ import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.User;
-import com.oik.service.exception.MyException;
-import com.oik.service.exception.Result;
-import com.oik.service.exception.ResultEnum;
-import com.oik.service.exception.ResultUtil;
+import com.oik.util.exception.MyException;
+import com.oik.util.exception.Result;
+import com.oik.util.exception.ResultEnum;
+import com.oik.util.exception.ResultUtil;
 import com.oik.service.service.UserService;
 import com.oik.util.dto.LoginDto;
 import com.oik.util.dto.UserDTO;
@@ -106,7 +106,7 @@ public class UserController {
     @GetMapping("/get-user-list/{userId}")
     public Result<List<User>> getUserList(@PathVariable("userId") String userId) {
         LambdaQueryWrapper<User> Wrapper = new LambdaQueryWrapper<>();
-        Wrapper.ne(User::getUserId, userId);
+        Wrapper.ne(User::getUserId, userId).eq(User::getStatus,1);
         List<User> list = userService.list(Wrapper);
         return ResultUtil.getSuccess(list);
     }

@@ -2,7 +2,7 @@ package com.oik.api.netty.service.impl;
 
 import com.oik.api.netty.pojo.Message;
 import com.oik.api.netty.service.Read0Service;
-import com.oik.api.netty.util.ChannelOperateUtil;
+import com.oik.util.channelUitl.ChannelOperateUtil;
 import com.oik.dao.entity.ChatMsg;
 import com.oik.service.service.ChatMsgService;
 import io.netty.channel.Channel;
@@ -42,7 +42,7 @@ public class Read0ServiceImpl implements Read0Service {
 
     public void sendChatMsg(Message.Msg msg) {
         Message.ChatMsg chatMsg = msg.getChatMsg();
-        chatMsgService.sendChatMsg(new ChatMsg(chatMsg.getUserId(),
+        chatMsgService.saveChatMsg(new ChatMsg(chatMsg.getUserId(),
                 chatMsg.getAcceptId(), chatMsg.getMessage()));
         String acceptId = chatMsg.getAcceptId();
         ChannelId channelId = ChannelOperateUtil.getChannelMap(acceptId);

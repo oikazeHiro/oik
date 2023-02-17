@@ -1,4 +1,4 @@
-package com.oik.service.exception;
+package com.oik.util.exception;
 
 /**
  * 自定义枚举异常
@@ -77,7 +77,9 @@ public enum ResultEnum {
     STATUS_LOCK(401, "账号已被禁用"),
 
     CLEAR_TOKEN(411, "清除令牌"),
-    USERNAME_IS_USE(400, "用户名已被使用");
+    USERNAME_IS_USE(400, "用户名已被使用"),
+    NOT_FOUND_CHANNEL_ID(500,"未找到管道Id" ),
+    NOT_FOUND_CHANNEL(500,"未找到管道" );
 
     private Integer code;
 

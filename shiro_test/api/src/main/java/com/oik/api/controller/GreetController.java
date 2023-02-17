@@ -2,8 +2,8 @@ package com.oik.api.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.Greet;
-import com.oik.service.exception.Result;
-import com.oik.service.exception.ResultUtil;
+import com.oik.util.exception.Result;
+import com.oik.util.exception.ResultUtil;
 import com.oik.service.service.GreetService;
 import org.springframework.web.bind.annotation.*;
 

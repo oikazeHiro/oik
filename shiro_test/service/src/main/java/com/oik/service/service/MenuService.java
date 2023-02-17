@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.service.MPJJoinService;
 import com.oik.dao.entity.Menu;
-import com.oik.service.exception.Result;
+import com.oik.util.exception.Result;
 
 import java.util.List;
 import java.util.Set;

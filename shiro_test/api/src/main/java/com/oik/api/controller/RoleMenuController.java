@@ -1,8 +1,8 @@
 package com.oik.api.controller;
 
 import com.oik.dao.entity.RoleMenu;
-import com.oik.service.exception.Result;
-import com.oik.service.exception.ResultUtil;
+import com.oik.util.exception.Result;
+import com.oik.util.exception.ResultUtil;
 import com.oik.service.service.RoleMenuService;
 import com.oik.util.redis.CacheClient;
 import lombok.extern.slf4j.Slf4j;

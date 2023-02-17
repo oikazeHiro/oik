@@ -1,4 +1,4 @@
-package com.oik.service.exception;
+package com.oik.util.exception;
 
 import lombok.*;
 

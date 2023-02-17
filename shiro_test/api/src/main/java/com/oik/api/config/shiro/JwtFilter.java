@@ -2,10 +2,10 @@ package com.oik.api.config.shiro;
 
 import com.alibaba.fastjson2.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.oik.service.exception.MyException;
-import com.oik.service.exception.Result;
-import com.oik.service.exception.ResultEnum;
-import com.oik.service.exception.ResultUtil;
+import com.oik.util.exception.MyException;
+import com.oik.util.exception.Result;
+import com.oik.util.exception.ResultEnum;
+import com.oik.util.exception.ResultUtil;
 import com.oik.util.application.SpringContextUtil;
 import com.oik.util.str.YamlReader;
 import lombok.extern.slf4j.Slf4j;

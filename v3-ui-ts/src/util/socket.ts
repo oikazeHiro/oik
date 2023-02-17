@@ -5,11 +5,8 @@
  * @LastEditTime: 2022-10-26 14:06:34
  */
 
-import { ElMessage } from 'element-plus'
+import {ElMessage} from 'element-plus'
 import chatMsgImpl, {chatMsg} from '@/entity/ChatMsg'
-
-
-import {reactive} from "vue";
 
 export type Callback = (e: Event) => void
 export type MessageCallback<RT> = (e: RT) => void
@@ -188,7 +185,6 @@ export default class  Socket<RT> extends Heart {
                 }
             }))
             if (oneMsg.code === 5){
-                console.log()
                 ElMessage({
                     showClose: true,
                     message: oneMsg.msg,
@@ -198,14 +194,12 @@ export default class  Socket<RT> extends Heart {
             }
             const strMessage = event.data
             const data =JSON.parse(strMessage)
-            console.log(event)
             super.reset()
             super.start(() => {
                 const chatMsgImpl1 = new chatMsgImpl('',3,'','','ping');
                 // this.send(this.options.heartMsg as string)
                 this.send(chatMsgImpl1)
             })
-            console.log(strMessage, 'onmessage')
             if (typeof callback === 'function') {
                 callback(data)
             } else {
@@ -222,7 +216,6 @@ export default class  Socket<RT> extends Heart {
         if (this.ws.readyState !== this.ws.OPEN) {
             throw new Error('没有连接到服务器，无法推送')
         }
-        console.log(data)
         this.ws.send(JSON.stringify(data))
     }
 

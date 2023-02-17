@@ -1,8 +1,9 @@
-package com.oik.api.netty.util;
+package com.oik.util.channelUitl;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelId;
 import io.netty.channel.group.ChannelGroup;
+import io.netty.channel.group.ChannelGroupFuture;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
@@ -124,8 +125,8 @@ public class ChannelOperateUtil {
      * @Date 9:18
      * @Param [tws]
      **/
-    public static void sendAll(Object tws) {
-        socketGroup.writeAndFlush(tws);
+    public static ChannelGroupFuture sendAll(Object tws) {
+        return socketGroup.writeAndFlush(tws);
     }
 
     public static Set<String> getMapKeySet() {
@@ -137,8 +138,4 @@ public class ChannelOperateUtil {
         return values.remove(id);
     }
 
-    public static void infoString() {
-        System.out.println("socketChannelHashMap = " + socketChannelHashMap.toString());
-        System.out.println("socketGroup = " + socketGroup.toString());
-    }
 }

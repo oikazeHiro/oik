@@ -219,8 +219,6 @@ const show = async (data: any, type: number) => {
       }
     })
     options.value = res.data
-    console.log(res.data)
-    console.log(options.value)
   } catch (e) {
     console.log(e)
   }

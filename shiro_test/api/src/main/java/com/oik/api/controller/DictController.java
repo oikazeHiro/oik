@@ -2,8 +2,8 @@ package com.oik.api.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.Dict;
-import com.oik.service.exception.Result;
-import com.oik.service.exception.ResultUtil;
+import com.oik.util.exception.Result;
+import com.oik.util.exception.ResultUtil;
 import com.oik.service.service.CacheService;
 import com.oik.service.service.DictService;
 import com.oik.util.redis.CacheClient;
