@@ -24,12 +24,7 @@
     <el-footer style="height: 10%;background-color: #f3f1df">
       <el-row>
         <el-col :span="18">
-          <el-input
-              v-model="chatMsgDome.ChatMdg.msg"
-              :rows="2"
-              placeholder="Please input"
-              type="textarea"
-          />
+          <el-input v-model="chatMsgDome.ChatMdg.msg" placeholder="Please input"/>
         </el-col>
         <el-col :span="6">
           <el-button :disabled="!chatMsgDome.ChatMdg.msg" @click="sendMsg">socketSend</el-button>
@@ -71,14 +66,12 @@ const chatMsgDome = reactive({
 const sendMsg = async () => {
   // const msgImpl = new chatMsgImpl('', 1, '35', '1', 'test', "", '');
   webSocket.send(chatMsgDome.ChatMdg)
-  chatMsgDome.ChatMdg.msg = ''
 }
 
 const httpSend = async () => {
   console.log(chatMsgDome.ChatMdg)
   const res = sendPrivateMsg(chatMsgDome.ChatMdg)
   console.log(res)
-  chatMsgDome.ChatMdg.msg = ''
 }
 
 const userDto = ref<user>()

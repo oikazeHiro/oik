@@ -88,7 +88,13 @@
             <el-main style="height: 100%;background-color: white">
               <router-view/>
               <el-affix position="bottom" :offset="20">
-                <el-button type="primary" @click="msgShow">Offset bottom 20px</el-button>
+                <el-badge :value="msgtotle" class="item">
+                  <el-button @click="msgShow">
+                    <el-icon>
+                      <Message/>
+                    </el-icon>
+                  </el-button>
+                </el-badge>
               </el-affix>
             </el-main>
           </el-container>
@@ -112,6 +118,7 @@ import ChatMsg from "@/components/home/ChatMsg.vue";
 import {initSocket} from "@/util/InitSocket";
 
 const isCollapse = ref(false)
+const msgtotle = ref<number>(5)
 const handleOpen = (key: string, keyPath: string[]) => {
   // console.log(key, keyPath)
 }
@@ -157,7 +164,7 @@ const init = async () => {
     await getAvatar()
   }
   initSocket(userDto.userDto.userId)
-  // await router.push({path: '/system/home/index'})
+  await router.push({path: '/system/home/index'})
 }
 const charMsg = ref<any>()
 
