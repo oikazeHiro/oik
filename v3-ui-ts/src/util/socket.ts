@@ -15,6 +15,7 @@ export type MessageCallback<RT> = (e: RT) => void
 
 interface Ioptions<RT> {
     url: string | null // 链接的通道的地址
+    onmessageWS?: string //全局监听的唯一标识
     heartTime?: number // 心跳时间间隔
     heartMsg?: string // 心跳信息,默认为'ping'
     isReconnect?: boolean // 是否自动重连
@@ -25,6 +26,7 @@ interface Ioptions<RT> {
     closeCb?: Callback // 关闭的回调
     messageCb?: MessageCallback<RT> // 消息的回调
     errorCb?: Callback // 错误的回调
+
 }
 
 /**
@@ -66,6 +68,7 @@ export default class  Socket<RT> extends Heart {
 
     options: Ioptions<RT> = {
         url: '', // 链接的通道的地址
+        onmessageWS: '',
         heartTime: 5000, // 心跳时间间隔
         heartMsg: 'ping', // 心跳信息,默认为'ping'
         isReconnect: true, // 是否自动重连
@@ -179,7 +182,7 @@ export default class  Socket<RT> extends Heart {
     onmessage(callback: MessageCallback<RT>): void {
         this.ws.onmessage = (event: MessageEvent<string>) => {
             const oneMsg = JSON.parse(event.data) as chatMsg
-            window.dispatchEvent(new CustomEvent('onmessageWS', {
+            window.dispatchEvent(new CustomEvent(this.options.onmessageWS, {
                 detail: {
                     data: event.data
                 }
