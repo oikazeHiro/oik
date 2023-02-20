@@ -100,10 +100,11 @@ export interface query<T> {
 
 export interface dict {
     dictId?: string,
-    keyy?: number,
+    keyy?: string,
     valuee?: string,
     fieldName?: string,
     tableName?: string,
+    fatherId?: string
     createTime?: string | number
     createUserId?: string,
     createUsername?: string,

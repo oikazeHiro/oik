@@ -126,6 +126,7 @@ public class MenuServiceImpl extends MPJBaseServiceImpl<MenuMapper, Menu> implem
         wrapper.clear();
         wrapper.selectAll(Menu.class).eq(Menu::getType, 0);
         List<Menu> menus = list(wrapper);
+        System.out.println("JSON.toJSONString(menus) = " + JSON.toJSONString(menus));
         wrapper.clear();
         wrapper.selectAll(Menu.class).eq(Menu::getType, 1);
         List<Menu> perms = list(wrapper);

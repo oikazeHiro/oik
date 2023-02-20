@@ -94,7 +94,7 @@
                                icon="Plus"
                                placement="bottom-start"
                                type="warning"
-                               @click="addSubMenu(scope.row,0)"/>
+                               @click="addSubMenu(scope.row,0,1)"/>
               <oik-icon-button circle
                                content="编辑"
                                effect="light"
@@ -180,8 +180,8 @@ const handleCurrentChange = (val: number) => {
   getList()
 }
 const menuForm = ref<any>();
-const addSubMenu = async (data: menus, type?: number) => {
-  menuForm.value.show(data, type)
+const addSubMenu = async (data: menus, type?: number, menuType?: number) => {
+  menuForm.value.show(data, type, menuType)
 }
 
 const DeleteRow = async (data: menus) => {

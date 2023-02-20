@@ -26,7 +26,7 @@
                            icon="Plus"
                            placement="bottom"
                            type="primary"
-                           @click="editRow(null,'新增角色')"
+                           @click="editRow({},0)"
           />
         </el-col>
       </el-row>
@@ -36,25 +36,22 @@
           height="600"
           row-key="menuId"
           style="width: 100%"
+          @row-click="clickRow"
       >
+        <el-table-column label="业务名称" prop="valuee"></el-table-column>
+        <el-table-column label="code" prop="tableName"></el-table-column>
+        <el-table-column label="状态" prop="status"></el-table-column>
+        <el-table-column label="排序" prop="sort"></el-table-column>
         <el-table-column fixed="right" label="Operations" width="150">
           <template #default="scope">
             <el-row justify="space-around">
-              <oik-icon-button v-if="scope.row.parentId === '0'"
-                               circle
-                               content="添加路由"
-                               effect="light"
-                               icon="Plus"
-                               placement="bottom-start"
-                               type="primary"
-                               @click="editRow(scope.row,'编辑角色')"/>
               <oik-icon-button circle
                                content="设置"
                                effect="light"
                                icon="Setting"
                                placement="bottom"
                                type="success"
-                               @click="SetUpRow(scope.row)"/>
+                               @click="editRow(scope.row,1)"/>
               <oik-icon-button circle
                                content="删除"
                                effect="light"
@@ -84,6 +81,7 @@
       </el-row>
     </el-main>
   </el-container>
+  <dict-lift-from ref="leftFrom" @save-ok="getList"/>
 </template>
 
 <script lang="ts" setup>
@@ -91,6 +89,8 @@ import zhCn from "element-plus/lib/locale/lang/zh-cn";
 import {onMounted, reactive, ref} from "vue";
 import {dict, query} from "@/entity/interface";
 import OikIconButton from "@/components/button/OikIconButton.vue";
+import {getDictList2} from '@/api/request/dict'
+import DictLiftFrom from "@/views/system/dict/component/DictLiftFrom.vue";
 
 const locale = zhCn
 const loading = ref(false)
@@ -104,11 +104,15 @@ const result = reactive<query<dict>>({
   param: {
     valuee: '',
     keyy: undefined,
+    fatherId: '0',
   }
 })
 const getList = async () => {
   try {
     loading.value = true
+    const res = await getDictList2(result)
+    result.page = res.data
+    console.log(res)
   } finally {
     loading.value = false
   }
@@ -120,8 +124,10 @@ const handleCurrentChange = (val: number) => {
   getList()
 }
 
-const editRow = (data: dict, Str: string) => {
-  console.log()
+const leftFrom = ref<any>()
+const editRow = (data: dict, num?: number) => {
+  leftFrom.value.show(data, num)
+  console.log(data)
 }
 const SetUpRow = (data: dict) => {
   console.log()
@@ -129,6 +135,13 @@ const SetUpRow = (data: dict) => {
 const DeleteRow = (data: dict) => {
   console.log()
 }
+
+
+const emits = defineEmits(['selectedRow']);
+const clickRow = async (row) => {
+  emits('selectedRow', row)
+}
+
 
 onMounted(() => {
   getList()

@@ -19,4 +19,10 @@ public interface DictService extends MPJJoinService<Dict> {
     List<Dict> getdicts();
 
     Page<Dict> findDictList(Page<Dict> page, Dict dict);
+
+    Page<Dict> findDictList2(Page<Dict> page, Dict dict);
+
+    Boolean saveDict(Dict dict);
+
+    boolean deleteDict(String id);
 }

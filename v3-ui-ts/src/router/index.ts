@@ -13,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [
         path: '/404',
         name: '404',
         component: () =>
-            import(/* webpackChunkName: "404" */ '@/views/other/NotFount.vue'),
+            import(/* webpackChunkName: "404" */ '@/views/others/NotFount.vue'),
     },
 ]
 
@@ -27,7 +27,7 @@ const userCenter: any = {
     path: '/user-center',
     name: 'userCenter',
     component: () =>
-        import(/* webpackChunkName: "login" */ '@/views/other/UserCenter.vue'),
+        import(/* webpackChunkName: "login" */ '@/views/others/UserCenter.vue'),
 }
 
 // @router/routers.ts 中添加前置路由守卫

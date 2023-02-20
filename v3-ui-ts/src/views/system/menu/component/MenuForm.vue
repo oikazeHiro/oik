@@ -47,13 +47,17 @@ const title = ref<string>('')
 const type = ref(0)
 const flag = ref(true)
 const formData = ref<menus>({})
-const show = async (data: menus, type: number) => {
+const menuTy = ref(0)
+const show = async (data: menus, type: number, menuType?: number) => {
   await formDataInit()
+  if (menuType) menuTy.value = menuType
+  else menuTy.value = 0
   if (!type) type = 0;
   title.value = type === 0 ? '添加' : '编辑'
   if (data != null) {
     formData.value.parentId = data.menuId
     if (data.parentId != '0') flag.value = false
+    if (type !== 0 && data.type === '0') flag.value = true
   } else {
     formData.value.parentId = '0'
   }
@@ -90,7 +94,7 @@ const loading = ref(false)
 const submit = async () => {
   try {
     loading.value = true
-    if (formData.value.parentId != '0') formData.value.type = '1';
+    if (title.value == "添加" && menuTy.value === 1) formData.value.type = '1';
     const res = await saveMenu(formData.value)
   }finally {
     loading.value = false

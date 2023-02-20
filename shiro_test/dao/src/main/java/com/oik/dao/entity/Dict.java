@@ -34,7 +34,7 @@ public class Dict implements Serializable {
 
     @ApiModelProperty("键")
     @TableField("KEYY")
-    private Long keyy;
+    private String keyy;
 
     @ApiModelProperty("值")
     @TableField("VALUEE")

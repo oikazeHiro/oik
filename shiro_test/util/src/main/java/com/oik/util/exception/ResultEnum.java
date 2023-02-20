@@ -79,7 +79,8 @@ public enum ResultEnum {
     CLEAR_TOKEN(411, "清除令牌"),
     USERNAME_IS_USE(400, "用户名已被使用"),
     NOT_FOUND_CHANNEL_ID(500,"未找到管道Id" ),
-    NOT_FOUND_CHANNEL(500,"未找到管道" );
+    NOT_FOUND_CHANNEL(500,"未找到管道" ),
+    DictCodeOrKey(200, "code或key重复");
 
     private Integer code;
 

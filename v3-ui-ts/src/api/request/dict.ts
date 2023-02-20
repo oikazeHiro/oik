@@ -1,5 +1,5 @@
 import request from '@/api/index'
-import {dict} from '@/entity/interface'
+import {dict, page, query} from '@/entity/interface'
 import {dictStore} from '@/store/dictStore'
 import {reactive} from "vue";
 
@@ -50,4 +50,17 @@ export const getDictByKeyy = (dict: any, keyy: string): any => {
         }
     })
     return d.res
+}
+
+
+export const getDictList2 = async (data: query<dict>) => {
+    return request.get2<dict, page<dict>>('/api/dict-list2', data)
+}
+
+
+export const save = async (data: dict) => {
+    return request.post<boolean>('/api/dict', data)
+}
+export const update = async (data: dict) => {
+    return request.put<boolean>('/api/dict', data)
 }

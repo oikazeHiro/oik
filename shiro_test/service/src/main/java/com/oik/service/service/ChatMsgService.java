@@ -26,4 +26,8 @@ public interface ChatMsgService extends MPJJoinService<ChatMsg> {
     Result sendPrivateMsg(ChatMsg chatMsg);
 
     void sendSysMsg(ChatMsg chatMsg);
+
+    void sendExpandMsgTestToAllUser();
+
+    void sendExpandMsgTestToOneUser( String userId);
 }

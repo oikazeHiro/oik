@@ -41,4 +41,15 @@ public class ChatMsgController {
         return ResultUtil.getSuccess();
     }
 
+    @GetMapping("/sendAll")
+    public Result sendExpandMsgTestToAllUser(){
+        chatMsgService.sendExpandMsgTestToAllUser();
+        return ResultUtil.getSuccess();
+    }
+
+    @GetMapping("/sendOne/{userId}")
+    public Result sendExpandMsgTestToOneUser(@PathVariable("userId") String userId){
+        chatMsgService.sendExpandMsgTestToOneUser(userId);
+        return ResultUtil.getSuccess();
+    }
 }

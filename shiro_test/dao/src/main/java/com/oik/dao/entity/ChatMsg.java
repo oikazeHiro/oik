@@ -73,4 +73,12 @@ public class ChatMsg implements Serializable {
         this.code = code;
         this.msg = msg;
     }
+
+    public ChatMsg(int code,String msg,String sendId,String acceptId,String expandMsg){
+        this.code = code;
+        this.msg = msg;
+        this.sendId = sendId;
+        this.acceptId = acceptId;
+        this.expandMsg = expandMsg;
+    }
 }

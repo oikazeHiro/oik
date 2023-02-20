@@ -1,5 +1,6 @@
 package com.oik.api.controller;
 
+import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.Dict;
 import com.oik.util.exception.Result;
@@ -45,20 +46,33 @@ public class DictController {
 
     @PostMapping("/dict")
     @RequiresPermissions("dict:addOrSet")
-    public Result<Boolean> add(Dict dict) {
+    public Result<Boolean> add(@RequestBody Dict dict) {
         cacheService.delete(SYS_DICT);
-        return ResultUtil.getSuccess(dictService.saveOrUpdate(dict));
+        return ResultUtil.getSuccess(dictService.saveDict(dict));
+    }
+    @PutMapping("/dict")
+    @RequiresPermissions("dict:addOrSet")
+    public Result<Boolean> set(@RequestBody Dict dict) {
+        cacheService.delete(SYS_DICT);
+        return ResultUtil.getSuccess(dictService.updateById(dict));
     }
 
     @DeleteMapping("/dict/{id}")
     @RequiresPermissions("dict:delete")
     public Result<Boolean> delete(@NotNull(message = "id is not null") @PathVariable("id") String id) {
-        return ResultUtil.getSuccess(dictService.removeById(id));
+        cacheService.delete(SYS_DICT);
+        return ResultUtil.getSuccess(dictService.deleteDict(id));
     }
 
     @GetMapping("/dict-list")
     @RequiresPermissions("dict:view")
     public Result<Page<Dict>> findDictList(Page<Dict> page, Dict dict) {
         return ResultUtil.getSuccess(dictService.findDictList(page, dict));
+    }
+
+    @GetMapping("/dict-list2")
+    @RequiresPermissions("dict:view")
+    public Result<Page<Dict>> findDictList2(Page<Dict> page, Dict dict) {
+        return ResultUtil.getSuccess(dictService.findDictList2(page, dict));
     }
 }

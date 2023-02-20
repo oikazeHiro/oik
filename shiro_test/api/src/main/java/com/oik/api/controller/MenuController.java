@@ -44,6 +44,7 @@ public class MenuController {
         List<Menu> permissionList = CacheClient.selectCacheByTemplate(
                 () -> cacheService.getMenus(username),
                 () -> menuService.getMenuTree(username));
+        System.out.println("permissionList = " + permissionList);
         return ResultUtil.getSuccess(permissionList);
     }
 

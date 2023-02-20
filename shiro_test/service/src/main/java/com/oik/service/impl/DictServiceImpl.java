@@ -3,10 +3,14 @@ package com.oik.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.github.yulichang.base.MPJBaseMapper;
 import com.github.yulichang.base.MPJBaseServiceImpl;
+import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.oik.dao.entity.Dict;
 import com.oik.dao.mapper.DictMapper;
 import com.oik.service.service.DictService;
+import com.oik.util.exception.MyException;
+import com.oik.util.exception.ResultEnum;
 import com.oik.util.redis.CacheClient;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -88,5 +92,54 @@ public class DictServiceImpl extends MPJBaseServiceImpl<DictMapper, Dict> implem
         father.getRecords().forEach(e -> e.setChildren(childrenMap.get(e.getDictId())));
         cacheClient.set(SYS_DICT, father, CACHE_TTL, TimeUnit.MINUTES);
         return father;
+    }
+
+    @Override
+    public Page<Dict> findDictList2(Page<Dict> page, Dict dict) {
+        MPJLambdaWrapper<Dict> mapper = new MPJLambdaWrapper<Dict>()
+                .eq(StringUtils.isNotEmpty(dict.getFatherId()),Dict::getFatherId,dict.getFatherId());
+        return (Page<Dict>) selectJoinListPage(page,Dict.class,mapper);
+    }
+
+    @Override
+    public Boolean saveDict(Dict dict) {
+        LambdaQueryWrapper<Dict> wrapper = new LambdaQueryWrapper<>();
+        if (dict.getFatherId().equals("0")){
+            wrapper.clear();
+            wrapper.eq(Dict::getTableName,dict.getTableName());
+            List<Dict> list = list(wrapper);
+            if (list.size() > 0) {
+                throw new MyException(ResultEnum.DictCodeOrKey);
+            }
+        }
+        if (StringUtils.isNotEmpty(dict.getFieldName())){
+            wrapper.clear();
+            wrapper.eq(Dict::getFieldName,dict.getFieldName());
+            List<Dict> list = list(wrapper);
+            if (list.size() > 0) {
+                throw new MyException(ResultEnum.DictCodeOrKey);
+            }
+        }
+        if (StringUtils.isNotEmpty(dict.getKeyy())){
+            wrapper.clear();
+            wrapper.eq(Dict::getKeyy,dict.getKeyy());
+            List<Dict> list = list(wrapper);
+            if (list.size() > 0) {
+                throw new MyException(ResultEnum.DictCodeOrKey);
+            }
+        }
+        return save(dict);
+    }
+
+    @Override
+    public boolean deleteDict(String id) {
+        LambdaQueryWrapper<Dict> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Dict::getFatherId,id);
+        List<Dict> list = list(wrapper);
+        if(list.size() > 0){
+            remove(wrapper);
+            removeBatchByIds(list.stream().map(Dict::getDictId).collect(Collectors.toList()));
+        }
+        return removeById(id);
     }
 }
