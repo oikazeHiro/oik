@@ -1,8 +1,19 @@
 <template>
   <el-drawer v-model="drawer" direction="rtl">
+    <el-row justify="end">
+      <el-col :gutter="20" :span="1">
+        <oik-icon-button content="添加"
+                         effect="light"
+                         icon="Plus"
+                         placement="bottom"
+                         type="primary"
+                         @click="editRow({fatherId:result.param.fatherId},0)"
+        />
+      </el-col>
+    </el-row>
     <el-table
         v-loading="loading"
-        :data="result.page.records.children"
+        :data="result.page.records"
         height="600"
         style="width: 100%"
     >
@@ -16,14 +27,14 @@
                 icon="EditPen"
                 placement="bottom-start"
                 type="primary"
-                @click="editDept(scope.row,1)"/>
+                @click="editRow(scope.row,1)"/>
             <oik-icon-button circle
                              content="删除"
                              effect="light"
                              icon="Minus"
                              placement="bottom"
                              type="danger"
-                             @click="DeleteDept(scope.row)"/>
+                             @click="DeleteRow(scope.row)"/>
           </el-row>
         </template>
       </el-table-column>
@@ -39,7 +50,7 @@
 <script lang="ts" setup>
 import {reactive, ref} from "vue";
 import {dict, query} from "@/entity/interface";
-import {getDictList2} from "@/api/request/dict";
+import {deleteDict, getDictList2} from "@/api/request/dict";
 import OikIconButton from "@/components/button/OikIconButton.vue";
 
 const result = reactive<query<dict>>({
@@ -75,6 +86,13 @@ const show = async (row: dict) => {
   result.param.fatherId = row.dictId
   await getList()
 }
+
+const DeleteRow = (data: dict) => {
+  const res = deleteDict(data.dictId)
+  console.log()
+}
+//暴露方法
+defineExpose({show})
 </script>
 
 <style lang="scss" scoped>

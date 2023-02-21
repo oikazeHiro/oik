@@ -48,7 +48,7 @@
               <oik-icon-button circle
                                content="设置"
                                effect="light"
-                               icon="Setting"
+                               icon="Edit"
                                placement="bottom"
                                type="success"
                                @click="editRow(scope.row,1)"/>
@@ -89,7 +89,7 @@ import zhCn from "element-plus/lib/locale/lang/zh-cn";
 import {onMounted, reactive, ref} from "vue";
 import {dict, query} from "@/entity/interface";
 import OikIconButton from "@/components/button/OikIconButton.vue";
-import {getDictList2} from '@/api/request/dict'
+import {deleteDict, getDictList2} from '@/api/request/dict'
 import DictLiftFrom from "@/views/system/dict/component/DictLiftFrom.vue";
 
 const locale = zhCn
@@ -133,6 +133,7 @@ const SetUpRow = (data: dict) => {
   console.log()
 }
 const DeleteRow = (data: dict) => {
+  const res = deleteDict(data.dictId)
   console.log()
 }
 

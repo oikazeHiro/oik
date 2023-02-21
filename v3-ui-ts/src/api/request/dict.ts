@@ -64,3 +64,7 @@ export const save = async (data: dict) => {
 export const update = async (data: dict) => {
     return request.put<boolean>('/api/dict', data)
 }
+
+export const deleteDict = async (dataId: string) => {
+    return request.delete<boolean>('/api/dict/' + dataId)
+}

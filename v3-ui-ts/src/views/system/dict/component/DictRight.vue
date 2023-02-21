@@ -29,7 +29,7 @@
               <oik-icon-button circle
                                content="设置"
                                effect="light"
-                               icon="Setting"
+                               icon="Edit"
                                placement="bottom"
                                type="success"
                                @click="editRow(scope.row,1)"/>
@@ -70,6 +70,7 @@
     </el-main>
   </el-container>
   <dict-right-from ref="rightFrom"/>
+  <dict-drawer ref="dictDrawers"/>
 </template>
 
 <script lang="ts" setup>
@@ -78,8 +79,9 @@ import OikIconButton from "@/components/button/OikIconButton.vue";
 import zhCn from "element-plus/lib/locale/lang/zh-cn";
 import {reactive, ref} from "vue";
 import {dict, query} from "@/entity/interface";
-import {getDictList2} from "@/api/request/dict";
+import {deleteDict, getDictList2} from "@/api/request/dict";
 import DictRightFrom from "@/views/system/dict/component/DictRightFrom.vue";
+import DictDrawer from "@/views/system/dict/component/DictDrawer.vue";
 
 const locale = zhCn
 const loading = ref(false)
@@ -111,15 +113,18 @@ const handleCurrentChange = (val: number) => {
   getList()
 }
 const rightFrom = ref<any>()
+
+const dictDrawers = ref<any>()
 const editRow = (data: dict, num?: number) => {
   rightFrom.value.show(data, num)
   console.log(data)
 }
 const SetUpRow = (data: dict) => {
-  rightFrom.value.show(data)
+  dictDrawers.value.show(data)
   console.log()
 }
 const DeleteRow = (data: dict) => {
+  const res = deleteDict(data.dictId)
   console.log()
 }
 const show = async (row: dict) => {

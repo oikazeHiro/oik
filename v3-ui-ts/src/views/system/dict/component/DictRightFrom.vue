@@ -43,12 +43,13 @@
 <script lang="ts" setup>
 import {reactive, ref} from "vue";
 import {dict} from "@/entity/interface";
-import {FormInstance} from "element-plus";
+import {ElNotification, FormInstance} from "element-plus";
 import {save, update} from '@/api/request/dict'
 
 const dialogFormVisible = ref(false)
 const ruleFormRef = ref<FormInstance>()
 const dictDto = ref<dict>({})
+const loading = ref(false)
 
 const options2 = [
   {
@@ -113,6 +114,11 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   await formEl.validate(async (valid, fields) => {
     if (valid) {
       try {
+        loading.value = true
+        if (!dictDto.value.fatherId) {
+          ElNotification.error("请先选择上级数据")
+          return
+        }
         if (operate.value === 0) {
           await save(dictDto.value)
         } else {
@@ -121,6 +127,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         emits("save-ok")
       } finally {
         dialogFormVisible.value = false
+        loading.value = false
       }
     } else {
       console.log('error submit!', fields)
