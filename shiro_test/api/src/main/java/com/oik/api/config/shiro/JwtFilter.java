@@ -2,11 +2,11 @@ package com.oik.api.config.shiro;
 
 import com.alibaba.fastjson2.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.oik.util.application.SpringContextUtil;
 import com.oik.util.exception.MyException;
 import com.oik.util.exception.Result;
 import com.oik.util.exception.ResultEnum;
 import com.oik.util.exception.ResultUtil;
-import com.oik.util.application.SpringContextUtil;
 import com.oik.util.str.YamlReader;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.UnauthorizedException;
@@ -134,7 +134,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         try (PrintWriter out = httpServletResponse.getWriter()) {
             out.append(JSON.toJSONString(ResultUtil.getError(ResultEnum.UNAUTHENTICATED.getCode(), msg)));
         } catch (IOException e) {
-            throw new MyException(ResultEnum.SystemException, "直接返回Response信息出现IOException异常:" + e.getMessage());
+            throw new MyException(ResultEnum.SYSTEM_EXCEPTION, "直接返回Response信息出现IOException异常:" + e.getMessage());
         }
     }
 }

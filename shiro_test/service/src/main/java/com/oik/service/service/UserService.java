@@ -3,11 +3,12 @@ package com.oik.service.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.yulichang.base.service.MPJJoinService;
 import com.oik.dao.entity.User;
+import com.oik.util.dto.UserDTO;
 import com.oik.util.exception.MyException;
 import com.oik.util.exception.Result;
-import com.oik.util.dto.UserDTO;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -39,4 +40,6 @@ public interface UserService extends MPJJoinService<User> {
     Boolean updateUser(User user);
 
     void removeUser(String userId);
+
+    List<UserDTO> getOnline();
 }

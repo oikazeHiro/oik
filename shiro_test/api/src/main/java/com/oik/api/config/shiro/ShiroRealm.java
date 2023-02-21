@@ -75,15 +75,14 @@ public class ShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        //获取token
-        //        HttpServletRequest request = HttpContextUtil.getHttpServletRequest();
+        // 获取token
+        // HttpServletRequest request = HttpContextUtil.getHttpServletRequest();
         String token = (String) authenticationToken.getCredentials();
-        //        String ip = IPUtil.getIpAddr(request);
+        // String ip = IPUtil.getIpAddr(request);
         String username;
         username = JwtUtil.getUsername(token);
         // 通过用户名查询用户信息
         String value = cacheClient.getValue(RedisConstants.USER_CACHE_PREFIX, username);
-
         if (StringUtils.isEmpty(value))
             throw new AuthenticationException("请从新登录");
         UserDTO user = JSONUtil.toBean(value, UserDTO.class);

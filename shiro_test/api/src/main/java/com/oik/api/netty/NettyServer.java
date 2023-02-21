@@ -29,7 +29,7 @@ public class NettyServer {
     //    @Value("${oik.netty.port}")
     private final int nettyPort = (int) YamlReader.getValueByKey("oik.netty.port");
 
-    //设置单例模型
+    // 设置单例模型
     public static NettyServer getInstance() {
         return NETTY_SERVER;
     }

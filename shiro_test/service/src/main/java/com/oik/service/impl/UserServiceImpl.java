@@ -9,14 +9,15 @@ import com.oik.dao.entity.LoginLog;
 import com.oik.dao.entity.User;
 import com.oik.dao.entity.UserRole;
 import com.oik.dao.mapper.UserMapper;
+import com.oik.service.service.LoginLogService;
+import com.oik.service.service.UserRoleService;
+import com.oik.service.service.UserService;
+import com.oik.util.channelUitl.MessageUtil;
+import com.oik.util.dto.UserDTO;
 import com.oik.util.exception.MyException;
 import com.oik.util.exception.Result;
 import com.oik.util.exception.ResultEnum;
 import com.oik.util.exception.ResultUtil;
-import com.oik.service.service.LoginLogService;
-import com.oik.service.service.UserRoleService;
-import com.oik.service.service.UserService;
-import com.oik.util.dto.UserDTO;
 import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.RedisConstants;
 import com.oik.util.redis.UserHolder;
@@ -32,6 +33,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,6 +56,9 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
     private LoginLogService loginLogService;
     @Resource
     private UserRoleService userRoleService;
+
+    @Resource
+    private MessageUtil messageUtil;
 
     @Override
     public String findSubordinates(Long deptId) {
@@ -119,7 +124,7 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
             cacheClient.delete(RedisConstants.USER_PERMISSION_CACHE_PREFIX + username);
             cacheClient.delete(RedisConstants.USER_CONFIG_CACHE_MENU + username);
         } catch (Exception e) {
-            throw new MyException(ResultEnum.ServiceException);
+            throw new MyException(ResultEnum.SERVICE_EXCEPTION);
         }
         return ResultUtil.getSuccess(true);
     }
@@ -176,5 +181,16 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implem
         removeById(userId);
         LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<UserRole>().eq(UserRole::getUserId, userId);
         userRoleService.remove(wrapper);
+    }
+
+    @Override
+    public List<UserDTO> getOnline() {
+        List<String> mapKeySetList = messageUtil.getMapKeySetList();
+        List<UserDTO> userList = new ArrayList<>();
+        mapKeySetList.forEach((e) -> {
+            String[] split = e.split("-");
+
+        });
+        return null;
     }
 }

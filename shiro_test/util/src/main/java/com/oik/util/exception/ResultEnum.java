@@ -15,36 +15,36 @@ public enum ResultEnum {
     /**
      * 系统异常. ErrorCode : -1
      */
-    SystemException(500, "系统异常"),
+    SYSTEM_EXCEPTION(500, "系统异常"),
 
     /**
      * 未知异常. ErrorCode : 01
      */
-    UnknownException(1, "未知异常"),
+    UNKNOWN_EXCEPTION(1, "未知异常"),
 
     /**
      * 服务异常. ErrorCode : 02
      */
-    ServiceException(2, "服务异常"),
+    SERVICE_EXCEPTION(2, "服务异常"),
 
     /**
      * 业务错误. ErrorCode : 03
      */
-    MyException(3, "业务错误"),
+    MY_EXCEPTION(3, "业务错误"),
     /**
      * 提示级错误. ErrorCode : 04
      */
-    InfoException(4, "提示级错误"),
+    INFO_EXCEPTION(4, "提示级错误"),
 
     /**
      * 数据库操作异常. ErrorCode : 05
      */
-    DBException(5, "数据库操作异常"),
+    DB_EXCEPTION(5, "数据库操作异常"),
 
     /**
      * 参数验证错误. ErrorCode : 06
      */
-    ParamException(6, "参数验证错误"),
+    PARAM_EXCEPTION(6, "参数验证错误"),
     /**
      * 参数验证错误. ErrorCode : 5001数据为空
      */
@@ -78,9 +78,9 @@ public enum ResultEnum {
 
     CLEAR_TOKEN(411, "清除令牌"),
     USERNAME_IS_USE(400, "用户名已被使用"),
-    NOT_FOUND_CHANNEL_ID(500,"未找到管道Id" ),
-    NOT_FOUND_CHANNEL(500,"未找到管道" ),
-    DictCodeOrKey(200, "code或key重复");
+    NOT_FOUND_CHANNEL_ID(500, "未找到管道Id"),
+    NOT_FOUND_CHANNEL(500, "未找到管道"),
+    DICT_CODE_OR_KEY(500, "code或key重复");
 
     private Integer code;
 

@@ -53,7 +53,7 @@ public class ChatMsgServiceImpl extends MPJBaseServiceImpl<ChatMsgMapper, ChatMs
 
     @Override
     public Page<ChatMsg> getChatMsg(Page<ChatMsg> page, ChatMsg chatMsg) {
-        MPJLambdaWrapper<ChatMsg> mapper = new MPJLambdaWrapper<ChatMsg>();
+        MPJLambdaWrapper<ChatMsg> mapper = new MPJLambdaWrapper<>();
         mapper.selectAll(ChatMsg.class)
                 .or(e -> e.eq(ChatMsg::getSendId,chatMsg.getSendId()).eq(ChatMsg::getAcceptId,chatMsg.getAcceptId()))
                 .or(e -> e.eq(ChatMsg::getSendId,chatMsg.getAcceptId()).eq(ChatMsg::getAcceptId,chatMsg.getSendId()))

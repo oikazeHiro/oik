@@ -10,6 +10,7 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,13 +53,18 @@ public class MessageUtil {
      * @param mapKeys
      * @param data
      */
-    public void sendGroup(List<String> mapKeys,String data){
-        mapKeys.forEach((e)->{
+    public void sendGroup(List<String> mapKeys, String data) {
+        mapKeys.forEach((e) -> {
             try {
-                sendMessage(e,data);
-            }catch (Exception a){
+                sendMessage(e, data);
+            } catch (Exception a) {
                 log.error(a.getMessage());
             }
         });
     }
+
+    public List<String> getMapKeySetList() {
+        return new ArrayList<>(ChannelOperateUtil.getMapKeySet());
+    }
+
 }

@@ -110,7 +110,7 @@ public class ExceptionAdvice {
     @ExceptionHandler(NullPointerException.class)
     public Result nullptr(NullPointerException e) {
         e.printStackTrace();
-        return ResultUtil.getError(ResultEnum.SystemException.getCode(), e.getMessage());
+        return ResultUtil.getError(ResultEnum.SYSTEM_EXCEPTION.getCode(), e.getMessage());
     }
 
     /**
@@ -120,7 +120,7 @@ public class ExceptionAdvice {
     @ExceptionHandler(Exception.class)
     public Result globalException(Throwable e) {
         e.printStackTrace();
-        return ResultUtil.getError(ResultEnum.SystemException);
+        return ResultUtil.getError(ResultEnum.SYSTEM_EXCEPTION);
     }
 
     /**

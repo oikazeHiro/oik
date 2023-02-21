@@ -19,6 +19,8 @@ public class UserDTO {
     private String avatar;
     private String ip;
     private LocalDateTime lastLoginTime;
+    private String loginAddress;
+    private String other;
 
     public UserDTO(String username) {
         this.username = username;

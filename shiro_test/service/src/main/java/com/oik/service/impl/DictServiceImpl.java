@@ -3,7 +3,6 @@ package com.oik.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.github.yulichang.base.MPJBaseMapper;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.oik.dao.entity.Dict;
@@ -109,7 +108,7 @@ public class DictServiceImpl extends MPJBaseServiceImpl<DictMapper, Dict> implem
             wrapper.eq(Dict::getTableName,dict.getTableName());
             List<Dict> list = list(wrapper);
             if (list.size() > 0) {
-                throw new MyException(ResultEnum.DictCodeOrKey);
+                throw new MyException(ResultEnum.DICT_CODE_OR_KEY);
             }
         }
         if (StringUtils.isNotEmpty(dict.getFieldName())){
@@ -117,7 +116,7 @@ public class DictServiceImpl extends MPJBaseServiceImpl<DictMapper, Dict> implem
             wrapper.eq(Dict::getFieldName,dict.getFieldName());
             List<Dict> list = list(wrapper);
             if (list.size() > 0) {
-                throw new MyException(ResultEnum.DictCodeOrKey);
+                throw new MyException(ResultEnum.DICT_CODE_OR_KEY);
             }
         }
         if (StringUtils.isNotEmpty(dict.getKeyy())){
@@ -125,7 +124,7 @@ public class DictServiceImpl extends MPJBaseServiceImpl<DictMapper, Dict> implem
             wrapper.eq(Dict::getKeyy,dict.getKeyy());
             List<Dict> list = list(wrapper);
             if (list.size() > 0) {
-                throw new MyException(ResultEnum.DictCodeOrKey);
+                throw new MyException(ResultEnum.DICT_CODE_OR_KEY);
             }
         }
         return save(dict);

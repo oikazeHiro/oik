@@ -22,23 +22,23 @@ public class RedisConstants {
 
     public static final String UNDER_LINE = "_";
     // user缓存前缀
-    public static final String USER_CACHE_PREFIX = "oik.cache.user.";
+    public static final String USER_CACHE_PREFIX = "oik:cache:user:";
     // user角色缓存前缀
-    public static final String USER_ROLE_CACHE_PREFIX = "oik.cache.user.role.";
-    public static final String USER_ROLE_LOCK_PREFIX = "oik.cache.user.role.lock.";
+    public static final String USER_ROLE_CACHE_PREFIX = "oik:cache:user:role:";
+    public static final String USER_ROLE_LOCK_PREFIX = "oik:cache:user:role:lock:";
 
     // user权限缓存前缀
-    public static final String USER_PERMISSION_CACHE_PREFIX = "oik.cache.user.permission.";
+    public static final String USER_PERMISSION_CACHE_PREFIX = "oik:cache:user:permission:";
     // user部门数据权限缓存前缀
-    public static final String USER_PERMISSION_DEPT_DATA_CACHE_PREFIX = "oik.cache.user.dept.data.permission.";
+    public static final String USER_PERMISSION_DEPT_DATA_CACHE_PREFIX = "oik:cache:user:dept:data:permission:";
     // user个性化配置前缀
-    public static final String USER_CONFIG_CACHE_PREFIX = "oik.cache.user.config.";
-    public static final String USER_CONFIG_CACHE_MENU = "oik.cache.user.menu.";
+    public static final String USER_CONFIG_CACHE_PREFIX = "oik:cache:user:config:";
+    public static final String USER_CONFIG_CACHE_MENU = "oik:cache:user:menu:";
     // token缓存前缀
-    public static final String TOKEN_CACHE_PREFIX = "oik.cache.token.";
+    public static final String TOKEN_CACHE_PREFIX = "oik:cache:token:";
 
     // 存储在线用户的 set前缀
-    public static final String ACTIVE_USERS_SET_PREFIX = "oik.user.active";
+    public static final String ACTIVE_USERS_SET_PREFIX = "oik:user:active";
 
     // 排序规则： descend 降序
     public static final String ORDER_DESC = "descend";
@@ -67,10 +67,10 @@ public class RedisConstants {
 
     public static final int STATUS_LOCK = 0;
 
-    public static final String SYS_DICT = "oik.cache.dict";
-    public static final String SYS_GREET = "oik.cache.greet";
-    public static final String SYS_GREET_LOCK = "oik.cache.greet.lock.";
-    public static final String SYS_DEPT = "oik.cache.dept";
+    public static final String SYS_DICT = "oik:cache:dict";
+    public static final String SYS_GREET = "oik:cache:greet";
+    public static final String SYS_GREET_LOCK = "oik:cache:greet:lock:";
+    public static final String SYS_DEPT = "oik:cache:dept";
 
-    public static final String SYS_SELECT_MENU = "oik.cache.select.menu";
+    public static final String SYS_SELECT_MENU = "oik:cache:select:menu";
 }

@@ -4,13 +4,13 @@ import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.oik.dao.entity.User;
+import com.oik.service.service.UserService;
+import com.oik.util.dto.LoginDto;
+import com.oik.util.dto.UserDTO;
 import com.oik.util.exception.MyException;
 import com.oik.util.exception.Result;
 import com.oik.util.exception.ResultEnum;
 import com.oik.util.exception.ResultUtil;
-import com.oik.service.service.UserService;
-import com.oik.util.dto.LoginDto;
-import com.oik.util.dto.UserDTO;
 import com.oik.util.redis.UserHolder;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +34,7 @@ import java.util.Map;
 public class UserController {
     @Resource
     private UserService userService;
+
 
     @PostMapping("/login")
     public Result<UserDTO> login(@RequestBody LoginDto loginDto) {
@@ -106,8 +107,15 @@ public class UserController {
     @GetMapping("/get-user-list/{userId}")
     public Result<List<User>> getUserList(@PathVariable("userId") String userId) {
         LambdaQueryWrapper<User> Wrapper = new LambdaQueryWrapper<>();
-        Wrapper.ne(User::getUserId, userId).eq(User::getStatus,1);
+        Wrapper.ne(User::getUserId, userId).eq(User::getStatus, 1);
         List<User> list = userService.list(Wrapper);
         return ResultUtil.getSuccess(list);
+    }
+
+
+    @GetMapping("/online")
+    public Result<List<UserDTO>> ActiveUser() {
+        List<UserDTO> list = userService.getOnline();
+        return ResultUtil.getSuccess();
     }
 }
