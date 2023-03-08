@@ -45,16 +45,13 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         boolean match = false;
         assert list != null;
         for (String u : list) {
-            if (pathMatcher.match(u, httpServletRequest.getRequestURI()))
+            if (pathMatcher.match(u, httpServletRequest.getRequestURI())){
                 match = true;
+            }
         }
         if (match) return true;
         if (isLoginAttempt(request, response)) {
-
-
             return executeLogin(request, response);
-
-
         }
         return false;
     }

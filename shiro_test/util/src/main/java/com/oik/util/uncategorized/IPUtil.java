@@ -15,6 +15,9 @@ import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *
+ */
 @Slf4j
 @Component
 public class IPUtil {
@@ -98,7 +101,6 @@ public class IPUtil {
     /**
      * 在服务启动时加载 ip2region.db 到内存中
      * 解决打包jar后找不到 ip2region.db 的问题
-     *
      */
     @PostConstruct
     private static void initIp2regionResource() {

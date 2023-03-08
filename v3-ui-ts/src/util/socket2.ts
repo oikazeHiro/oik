@@ -7,10 +7,11 @@
 
 import {ElMessage} from 'element-plus'
 import chatMsgImpl, {chatMsg} from '@/entity/ChatMsg'
+import {DataInfo} from '@/protobufs/DataInfo'
+import * as _m0 from "protobufjs/minimal";
 
 export type Callback = (e: Event) => void
 export type MessageCallback<RT> = (e: RT) => void
-
 
 
 interface Ioptions<RT> {
@@ -37,6 +38,7 @@ export class Heart {
     heartTimeOut!: number // 心跳计时器
     ServerHeartTimeOut!: number // 心跳计时器
     timeout = 5000
+
     // 重置
     reset(): void {
         clearTimeout(this.heartTimeOut)
@@ -60,7 +62,7 @@ export class Heart {
     }
 }
 
-export default class  Socket<RT> extends Heart {
+export default class Socket<RT> extends Heart {
     ws!: WebSocket
 
     reconnectTimer = 0 // 重连计时器
@@ -112,8 +114,8 @@ export default class  Socket<RT> extends Heart {
         this.onclose(this.options.closeCb as Callback)
         this.onmessage(this.options.messageCb as MessageCallback<RT>)
     }
-    
-    getThis(): Socket<RT>{
+
+    getThis(): Socket<RT> {
         return this;
     }
 
@@ -129,10 +131,10 @@ export default class  Socket<RT> extends Heart {
             // 建立心跳机制
             super.reset()
             super.start(() => {
-              const chatMsgImpl1 = new chatMsgImpl('',3,'','','ping');
+                const chatMsgImpl1 = new chatMsgImpl('', 3, '', '', 'ping');
                 // this.send(this.options.heartMsg as string)
 
-                this.send(chatMsgImpl1)
+                this.send("chatMsgImpl1")
             })
             if (typeof callback === 'function') {
                 callback(event)
@@ -187,7 +189,7 @@ export default class  Socket<RT> extends Heart {
                     data: event.data
                 }
             }))
-            if (oneMsg.code === 5){
+            if (oneMsg.code === 5) {
                 ElMessage({
                     showClose: true,
                     message: oneMsg.msg,
@@ -196,12 +198,11 @@ export default class  Socket<RT> extends Heart {
                 })
             }
             const strMessage = event.data
-            const data =JSON.parse(strMessage)
+            const data = JSON.parse(strMessage)
             super.reset()
             super.start(() => {
-                const chatMsgImpl1 = new chatMsgImpl('',3,'','','ping');
                 // this.send(this.options.heartMsg as string)
-                this.send(chatMsgImpl1)
+                this.send("")
             })
             if (typeof callback === 'function') {
                 callback(data)
@@ -215,11 +216,11 @@ export default class  Socket<RT> extends Heart {
      * 自定义发送消息事件
      * @param {String} data 发送的文本
      */
-    send(data: chatMsgImpl | string): void {
+    send(data: any | string): void {
         if (this.ws.readyState !== this.ws.OPEN) {
             throw new Error('没有连接到服务器，无法推送')
         }
-        this.ws.send(JSON.stringify(data))
+        this.ws.send(DataInfo.encode(<DataInfo>data, _m0.Writer.create()).finish())
     }
 
     sendBlob(data: Blob | ArrayBufferLike | ArrayBufferView): void {

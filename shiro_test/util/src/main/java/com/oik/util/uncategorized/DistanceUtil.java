@@ -11,9 +11,6 @@ import java.math.BigDecimal;
 
 /**
  * 距离跑龙套
- *
- * @author LEAF
- * @date 2022-09-07
  */
 public class DistanceUtil {
     private static double EARTH_RADIUS = 6378.137;

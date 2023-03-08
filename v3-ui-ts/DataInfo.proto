@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+message DataInfo{
+  enum DataType{
+    FILE_UPLOAD = 0;
+    FILE_DOWNLOAD = 1;
+    CHAT_MSG = 2;
+  }
+  DataType data_type = 1;
+  oneof dataBody{
+    FileUpload fileUpload = 2;
+    FileDownload fileDownload = 3;
+    ChatMsg chatMsg = 4;
+  }
+}
+message FileUpload{
+  string fileUrl = 1;
+  string fileName = 2;
+  int64 beginPos = 3;
+  int64 endPos = 4;
+}
+message FileDownload{
+  string fileUrl = 1;
+  string fileName = 2;
+  int64 beginPos = 3;
+  int64 endPos = 4;
+}
+
+message ChatMsg{
+  string msg = 1;
+  string expandMsg = 2;
+  string sendId = 3;
+  string acceptId = 4;
+  string code = 5;
+  string msgType = 6;
+  string acceptGroup = 7;
+}

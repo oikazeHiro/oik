@@ -7,5 +7,5 @@ export const chatMsgList = async (param: query<chatMsgImpl>) => {
 }
 
 export const sendPrivateMsg = async (data: chatMsgImpl) => {
-    return request.post('/api//send-private-msg', data)
+    return request.post('/api/send-private-msg', data)
 }

@@ -22,7 +22,7 @@ public class ChatMsgServerHandler extends SimpleChannelInboundHandler<Object> {
     private ChatMsgNettyService chatMsgNettyService = SpringContextUtil.getBean(ChatMsgNettyServiceImpl.class);
 
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Object o) throws Exception {
+        protected void channelRead0(ChannelHandlerContext channelHandlerContext, Object o) throws Exception {
         if (o instanceof FullHttpRequest) {
             FullHttpRequest httpRequest = (FullHttpRequest) o;
             chatMsgNettyService.handHttpRequest(channelHandlerContext, httpRequest);

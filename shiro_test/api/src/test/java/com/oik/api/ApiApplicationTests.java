@@ -19,6 +19,7 @@ import com.oik.util.redis.CacheClient;
 import com.oik.util.redis.UserHolder;
 import com.oik.util.str.JsonUtil;
 import com.oik.util.uncategorized.EncryptUtil;
+import com.oik.util.uncategorized.IPUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,6 +29,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @SpringBootTest
@@ -133,6 +135,19 @@ class ApiApplicationTests {
 //        menu.setMenuName()
         IPage<Menu> menus = menuService.menus(page, menu);
         System.out.println("JSONUtil.toJsonStr(menus) = " + jsonUtil.serializer(menus));
+    }
+
+    @Test
+    void testIP(){
+//        Map<String, String> cityInfo = IPUtil.getCityInfo("39.156.66.10");
+        Map<String, String> cityInfo = IPUtil.getCityInfo("124.131.8.179");
+        System.out.println("cityInfo.get(\"\") = " + cityInfo.get("ip"));
+        System.out.println("cityInfo.get(\"\") = " + cityInfo.get("searchInfo"));
+        System.out.println("cityInfo.get(\"\") = " + cityInfo.get("country"));
+        System.out.println("cityInfo.get(\"\") = " + cityInfo.get("region"));
+        System.out.println("cityInfo.get(\"\") = " + cityInfo.get("province"));
+        System.out.println("cityInfo.get(\"\") = " + cityInfo.get("city"));
+        System.out.println("cityInfo.get(\"\") = " + cityInfo.get("ISP"));
     }
 
 }

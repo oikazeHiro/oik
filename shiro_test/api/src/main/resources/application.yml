@@ -10,6 +10,7 @@ oik:
   openAopLog: true
   netty:
     port: 7001
+    filePort: 7002
   # 单次最大批量入库数量
   max:
     batch:
